@@ -101,7 +101,7 @@ namespace NotImplementedScanner
         {
             var inputPaths = HostEnvironment.SplitPaths(input);
             var filePaths = HostEnvironment.GetFilePaths(inputPaths, SearchOption.AllDirectories).ToArray();
-            return HostEnvironment.LoadAssemblySet(filePaths);
+            return HostEnvironment.LoadAssemblySet(filePaths).Distinct();
         }
 
         private static ExceptionResult AnalyzePlatformNotSupported(ITypeDefinitionMember item)
