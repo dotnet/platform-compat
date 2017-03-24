@@ -87,7 +87,7 @@ namespace NotImplementedScanner
                 textWriter.Write(",");
                 textWriter.Write(item.ContainingTypeDefinition.GetTypeName(false));
                 textWriter.Write(",");
-                textWriter.Write(item.Name.Value);
+                textWriter.Write(GetMemberSignature(item));
                 textWriter.WriteLine();
             }
         }
@@ -160,6 +160,20 @@ namespace NotImplementedScanner
         private static bool IsPlatformNotSupported(IMethodReference constructorReference)
         {
             return constructorReference.ContainingType.FullName() == "System.PlatformNotSupportedException";
+        }
+
+        private static string GetMemberSignature(ITypeDefinitionMember member)
+        {
+            if (member is IFieldDefinition)
+                return member.Name.Value;
+
+            var memberSignature = MemberHelper.GetMemberSignature(member, NameFormattingOptions.Signature |
+                                                                          NameFormattingOptions.TypeParameters |
+                                                                          NameFormattingOptions.ContractNullable |
+                                                                          NameFormattingOptions.OmitContainingType |
+                                                                          NameFormattingOptions.OmitContainingNamespace |
+                                                                          NameFormattingOptions.PreserveSpecialNames);
+            return memberSignature;
         }
     }
 }
