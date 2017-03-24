@@ -145,47 +145,89 @@ namespace NotImplementedScanner
             if (method is Dummy || method.IsAbstract)
                 return ExceptionResult.DoesNotThrow;
 
-            IMethodReference constructorReference = null;
+            foreach (var op in GetOperationsPreceedingThrow(method))
+            {
+                // throw new PlatformNotSupportedExeption(...)
+                if (op.OperationCode == OperationCode.Newobj &&
+                    op.Value is IMethodReference m &&
+                    IsPlatformNotSupported(m))
+                {
+                    return ExceptionResult.ThrowsAt(nestingLevel);
+                }
+
+                // throw SomeFactoryForPlatformNotSupportedExeption(...);
+                if (op.Value is IMethodReference r &&
+                    IsFactoryForPlatformNotSupported(r))
+                {
+                    return ExceptionResult.ThrowsAt(nestingLevel);
+                }
+            }
 
             var result = ExceptionResult.DoesNotThrow;
 
-            foreach (var op in method.Body.Operations)
+            if (nestingLevel < maxNestingLevel)
             {
-                switch (op.OperationCode)
+                foreach (var calledMethod in GetCalls(method))
                 {
-                    case OperationCode.Newobj:
-                        constructorReference = op.Value as IMethodReference;
-                        break;
-                    case OperationCode.Nop:
-                        // Ignore
-                        break;
-                    case OperationCode.Throw:
-                        if (constructorReference != null && IsPlatformNotSupported(constructorReference))
-                        {
-                            var newResult = ExceptionResult.ThrowsAt(nestingLevel);
-                            result = result.Combine(newResult);
-                        }
-                        break;
-                    case OperationCode.Call:
-                        if (nestingLevel < maxNestingLevel &&
-                            op.Value is IMethodReference m)
-                        {
-                            var nestedResult = AnalyzePlatformNotSupported(m.ResolvedMethod, nestingLevel + 1);
-                            result = result.Combine(nestedResult);
-                        }
-                        break;
-                    default:
-                        constructorReference = null;
-                        break;
+                    var nestedResult = AnalyzePlatformNotSupported(calledMethod.ResolvedMethod, nestingLevel + 1);
+                    result = result.Combine(nestedResult);
                 }
             }
 
             return result;
         }
 
+        private static IEnumerable<IOperation> GetOperationsPreceedingThrow(IMethodDefinition method)
+        {
+            IOperation previous = null;
+
+            foreach (var op in method.Body.Operations)
+            {
+                if (op.OperationCode == OperationCode.Nop)
+                    continue;
+
+                if (op.OperationCode == OperationCode.Throw && previous != null)
+                    yield return previous;
+
+                previous = op;
+            }
+        }
+
+        private static IEnumerable<IMethodReference> GetCalls(IMethodDefinition method)
+        {
+            return method.Body.Operations.Where(o => o.OperationCode == OperationCode.Call ||
+                                                     o.OperationCode == OperationCode.Callvirt)
+                                         .Select(o => o.Value as IMethodReference)
+                                         .Where(m => m != null);            
+        }
+
         private static bool IsPlatformNotSupported(IMethodReference constructorReference)
         {
             return constructorReference.ContainingType.FullName() == "System.PlatformNotSupportedException";
+        }
+
+        private static bool IsFactoryForPlatformNotSupported(IMethodReference reference)
+        {
+            if (reference.ResolvedMethod is Dummy || reference.ResolvedMethod.IsAbstract)
+                return false;
+
+            IMethodReference constructorReference = null;
+
+            foreach (var op in reference.ResolvedMethod.Body.Operations)
+            {
+                switch (op.OperationCode)
+                {
+                    case OperationCode.Newobj:
+                        constructorReference = op.Value as IMethodReference;
+                        break;
+                    case OperationCode.Ret:
+                        if (constructorReference != null && IsPlatformNotSupported(constructorReference))
+                            return true;
+                        break;
+                }
+            }
+
+            return false;
         }
 
         private static string GetMemberSignature(ITypeDefinitionMember member)
