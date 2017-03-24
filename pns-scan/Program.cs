@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
 
@@ -52,6 +51,8 @@ namespace NotImplementedScanner
                 textWriter.Write("Type");
                 textWriter.Write(",");
                 textWriter.Write("Member");
+                textWriter.Write(",");
+                textWriter.Write("Nesting");
                 textWriter.WriteLine();
 
                 foreach (var assembly in LoadPaths(inputPath))
@@ -79,7 +80,9 @@ namespace NotImplementedScanner
             if (!item.IsVisibleOutsideAssembly())
                 return;
 
-            if (ThrowsPlaformNotSupported(item))
+            var result = AnalyzePlatformNotSupported(item);
+
+            if (result.Throws)
             {
                 textWriter.WriteEscaped(item.DocId());
                 textWriter.Write(",");
@@ -89,7 +92,7 @@ namespace NotImplementedScanner
                 textWriter.Write(",");
                 textWriter.WriteEscaped(GetMemberSignature(item));
                 textWriter.Write(",");
-                textWriter.Write(hop);
+                textWriter.Write(result);
                 textWriter.WriteLine();
             }
         }
@@ -101,27 +104,27 @@ namespace NotImplementedScanner
             return HostEnvironment.LoadAssemblySet(filePaths);
         }
 
-        private static bool ThrowsPlaformNotSupported(ITypeDefinitionMember item)
+        private static ExceptionResult AnalyzePlatformNotSupported(ITypeDefinitionMember item)
         {
             if (item is IMethodDefinition m)
             {
                 if (m.IsPropertyOrEventAccessor())
-                    return false;
+                    return ExceptionResult.DoesNotThrow;
 
-                return ThrowsPlaformNotSupported(m);
+                return AnalyzePlatformNotSupported(m);
             }
             else if (item is IPropertyDefinition p)
             {
-                return p.Accessors.Any(a => ThrowsPlaformNotSupported(a.ResolvedTypeDefinitionMember));
+                return AnalyzePlatformNotSupported(p.Accessors);
             }
             else if (item is IEventDefinition e)
             {
-                return e.Accessors.Any(a => ThrowsPlaformNotSupported(a.ResolvedTypeDefinitionMember));
+                return AnalyzePlatformNotSupported(e.Accessors);
             }
             else if (item is IFieldDefinition || item is ITypeDefinition)
             {
                 // Ignore
-                return false;
+                return ExceptionResult.DoesNotThrow;
             }
             else
             {
@@ -129,12 +132,22 @@ namespace NotImplementedScanner
             }
         }
 
-        private static bool ThrowsPlaformNotSupported(IMethodDefinition method)
+        private static ExceptionResult AnalyzePlatformNotSupported(IEnumerable<IMethodReference> accessors)
         {
-            if (method.IsAbstract)
-                return false;
+            return accessors.Select(a => AnalyzePlatformNotSupported(a.ResolvedTypeDefinitionMember))
+                            .Aggregate(ExceptionResult.DoesNotThrow, (c, o) => c.Combine(o));
+        }
+
+        private static ExceptionResult AnalyzePlatformNotSupported(IMethodDefinition method, int nestingLevel = 0)
+        {
+            const int maxNestingLevel = 3;
+
+            if (method is Dummy || method.IsAbstract)
+                return ExceptionResult.DoesNotThrow;
 
             IMethodReference constructorReference = null;
+
+            var result = ExceptionResult.DoesNotThrow;
 
             foreach (var op in method.Body.Operations)
             {
@@ -147,8 +160,19 @@ namespace NotImplementedScanner
                         // Ignore
                         break;
                     case OperationCode.Throw:
-                        if (constructorReference != null)
-                            return IsPlatformNotSupported(constructorReference);
+                        if (constructorReference != null && IsPlatformNotSupported(constructorReference))
+                        {
+                            var newResult = ExceptionResult.ThrowsAt(nestingLevel);
+                            result = result.Combine(newResult);
+                        }
+                        break;
+                    case OperationCode.Call:
+                        if (nestingLevel < maxNestingLevel &&
+                            op.Value is IMethodReference m)
+                        {
+                            var nestedResult = AnalyzePlatformNotSupported(m.ResolvedMethod, nestingLevel + 1);
+                            result = result.Combine(nestedResult);
+                        }
                         break;
                     default:
                         constructorReference = null;
@@ -156,7 +180,7 @@ namespace NotImplementedScanner
                 }
             }
 
-            return false;
+            return result;
         }
 
         private static bool IsPlatformNotSupported(IMethodReference constructorReference)
