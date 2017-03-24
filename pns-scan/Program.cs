@@ -92,10 +92,6 @@ namespace NotImplementedScanner
             }
         }
 
-        private static void AnalyzeMember(StreamWriter textWriter, INamedTypeDefinition type)
-        {
-        }
-
         private static IEnumerable<IAssembly> LoadPaths(string input)
         {
             var inputPaths = HostEnvironment.SplitPaths(input);
