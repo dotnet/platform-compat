@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
 
@@ -80,14 +81,15 @@ namespace NotImplementedScanner
 
             if (ThrowsPlaformNotSupported(item))
             {
-                textWriter.Write("\"");
-                textWriter.Write(item.DocId());
-                textWriter.Write("\",");
-                textWriter.Write(item.ContainingTypeDefinition.GetNamespaceName());
+                textWriter.WriteEscaped(item.DocId());
                 textWriter.Write(",");
-                textWriter.Write(item.ContainingTypeDefinition.GetTypeName(false));
+                textWriter.WriteEscaped(item.ContainingTypeDefinition.GetNamespaceName());
                 textWriter.Write(",");
-                textWriter.Write(GetMemberSignature(item));
+                textWriter.WriteEscaped(item.ContainingTypeDefinition.GetTypeName(false));
+                textWriter.Write(",");
+                textWriter.WriteEscaped(GetMemberSignature(item));
+                textWriter.Write(",");
+                textWriter.Write(hop);
                 textWriter.WriteLine();
             }
         }
