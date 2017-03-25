@@ -57,9 +57,9 @@ namespace NotImplementedScanner
 
                 var assemblies = LoadAssemblies(inputPath);
 
-                var analyzer = new PlatformNotSupportedAnalyzer();
+                var analyzer = new PlatformNotSupportedAnalyzer(textWriter);
                 foreach (var assembly in assemblies)
-                    analyzer.AnalyzeAssembly(textWriter, assembly);
+                    analyzer.AnalyzeAssembly(assembly);
             }
         }
 

@@ -9,22 +9,29 @@ namespace NotImplementedScanner
 {
     internal sealed class PlatformNotSupportedAnalyzer
     {
-        public void AnalyzeAssembly(StreamWriter textWriter, IAssembly assembly)
+        private readonly StreamWriter _textWriter;
+
+        public PlatformNotSupportedAnalyzer(StreamWriter textWriter)
         {
-            foreach (var type in assembly.GetAllTypes())
-                AnalyzeType(textWriter, type);
+            _textWriter = textWriter;
         }
 
-        private static void AnalyzeType(StreamWriter textWriter, INamedTypeDefinition type)
+        public void AnalyzeAssembly(IAssembly assembly)
+        {
+            foreach (var type in assembly.GetAllTypes())
+                AnalyzeType(type);
+        }
+
+        private void AnalyzeType(INamedTypeDefinition type)
         {
             if (!type.IsVisibleOutsideAssembly())
                 return;
 
             foreach (var item in type.Members)
-                AnalyzeMember(textWriter, item);
+                AnalyzeMember(item);
         }
 
-        private static void AnalyzeMember(StreamWriter textWriter, ITypeDefinitionMember item)
+        private void AnalyzeMember(ITypeDefinitionMember item)
         {
             if (!item.IsVisibleOutsideAssembly())
                 return;
@@ -33,16 +40,16 @@ namespace NotImplementedScanner
 
             if (result.Throws)
             {
-                textWriter.WriteEscaped(item.DocId());
-                textWriter.Write(",");
-                textWriter.WriteEscaped(item.ContainingTypeDefinition.GetNamespaceName());
-                textWriter.Write(",");
-                textWriter.WriteEscaped(item.ContainingTypeDefinition.GetTypeName(false));
-                textWriter.Write(",");
-                textWriter.WriteEscaped(GetMemberSignature(item));
-                textWriter.Write(",");
-                textWriter.Write(result);
-                textWriter.WriteLine();
+                _textWriter.WriteEscaped(item.DocId());
+                _textWriter.Write(",");
+                _textWriter.WriteEscaped(item.ContainingTypeDefinition.GetNamespaceName());
+                _textWriter.Write(",");
+                _textWriter.WriteEscaped(item.ContainingTypeDefinition.GetTypeName(false));
+                _textWriter.Write(",");
+                _textWriter.WriteEscaped(GetMemberSignature(item));
+                _textWriter.Write(",");
+                _textWriter.Write(result);
+                _textWriter.WriteLine();
             }
         }
 
