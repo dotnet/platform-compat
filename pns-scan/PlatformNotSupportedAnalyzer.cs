@@ -9,11 +9,11 @@ namespace NotImplementedScanner
 {
     internal sealed class PlatformNotSupportedAnalyzer
     {
-        private readonly StreamWriter _textWriter;
+        private readonly IPlatformNotSupportedReporter _reporter;
 
-        public PlatformNotSupportedAnalyzer(StreamWriter textWriter)
+        public PlatformNotSupportedAnalyzer(IPlatformNotSupportedReporter reporter)
         {
-            _textWriter = textWriter;
+            _reporter = reporter;
         }
 
         public void AnalyzeAssembly(IAssembly assembly)
@@ -37,20 +37,7 @@ namespace NotImplementedScanner
                 return;
 
             var result = AnalyzePlatformNotSupported(item);
-
-            if (result.Throws)
-            {
-                _textWriter.WriteEscaped(item.DocId());
-                _textWriter.Write(",");
-                _textWriter.WriteEscaped(item.ContainingTypeDefinition.GetNamespaceName());
-                _textWriter.Write(",");
-                _textWriter.WriteEscaped(item.ContainingTypeDefinition.GetTypeName(false));
-                _textWriter.Write(",");
-                _textWriter.WriteEscaped(GetMemberSignature(item));
-                _textWriter.Write(",");
-                _textWriter.Write(result);
-                _textWriter.WriteLine();
-            }
+            _reporter.Report(result, item);
         }
 
         private static ExceptionResult AnalyzePlatformNotSupported(ITypeDefinitionMember item)
@@ -177,20 +164,6 @@ namespace NotImplementedScanner
             }
 
             return false;
-        }
-
-        private static string GetMemberSignature(ITypeDefinitionMember member)
-        {
-            if (member is IFieldDefinition)
-                return member.Name.Value;
-
-            var memberSignature = MemberHelper.GetMemberSignature(member, NameFormattingOptions.Signature |
-                                                                          NameFormattingOptions.TypeParameters |
-                                                                          NameFormattingOptions.ContractNullable |
-                                                                          NameFormattingOptions.OmitContainingType |
-                                                                          NameFormattingOptions.OmitContainingNamespace |
-                                                                          NameFormattingOptions.PreserveSpecialNames);
-            return memberSignature;
         }
     }
 }

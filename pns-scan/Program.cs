@@ -42,22 +42,13 @@ namespace NotImplementedScanner
 
         private static void Run(string inputPath, string outputPath)
         {
+            var assemblies = LoadAssemblies(inputPath);
+
             using (var textWriter = new StreamWriter(outputPath))
             {
-                textWriter.Write("DocId");
-                textWriter.Write(",");
-                textWriter.Write("Namespace");
-                textWriter.Write(",");
-                textWriter.Write("Type");
-                textWriter.Write(",");
-                textWriter.Write("Member");
-                textWriter.Write(",");
-                textWriter.Write("Nesting");
-                textWriter.WriteLine();
+                var reporter = new CsvReporter(textWriter);
+                var analyzer = new PlatformNotSupportedAnalyzer(reporter);
 
-                var assemblies = LoadAssemblies(inputPath);
-
-                var analyzer = new PlatformNotSupportedAnalyzer(textWriter);
                 foreach (var assembly in assemblies)
                     analyzer.AnalyzeAssembly(assembly);
             }
