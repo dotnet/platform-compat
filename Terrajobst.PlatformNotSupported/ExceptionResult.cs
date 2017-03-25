@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace NotImplementedScanner
+namespace Terrajobst.PlatformNotSupported.Analysis
 {
-    internal struct ExceptionResult
+    public struct ExceptionResult
     {
         public static readonly ExceptionResult DoesNotThrow = new ExceptionResult(-1);
 

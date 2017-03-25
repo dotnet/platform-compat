@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
 
-namespace NotImplementedScanner
+namespace Terrajobst.PlatformNotSupported.Analysis
 {
-    internal sealed class PlatformNotSupportedAnalyzer
+    public sealed class PlatformNotSupportedAnalyzer
     {
         private readonly IPlatformNotSupportedReporter _reporter;
 

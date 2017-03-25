@@ -1,8 +1,8 @@
 ﻿using Microsoft.Cci;
 
-namespace NotImplementedScanner
+namespace Terrajobst.PlatformNotSupported.Analysis
 {
-    internal interface IPlatformNotSupportedReporter
+    public interface IPlatformNotSupportedReporter
     {
         void Report(ExceptionResult result, ITypeDefinitionMember member);
     }

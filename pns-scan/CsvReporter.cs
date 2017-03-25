@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
+using Terrajobst.PlatformNotSupported.Analysis;
 
 namespace NotImplementedScanner
 {
