@@ -134,7 +134,7 @@ namespace NotImplementedScanner
 
         private static ExceptionResult AnalyzePlatformNotSupported(IEnumerable<IMethodReference> accessors)
         {
-            return accessors.Select(a => AnalyzePlatformNotSupported(a.ResolvedTypeDefinitionMember))
+            return accessors.Select(a => AnalyzePlatformNotSupported(a.ResolvedMethod))
                             .Aggregate(ExceptionResult.DoesNotThrow, (c, o) => c.Combine(o));
         }
 
