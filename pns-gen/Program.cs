@@ -198,8 +198,8 @@ namespace pns_gen
 
                 writer.Write("DocId");
                 writer.Write("Namespace");
-                writer.Write("Type Name");
-                writer.Write("Member Name");
+                writer.Write("Type");
+                writer.Write("Member");
 
                 foreach (var platform in database.Platforms)
                     writer.Write(platform);
