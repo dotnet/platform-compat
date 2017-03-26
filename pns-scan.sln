@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.Pns.Analyzer.Vsix", "src\Terrajobst.Pns.Analyzer.Vsix\Terrajobst.Pns.Analyzer.Vsix.csproj", "{95368DD4-2B76-4304-B7EC-6E27C72F641B}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pns-scan", "src\pns-scan\pns-scan.csproj", "{CFCE7A41-E545-419D-B408-EF1B6FA3CDB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.Pns.Scanner", "src\Terrajobst.Pns.Scanner\Terrajobst.Pns.Scanner.csproj", "{1A3F19F6-8492-4E47-B290-8222613202F2}"
@@ -12,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.Cci", "src\Terrajobst.Cci\Terrajobst.Cci.csproj", "{E005D6FA-BE4F-4814-839E-43768DAA5E97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pns-gen", "src\pns-gen\pns-gen.csproj", "{8D0CEDDE-E2D2-4FF6-A5B4-A2696B31C4E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.Pns.Analyzer", "src\Terrajobst.Pns.Analyzer\Terrajobst.Pns.Analyzer.csproj", "{4DAA1CC6-B7DF-4F97-9DD0-3EC500A9F986}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.Pns.Analyzer.Test", "src\Terrajobst.Pns.Analyzer.Test\Terrajobst.Pns.Analyzer.Test.csproj", "{513A0D76-352B-4DF6-945A-358B0CB2EABA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{8D0CEDDE-E2D2-4FF6-A5B4-A2696B31C4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D0CEDDE-E2D2-4FF6-A5B4-A2696B31C4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D0CEDDE-E2D2-4FF6-A5B4-A2696B31C4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DAA1CC6-B7DF-4F97-9DD0-3EC500A9F986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DAA1CC6-B7DF-4F97-9DD0-3EC500A9F986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DAA1CC6-B7DF-4F97-9DD0-3EC500A9F986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DAA1CC6-B7DF-4F97-9DD0-3EC500A9F986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{513A0D76-352B-4DF6-945A-358B0CB2EABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{513A0D76-352B-4DF6-945A-358B0CB2EABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{513A0D76-352B-4DF6-945A-358B0CB2EABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{513A0D76-352B-4DF6-945A-358B0CB2EABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95368DD4-2B76-4304-B7EC-6E27C72F641B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95368DD4-2B76-4304-B7EC-6E27C72F641B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95368DD4-2B76-4304-B7EC-6E27C72F641B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95368DD4-2B76-4304-B7EC-6E27C72F641B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

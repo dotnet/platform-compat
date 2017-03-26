@@ -2,7 +2,7 @@
   "profiles": {
     "pns-gen": {
       "commandName": "Project",
-      "commandLineArgs": "P:\\report.csv"
+      "commandLineArgs": "..\\..\\etc\\pns.csv"
     }
   }
 }

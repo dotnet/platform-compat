@@ -27,7 +27,7 @@ namespace pns_gen
                 return 1;
             }
 
-            var outputPath = args[0];
+            var outputPath = Path.GetFullPath(args[0]);
 
             try
             {
