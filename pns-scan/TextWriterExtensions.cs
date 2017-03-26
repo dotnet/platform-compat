@@ -4,7 +4,7 @@ namespace NotImplementedScanner
 {
     internal static class TextWriterExtensions
     {
-        private static char[] _specialChars = new[] { ',', '"' };
+        private static char[] _specialChars = new[] { ',', '"', '\n', '\r' };
 
         public static void WriteEscaped(this TextWriter writer, string text)
         {
