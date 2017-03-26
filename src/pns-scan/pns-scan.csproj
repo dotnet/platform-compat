@@ -13,7 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Terrajobst.Cci\Terrajobst.Cci.csproj" />
     <ProjectReference Include="..\Terrajobst.Csv\Terrajobst.Csv.csproj" />
-    <ProjectReference Include="..\Terrajobst.PlatformNotSupported\Terrajobst.PlatformNotSupported.csproj" />
+    <ProjectReference Include="..\Terrajobst.Pns.Scanner\Terrajobst.Pns.Scanner.csproj" />
   </ItemGroup>
 
 </Project>

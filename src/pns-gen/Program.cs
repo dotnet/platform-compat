@@ -12,7 +12,7 @@ using SharpCompress.Compressors;
 using SharpCompress.Compressors.Deflate;
 using SharpCompress.Readers;
 using Terrajobst.Csv;
-using Terrajobst.PlatformNotSupported.Analysis;
+using Terrajobst.Pns.Scanner;
 
 namespace pns_gen
 {
@@ -164,7 +164,7 @@ namespace pns_gen
                 var directory = entry.directory;
                 var reporter = new PnsReporter(result, platform);
 
-                var analyzer = new PlatformNotSupportedAnalyzer(reporter);
+                var analyzer = new PnsScanner(reporter);
                 var assemblies = HostEnvironment.LoadAssemblySet(directory);
 
                 foreach (var assembly in assemblies)

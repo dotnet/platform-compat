@@ -2,11 +2,11 @@
 using Microsoft.Cci.Extensions;
 using Terrajobst.Cci;
 using Terrajobst.Csv;
-using Terrajobst.PlatformNotSupported.Analysis;
+using Terrajobst.Pns.Scanner;
 
 namespace NotImplementedScanner
 {
-    internal sealed class CsvReporter : IPlatformNotSupportedReporter
+    internal sealed class CsvReporter : IPnsReporter
     {
         private readonly CsvWriter _writer;
 
@@ -16,7 +16,7 @@ namespace NotImplementedScanner
             WriteHeader();
         }
 
-        public void Report(ExceptionResult result, ITypeDefinitionMember member)
+        public void Report(PnsResult result, ITypeDefinitionMember member)
         {
             WriteMember(result, member);
         }
@@ -31,7 +31,7 @@ namespace NotImplementedScanner
             _writer.WriteLine();
         }
 
-        private void WriteMember(ExceptionResult result, ITypeDefinitionMember member)
+        private void WriteMember(PnsResult result, ITypeDefinitionMember member)
         {
             if (!result.Throws)
                 return;

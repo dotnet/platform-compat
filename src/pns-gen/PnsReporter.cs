@@ -1,9 +1,9 @@
 ﻿using Microsoft.Cci;
-using Terrajobst.PlatformNotSupported.Analysis;
+using Terrajobst.Pns.Scanner;
 
 namespace pns_gen
 {
-    internal sealed class PnsReporter : IPlatformNotSupportedReporter
+    internal sealed class PnsReporter : IPnsReporter
     {
         private readonly PnsDatabase _database;
         private readonly string _platform;
@@ -14,7 +14,7 @@ namespace pns_gen
             _platform = platform;
         }
 
-        public void Report(ExceptionResult result, ITypeDefinitionMember member)
+        public void Report(PnsResult result, ITypeDefinitionMember member)
         {
             if (result.Throws)
                 _database.Add(member, _platform);

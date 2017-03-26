@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pns-scan", "src\pns-scan\pns-scan.csproj", "{CFCE7A41-E545-419D-B408-EF1B6FA3CDB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.PlatformNotSupported", "src\Terrajobst.PlatformNotSupported\Terrajobst.PlatformNotSupported.csproj", "{1A3F19F6-8492-4E47-B290-8222613202F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.Pns.Scanner", "src\Terrajobst.Pns.Scanner\Terrajobst.Pns.Scanner.csproj", "{1A3F19F6-8492-4E47-B290-8222613202F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.Csv", "src\Terrajobst.Csv\Terrajobst.Csv.csproj", "{1F38367F-A9B2-46A1-B1FF-1D04C4FDBBB9}"
 EndProject

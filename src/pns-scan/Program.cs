@@ -5,7 +5,7 @@ using System.Linq;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
 using Terrajobst.Csv;
-using Terrajobst.PlatformNotSupported.Analysis;
+using Terrajobst.Pns.Scanner;
 
 namespace NotImplementedScanner
 {
@@ -50,7 +50,7 @@ namespace NotImplementedScanner
             {
                 var csvWriter = new CsvWriter(textWriter);
                 var reporter = new CsvReporter(csvWriter);
-                var analyzer = new PlatformNotSupportedAnalyzer(reporter);
+                var analyzer = new PnsScanner(reporter);
 
                 foreach (var assembly in assemblies)
                     analyzer.AnalyzeAssembly(assembly);

@@ -4,13 +4,13 @@ using System.Linq;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
 
-namespace Terrajobst.PlatformNotSupported.Analysis
+namespace Terrajobst.Pns.Scanner
 {
-    public sealed class PlatformNotSupportedAnalyzer
+    public sealed class PnsScanner
     {
-        private readonly IPlatformNotSupportedReporter _reporter;
+        private readonly IPnsReporter _reporter;
 
-        public PlatformNotSupportedAnalyzer(IPlatformNotSupportedReporter reporter)
+        public PnsScanner(IPnsReporter reporter)
         {
             _reporter = reporter;
         }
@@ -39,12 +39,12 @@ namespace Terrajobst.PlatformNotSupported.Analysis
             _reporter.Report(result, item);
         }
 
-        private static ExceptionResult AnalyzePlatformNotSupported(ITypeDefinitionMember item)
+        private static PnsResult AnalyzePlatformNotSupported(ITypeDefinitionMember item)
         {
             if (item is IMethodDefinition m)
             {
                 if (m.IsPropertyOrEventAccessor())
-                    return ExceptionResult.DoesNotThrow;
+                    return PnsResult.DoesNotThrow;
 
                 return AnalyzePlatformNotSupported(m);
             }
@@ -59,7 +59,7 @@ namespace Terrajobst.PlatformNotSupported.Analysis
             else if (item is IFieldDefinition || item is ITypeDefinition)
             {
                 // Ignore
-                return ExceptionResult.DoesNotThrow;
+                return PnsResult.DoesNotThrow;
             }
             else
             {
@@ -67,18 +67,18 @@ namespace Terrajobst.PlatformNotSupported.Analysis
             }
         }
 
-        private static ExceptionResult AnalyzePlatformNotSupported(IEnumerable<IMethodReference> accessors)
+        private static PnsResult AnalyzePlatformNotSupported(IEnumerable<IMethodReference> accessors)
         {
             return accessors.Select(a => AnalyzePlatformNotSupported(a.ResolvedMethod))
-                            .Aggregate(ExceptionResult.DoesNotThrow, (c, o) => c.Combine(o));
+                            .Aggregate(PnsResult.DoesNotThrow, (c, o) => c.Combine(o));
         }
 
-        private static ExceptionResult AnalyzePlatformNotSupported(IMethodDefinition method, int nestingLevel = 0)
+        private static PnsResult AnalyzePlatformNotSupported(IMethodDefinition method, int nestingLevel = 0)
         {
             const int maxNestingLevel = 3;
 
             if (method is Dummy || method.IsAbstract)
-                return ExceptionResult.DoesNotThrow;
+                return PnsResult.DoesNotThrow;
 
             foreach (var op in GetOperationsPreceedingThrow(method))
             {
@@ -87,18 +87,18 @@ namespace Terrajobst.PlatformNotSupported.Analysis
                     op.Value is IMethodReference m &&
                     IsPlatformNotSupported(m))
                 {
-                    return ExceptionResult.ThrowsAt(nestingLevel);
+                    return PnsResult.ThrowsAt(nestingLevel);
                 }
 
                 // throw SomeFactoryForPlatformNotSupportedExeption(...);
                 if (op.Value is IMethodReference r &&
                     IsFactoryForPlatformNotSupported(r))
                 {
-                    return ExceptionResult.ThrowsAt(nestingLevel);
+                    return PnsResult.ThrowsAt(nestingLevel);
                 }
             }
 
-            var result = ExceptionResult.DoesNotThrow;
+            var result = PnsResult.DoesNotThrow;
 
             if (nestingLevel < maxNestingLevel)
             {

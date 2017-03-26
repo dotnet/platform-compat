@@ -1,22 +1,22 @@
 ﻿using System;
 
-namespace Terrajobst.PlatformNotSupported.Analysis
+namespace Terrajobst.Pns.Scanner
 {
-    public struct ExceptionResult
+    public struct PnsResult
     {
-        public static readonly ExceptionResult DoesNotThrow = new ExceptionResult(-1);
+        public static readonly PnsResult DoesNotThrow = new PnsResult(-1);
 
-        private ExceptionResult(int level)
+        private PnsResult(int level)
         {
             Level = level;
         }
 
-        public static ExceptionResult ThrowsAt(int level)
+        public static PnsResult ThrowsAt(int level)
         {
-            return new ExceptionResult(level);
+            return new PnsResult(level);
         }
 
-        public ExceptionResult Combine(ExceptionResult other)
+        public PnsResult Combine(PnsResult other)
         {
             if (!Throws)
                 return other;
