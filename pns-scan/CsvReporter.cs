@@ -1,5 +1,6 @@
 ﻿using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
+using Terrajobst.Cci;
 using Terrajobst.Csv;
 using Terrajobst.PlatformNotSupported.Analysis;
 
@@ -30,31 +31,17 @@ namespace NotImplementedScanner
             _writer.WriteLine();
         }
 
-        private void WriteMember(ExceptionResult result, ITypeDefinitionMember item)
+        private void WriteMember(ExceptionResult result, ITypeDefinitionMember member)
         {
             if (!result.Throws)
                 return;
 
-            _writer.Write(item.DocId());
-            _writer.Write(item.ContainingTypeDefinition.GetNamespaceName());
-            _writer.Write(item.ContainingTypeDefinition.GetTypeName(false));
-            _writer.Write(GetMemberSignature(item));
+            _writer.Write(member.DocId());
+            _writer.Write(member.GetNamespaceName());
+            _writer.Write(member.GetTypeName());
+            _writer.Write(member.GetMemberSignature());
             _writer.Write(result.Level.ToString());
             _writer.WriteLine();
-        }
-
-        private static string GetMemberSignature(ITypeDefinitionMember member)
-        {
-            if (member is IFieldDefinition)
-                return member.Name.Value;
-
-            var memberSignature = MemberHelper.GetMemberSignature(member, NameFormattingOptions.Signature |
-                                                                          NameFormattingOptions.TypeParameters |
-                                                                          NameFormattingOptions.ContractNullable |
-                                                                          NameFormattingOptions.OmitContainingType |
-                                                                          NameFormattingOptions.OmitContainingNamespace |
-                                                                          NameFormattingOptions.PreserveSpecialNames);
-            return memberSignature;
         }
     }
 }
