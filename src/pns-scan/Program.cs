@@ -7,7 +7,7 @@ using Microsoft.Cci.Extensions;
 using Terrajobst.Csv;
 using Terrajobst.Pns.Scanner;
 
-namespace NotImplementedScanner
+namespace pns_scan
 {
     internal static class Program
     {

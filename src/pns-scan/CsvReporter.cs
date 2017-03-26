@@ -4,7 +4,7 @@ using Terrajobst.Cci;
 using Terrajobst.Csv;
 using Terrajobst.Pns.Scanner;
 
-namespace NotImplementedScanner
+namespace pns_scan
 {
     internal sealed class CsvReporter : IPnsReporter
     {
