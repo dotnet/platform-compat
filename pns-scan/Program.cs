@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
+using Terrajobst.Csv;
 using Terrajobst.PlatformNotSupported.Analysis;
 
 namespace NotImplementedScanner
@@ -47,7 +48,8 @@ namespace NotImplementedScanner
 
             using (var textWriter = new StreamWriter(outputPath))
             {
-                var reporter = new CsvReporter(textWriter);
+                var csvWriter = new CsvWriter(textWriter);
+                var reporter = new CsvReporter(csvWriter);
                 var analyzer = new PlatformNotSupportedAnalyzer(reporter);
 
                 foreach (var assembly in assemblies)

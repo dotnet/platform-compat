@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Terrajobst.Csv\Terrajobst.Csv.csproj" />
     <ProjectReference Include="..\Terrajobst.PlatformNotSupported\Terrajobst.PlatformNotSupported.csproj" />
   </ItemGroup>
 

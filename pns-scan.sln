@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pns-scan", "pns-scan\pns-sc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.PlatformNotSupported", "Terrajobst.PlatformNotSupported\Terrajobst.PlatformNotSupported.csproj", "{1A3F19F6-8492-4E47-B290-8222613202F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.Csv", "Terrajobst.Csv\Terrajobst.Csv.csproj", "{1F38367F-A9B2-46A1-B1FF-1D04C4FDBBB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1A3F19F6-8492-4E47-B290-8222613202F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A3F19F6-8492-4E47-B290-8222613202F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A3F19F6-8492-4E47-B290-8222613202F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F38367F-A9B2-46A1-B1FF-1D04C4FDBBB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F38367F-A9B2-46A1-B1FF-1D04C4FDBBB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F38367F-A9B2-46A1-B1FF-1D04C4FDBBB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F38367F-A9B2-46A1-B1FF-1D04C4FDBBB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,17 +1,17 @@
-﻿using System.IO;
-using Microsoft.Cci;
+﻿using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
+using Terrajobst.Csv;
 using Terrajobst.PlatformNotSupported.Analysis;
 
 namespace NotImplementedScanner
 {
     internal sealed class CsvReporter : IPlatformNotSupportedReporter
     {
-        private TextWriter _textWriter;
+        private readonly CsvWriter _writer;
 
-        public CsvReporter(TextWriter textWriter)
+        public CsvReporter(CsvWriter writer)
         {
-            _textWriter = textWriter;
+            _writer = writer;
             WriteHeader();
         }
 
@@ -22,16 +22,12 @@ namespace NotImplementedScanner
 
         private void WriteHeader()
         {
-            _textWriter.Write("DocId");
-            _textWriter.Write(",");
-            _textWriter.Write("Namespace");
-            _textWriter.Write(",");
-            _textWriter.Write("Type");
-            _textWriter.Write(",");
-            _textWriter.Write("Member");
-            _textWriter.Write(",");
-            _textWriter.Write("Nesting");
-            _textWriter.WriteLine();
+            _writer.Write("DocId");
+            _writer.Write("Namespace");
+            _writer.Write("Type");
+            _writer.Write("Member");
+            _writer.Write("Nesting");
+            _writer.WriteLine();
         }
 
         private void WriteMember(ExceptionResult result, ITypeDefinitionMember item)
@@ -39,16 +35,12 @@ namespace NotImplementedScanner
             if (!result.Throws)
                 return;
 
-            _textWriter.WriteEscaped(item.DocId());
-            _textWriter.Write(",");
-            _textWriter.WriteEscaped(item.ContainingTypeDefinition.GetNamespaceName());
-            _textWriter.Write(",");
-            _textWriter.WriteEscaped(item.ContainingTypeDefinition.GetTypeName(false));
-            _textWriter.Write(",");
-            _textWriter.WriteEscaped(GetMemberSignature(item));
-            _textWriter.Write(",");
-            _textWriter.Write(result);
-            _textWriter.WriteLine();
+            _writer.Write(item.DocId());
+            _writer.Write(item.ContainingTypeDefinition.GetNamespaceName());
+            _writer.Write(item.ContainingTypeDefinition.GetTypeName(false));
+            _writer.Write(GetMemberSignature(item));
+            _writer.Write(result.Level.ToString());
+            _writer.WriteLine();
         }
 
         private static string GetMemberSignature(ITypeDefinitionMember member)
