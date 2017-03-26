@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "pns-gen": {
+      "commandName": "Project",
+      "commandLineArgs": "P:\\report.csv"
+    }
+  }
+}
