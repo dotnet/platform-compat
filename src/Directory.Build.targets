@@ -1,6 +1,6 @@
 ﻿<Project>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(UseGitVersioning)' != 'False'">
     <PackageReference Include="Nerdbank.GitVersioning" Version="1.6.25" />
   </ItemGroup>
 
