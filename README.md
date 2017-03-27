@@ -9,3 +9,16 @@ on certain platforms.
 The experience looks like this:
 
 ![](docs/screenshot.png)
+
+## Usage
+
+In order to use it, install the NuGet package `Terrajobst.Pns.Analyzer`.
+
+## Nightlies
+
+The feed with nightly builds can be found here:
+
+```
+https://ci.appveyor.com/nuget/pns-scan
+```
+
