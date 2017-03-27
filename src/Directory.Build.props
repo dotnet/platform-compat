@@ -1,0 +1,7 @@
+<Project>
+
+  <PropertyGroup>
+	<PublicRelease Condition="'$(PublicRelease)' == '' AND '$(APPVEYOR)' != 'True'">True</PublicRelease>
+  </PropertyGroup>
+
+</Project>
