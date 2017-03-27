@@ -12,7 +12,7 @@ The experience looks like this:
 
 ## Usage
 
-In order to use it, install the NuGet package `Terrajobst.Pns.Analyzer`.
+In order to use it, install the NuGet package [Terrajobst.Pns.Analyzer](https://www.nuget.org/packages/terrajobst.pns.analyzer).
 
 ## Nightlies
 
