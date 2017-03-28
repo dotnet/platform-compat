@@ -7,15 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Composition" Version="1.0.27" ExcludeAssets="All" />
-    <PackageReference Include="System.Composition" Version="1.0.31" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="2.0.0" />
     <PackageReference Include="xunit" Version="2.2.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Terrajobst.Pns.Analyzer\Terrajobst.Pns.Analyzer.csproj" />
+    <ProjectReference Include="..\Terrajobst.Cci\Terrajobst.Cci.csproj" />
+    <ProjectReference Include="..\Terrajobst.Pns.Scanner\Terrajobst.Pns.Scanner.csproj" />
   </ItemGroup>
 
 </Project>
