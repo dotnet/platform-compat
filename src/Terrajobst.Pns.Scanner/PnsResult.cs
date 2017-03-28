@@ -21,6 +21,9 @@ namespace Terrajobst.Pns.Scanner
             if (!Throws)
                 return other;
 
+            if (!other.Throws)
+                return this;
+
             return ThrowsAt(Math.Min(Level, other.Level));
         }
 
