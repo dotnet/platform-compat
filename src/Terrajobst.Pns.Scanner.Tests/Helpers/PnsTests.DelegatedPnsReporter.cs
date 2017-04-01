@@ -1,8 +1,8 @@
 ﻿using Microsoft.Cci;
 
-namespace Terrajobst.Pns.Scanner.Tests
+namespace Terrajobst.Pns.Scanner.Tests.Helpers
 {
-    public partial class PnsScannerTests
+    partial class PnsTests
     {
         private sealed class DelegatedPnsReporter : IPnsReporter
         {
