@@ -14,7 +14,9 @@ namespace Terrajobst.Pns.Scanner.Tests.Helpers
         private static readonly CSharpCompilation CompilationTemplate = CSharpCompilation.Create(
             "dummy.dll",
             references: new[] { MetadataReference.CreateFromFile(typeof(object).Assembly.Location) },
-            options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
+            options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary, specificDiagnosticOptions: new[]{
+                new KeyValuePair<string, ReportDiagnostic>("CS0162", ReportDiagnostic.Suppress) // unreachable code
+            })
         );
 
         protected static void AssertMatch(string source, string matches)
