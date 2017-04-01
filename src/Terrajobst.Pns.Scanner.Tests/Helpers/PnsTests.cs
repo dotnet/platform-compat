@@ -44,7 +44,7 @@ namespace Terrajobst.Pns.Scanner.Tests.Helpers
             using (var memoryStream = new MemoryStream())
             {
                 var result = compilation.Emit(memoryStream);
-                Assert.Empty(result.Diagnostics);
+                Assert.Equal(Enumerable.Empty<Diagnostic>(), result.Diagnostics);
 
                 memoryStream.Position = 0;
 
