@@ -23,11 +23,22 @@ namespace Terrajobst.Pns.Scanner.Tests.Helpers
         {
             using (var host = new HostEnvironment())
             {
-                var expectedDocIds = ParseLines(matches);
                 var assembly = CreateAssembly(host, source);
-                var actualDocIds = GetResults(assembly).Select(r => r.docId);
 
-                Assert.Equal(expectedDocIds, actualDocIds);
+                var expectedResults = ParseDocAndLevelLines(matches).OrderBy(t => t.docId).ToArray();
+                var actualResults = GetResults(assembly).OrderBy(r => r.docId).ToArray();
+                Assert.Equal(expectedResults.Length, actualResults.Length);
+
+                for (int i = 0; i < expectedResults.Length; i++)
+                {
+                    var expectedResult = expectedResults[i];
+                    var actualResult = actualResults[i];
+
+                    Assert.Equal(expectedResult.docId, actualResult.docId);
+
+                    if (expectedResult.level != null)
+                        Assert.Equal(expectedResult.level.Value, actualResult.result.Level);
+                }
             }
         }
 
@@ -65,6 +76,11 @@ namespace Terrajobst.Pns.Scanner.Tests.Helpers
             return results;
         }
 
+        private static IEnumerable<(string docId, int? level)> ParseDocAndLevelLines(string text)
+        {
+            return ParseLines(text).Select(ParseDocIdAndLevel);
+        }
+
         private static IEnumerable<string> ParseLines(string text)
         {
             using (var reader = new StringReader(text))
@@ -79,5 +95,16 @@ namespace Terrajobst.Pns.Scanner.Tests.Helpers
             }
         }
 
+        private static (string docId, int? level) ParseDocIdAndLevel(string text)
+        {
+            var indexOfAt = text.IndexOf('@');
+            if (indexOfAt < 0)
+                return (text, null);
+
+            var docId = text.Substring(0, indexOfAt - 1).Trim();
+            var levelText = text.Substring(indexOfAt + 1).Trim();
+            var level = int.Parse(levelText);
+            return (docId, level);
+        }
     }
 }
