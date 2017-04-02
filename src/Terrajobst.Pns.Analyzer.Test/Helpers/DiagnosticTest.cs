@@ -72,7 +72,7 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
         private ImmutableArray<Diagnostic> ComputeDiagnostics(string source, DiagnosticAnalyzer analyzer)
         {
             var language = GetLanguage();
-            var solution = AnalyzedSolution.Create(source, language, analyzer);
+            var solution = AnalyzedSolution.Create(analyzer, language, source);
             var document = solution.Documents.Single();
             return document.Diagnostics;
         }

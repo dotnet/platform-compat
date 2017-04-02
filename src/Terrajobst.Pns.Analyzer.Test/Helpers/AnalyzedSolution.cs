@@ -30,12 +30,7 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
 
         public ImmutableArray<AnalyzedDocument> Documents { get; }
 
-        public static AnalyzedSolution Create(string source, string language, DiagnosticAnalyzer analyzer)
-        {
-            return Create(new[] { source }, language, analyzer);
-        }
-
-        public static AnalyzedSolution Create(string[] sources, string language, DiagnosticAnalyzer analyzer)
+        public static AnalyzedSolution Create(DiagnosticAnalyzer analyzer, string language, params string[] sources)
         {
             var solution = CreateSolution(sources, language);
 
