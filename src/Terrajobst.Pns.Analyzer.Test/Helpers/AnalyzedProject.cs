@@ -20,37 +20,39 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
         private static readonly string VisualBasicDefaultExt = "vb";
         private static readonly string TestProjectName = "TestProject";
 
-        private AnalyzedProject(Project project, ImmutableArray<AnalyzedDocument> documents)
+        private ImmutableArray<AnalyzedDocument> _documents;
+
+        private AnalyzedProject(DiagnosticAnalyzer analyzer, Project project)
         {
+            Analyzer = analyzer;
             Project = project;
-            Documents = documents;
         }
+
+        public DiagnosticAnalyzer Analyzer { get; }
 
         public Project Project { get; }
 
-        public ImmutableArray<AnalyzedDocument> Documents { get; }
+        public ImmutableArray<AnalyzedDocument> Documents
+        {
+            get
+            {
+                if (_documents.IsDefault)
+                {
+                    var documents = AnalyzeDocuments(Analyzer, Project);
+                    ImmutableInterlocked.InterlockedInitialize(ref _documents, documents);
+                }
+
+                return _documents;
+            }
+        }
 
         public static AnalyzedProject Create(DiagnosticAnalyzer analyzer, string language, params string[] sources)
         {
-            var project = CreateProject(sources, language);
-
-            var documents = project.Documents;
-
-            var analyzers = ImmutableArray.Create(analyzer);
-            var compilation = project.GetCompilationAsync().Result;
-            var compilationWithAnalyzers = compilation.WithAnalyzers(analyzers);
-            var diagnostics = compilationWithAnalyzers.GetAnalyzerDiagnosticsAsync().Result;
-
-            var documentDiagnostics = diagnostics.Where(d => d.Location.IsInSource)
-                                                 .ToLookup(d => project.GetDocument(d.Location.SourceTree));
-
-            var analyzedDocuments = documents.Select(d => new AnalyzedDocument(d, SortDiagnostics(documentDiagnostics[d]).ToImmutableArray()))
-                                             .ToImmutableArray();
-
-            return new AnalyzedProject(project, analyzedDocuments);
+            var project = CreateProject(language, sources);
+            return new AnalyzedProject(analyzer, project);
         }
 
-        private static Project CreateProject(string[] sources, string language)
+        private static Project CreateProject(string language, string[] sources)
         {
             string fileExtension = language == LanguageNames.CSharp ? CSharpDefaultFileExt : VisualBasicDefaultExt;
 
@@ -77,6 +79,22 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
             var project = solution.GetProject(projectId);
 
             return project;
+        }
+
+        private static ImmutableArray<AnalyzedDocument> AnalyzeDocuments(DiagnosticAnalyzer analyzer, Project project)
+        {
+            var analyzers = ImmutableArray.Create(analyzer);
+            var documents = project.Documents;
+            var compilation = project.GetCompilationAsync().Result;
+            var compilationWithAnalyzers = compilation.WithAnalyzers(analyzers);
+            var diagnostics = compilationWithAnalyzers.GetAnalyzerDiagnosticsAsync().Result;
+
+            var documentDiagnostics = diagnostics.Where(d => d.Location.IsInSource)
+                                                 .ToLookup(d => project.GetDocument(d.Location.SourceTree));
+
+            return documents.Select(d => new AnalyzedDocument(d, SortDiagnostics(documentDiagnostics[d]).ToImmutableArray()))
+                            .ToImmutableArray();
+
         }
 
         private static IEnumerable<Diagnostic> SortDiagnostics(IEnumerable<Diagnostic> diangostics)
