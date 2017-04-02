@@ -31,7 +31,7 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
                 throw new ArgumentException($"{nameof(expectedDiagnosticsText)} must match the number of marked spans.", nameof(expectedDiagnosticsText));
 
             var analyzer = CreateAnalyzer();
-            var actualDiagnostics = ComputeDiagnostics(source, analyzer);
+            var actualDiagnostics = ComputeDiagnostics(analyzer, source);
 
             Assert.Equal(expectedDiagnostics.Length, actualDiagnostics.Length);
 
@@ -69,11 +69,11 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
             }
         }
 
-        private ImmutableArray<Diagnostic> ComputeDiagnostics(string source, DiagnosticAnalyzer analyzer)
+        private ImmutableArray<Diagnostic> ComputeDiagnostics(DiagnosticAnalyzer analyzer, string source)
         {
             var language = GetLanguage();
-            var solution = AnalyzedSolution.Create(analyzer, language, source);
-            var document = solution.Documents.Single();
+            var project = AnalyzedProject.Create(analyzer, language, source);
+            var document = project.Documents.Single();
             return document.Diagnostics;
         }
     }

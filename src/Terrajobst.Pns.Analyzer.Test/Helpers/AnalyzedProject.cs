@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Terrajobst.Pns.Analyzer.Test.Helpers
 {
-    public sealed class AnalyzedSolution
+    public sealed class AnalyzedProject
     {
         private static readonly MetadataReference CorlibReference = MetadataReference.CreateFromFile(typeof(object).Assembly.Location);
         private static readonly MetadataReference SystemCoreReference = MetadataReference.CreateFromFile(typeof(Enumerable).Assembly.Location);
@@ -20,21 +20,20 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
         private static readonly string VisualBasicDefaultExt = "vb";
         private static readonly string TestProjectName = "TestProject";
 
-        private AnalyzedSolution(Solution solution, ImmutableArray<AnalyzedDocument> documents)
+        private AnalyzedProject(Project project, ImmutableArray<AnalyzedDocument> documents)
         {
-            Solution = solution;
+            Project = project;
             Documents = documents;
         }
 
-        public Solution Solution { get; }
+        public Project Project { get; }
 
         public ImmutableArray<AnalyzedDocument> Documents { get; }
 
-        public static AnalyzedSolution Create(DiagnosticAnalyzer analyzer, string language, params string[] sources)
+        public static AnalyzedProject Create(DiagnosticAnalyzer analyzer, string language, params string[] sources)
         {
-            var solution = CreateSolution(sources, language);
+            var project = CreateProject(sources, language);
 
-            var project = solution.Projects.Single();
             var documents = project.Documents;
 
             var analyzers = ImmutableArray.Create(analyzer);
@@ -48,15 +47,10 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
             var analyzedDocuments = documents.Select(d => new AnalyzedDocument(d, SortDiagnostics(documentDiagnostics[d]).ToImmutableArray()))
                                              .ToImmutableArray();
 
-            return new AnalyzedSolution(solution, analyzedDocuments);
+            return new AnalyzedProject(project, analyzedDocuments);
         }
 
-        private static IEnumerable<Diagnostic> SortDiagnostics(IEnumerable<Diagnostic> diangostics)
-        {
-            return diangostics.OrderBy(d => d.Location.SourceSpan.Start);
-        }
-
-        private static Solution CreateSolution(string[] sources, string language)
+        private static Project CreateProject(string[] sources, string language)
         {
             string fileExtension = language == LanguageNames.CSharp ? CSharpDefaultFileExt : VisualBasicDefaultExt;
 
@@ -80,7 +74,14 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
                 count++;
             }
 
-            return solution;
+            var project = solution.GetProject(projectId);
+
+            return project;
+        }
+
+        private static IEnumerable<Diagnostic> SortDiagnostics(IEnumerable<Diagnostic> diangostics)
+        {
+            return diangostics.OrderBy(d => d.Location.SourceSpan.Start);
         }
     }
 }
