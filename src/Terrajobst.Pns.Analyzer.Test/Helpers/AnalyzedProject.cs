@@ -86,7 +86,7 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
             var analyzers = ImmutableArray.Create(analyzer);
             var documents = project.Documents;
             var compilation = project.GetCompilationAsync().Result;
-            var compilationWithAnalyzers = compilation.WithAnalyzers(analyzers);
+            var compilationWithAnalyzers = compilation.WithAnalyzers(analyzers, project.AnalyzerOptions);
             var diagnostics = compilationWithAnalyzers.GetAnalyzerDiagnosticsAsync().Result;
 
             var documentDiagnostics = diagnostics.Where(d => d.Location.IsInSource)
