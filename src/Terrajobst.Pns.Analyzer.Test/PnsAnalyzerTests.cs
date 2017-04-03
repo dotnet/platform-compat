@@ -11,6 +11,11 @@ namespace Terrajobst.Pns.Analyzer.Test
             return new PnsAnalyzer();
         }
 
+        protected override (string name, string defaultSettings) GetAdditionalFileSettings()
+        {
+            return (PnsAnalyzer.SettingsName, "TargetFramework=netstandard20");
+        }
+
         [Fact]
         public void PnsAnalyzer_DoesNotTrigger_WhenDocumentEmpty()
         {
@@ -44,6 +49,86 @@ namespace Terrajobst.Pns.Analyzer.Test
             ";
 
             AssertNoMatch(source);
+        }
+
+        [Fact]
+        public void PnsAnalyzer_DoesNotTrigger_ForSuppressedPlatforms()
+        {
+            var source = @"
+                using Microsoft.Win32;
+
+                namespace ConsoleApp1
+                {
+                    class Program
+                    {
+                        static void Main(string[] args)
+                        {
+                            Registry.LocalMachine.{{OpenSubKey}}(string.Empty);
+                        }
+                    }
+                }
+            ";
+
+            var expected = @"
+                PNS001: RegistryKey.OpenSubKey(string) isn't supported on MacOSX
+            ";
+
+            var settings = @"
+                PnsIgnore=Linux
+            ";
+
+            AssertMatch(source, expected, settings);
+        }
+
+        [Fact]
+        public void PnsAnalyzer_DoesNotTrigger_WhenAllPlatformsSuppressed()
+        {
+            var source = @"
+                using Microsoft.Win32;
+
+                namespace ConsoleApp1
+                {
+                    class Program
+                    {
+                        static void Main(string[] args)
+                        {
+                            Registry.LocalMachine.OpenSubKey(string.Empty);
+                        }
+                    }
+                }
+            ";
+
+            var settings = @"
+                PnsIgnore=Linux
+                MacOSX
+            ";
+
+            AssertNoMatch(source, settings);
+        }
+
+        [Fact]
+        public void PnsAnalyzer_DoesNotTrigger_WhenTargetingNetFramework()
+        {
+            var source = @"
+                using Microsoft.Win32;
+
+                namespace ConsoleApp1
+                {
+                    class Program
+                    {
+                        static void Main(string[] args)
+                        {
+                            Registry.LocalMachine.OpenSubKey(string.Empty);
+                        }
+                    }
+                }
+            ";
+
+            var settings = @"
+                TargetFramework=net45
+            ";
+
+            AssertNoMatch(source, settings);
         }
 
         [Fact]

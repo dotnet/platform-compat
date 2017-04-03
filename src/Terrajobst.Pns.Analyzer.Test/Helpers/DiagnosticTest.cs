@@ -13,14 +13,16 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
     {
         protected abstract DiagnosticAnalyzer CreateAnalyzer();
 
+        protected virtual (string name, string defaultSettings) GetAdditionalFileSettings() => (null, null);
+
         protected abstract string GetLanguage();
 
-        protected void AssertNoMatch(string annotatedSource)
+        protected void AssertNoMatch(string annotatedSource, string settings = null)
         {
-            AssertMatch(annotatedSource, "");
+            AssertMatch(annotatedSource, "", settings);
         }
 
-        protected void AssertMatch(string annotatedSource, string expectedDiagnosticsText)
+        protected void AssertMatch(string annotatedSource, string expectedDiagnosticsText, string settings = null)
         {
             var annotatedText = AnnotatedText.Parse(annotatedSource);
             var source = annotatedText.Text;
@@ -31,7 +33,7 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
                 throw new ArgumentException($"{nameof(expectedDiagnosticsText)} must match the number of marked spans.", nameof(expectedDiagnosticsText));
 
             var analyzer = CreateAnalyzer();
-            var actualDiagnostics = ComputeDiagnostics(analyzer, source);
+            var actualDiagnostics = ComputeDiagnostics(analyzer, source, settings);
 
             Assert.Equal(expectedDiagnostics.Length, actualDiagnostics.Length);
 
@@ -69,10 +71,18 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
             }
         }
 
-        private ImmutableArray<Diagnostic> ComputeDiagnostics(DiagnosticAnalyzer analyzer, string source)
+        private ImmutableArray<Diagnostic> ComputeDiagnostics(DiagnosticAnalyzer analyzer, string source, string settings)
         {
             var language = GetLanguage();
             var project = AnalyzedProject.Create(analyzer, language, source);
+
+            var (settingsName, defaultSettings) = GetAdditionalFileSettings();
+            if (settingsName != null)
+            {
+                var effectiveSettings = defaultSettings + Environment.NewLine + settings;
+                project = project.AddAdditionalDocument(settingsName, effectiveSettings);
+            }
+
             var document = project.Documents.Single();
             return document.Diagnostics;
         }

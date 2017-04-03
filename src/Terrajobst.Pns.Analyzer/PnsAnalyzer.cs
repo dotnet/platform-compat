@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Immutable;
 using System.Linq;
-using Terrajobst.Pns.Analyzer.Store;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
-
+using Terrajobst.Pns.Analyzer.Store;
 using Platform = Terrajobst.Pns.Analyzer.Store.Platform;
 
 namespace Terrajobst.Pns.Analyzer
@@ -14,6 +13,7 @@ namespace Terrajobst.Pns.Analyzer
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class PnsAnalyzer : DiagnosticAnalyzer
     {
+        public const string SettingsName = "Terrajobst.Pns.Analyzer.settings";
         public const string DiagnosticId = "PNS001";
         private const string Category = "Usage";
 
@@ -34,65 +34,78 @@ namespace Terrajobst.Pns.Analyzer
 
         public override void Initialize(AnalysisContext context)
         {
-            context.RegisterSyntaxNodeAction(
-                AnalyzeSyntaxNode,
-                SyntaxKind.IdentifierName,
-                SyntaxKind.ObjectCreationExpression,
+            context.RegisterCompilationStartAction(startContext =>
+            {
+                var settings = startContext.Options.GetFileSettings(SettingsName);
+                var options = new PnsOptions(settings);
 
-                // These are the list of operators that can result in
-                // custom operators:
+                // We only want to run if the project is targeting .NET Core or .NET Standard.
+                var targetingNetCore = options.TargetFramework.StartsWith("netcoreapp", StringComparison.OrdinalIgnoreCase);
+                var targetingNetStandard = options.TargetFramework.StartsWith("netstandard", StringComparison.OrdinalIgnoreCase);
+                var shouldRun = targetingNetCore || targetingNetStandard;
+                if (!shouldRun)
+                    return;
 
-                SyntaxKind.AddExpression,
-                SyntaxKind.SubtractExpression,
-                SyntaxKind.MultiplyExpression,
-                SyntaxKind.DivideExpression,
-                SyntaxKind.ModuloExpression,
-                SyntaxKind.LeftShiftExpression,
-                SyntaxKind.RightShiftExpression,
-                SyntaxKind.LogicalOrExpression,
-                SyntaxKind.LogicalAndExpression,
-                SyntaxKind.BitwiseOrExpression,
-                SyntaxKind.BitwiseAndExpression,
-                SyntaxKind.ExclusiveOrExpression,
-                SyntaxKind.EqualsExpression,
-                SyntaxKind.NotEqualsExpression,
-                SyntaxKind.LessThanExpression,
-                SyntaxKind.LessThanOrEqualExpression,
-                SyntaxKind.GreaterThanExpression,
-                SyntaxKind.GreaterThanOrEqualExpression,
+                startContext.RegisterSyntaxNodeAction(
+                    nodeContext => AnalyzeSyntaxNode(nodeContext, options),
+                    SyntaxKind.IdentifierName,
+                    SyntaxKind.ObjectCreationExpression,
 
-                SyntaxKind.SimpleAssignmentExpression,
-                SyntaxKind.AddAssignmentExpression,
-                SyntaxKind.SubtractAssignmentExpression,
-                SyntaxKind.MultiplyAssignmentExpression,
-                SyntaxKind.DivideAssignmentExpression,
-                SyntaxKind.ModuloAssignmentExpression,
-                SyntaxKind.AndAssignmentExpression,
-                SyntaxKind.ExclusiveOrAssignmentExpression,
-                SyntaxKind.OrAssignmentExpression,
-                SyntaxKind.LeftShiftAssignmentExpression,
-                SyntaxKind.RightShiftAssignmentExpression,
+                    // These are the list of operators that can result in
+                    // custom operators:
 
-                SyntaxKind.UnaryPlusExpression,
-                SyntaxKind.UnaryMinusExpression,
-                SyntaxKind.BitwiseNotExpression,
-                SyntaxKind.LogicalNotExpression,
-                SyntaxKind.PreIncrementExpression,
-                SyntaxKind.PreDecrementExpression,
-                SyntaxKind.PostIncrementExpression,
-                SyntaxKind.PostDecrementExpression
-            );
+                    SyntaxKind.AddExpression,
+                    SyntaxKind.SubtractExpression,
+                    SyntaxKind.MultiplyExpression,
+                    SyntaxKind.DivideExpression,
+                    SyntaxKind.ModuloExpression,
+                    SyntaxKind.LeftShiftExpression,
+                    SyntaxKind.RightShiftExpression,
+                    SyntaxKind.LogicalOrExpression,
+                    SyntaxKind.LogicalAndExpression,
+                    SyntaxKind.BitwiseOrExpression,
+                    SyntaxKind.BitwiseAndExpression,
+                    SyntaxKind.ExclusiveOrExpression,
+                    SyntaxKind.EqualsExpression,
+                    SyntaxKind.NotEqualsExpression,
+                    SyntaxKind.LessThanExpression,
+                    SyntaxKind.LessThanOrEqualExpression,
+                    SyntaxKind.GreaterThanExpression,
+                    SyntaxKind.GreaterThanOrEqualExpression,
+
+                    SyntaxKind.SimpleAssignmentExpression,
+                    SyntaxKind.AddAssignmentExpression,
+                    SyntaxKind.SubtractAssignmentExpression,
+                    SyntaxKind.MultiplyAssignmentExpression,
+                    SyntaxKind.DivideAssignmentExpression,
+                    SyntaxKind.ModuloAssignmentExpression,
+                    SyntaxKind.AndAssignmentExpression,
+                    SyntaxKind.ExclusiveOrAssignmentExpression,
+                    SyntaxKind.OrAssignmentExpression,
+                    SyntaxKind.LeftShiftAssignmentExpression,
+                    SyntaxKind.RightShiftAssignmentExpression,
+
+                    SyntaxKind.UnaryPlusExpression,
+                    SyntaxKind.UnaryMinusExpression,
+                    SyntaxKind.BitwiseNotExpression,
+                    SyntaxKind.LogicalNotExpression,
+                    SyntaxKind.PreIncrementExpression,
+                    SyntaxKind.PreDecrementExpression,
+                    SyntaxKind.PostIncrementExpression,
+                    SyntaxKind.PostDecrementExpression
+                );
+            });
         }
 
-        private void AnalyzeSyntaxNode(SyntaxNodeAnalysisContext context)
+        private void AnalyzeSyntaxNode(SyntaxNodeAnalysisContext context, PnsOptions options)
         {
             switch (context.Node.Kind())
             {
                 case SyntaxKind.IdentifierName:
-                    AnalyzeExpression(context, (ExpressionSyntax)context.Node);
+                    AnalyzeExpression(context, options, (ExpressionSyntax)context.Node);
                     break;
                 case SyntaxKind.ObjectCreationExpression:
-                    AnalyzeExpression(context, (ExpressionSyntax)context.Node);
+                    AnalyzeExpression(context, options, (ExpressionSyntax)context.Node);
                     break;
                 case SyntaxKind.AddExpression:
                 case SyntaxKind.SubtractExpression:
@@ -131,14 +144,14 @@ namespace Terrajobst.Pns.Analyzer
                 case SyntaxKind.PreDecrementExpression:
                 case SyntaxKind.PostIncrementExpression:
                 case SyntaxKind.PostDecrementExpression:
-                    AnalyzeExpression(context, (ExpressionSyntax)context.Node);
+                    AnalyzeExpression(context, options, (ExpressionSyntax)context.Node);
                     break;
                 default:
                     throw new NotImplementedException($"Unexpected node. Kind = {context.Node.Kind()}");
             }
         }
 
-        private void AnalyzeExpression(SyntaxNodeAnalysisContext context, ExpressionSyntax node)
+        private void AnalyzeExpression(SyntaxNodeAnalysisContext context, PnsOptions options, ExpressionSyntax node)
         {
             var symbolInfo = context.SemanticModel.GetSymbolInfo(node);
             var symbol = symbolInfo.Symbol;
@@ -165,9 +178,14 @@ namespace Terrajobst.Pns.Analyzer
             if (!_pnsStore.Value.TryLookup(symbol, out var entry))
                 return;
 
+            // Check that the affected platforms aren't suppressed
+            var maskedPlatforms = entry.Data & ~options.IgnoredPlatforms;
+            if (maskedPlatforms == Platform.None)
+                return;
+
             var api = symbol.ToDisplayString(SymbolDisplayFormat.CSharpShortErrorMessageFormat);
             var location = node.GetLocation();
-            var list = entry.Data.ToString();
+            var list = maskedPlatforms.ToString();
             var diagnostic = Diagnostic.Create(Rule, location, api, list);
             context.ReportDiagnostic(diagnostic);
         }

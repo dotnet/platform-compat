@@ -101,5 +101,11 @@ namespace Terrajobst.Pns.Analyzer.Test.Helpers
         {
             return diangostics.OrderBy(d => d.Location.SourceSpan.Start);
         }
+
+        public AnalyzedProject AddAdditionalDocument(string filenName, string text)
+        {
+            var document = Project.AddAdditionalDocument(filenName, text);
+            return new AnalyzedProject(Analyzer, document.Project);
+        }
     }
 }
