@@ -1,6 +1,6 @@
 @echo off
 
-for /d %%F in ("%ProgramFiles(x86)%\Microsoft Visual Studio\2017\*") DO (
+for /d %%F in ("%ProgramFiles(x86)%\Microsoft Visual Studio\2017\*") do (
  set MSBuild="%%F\MSBuild\15.0\Bin\MSBuild.exe"
  goto validate
 )

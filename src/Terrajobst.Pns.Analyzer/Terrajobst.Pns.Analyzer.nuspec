@@ -17,7 +17,8 @@
     <developmentDependency>true</developmentDependency>
   </metadata>
   <files>
-    <file target="analyzers\dotnet\cs" src="Terrajobst.Csv.dll"  />
-    <file target="analyzers\dotnet\cs" src="Terrajobst.Pns.Analyzer.dll"  />
+    <file target="analyzers\dotnet\cs" src="Terrajobst.Csv.dll" />
+    <file target="analyzers\dotnet\cs" src="Terrajobst.Pns.Analyzer.dll" />
+    <file target="build" src="build\Terrajobst.Pns.Analyzer.targets" />
   </files>
 </package>
