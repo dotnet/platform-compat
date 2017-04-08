@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ex-gen": {
+      "commandName": "Project",
+      "commandLineArgs": "..\\..\\etc\\exceptions.csv"
+    }
+  }
+}

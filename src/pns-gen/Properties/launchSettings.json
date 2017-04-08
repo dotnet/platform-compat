@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "pns-gen": {
-      "commandName": "Project",
-      "commandLineArgs": "..\\..\\etc\\pns.csv"
-    }
-  }
-}
