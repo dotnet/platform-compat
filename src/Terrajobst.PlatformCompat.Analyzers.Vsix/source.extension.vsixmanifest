@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="Terrajobst.PlatformCompat.Analyzers..fc1bb5fb-358c-445b-b11a-60edf03b81e1" Version="|Terrajobst.PlatformCompat.Analyzers;GetBuildVersion|" Language="en-US" Publisher="immol"/>
+    <DisplayName>Terrajobst.PlatformCompat.Analyzers</DisplayName>
+    <Description xml:space="preserve">This analyzer checks your code for usage of APIs that aren't implemented on all operating systems.</Description>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Version="[14.0,]" Id="Microsoft.VisualStudio.Pro" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="Terrajobst.PlatformCompat.Analyzers" Path="|Terrajobst.PlatformCompat.Analyzers|"/>
+    <Asset Type="Microsoft.VisualStudio.Analyzer" d:Source="Project" d:ProjectName="Terrajobst.PlatformCompat.Analyzers" Path="|Terrajobst.PlatformCompat.Analyzers|"/>
+    <Asset d:Source="Project" d:ProjectName="Terrajobst.Csv" Type="Microsoft.VisualStudio.Assembly" Path="|Terrajobst.Csv|" AssemblyName="|Terrajobst.Csv;AssemblyName|" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.Roslyn.LanguageServices" Version="[15.0,16.0)" DisplayName="Roslyn Language Services" />
+  </Prerequisites>
+</PackageManifest>
