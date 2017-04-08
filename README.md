@@ -1,6 +1,6 @@
 # Platform Compatibility Analyzer
 
-[![Build status](https://ci.appveyor.com/api/projects/status/7flj8m2ko6jh9ng5/branch/master?svg=true)](https://ci.appveyor.com/project/terrajobst/platform-compat/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/evecxgd6lnsg20lb/branch/master?svg=true)](https://ci.appveyor.com/project/terrajobst/platform-compat/branch/master)
 
 This tool provides a [Roslyn](https://github.com/dotnet/roslyn) diagnostic analyzer
 that finds usages of APIs that will throw `PlatformNotSupportedException`
