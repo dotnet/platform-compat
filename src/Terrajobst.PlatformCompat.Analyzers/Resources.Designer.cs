@@ -64,27 +64,27 @@ namespace Terrajobst.PlatformCompat.Analyzers {
         /// <summary>
         ///   Looks up a localized string similar to Used APIs should be supported everwhere.
         /// </summary>
-        internal static string AnalyzerDescription {
+        internal static string ExceptionAnalyzerDescription {
             get {
-                return ResourceManager.GetString("AnalyzerDescription", resourceCulture);
+                return ResourceManager.GetString("ExceptionAnalyzerDescription", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to {0} isn&apos;t supported on {1}.
         /// </summary>
-        internal static string AnalyzerMessageFormat {
+        internal static string ExceptionAnalyzerMessageFormat {
             get {
-                return ResourceManager.GetString("AnalyzerMessageFormat", resourceCulture);
+                return ResourceManager.GetString("ExceptionAnalyzerMessageFormat", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to API not supported on all platforms.
         /// </summary>
-        internal static string AnalyzerTitle {
+        internal static string ExceptionAnalyzerTitle {
             get {
-                return ResourceManager.GetString("AnalyzerTitle", resourceCulture);
+                return ResourceManager.GetString("ExceptionAnalyzerTitle", resourceCulture);
             }
         }
         
