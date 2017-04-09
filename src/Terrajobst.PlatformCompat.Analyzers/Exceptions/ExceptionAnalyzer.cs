@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Immutable;
-using System.Linq;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Terrajobst.PlatformCompat.Analyzers.Store;
 
@@ -28,7 +25,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
             return ExceptionDocument.Parse(Resources.Exceptions);
         }
 
-        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(Rule); } }
+        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
 
         public override void Initialize(AnalysisContext context)
         {
@@ -44,133 +41,21 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
                 if (!shouldRun)
                     return;
 
-                startContext.RegisterSyntaxNodeAction(
-                    nodeContext => AnalyzeSyntaxNode(nodeContext, options),
-                    SyntaxKind.IdentifierName,
-                    SyntaxKind.ObjectCreationExpression,
-
-                    // These are the list of operators that can result in
-                    // custom operators:
-
-                    SyntaxKind.AddExpression,
-                    SyntaxKind.SubtractExpression,
-                    SyntaxKind.MultiplyExpression,
-                    SyntaxKind.DivideExpression,
-                    SyntaxKind.ModuloExpression,
-                    SyntaxKind.LeftShiftExpression,
-                    SyntaxKind.RightShiftExpression,
-                    SyntaxKind.LogicalOrExpression,
-                    SyntaxKind.LogicalAndExpression,
-                    SyntaxKind.BitwiseOrExpression,
-                    SyntaxKind.BitwiseAndExpression,
-                    SyntaxKind.ExclusiveOrExpression,
-                    SyntaxKind.EqualsExpression,
-                    SyntaxKind.NotEqualsExpression,
-                    SyntaxKind.LessThanExpression,
-                    SyntaxKind.LessThanOrEqualExpression,
-                    SyntaxKind.GreaterThanExpression,
-                    SyntaxKind.GreaterThanOrEqualExpression,
-
-                    SyntaxKind.SimpleAssignmentExpression,
-                    SyntaxKind.AddAssignmentExpression,
-                    SyntaxKind.SubtractAssignmentExpression,
-                    SyntaxKind.MultiplyAssignmentExpression,
-                    SyntaxKind.DivideAssignmentExpression,
-                    SyntaxKind.ModuloAssignmentExpression,
-                    SyntaxKind.AndAssignmentExpression,
-                    SyntaxKind.ExclusiveOrAssignmentExpression,
-                    SyntaxKind.OrAssignmentExpression,
-                    SyntaxKind.LeftShiftAssignmentExpression,
-                    SyntaxKind.RightShiftAssignmentExpression,
-
-                    SyntaxKind.UnaryPlusExpression,
-                    SyntaxKind.UnaryMinusExpression,
-                    SyntaxKind.BitwiseNotExpression,
-                    SyntaxKind.LogicalNotExpression,
-                    SyntaxKind.PreIncrementExpression,
-                    SyntaxKind.PreDecrementExpression,
-                    SyntaxKind.PostIncrementExpression,
-                    SyntaxKind.PostDecrementExpression
+                startContext.RegisterSymbolUsageAction(
+                    usageContext => AnalyzeSymbol(usageContext, options)
                 );
             });
         }
 
-        private void AnalyzeSyntaxNode(SyntaxNodeAnalysisContext context, PlatformCompatOptions options)
+        private void AnalyzeSymbol(SymbolUsageAnalysisContext context, PlatformCompatOptions options)
         {
-            switch (context.Node.Kind())
-            {
-                case SyntaxKind.IdentifierName:
-                    AnalyzeExpression(context, options, (ExpressionSyntax)context.Node);
-                    break;
-                case SyntaxKind.ObjectCreationExpression:
-                    AnalyzeExpression(context, options, (ExpressionSyntax)context.Node);
-                    break;
-                case SyntaxKind.AddExpression:
-                case SyntaxKind.SubtractExpression:
-                case SyntaxKind.MultiplyExpression:
-                case SyntaxKind.DivideExpression:
-                case SyntaxKind.ModuloExpression:
-                case SyntaxKind.LeftShiftExpression:
-                case SyntaxKind.RightShiftExpression:
-                case SyntaxKind.LogicalOrExpression:
-                case SyntaxKind.LogicalAndExpression:
-                case SyntaxKind.BitwiseOrExpression:
-                case SyntaxKind.BitwiseAndExpression:
-                case SyntaxKind.ExclusiveOrExpression:
-                case SyntaxKind.EqualsExpression:
-                case SyntaxKind.NotEqualsExpression:
-                case SyntaxKind.LessThanExpression:
-                case SyntaxKind.LessThanOrEqualExpression:
-                case SyntaxKind.GreaterThanExpression:
-                case SyntaxKind.GreaterThanOrEqualExpression:
-                case SyntaxKind.SimpleAssignmentExpression:
-                case SyntaxKind.AddAssignmentExpression:
-                case SyntaxKind.SubtractAssignmentExpression:
-                case SyntaxKind.MultiplyAssignmentExpression:
-                case SyntaxKind.DivideAssignmentExpression:
-                case SyntaxKind.ModuloAssignmentExpression:
-                case SyntaxKind.AndAssignmentExpression:
-                case SyntaxKind.ExclusiveOrAssignmentExpression:
-                case SyntaxKind.OrAssignmentExpression:
-                case SyntaxKind.LeftShiftAssignmentExpression:
-                case SyntaxKind.RightShiftAssignmentExpression:
-                case SyntaxKind.UnaryPlusExpression:
-                case SyntaxKind.UnaryMinusExpression:
-                case SyntaxKind.BitwiseNotExpression:
-                case SyntaxKind.LogicalNotExpression:
-                case SyntaxKind.PreIncrementExpression:
-                case SyntaxKind.PreDecrementExpression:
-                case SyntaxKind.PostIncrementExpression:
-                case SyntaxKind.PostDecrementExpression:
-                    AnalyzeExpression(context, options, (ExpressionSyntax)context.Node);
-                    break;
-                default:
-                    throw new NotImplementedException($"Unexpected node. Kind = {context.Node.Kind()}");
-            }
-        }
-
-        private void AnalyzeExpression(SyntaxNodeAnalysisContext context, PlatformCompatOptions options, ExpressionSyntax node)
-        {
-            var symbolInfo = context.SemanticModel.GetSymbolInfo(node);
-            var symbol = symbolInfo.Symbol;
-
-            // No point in checking unresolved symbols.
-            if (symbol == null)
-                return;
+            var symbol = context.Symbol;
 
             // We only want to handle a specific set of symbols
             var isApplicable = symbol.Kind == SymbolKind.Method ||
                                symbol.Kind == SymbolKind.Property ||
                                symbol.Kind == SymbolKind.Event;
             if (!isApplicable)
-                return;
-
-            // We don't want to check symbols that aren't best matches.
-            if (symbolInfo.CandidateReason != CandidateReason.None)
-                return;
-
-            // We don't want to check symbols defined in source.
-            if (symbol.DeclaringSyntaxReferences.Any())
                 return;
 
             if (!_store.Value.TryLookup(symbol, out var entry))
@@ -182,7 +67,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
                 return;
 
             var api = symbol.ToDisplayString(SymbolDisplayFormat.CSharpShortErrorMessageFormat);
-            var location = node.GetLocation();
+            var location = context.GetLocation();
             var list = maskedPlatforms.ToString();
             var diagnostic = Diagnostic.Create(Rule, location, api, list);
             context.ReportDiagnostic(diagnostic);
