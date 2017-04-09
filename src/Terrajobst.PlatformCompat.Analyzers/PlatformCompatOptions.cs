@@ -17,6 +17,10 @@ namespace Terrajobst.PlatformCompat.Analyzers
         public Platform IgnoredPlatforms { get; }
         public string TargetFramework { get; }
 
+        public bool TargetFrameworkIsNetCore() => TargetFramework.StartsWith("netcoreapp", StringComparison.OrdinalIgnoreCase);
+
+        public bool TargetFrameworkIsNetStandard() => TargetFramework.StartsWith("netstandard", StringComparison.OrdinalIgnoreCase);
+
         public static Platform ParseIgnoredPlatforms(ImmutableDictionary<string, string> options)
         {
             var result = Platform.None;

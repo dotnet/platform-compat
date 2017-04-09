@@ -34,9 +34,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
                 var options = new PlatformCompatOptions(settings);
 
                 // We only want to run if the project is targeting .NET Core or .NET Standard.
-                var targetingNetCore = options.TargetFramework.StartsWith("netcoreapp", StringComparison.OrdinalIgnoreCase);
-                var targetingNetStandard = options.TargetFramework.StartsWith("netstandard", StringComparison.OrdinalIgnoreCase);
-                var shouldRun = targetingNetCore || targetingNetStandard;
+                var shouldRun = options.TargetFrameworkIsNetCore() || options.TargetFrameworkIsNetStandard();
                 if (!shouldRun)
                     return;
 
