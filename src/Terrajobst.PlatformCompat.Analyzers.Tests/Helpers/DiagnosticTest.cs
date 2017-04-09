@@ -74,17 +74,30 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests.Helpers
         private ImmutableArray<Diagnostic> ComputeDiagnostics(DiagnosticAnalyzer analyzer, string source, string settings)
         {
             var language = GetLanguage();
-            var project = AnalyzedProject.Create(analyzer, language, source);
+            var project = AnalyzedProject.Create(analyzer, language, source)
+                                         .WithMetadataReferences(MetadataReferenceSet.NetFramework);
 
             var (settingsName, defaultSettings) = GetAdditionalFileSettings();
             if (settingsName != null)
             {
                 var effectiveSettings = defaultSettings + Environment.NewLine + settings;
                 project = project.AddAdditionalDocument(settingsName, effectiveSettings);
+
+                var referenceSet = InferReferenceSet(project.Project, settingsName);
+                project = project.WithMetadataReferences(referenceSet);
             }
 
             var document = project.Documents.Single();
             return document.Diagnostics;
+        }
+
+        private static IEnumerable<MetadataReference> InferReferenceSet(Project project, string settingsName)
+        {
+            var settings = project.AnalyzerOptions.GetFileSettings(settingsName);
+            var options = new PlatformCompatOptions(settings);
+            return options.TargetFrameworkIsNetStandard()
+                        ? MetadataReferenceSet.NetStandard
+                        : MetadataReferenceSet.NetFramework;
         }
     }
 }

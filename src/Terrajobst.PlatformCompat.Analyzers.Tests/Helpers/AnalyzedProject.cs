@@ -2,7 +2,6 @@
 using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Text;
 
@@ -10,11 +9,6 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests.Helpers
 {
     public sealed class AnalyzedProject
     {
-        private static readonly MetadataReference CorlibReference = MetadataReference.CreateFromFile(typeof(object).Assembly.Location);
-        private static readonly MetadataReference SystemCoreReference = MetadataReference.CreateFromFile(typeof(Enumerable).Assembly.Location);
-        private static readonly MetadataReference CSharpSymbolsReference = MetadataReference.CreateFromFile(typeof(CSharpCompilation).Assembly.Location);
-        private static readonly MetadataReference CodeAnalysisReference = MetadataReference.CreateFromFile(typeof(Compilation).Assembly.Location);
-
         private static readonly string DefaultFilePathPrefix = "Test";
         private static readonly string CSharpDefaultFileExt = "cs";
         private static readonly string VisualBasicDefaultExt = "vb";
@@ -60,11 +54,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests.Helpers
 
             var solution = new AdhocWorkspace()
                 .CurrentSolution
-                .AddProject(projectId, TestProjectName, TestProjectName, language)
-                .AddMetadataReference(projectId, CorlibReference)
-                .AddMetadataReference(projectId, SystemCoreReference)
-                .AddMetadataReference(projectId, CSharpSymbolsReference)
-                .AddMetadataReference(projectId, CodeAnalysisReference);
+                .AddProject(projectId, TestProjectName, TestProjectName, language);
 
             int count = 0;
             foreach (var source in sources)
@@ -100,6 +90,12 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests.Helpers
         private static IEnumerable<Diagnostic> SortDiagnostics(IEnumerable<Diagnostic> diangostics)
         {
             return diangostics.OrderBy(d => d.Location.SourceSpan.Start);
+        }
+
+        public AnalyzedProject WithMetadataReferences(IEnumerable<MetadataReference> metadataReferences)
+        {
+            var newProject = Project.WithMetadataReferences(metadataReferences);
+            return new AnalyzedProject(Analyzer, newProject);
         }
 
         public AnalyzedProject AddAdditionalDocument(string filenName, string text)
