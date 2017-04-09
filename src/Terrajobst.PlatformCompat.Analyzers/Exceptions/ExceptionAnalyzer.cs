@@ -6,7 +6,6 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Terrajobst.PlatformCompat.Analyzers.Store;
-using Platform = Terrajobst.PlatformCompat.Analyzers.Store.Platform;
 
 namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
 {
