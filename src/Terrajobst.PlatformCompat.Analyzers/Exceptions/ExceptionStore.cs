@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Terrajobst.Csv;
+using Terrajobst.PlatformCompat.Analyzers.Store;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Store
+namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
 {
     internal static class ExceptionStore
     {
