@@ -40,7 +40,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
             {
                 if (isHeader)
                 {
-                    var isValid = row.Length > DataColumnStart &&
+                    var isValid = row.Length >= DataColumnStart &&
                                   row[0] == "DocId" &&
                                   row[1] == "Namespace" &&
                                   row[2] == "Type" &&
@@ -58,10 +58,13 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
                 {
                     var docId = row[0];
                     var namespaceName = row[1];
-                    var typeName = row[2];
-                    var signature = row[3];
+                    var typeName = row.Length > 2 ? row[2] : string.Empty;
+                    var signature = row.Length > 3 ? row[3] : string.Empty;
 
-                    var values = new ArraySegment<string>(row, DataColumnStart, row.Length - DataColumnStart);
+                    var valueStart = Math.Min(row.Length, DataColumnStart);
+                    var valueCount = Math.Max(0, row.Length - DataColumnStart);
+
+                    var values = new ArraySegment<string>(row, valueStart, valueCount);
                     var data = ParseData(values);
 
                     yield return (docId, namespaceName, typeName, signature, data);
@@ -71,7 +74,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
 
         protected static InvalidDataException InvalidDocument()
         {
-            return new InvalidDataException($"The file '{0}' is not a valid CSV file with API data.");
+            return new InvalidDataException("The API document is malformed");
         }
     }
 }
