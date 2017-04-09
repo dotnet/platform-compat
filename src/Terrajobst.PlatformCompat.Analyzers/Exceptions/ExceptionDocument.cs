@@ -5,7 +5,7 @@ using Terrajobst.PlatformCompat.Analyzers.Store;
 
 namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
 {
-    internal static class ExceptionStore
+    internal static class ExceptionDocument
     {
         public static ApiStore<Platform> Parse(string data)
         {

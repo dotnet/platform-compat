@@ -22,11 +22,11 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
 
         private static DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: Description);
 
-        private readonly Lazy<ApiStore<Platform>> _exceptionStore = new Lazy<ApiStore<Platform>>(LoadStore);
+        private readonly Lazy<ApiStore<Platform>> _store = new Lazy<ApiStore<Platform>>(LoadStore);
 
         private static ApiStore<Platform> LoadStore()
         {
-            return ExceptionStore.Parse(Resources.Exceptions);
+            return ExceptionDocument.Parse(Resources.Exceptions);
         }
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(Rule); } }
@@ -174,7 +174,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
             if (symbol.DeclaringSyntaxReferences.Any())
                 return;
 
-            if (!_exceptionStore.Value.TryLookup(symbol, out var entry))
+            if (!_store.Value.TryLookup(symbol, out var entry))
                 return;
 
             // Check that the affected platforms aren't suppressed
