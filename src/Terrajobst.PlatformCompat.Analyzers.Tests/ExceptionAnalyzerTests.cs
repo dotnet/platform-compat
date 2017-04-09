@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis.Diagnostics;
+﻿using System;
+using Microsoft.CodeAnalysis.Diagnostics;
 using Terrajobst.PlatformCompat.Analyzers.Exceptions;
 using Terrajobst.PlatformCompat.Analyzers.Tests.Helpers;
 using Xunit;
