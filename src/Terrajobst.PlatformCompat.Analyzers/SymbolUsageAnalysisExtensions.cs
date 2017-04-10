@@ -59,7 +59,6 @@ namespace Terrajobst.PlatformCompat.Analyzers
                     SyntaxKind.GreaterThanExpression,
                     SyntaxKind.GreaterThanOrEqualExpression,
 
-                    SyntaxKind.SimpleAssignmentExpression,
                     SyntaxKind.AddAssignmentExpression,
                     SyntaxKind.SubtractAssignmentExpression,
                     SyntaxKind.MultiplyAssignmentExpression,
@@ -107,7 +106,6 @@ namespace Terrajobst.PlatformCompat.Analyzers
                 case SyntaxKind.LessThanOrEqualExpression:
                 case SyntaxKind.GreaterThanExpression:
                 case SyntaxKind.GreaterThanOrEqualExpression:
-                case SyntaxKind.SimpleAssignmentExpression:
                 case SyntaxKind.AddAssignmentExpression:
                 case SyntaxKind.SubtractAssignmentExpression:
                 case SyntaxKind.MultiplyAssignmentExpression:
