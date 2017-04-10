@@ -11,11 +11,12 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
     {
         public const string DiagnosticId = "PC001";
         private const string Category = "Usage";
+        private const string HelpLink = "https://github.com/terrajobst/platform-compat/blob/master/docs/" + DiagnosticId + ".md";
 
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.ExceptionAnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.ExceptionAnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
 
-        private static DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true);
+        private static DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, helpLinkUri: HelpLink);
 
         private readonly Lazy<ApiStore<Platform>> _store = new Lazy<ApiStore<Platform>>(LoadStore);
 
