@@ -148,6 +148,11 @@ namespace Terrajobst.PlatformCompat.Analyzers
             // care about the original definitions.
             symbol = symbol.OriginalDefinition;
 
+            // We don't want handle synthetic extensions, we only care
+            // about the original static declaration.
+            if (symbol.Kind == SymbolKind.Method && symbol is IMethodSymbol methodSymbol && methodSymbol.ReducedFrom != null)
+                symbol = methodSymbol.ReducedFrom;
+
             // We don't want to check symbols defined in source.
             if (symbol.DeclaringSyntaxReferences.Any())
                 return;
