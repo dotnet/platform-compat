@@ -2,9 +2,12 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/evecxgd6lnsg20lb/branch/master?svg=true)](https://ci.appveyor.com/project/terrajobst/platform-compat/branch/master)
 
-This tool provides a [Roslyn](https://github.com/dotnet/roslyn) diagnostic analyzer
-that finds usages of APIs that will throw `PlatformNotSupportedException`
-on certain platforms.
+This tool provides [Roslyn](https://github.com/dotnet/roslyn) analyzers that
+find usages of .NET Core & .NET Standard APIs that are problematic on specific
+platforms:
+
+* **[PC001](docs/PC001.md)**: Usage of .NET Core and .NET Standard APIs that throw `PlatformNotSupported`
+* **[PC002](docs/PC002.md)**: Usage of .NET Standard 2.0 APIs missing from .NET Framework 4.6.1
 
 The experience looks like this:
 
