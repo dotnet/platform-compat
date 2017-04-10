@@ -1,52 +1,39 @@
-using System;
-using System.Collections.Immutable;
+﻿using System;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Terrajobst.PlatformCompat.Analyzers.Store;
-using Platform = Terrajobst.PlatformCompat.Analyzers.Store.Platform;
+
+// This class isn't actually defining an analyzer. It's simply providing
+// extension methods for real analyzers.
+//
+// Thus, we supress
+//
+//      RS1012: Start action has no registered actions.
+//
+#pragma warning disable RS1012
 
 namespace Terrajobst.PlatformCompat.Analyzers
 {
-    [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class ExceptionAnalyzer : DiagnosticAnalyzer
+    public static class SymbolUsageAnalysisExtensions
     {
-        public const string DiagnosticId = "PC001";
-        private const string Category = "Usage";
-
-        private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
-        private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.AnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
-        private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.AnalyzerDescription), Resources.ResourceManager, typeof(Resources));
-
-        private static DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: Description);
-
-        private readonly Lazy<ApiStore<Platform>> _exceptionStore = new Lazy<ApiStore<Platform>>(LoadStore);
-
-        private static ApiStore<Platform> LoadStore()
+        public static void RegisterSymbolUsageAction(this AnalysisContext context, Action<SymbolUsageAnalysisContext> action)
         {
-            return ExceptionStore.Parse(Resources.Exceptions);
+            RegisterSyntaxNodeAction(context.RegisterSyntaxNodeAction, action);
         }
 
-        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(Rule); } }
-
-        public override void Initialize(AnalysisContext context)
+        public static void RegisterSymbolUsageAction(this CompilationStartAnalysisContext context, Action<SymbolUsageAnalysisContext> action)
         {
-            context.RegisterCompilationStartAction(startContext =>
-            {
-                var settings = startContext.Options.GetFileSettings(PlatformCompatOptions.SettingsName);
-                var options = new PlatformCompatOptions(settings);
+            RegisterSyntaxNodeAction(context.RegisterSyntaxNodeAction, action);
+        }
 
-                // We only want to run if the project is targeting .NET Core or .NET Standard.
-                var targetingNetCore = options.TargetFramework.StartsWith("netcoreapp", StringComparison.OrdinalIgnoreCase);
-                var targetingNetStandard = options.TargetFramework.StartsWith("netstandard", StringComparison.OrdinalIgnoreCase);
-                var shouldRun = targetingNetCore || targetingNetStandard;
-                if (!shouldRun)
-                    return;
-
-                startContext.RegisterSyntaxNodeAction(
-                    nodeContext => AnalyzeSyntaxNode(nodeContext, options),
+        private static void RegisterSyntaxNodeAction(Action<Action<SyntaxNodeAnalysisContext>, SyntaxKind[]> registrationAction, Action<SymbolUsageAnalysisContext> action)
+        {
+            registrationAction(
+                nodeContext => Handle(nodeContext, action),
+                new[]
+                {
                     SyntaxKind.IdentifierName,
                     SyntaxKind.ObjectCreationExpression,
 
@@ -72,7 +59,6 @@ namespace Terrajobst.PlatformCompat.Analyzers
                     SyntaxKind.GreaterThanExpression,
                     SyntaxKind.GreaterThanOrEqualExpression,
 
-                    SyntaxKind.SimpleAssignmentExpression,
                     SyntaxKind.AddAssignmentExpression,
                     SyntaxKind.SubtractAssignmentExpression,
                     SyntaxKind.MultiplyAssignmentExpression,
@@ -92,20 +78,16 @@ namespace Terrajobst.PlatformCompat.Analyzers
                     SyntaxKind.PreDecrementExpression,
                     SyntaxKind.PostIncrementExpression,
                     SyntaxKind.PostDecrementExpression
-                );
-            });
+                }
+            );
         }
 
-        private void AnalyzeSyntaxNode(SyntaxNodeAnalysisContext context, PlatformCompatOptions options)
+        private static void Handle(SyntaxNodeAnalysisContext context, Action<SymbolUsageAnalysisContext> action)
         {
             switch (context.Node.Kind())
             {
                 case SyntaxKind.IdentifierName:
-                    AnalyzeExpression(context, options, (ExpressionSyntax)context.Node);
-                    break;
                 case SyntaxKind.ObjectCreationExpression:
-                    AnalyzeExpression(context, options, (ExpressionSyntax)context.Node);
-                    break;
                 case SyntaxKind.AddExpression:
                 case SyntaxKind.SubtractExpression:
                 case SyntaxKind.MultiplyExpression:
@@ -124,7 +106,6 @@ namespace Terrajobst.PlatformCompat.Analyzers
                 case SyntaxKind.LessThanOrEqualExpression:
                 case SyntaxKind.GreaterThanExpression:
                 case SyntaxKind.GreaterThanOrEqualExpression:
-                case SyntaxKind.SimpleAssignmentExpression:
                 case SyntaxKind.AddAssignmentExpression:
                 case SyntaxKind.SubtractAssignmentExpression:
                 case SyntaxKind.MultiplyAssignmentExpression:
@@ -143,14 +124,14 @@ namespace Terrajobst.PlatformCompat.Analyzers
                 case SyntaxKind.PreDecrementExpression:
                 case SyntaxKind.PostIncrementExpression:
                 case SyntaxKind.PostDecrementExpression:
-                    AnalyzeExpression(context, options, (ExpressionSyntax)context.Node);
+                    Handle(context, (ExpressionSyntax)context.Node, action);
                     break;
                 default:
                     throw new NotImplementedException($"Unexpected node. Kind = {context.Node.Kind()}");
             }
         }
 
-        private void AnalyzeExpression(SyntaxNodeAnalysisContext context, PlatformCompatOptions options, ExpressionSyntax node)
+        private static void Handle(SyntaxNodeAnalysisContext context, ExpressionSyntax node, Action<SymbolUsageAnalysisContext> action)
         {
             var symbolInfo = context.SemanticModel.GetSymbolInfo(node);
             var symbol = symbolInfo.Symbol;
@@ -159,34 +140,25 @@ namespace Terrajobst.PlatformCompat.Analyzers
             if (symbol == null)
                 return;
 
-            // We only want to handle a specific set of symbols
-            var isApplicable = symbol.Kind == SymbolKind.Method ||
-                               symbol.Kind == SymbolKind.Property ||
-                               symbol.Kind == SymbolKind.Event;
-            if (!isApplicable)
-                return;
-
             // We don't want to check symbols that aren't best matches.
             if (symbolInfo.CandidateReason != CandidateReason.None)
                 return;
+
+            // We don't want to handle generic instantiations, we only
+            // care about the original definitions.
+            symbol = symbol.OriginalDefinition;
+
+            // We don't want handle synthetic extensions, we only care
+            // about the original static declaration.
+            if (symbol.Kind == SymbolKind.Method && symbol is IMethodSymbol methodSymbol && methodSymbol.ReducedFrom != null)
+                symbol = methodSymbol.ReducedFrom;
 
             // We don't want to check symbols defined in source.
             if (symbol.DeclaringSyntaxReferences.Any())
                 return;
 
-            if (!_exceptionStore.Value.TryLookup(symbol, out var entry))
-                return;
-
-            // Check that the affected platforms aren't suppressed
-            var maskedPlatforms = entry.Data & ~options.IgnoredPlatforms;
-            if (maskedPlatforms == Platform.None)
-                return;
-
-            var api = symbol.ToDisplayString(SymbolDisplayFormat.CSharpShortErrorMessageFormat);
-            var location = node.GetLocation();
-            var list = maskedPlatforms.ToString();
-            var diagnostic = Diagnostic.Create(Rule, location, api, list);
-            context.ReportDiagnostic(diagnostic);
+            var symbolUsageContext = new SymbolUsageAnalysisContext(context, symbol);
+            action(symbolUsageContext);
         }
     }
 }

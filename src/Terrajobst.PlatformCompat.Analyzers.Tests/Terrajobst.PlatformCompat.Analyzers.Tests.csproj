@@ -15,6 +15,14 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
 
+  <!-- This are fake references. They are only listed to ensure the machine has these packages
+       in the NuGet cache so we can pass references to our test compilation. -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Win32.Registry" Version="4.4.0-preview1-25205-01" ExcludeAssets="All" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.0-preview1-25207-01" ExcludeAssets="All" />
+    <PackageReference Include="System.Security.Cryptography.Cng" Version="4.4.0-beta-24913-02" ExcludeAssets="All" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Terrajobst.PlatformCompat.Analyzers\Terrajobst.PlatformCompat.Analyzers.csproj" />
   </ItemGroup>

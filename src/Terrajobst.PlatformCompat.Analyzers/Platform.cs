@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Store
+namespace Terrajobst.PlatformCompat.Analyzers
 {
     [Flags]
     public enum Platform

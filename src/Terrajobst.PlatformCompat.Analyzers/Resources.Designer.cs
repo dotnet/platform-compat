@@ -62,29 +62,20 @@ namespace Terrajobst.PlatformCompat.Analyzers {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Used APIs should be supported everwhere.
-        /// </summary>
-        internal static string AnalyzerDescription {
-            get {
-                return ResourceManager.GetString("AnalyzerDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {0} isn&apos;t supported on {1}.
         /// </summary>
-        internal static string AnalyzerMessageFormat {
+        internal static string ExceptionAnalyzerMessageFormat {
             get {
-                return ResourceManager.GetString("AnalyzerMessageFormat", resourceCulture);
+                return ResourceManager.GetString("ExceptionAnalyzerMessageFormat", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to API not supported on all platforms.
         /// </summary>
-        internal static string AnalyzerTitle {
+        internal static string ExceptionAnalyzerTitle {
             get {
-                return ResourceManager.GetString("AnalyzerTitle", resourceCulture);
+                return ResourceManager.GetString("ExceptionAnalyzerTitle", resourceCulture);
             }
         }
         
@@ -96,6 +87,40 @@ namespace Terrajobst.PlatformCompat.Analyzers {
         internal static string Exceptions {
             get {
                 return ResourceManager.GetString("Exceptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DocId,Namespace,Type,Member
+        ///M:System.AppContext.GetData(System.String),System,AppContext,GetData(String)
+        ///P:System.AppContext.TargetFrameworkName,System,AppContext,TargetFrameworkName
+        ///T:System.StringNormalizationExtensions,System,StringNormalizationExtensions,
+        ///T:System.Data.Common.DbColumn,System.Data.Common,DbColumn,
+        ///T:System.Data.Common.DbDataReaderExtensions,System.Data.Common,DbDataReaderExtensions,
+        ///T:System.Data.Common.IDbColumnSchemaGenerator,System.Data.Common,IDbColumnSchemaGenerator,
+        ///T:System [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Net461 {
+            get {
+                return ResourceManager.GetString("Net461", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} isn&apos;t provided in .NET Framework 4.6.1.
+        /// </summary>
+        internal static string Net461AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("Net461AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to API not supported on all platforms.
+        /// </summary>
+        internal static string Net461AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("Net461AnalyzerTitle", resourceCulture);
             }
         }
     }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Microsoft.CodeAnalysis;
 
 namespace Terrajobst.PlatformCompat.Analyzers.Store
@@ -41,12 +40,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Store
 
         public bool TryLookup(ISymbol symbol, out ApiEntry<T> entry)
         {
-            var memberName = IsConstructor(symbol) ? ".ctor" : symbol.Name;
-            var typeName = symbol.ContainingType.Name;
-            var namespaceName = symbol.ContainingNamespace.Name;
-            var key = (namespaceName, typeName, memberName);
-
-            var candidates = _entries.Where(kv => kv.Key.memberName == memberName).ToArray();
+            var key = GetKey(symbol);
 
             if (!_entries.TryGetValue(key, out var entries))
             {
@@ -56,6 +50,28 @@ namespace Terrajobst.PlatformCompat.Analyzers.Store
 
             var docId = symbol.GetDocumentationCommentId();
             return entries.TryGetValue(docId, out entry);
+        }
+
+        private static (string namespaceName, string typeName, string memberName) GetKey(ISymbol symbol)
+        {
+            switch (symbol.Kind)
+            {
+                case SymbolKind.Namespace:
+                    return (symbol.Name, string.Empty, string.Empty);
+
+                case SymbolKind.NamedType:
+                    return (symbol.ContainingNamespace.Name, symbol.Name, string.Empty);
+
+                case SymbolKind.Event:
+                case SymbolKind.Field:
+                case SymbolKind.Method:
+                case SymbolKind.Property:
+                    var memberName = IsConstructor(symbol) ? ".ctor" : symbol.Name;
+                    return (symbol.ContainingNamespace.Name, symbol.ContainingType.Name, memberName);
+
+                default:
+                    return (null, null, null);
+            }
         }
 
         private static bool IsConstructor(ISymbol symbol)
@@ -69,11 +85,15 @@ namespace Terrajobst.PlatformCompat.Analyzers.Store
 
         private static string GetName(string signature)
         {
-            var paren = signature.IndexOf('(');
-            if (paren < 0)
-                return signature;
+            var bracket = signature.IndexOf('<');
+            if (bracket >= 0)
+                signature = signature.Substring(0, bracket);
 
-            return signature.Substring(0, paren);
+            var paren = signature.IndexOf('(');
+            if (paren >= 0)
+                signature = signature.Substring(0, paren);
+
+            return signature;
         }
 
         private static string GetLastName(string dottedName)
