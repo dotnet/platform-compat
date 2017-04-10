@@ -107,7 +107,7 @@ namespace Terrajobst.PlatformCompat.Analyzers {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} isn&apos;t provided in .NET Framework 4.6.1.
+        ///   Looks up a localized string similar to {0} isn&apos;t available in .NET Framework 4.6.1.
         /// </summary>
         internal static string Net461AnalyzerMessageFormat {
             get {
@@ -116,7 +116,7 @@ namespace Terrajobst.PlatformCompat.Analyzers {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to API not supported on all platforms.
+        ///   Looks up a localized string similar to API not available in .NET Framework 4.6.1.
         /// </summary>
         internal static string Net461AnalyzerTitle {
             get {

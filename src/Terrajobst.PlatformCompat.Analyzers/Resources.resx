@@ -137,7 +137,7 @@
     <comment>The format-able message the diagnostic displays.</comment>
   </data>
   <data name="Net461AnalyzerTitle" xml:space="preserve">
-    <value>API not supported on all platforms</value>
+    <value>API not available in .NET Framework 4.6.1</value>
     <comment>The title of the diagnostic.</comment>
   </data>
 </root>
