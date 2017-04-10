@@ -144,6 +144,10 @@ namespace Terrajobst.PlatformCompat.Analyzers
             if (symbolInfo.CandidateReason != CandidateReason.None)
                 return;
 
+            // We don't want to handle generic instantiations, we only
+            // care about the original definitions.
+            symbol = symbol.OriginalDefinition;
+
             // We don't want to check symbols defined in source.
             if (symbol.DeclaringSyntaxReferences.Any())
                 return;

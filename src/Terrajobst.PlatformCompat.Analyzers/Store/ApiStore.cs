@@ -85,11 +85,15 @@ namespace Terrajobst.PlatformCompat.Analyzers.Store
 
         private static string GetName(string signature)
         {
-            var paren = signature.IndexOf('(');
-            if (paren < 0)
-                return signature;
+            var bracket = signature.IndexOf('<');
+            if (bracket >= 0)
+                signature = signature.Substring(0, bracket);
 
-            return signature.Substring(0, paren);
+            var paren = signature.IndexOf('(');
+            if (paren >= 0)
+                signature = signature.Substring(0, paren);
+
+            return signature;
         }
 
         private static string GetLastName(string dottedName)
