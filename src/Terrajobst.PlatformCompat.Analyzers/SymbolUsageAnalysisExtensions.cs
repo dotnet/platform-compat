@@ -5,59 +5,81 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
+// This class isn't actually defining an analyzer. It's simply providing
+// extension methods for real analyzers.
+//
+// Thus, we supress
+//
+//      RS1012: Start action has no registered actions.
+//
+#pragma warning disable RS1012
+
 namespace Terrajobst.PlatformCompat.Analyzers
 {
     public static class SymbolUsageAnalysisExtensions
     {
+        public static void RegisterSymbolUsageAction(this AnalysisContext context, Action<SymbolUsageAnalysisContext> action)
+        {
+            RegisterSyntaxNodeAction(context.RegisterSyntaxNodeAction, action);
+        }
+
         public static void RegisterSymbolUsageAction(this CompilationStartAnalysisContext context, Action<SymbolUsageAnalysisContext> action)
         {
-            context.RegisterSyntaxNodeAction(
+            RegisterSyntaxNodeAction(context.RegisterSyntaxNodeAction, action);
+        }
+
+        private static void RegisterSyntaxNodeAction(Action<Action<SyntaxNodeAnalysisContext>, SyntaxKind[]> registrationAction, Action<SymbolUsageAnalysisContext> action)
+        {
+            registrationAction(
                 nodeContext => Handle(nodeContext, action),
-                SyntaxKind.IdentifierName,
-                SyntaxKind.ObjectCreationExpression,
+                new[]
+                {
+                    SyntaxKind.IdentifierName,
+                    SyntaxKind.ObjectCreationExpression,
 
-                // These are the list of operators that can result in
-                // custom operators:
+                    // These are the list of operators that can result in
+                    // custom operators:
 
-                SyntaxKind.AddExpression,
-                SyntaxKind.SubtractExpression,
-                SyntaxKind.MultiplyExpression,
-                SyntaxKind.DivideExpression,
-                SyntaxKind.ModuloExpression,
-                SyntaxKind.LeftShiftExpression,
-                SyntaxKind.RightShiftExpression,
-                SyntaxKind.LogicalOrExpression,
-                SyntaxKind.LogicalAndExpression,
-                SyntaxKind.BitwiseOrExpression,
-                SyntaxKind.BitwiseAndExpression,
-                SyntaxKind.ExclusiveOrExpression,
-                SyntaxKind.EqualsExpression,
-                SyntaxKind.NotEqualsExpression,
-                SyntaxKind.LessThanExpression,
-                SyntaxKind.LessThanOrEqualExpression,
-                SyntaxKind.GreaterThanExpression,
-                SyntaxKind.GreaterThanOrEqualExpression,
+                    SyntaxKind.AddExpression,
+                    SyntaxKind.SubtractExpression,
+                    SyntaxKind.MultiplyExpression,
+                    SyntaxKind.DivideExpression,
+                    SyntaxKind.ModuloExpression,
+                    SyntaxKind.LeftShiftExpression,
+                    SyntaxKind.RightShiftExpression,
+                    SyntaxKind.LogicalOrExpression,
+                    SyntaxKind.LogicalAndExpression,
+                    SyntaxKind.BitwiseOrExpression,
+                    SyntaxKind.BitwiseAndExpression,
+                    SyntaxKind.ExclusiveOrExpression,
+                    SyntaxKind.EqualsExpression,
+                    SyntaxKind.NotEqualsExpression,
+                    SyntaxKind.LessThanExpression,
+                    SyntaxKind.LessThanOrEqualExpression,
+                    SyntaxKind.GreaterThanExpression,
+                    SyntaxKind.GreaterThanOrEqualExpression,
 
-                SyntaxKind.SimpleAssignmentExpression,
-                SyntaxKind.AddAssignmentExpression,
-                SyntaxKind.SubtractAssignmentExpression,
-                SyntaxKind.MultiplyAssignmentExpression,
-                SyntaxKind.DivideAssignmentExpression,
-                SyntaxKind.ModuloAssignmentExpression,
-                SyntaxKind.AndAssignmentExpression,
-                SyntaxKind.ExclusiveOrAssignmentExpression,
-                SyntaxKind.OrAssignmentExpression,
-                SyntaxKind.LeftShiftAssignmentExpression,
-                SyntaxKind.RightShiftAssignmentExpression,
+                    SyntaxKind.SimpleAssignmentExpression,
+                    SyntaxKind.AddAssignmentExpression,
+                    SyntaxKind.SubtractAssignmentExpression,
+                    SyntaxKind.MultiplyAssignmentExpression,
+                    SyntaxKind.DivideAssignmentExpression,
+                    SyntaxKind.ModuloAssignmentExpression,
+                    SyntaxKind.AndAssignmentExpression,
+                    SyntaxKind.ExclusiveOrAssignmentExpression,
+                    SyntaxKind.OrAssignmentExpression,
+                    SyntaxKind.LeftShiftAssignmentExpression,
+                    SyntaxKind.RightShiftAssignmentExpression,
 
-                SyntaxKind.UnaryPlusExpression,
-                SyntaxKind.UnaryMinusExpression,
-                SyntaxKind.BitwiseNotExpression,
-                SyntaxKind.LogicalNotExpression,
-                SyntaxKind.PreIncrementExpression,
-                SyntaxKind.PreDecrementExpression,
-                SyntaxKind.PostIncrementExpression,
-                SyntaxKind.PostDecrementExpression
+                    SyntaxKind.UnaryPlusExpression,
+                    SyntaxKind.UnaryMinusExpression,
+                    SyntaxKind.BitwiseNotExpression,
+                    SyntaxKind.LogicalNotExpression,
+                    SyntaxKind.PreIncrementExpression,
+                    SyntaxKind.PreDecrementExpression,
+                    SyntaxKind.PostIncrementExpression,
+                    SyntaxKind.PostDecrementExpression
+                }
             );
         }
 
