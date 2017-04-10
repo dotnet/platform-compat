@@ -2,6 +2,7 @@
 
   <PropertyGroup>
 	<PublicRelease Condition="'$(PublicRelease)' == '' AND '$(APPVEYOR)' != 'True'">True</PublicRelease>
+	<DebugType Condition="'$(Configuration)' == 'Debug'">Full</DebugType>
   </PropertyGroup>
 
 </Project>
