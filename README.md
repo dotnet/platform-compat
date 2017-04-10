@@ -6,7 +6,7 @@ This tool provides [Roslyn](https://github.com/dotnet/roslyn) analyzers that
 find usages of .NET Core & .NET Standard APIs that are problematic on specific
 platforms:
 
-* **[PC001](docs/PC001.md)**: Usage of .NET Core and .NET Standard APIs that throw `PlatformNotSupported`
+* **[PC001](docs/PC001.md)**: Usage of .NET Core and .NET Standard APIs that throw `PlatformNotSupportedException`
 * **[PC002](docs/PC002.md)**: Usage of .NET Standard 2.0 APIs missing from .NET Framework 4.6.1
 
 The experience looks like this:
