@@ -40,11 +40,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Store
 
         public bool TryLookup(ISymbol symbol, out ApiEntry<T> entry)
         {
-            var memberName = IsConstructor(symbol) ? ".ctor" : symbol.Name;
-            var typeName = symbol.ContainingType.Name;
-            var namespaceName = symbol.ContainingNamespace.Name;
-            var key = (namespaceName, typeName, memberName);
-
+            var key = GetKey(symbol);
 
             if (!_entries.TryGetValue(key, out var entries))
             {
@@ -54,6 +50,28 @@ namespace Terrajobst.PlatformCompat.Analyzers.Store
 
             var docId = symbol.GetDocumentationCommentId();
             return entries.TryGetValue(docId, out entry);
+        }
+
+        private static (string namespaceName, string typeName, string memberName) GetKey(ISymbol symbol)
+        {
+            switch (symbol.Kind)
+            {
+                case SymbolKind.Namespace:
+                    return (symbol.Name, string.Empty, string.Empty);
+
+                case SymbolKind.NamedType:
+                    return (symbol.ContainingNamespace.Name, symbol.Name, string.Empty);
+
+                case SymbolKind.Event:
+                case SymbolKind.Field:
+                case SymbolKind.Method:
+                case SymbolKind.Property:
+                    var memberName = IsConstructor(symbol) ? ".ctor" : symbol.Name;
+                    return (symbol.ContainingNamespace.Name, symbol.ContainingType.Name, memberName);
+
+                default:
+                    return (null, null, null);
+            }
         }
 
         private static bool IsConstructor(ISymbol symbol)
