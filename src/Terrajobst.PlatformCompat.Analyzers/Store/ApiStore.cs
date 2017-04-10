@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Microsoft.CodeAnalysis;
 
 namespace Terrajobst.PlatformCompat.Analyzers.Store
@@ -46,7 +45,6 @@ namespace Terrajobst.PlatformCompat.Analyzers.Store
             var namespaceName = symbol.ContainingNamespace.Name;
             var key = (namespaceName, typeName, memberName);
 
-            var candidates = _entries.Where(kv => kv.Key.memberName == memberName).ToArray();
 
             if (!_entries.TryGetValue(key, out var entries))
             {
