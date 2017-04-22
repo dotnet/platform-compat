@@ -200,6 +200,7 @@ namespace ex_gen
                 writer.Write("Namespace");
                 writer.Write("Type");
                 writer.Write("Member");
+                writer.Write("Site");
 
                 foreach (var platform in database.Platforms)
                     writer.Write(platform);
@@ -212,6 +213,7 @@ namespace ex_gen
                     writer.Write(entry.NamespaceName);
                     writer.Write(entry.TypeName);
                     writer.Write(entry.MemberName);
+                    writer.Write(entry.Site);
 
                     foreach (var platform in database.Platforms)
                     {

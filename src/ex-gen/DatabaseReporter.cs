@@ -17,7 +17,7 @@ namespace ex_gen
         public void Report(ExceptionInfo result, ITypeDefinitionMember member)
         {
             if (result.Throws)
-                _database.Add(member, _platform);
+                _database.Add(member, _platform, result.Site);
         }
     }
 }
