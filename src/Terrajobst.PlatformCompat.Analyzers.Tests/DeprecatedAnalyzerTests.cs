@@ -40,5 +40,30 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests
 
             AssertNoMatch(source);
         }
+
+        [Fact]
+        public void DeprecatedAnalyzer_Triggers_DE0001()
+        {
+            var source = @"
+                using System.Security;
+
+                namespace ConsoleApp1
+                {
+                    class Program
+                    {
+                        static void Main(string[] args)
+                        {
+                            {{SecureString}} x;
+                        }
+                    }
+                }
+            ";
+
+            var expected = @"
+                DE0001: SecureString is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }
