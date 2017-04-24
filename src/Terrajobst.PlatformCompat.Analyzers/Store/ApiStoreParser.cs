@@ -26,7 +26,9 @@ namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
             }
         }
 
-        protected abstract void Initialize(ArraySegment<string> headers);
+        protected virtual void Initialize(ArraySegment<string> headers)
+        {
+        }
 
         protected abstract T ParseData(ArraySegment<string> values);
 

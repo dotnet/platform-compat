@@ -1,0 +1,29 @@
+﻿<Project>
+
+  <PropertyGroup>
+    <DocPath>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\..\..\..\docs'))</DocPath>
+    <DeprecatedPath>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\..\..\..\etc\deprecated.csv'))</DeprecatedPath>
+    <DepIndexProjectPath>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\..\..\dep-index\dep-index.csproj'))</DepIndexProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <DeprecatedFiles Include="$(DocPath)\DE*.md" />
+  </ItemGroup>
+
+  <Target Name="GenerateDeprecatedCsv"
+          Inputs="@(DeprecatedFiles)"
+          Outputs="$(DeprecatedPath)"
+          BeforeTargets="BeforeBuild">
+    <MSBuild Projects="$(DepIndexProjectPath)" />
+    <MSBuild Projects="$(DepIndexProjectPath)"
+             Targets="GetTargetPath">
+      <Output TaskParameter="TargetOutputs"
+              ItemName="DepIndex" />
+    </MSBuild>
+    <Exec Command="&quot;@(DepIndex)&quot; &quot;$(DeprecatedPath)&quot; @(DeprecatedFiles->'%(Identity)', ' ')"
+          StandardOutputImportance="Low" />
+    <Message Text="$([System.IO.Path]::GetFileName($(DeprecatedPath))) -> $(DeprecatedPath)"
+             Importance="High" />
+  </Target>
+
+</Project>

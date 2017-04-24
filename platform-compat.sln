@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.PlatformCompat.Analyzers.Vsix", "src\Terrajobst.PlatformCompat.Analyzers.Vsix\Terrajobst.PlatformCompat.Analyzers.Vsix.csproj", "{95368DD4-2B76-4304-B7EC-6E27C72F641B}"
 EndProject
@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terrajobst.PlatformCompat.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terrajobst.PlatformCompat.Analyzers.Tests", "src\Terrajobst.PlatformCompat.Analyzers.Tests\Terrajobst.PlatformCompat.Analyzers.Tests.csproj", "{513A0D76-352B-4DF6-945A-358B0CB2EABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.PlatformCompat.Scanner.Tests", "src\Terrajobst.PlatformCompat.Scanner.Tests\Terrajobst.PlatformCompat.Scanner.Tests.csproj", "{F77DF5B7-FC77-4DA7-BE7B-DC402DEDD064}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terrajobst.PlatformCompat.Scanner.Tests", "src\Terrajobst.PlatformCompat.Scanner.Tests\Terrajobst.PlatformCompat.Scanner.Tests.csproj", "{F77DF5B7-FC77-4DA7-BE7B-DC402DEDD064}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dep-index", "src\dep-index\dep-index.csproj", "{6973B489-E5ED-4F82-BE2A-A4A54868F45D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{F77DF5B7-FC77-4DA7-BE7B-DC402DEDD064}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F77DF5B7-FC77-4DA7-BE7B-DC402DEDD064}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F77DF5B7-FC77-4DA7-BE7B-DC402DEDD064}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6973B489-E5ED-4F82-BE2A-A4A54868F45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6973B489-E5ED-4F82-BE2A-A4A54868F45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6973B489-E5ED-4F82-BE2A-A4A54868F45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6973B489-E5ED-4F82-BE2A-A4A54868F45D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

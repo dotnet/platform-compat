@@ -33,6 +33,7 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <Import Project="build\GenerateDeprecated.targets" />
   <Import Project="build\GenerateNuGetPackage.targets" />
 
 </Project>
