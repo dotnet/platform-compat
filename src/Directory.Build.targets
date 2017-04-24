@@ -4,4 +4,6 @@
     <PackageReference Include="Nerdbank.GitVersioning" Version="1.6.25" />
   </ItemGroup>
 
+  <Import Project="Testing.targets" Condition="$(AssemblyName.EndsWith('Tests'))" />
+
 </Project>
