@@ -62,6 +62,41 @@ namespace Terrajobst.PlatformCompat.Analyzers {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DocId,Namespace,Type,Member,DiagnosticIds
+        ///T:System.Security.SecureString,System.Security,SecureString,,DE0001
+        ///N:System.Security.Permissions,System.Security.Permissions,,,DE0002
+        ///T:System.Net.WebRequest,System.Net,WebRequest,,DE0003
+        ///T:System.Net.FtpWebRequest,System.Net,FtpWebRequest,,DE0003
+        ///T:System.Net.FileWebRequest,System.Net,FileWebRequest,,DE0003
+        ///T:System.Net.HttpWebRequest,System.Net,HttpWebRequest,,DE0003
+        ///T:System.Net.WebClient,System.Net,WebClient,,DE0004
+        ///T:System.Net.Mail.SmtpClient,System.N [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Deprecated {
+            get {
+                return ResourceManager.GetString("Deprecated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is deprecated.
+        /// </summary>
+        internal static string DeprecatedAnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("DeprecatedAnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to API is deprecated.
+        /// </summary>
+        internal static string DeprecatedAnalyzerTitle {
+            get {
+                return ResourceManager.GetString("DeprecatedAnalyzerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} isn&apos;t supported on {1}.
         /// </summary>
         internal static string ExceptionAnalyzerMessageFormat {
