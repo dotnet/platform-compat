@@ -105,5 +105,30 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Fact]
+        public void DeprecatedAnalyzer_Triggers_DE0004()
+        {
+            var source = @"
+                using System.Net;
+
+                namespace ConsoleApp1
+                {
+                    class Program
+                    {
+                        static void Main(string[] args)
+                        {
+                            {{WebClient}} x;
+                        }
+                    }
+                }
+            ";
+
+            var expected = @"
+                DE0004: WebClient is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }
