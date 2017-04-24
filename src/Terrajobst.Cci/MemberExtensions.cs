@@ -5,27 +5,45 @@ namespace Terrajobst.Cci
 {
     public static class MemberExtensions
     {
-        public static string GetNamespaceName(this ITypeDefinitionMember member)
+        public static string GetNamespaceName(this IDefinition definition)
         {
-            return member.ContainingTypeDefinition.GetNamespaceName();
+            if (definition is ITypeDefinitionMember member)
+                return member.ContainingTypeDefinition.GetNamespaceName();
+
+            if (definition is ITypeDefinition type)
+                return type.GetNamespace().GetNamespaceName();
+
+            if (definition is INamespaceDefinition nsp)
+                return nsp.FullName();
+
+            return string.Empty;
         }
 
-        public static string GetTypeName(this ITypeDefinitionMember member)
+        public static string GetTypeName(this IDefinition definition)
         {
-            return member.ContainingTypeDefinition.GetTypeName(false);
+            if (definition is ITypeDefinitionMember member)
+                return member.ContainingTypeDefinition.GetTypeName(false);
+
+            if (definition is ITypeDefinition type)
+                return type.GetTypeName(includeNamespace: false);
+
+            return string.Empty;
         }
 
-        public static string GetMemberSignature(this ITypeDefinitionMember member)
+        public static string GetMemberSignature(this IDefinition definition)
         {
-            if (member is IFieldDefinition)
-                return member.Name.Value;
+            if (definition is IFieldDefinition field)
+                return field.Name.Value;
 
-            return MemberHelper.GetMemberSignature(member, NameFormattingOptions.Signature |
-                                                           NameFormattingOptions.TypeParameters |
-                                                           NameFormattingOptions.ContractNullable |
-                                                           NameFormattingOptions.OmitContainingType |
-                                                           NameFormattingOptions.OmitContainingNamespace |
-                                                           NameFormattingOptions.PreserveSpecialNames);
+            if (definition is ITypeDefinitionMember member)
+                return MemberHelper.GetMemberSignature(member, NameFormattingOptions.Signature |
+                                                               NameFormattingOptions.TypeParameters |
+                                                               NameFormattingOptions.ContractNullable |
+                                                               NameFormattingOptions.OmitContainingType |
+                                                               NameFormattingOptions.OmitContainingNamespace |
+                                                               NameFormattingOptions.PreserveSpecialNames);
+
+            return string.Empty;
         }
     }
 }
