@@ -65,5 +65,19 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Fact]
+        public void DeprecatedAnalyzer_Triggers_DE0002()
+        {
+            var source = @"
+                using System.Security.{{Permissions}};
+            ";
+
+            var expected = @"
+                DE0002: Permissions is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }

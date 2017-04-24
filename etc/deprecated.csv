@@ -1,2 +1,3 @@
 DocId,Namespace,Type,Member,DiagnosticIds
 T:System.Security.SecureString,System.Security,SecureString,,DE0001
+N:System.Security.Permissions,System.Security.Permissions,,,DE0002
