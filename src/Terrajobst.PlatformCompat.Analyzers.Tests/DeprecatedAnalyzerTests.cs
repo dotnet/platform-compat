@@ -79,5 +79,31 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Theory]
+        [InlineData("WebRequest")]
+        [InlineData("FtpWebRequest")]
+        [InlineData("FileWebRequest")]
+        [InlineData("HttpWebRequest")]
+        public void DeprecatedAnalyzer_Triggers_DE0003(string typeName)
+        {
+            var source = @"
+                using System.Net;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        {{$TYPE_NAME$}} x = null;
+                    }
+                }
+            ".Replace("$TYPE_NAME$", typeName);
+
+            var expected = $@"
+                DE0003: {typeName} is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }

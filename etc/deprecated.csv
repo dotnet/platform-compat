@@ -1,3 +1,7 @@
 DocId,Namespace,Type,Member,DiagnosticIds
+T:System.Net.FileWebRequest,System.Net,FileWebRequest,,DE0003
+T:System.Net.FtpWebRequest,System.Net,FtpWebRequest,,DE0003
+T:System.Net.HttpWebRequest,System.Net,HttpWebRequest,,DE0003
+T:System.Net.WebRequest,System.Net,WebRequest,,DE0003
 T:System.Security.SecureString,System.Security,SecureString,,DE0001
 N:System.Security.Permissions,System.Security.Permissions,,,DE0002

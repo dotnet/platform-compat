@@ -43,7 +43,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests.Helpers
         {
             var programFilesX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
             var path = Path.Combine(programFilesX86, "Reference Assemblies", "Microsoft", "Framework", ".NETFramework", "v4.6.1");
-            var names = new[] { "mscorlib", "System.Core" };
+            var names = new[] { "mscorlib", "System", "System.Core" };
             return names.Select(n => Path.Combine(path, n + ".dll"))
                         .Select(p => MetadataReference.CreateFromFile(p))
                         .ToImmutableArray<MetadataReference>();
