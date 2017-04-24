@@ -130,5 +130,30 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Fact]
+        public void DeprecatedAnalyzer_Triggers_DE0005()
+        {
+            var source = @"
+                using System.Net.Mail;
+
+                namespace ConsoleApp1
+                {
+                    class Program
+                    {
+                        static void Main(string[] args)
+                        {
+                            {{SmtpClient}} x;
+                        }
+                    }
+                }
+            ";
+
+            var expected = @"
+                DE0005: SmtpClient is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }
