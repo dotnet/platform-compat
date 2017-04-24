@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.PlatformCompat.Analyzers.Vsix", "src\Terrajobst.PlatformCompat.Analyzers.Vsix\Terrajobst.PlatformCompat.Analyzers.Vsix.csproj", "{95368DD4-2B76-4304-B7EC-6E27C72F641B}"
 EndProject
@@ -20,6 +20,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terrajobst.PlatformCompat.Analyzers.Tests", "src\Terrajobst.PlatformCompat.Analyzers.Tests\Terrajobst.PlatformCompat.Analyzers.Tests.csproj", "{513A0D76-352B-4DF6-945A-358B0CB2EABA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.PlatformCompat.Scanner.Tests", "src\Terrajobst.PlatformCompat.Scanner.Tests\Terrajobst.PlatformCompat.Scanner.Tests.csproj", "{F77DF5B7-FC77-4DA7-BE7B-DC402DEDD064}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3353F11E-B74D-44BD-9CF4-FD0A63A0C07B}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+		src\Directory.Build.targets = src\Directory.Build.targets
+		src\version.json = src\version.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
