@@ -7,10 +7,6 @@ namespace Terrajobst.PlatformCompat.Analyzers.Net461
     {
         private sealed class Parser : ApiStoreParser<string>
         {
-            protected override void Initialize(ArraySegment<string> headers)
-            {
-            }
-
             protected override string ParseData(ArraySegment<string> values)
             {
                 if (values.Count > 0)
