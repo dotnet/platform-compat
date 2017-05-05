@@ -206,7 +206,10 @@ namespace ex_gen
 
                 writer.WriteLine();
 
-                foreach (var entry in database.Entries)
+                foreach (var entry in database.Entries.OrderBy(e => e.NamespaceName)
+                                                      .ThenBy(e => e.TypeName)
+                                                      .ThenBy(e => e.MemberName)
+                                                      .ThenBy(e => e.DocId))
                 {
                     writer.Write(entry.DocId);
                     writer.Write(entry.NamespaceName);
