@@ -189,5 +189,32 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Theory]
+        [InlineData("Win32S")]
+        [InlineData("Win32Windows")]
+        [InlineData("WinCE")]
+        [InlineData("Xbox")]
+        [InlineData("MacOSX")]
+        public void DeprecatedAnalyzer_Triggers_DE0007(string memberName)
+        {
+            var source = @"
+                using System;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        var x = PlatformID.{{MEMBER_NAME}} x = null;
+                    }
+                }
+            ".Replace("MEMBER_NAME", memberName);
+
+            var expected = $@"
+                DE0007: PlatformID.{memberName} is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }
