@@ -1254,17 +1254,4 @@ M:System.Transactions.TransactionScope.Dispose,System.Transactions,TransactionSc
 "M:System.Xml.XmlDictionaryReader.CreateMtomReader(System.IO.Stream,System.Text.Encoding[],System.Xml.XmlDictionaryReaderQuotas)",System.Xml,XmlDictionaryReader,"CreateMtomReader(Stream, Encoding[], XmlDictionaryReaderQuotas)",X,X,X
 "M:System.Xml.XmlDictionaryWriter.CreateMtomWriter(System.IO.Stream,System.Text.Encoding,System.Int32,System.String)",System.Xml,XmlDictionaryWriter,"CreateMtomWriter(Stream, Encoding, Int32, String)",X,X,X
 "M:System.Xml.XmlDictionaryWriter.CreateMtomWriter(System.IO.Stream,System.Text.Encoding,System.Int32,System.String,System.String,System.String,System.Boolean,System.Boolean)",System.Xml,XmlDictionaryWriter,"CreateMtomWriter(Stream, Encoding, Int32, String, String, String, Boolean, Boolean)",X,X,X
-M:System.Xml.Serialization.XmlSerializer.CreateReader,System.Xml.Serialization,XmlSerializer,CreateReader(),X,X,X
-M:System.Xml.Serialization.XmlSerializer.CreateWriter,System.Xml.Serialization,XmlSerializer,CreateWriter(),X,X,X
-M:System.Xml.Serialization.XmlSerializer.Deserialize(System.IO.Stream),System.Xml.Serialization,XmlSerializer,Deserialize(Stream),X,X,X
-M:System.Xml.Serialization.XmlSerializer.Deserialize(System.IO.TextReader),System.Xml.Serialization,XmlSerializer,Deserialize(TextReader),X,X,X
-M:System.Xml.Serialization.XmlSerializer.Deserialize(System.Xml.XmlReader),System.Xml.Serialization,XmlSerializer,Deserialize(XmlReader),X,X,X
-"M:System.Xml.Serialization.XmlSerializer.Deserialize(System.Xml.XmlReader,System.String)",System.Xml.Serialization,XmlSerializer,"Deserialize(XmlReader, String)",X,X,X
-"M:System.Xml.Serialization.XmlSerializer.Deserialize(System.Xml.XmlReader,System.String,System.Xml.Serialization.XmlDeserializationEvents)",System.Xml.Serialization,XmlSerializer,"Deserialize(XmlReader, String, XmlDeserializationEvents)",X,X,X
-"M:System.Xml.Serialization.XmlSerializer.Deserialize(System.Xml.XmlReader,System.Xml.Serialization.XmlDeserializationEvents)",System.Xml.Serialization,XmlSerializer,"Deserialize(XmlReader, XmlDeserializationEvents)",X,X,X
-M:System.Xml.Serialization.XmlSerializer.Deserialize(System.Xml.Serialization.XmlSerializationReader),System.Xml.Serialization,XmlSerializer,Deserialize(XmlSerializationReader),X,X,X
-"M:System.Xml.Serialization.XmlSerializer.Serialize(System.Object,System.Xml.Serialization.XmlSerializationWriter)",System.Xml.Serialization,XmlSerializer,"Serialize(Object, XmlSerializationWriter)",X,X,X
-"M:System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter,System.Object,System.Xml.Serialization.XmlSerializerNamespaces)",System.Xml.Serialization,XmlSerializer,"Serialize(XmlWriter, Object, XmlSerializerNamespaces)",X,X,X
-"M:System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter,System.Object,System.Xml.Serialization.XmlSerializerNamespaces,System.String)",System.Xml.Serialization,XmlSerializer,"Serialize(XmlWriter, Object, XmlSerializerNamespaces, String)",X,X,X
-"M:System.Xml.Serialization.XmlSerializer.Serialize(System.Xml.XmlWriter,System.Object,System.Xml.Serialization.XmlSerializerNamespaces,System.String,System.String)",System.Xml.Serialization,XmlSerializer,"Serialize(XmlWriter, Object, XmlSerializerNamespaces, String, String)",X,X,X
 "M:System.Xml.Xsl.Runtime.XmlSortKeyAccumulator.AddStringSortKey(System.Xml.Xsl.Runtime.XmlCollation,System.String)",System.Xml.Xsl.Runtime,XmlSortKeyAccumulator,"AddStringSortKey(XmlCollation, String)",X,X,
