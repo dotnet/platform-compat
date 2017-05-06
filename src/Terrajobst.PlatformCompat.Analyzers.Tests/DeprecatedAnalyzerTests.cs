@@ -205,7 +205,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests
                 {
                     static void Main()
                     {
-                        var x = PlatformID.{{MEMBER_NAME}} x = null;
+                        var x = PlatformID.{{MEMBER_NAME}};
                     }
                 }
             ".Replace("MEMBER_NAME", memberName);
