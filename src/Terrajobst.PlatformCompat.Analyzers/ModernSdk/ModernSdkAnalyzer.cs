@@ -34,11 +34,11 @@ namespace Terrajobst.PlatformCompat.Analyzers.ModernSdk
                 var settings = startContext.Options.GetFileSettings(PlatformCompatOptions.SettingsName);
                 var options = new PlatformCompatOptions(settings);
 
-                // We only want to run if the project is targeting .NET Standard or UWP.
-                //var shouldRun = options.TargetFrameworkIsNetStandard() ||
-                //                options.TargetFrameworkIsUwp();
-                //if (!shouldRun)
-                //    return;
+                // We only want to run if the project is targeting.NET Standard or UWP.
+                var shouldRun = options.TargetFrameworkIsNetStandard() ||
+                                options.TargetFrameworkIsUwp();
+                if (!shouldRun)
+                    return;
 
                 startContext.RegisterSymbolAction(
                     symbolContext => AnalyzeMethod(symbolContext, options),

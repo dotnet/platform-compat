@@ -34,7 +34,7 @@ namespace Terrajobst.PlatformCompat.Analyzers.Tests
                 class NativeMethods
                 {
                     [DllImport(""Kernel32.dll"")]
-                    int GetWindowsVersion()
+                    static extern int GetWindowsVersion();
                 }
             ";
 
