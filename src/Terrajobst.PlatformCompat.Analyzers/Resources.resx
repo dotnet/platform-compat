@@ -140,6 +140,17 @@
   <data name="Exceptions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\etc\exceptions.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="ModernSdk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\etc\modernsdk.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ModernSdkAnalyzerMessageFormat" xml:space="preserve">
+    <value>{0}!{1} isn't available in UWP</value>
+    <comment>The format-able message the diagnostic displays.</comment>
+  </data>
+  <data name="ModernSdkAnalyzerTitle" xml:space="preserve">
+    <value>Native API not available in UWP</value>
+    <comment>The title of the diagnostic.</comment>
+  </data>
   <data name="Net461" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\etc\net461.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

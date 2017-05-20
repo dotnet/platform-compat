@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Immutable;
-using Terrajobst.PlatformCompat.Analyzers.Store;
 
 namespace Terrajobst.PlatformCompat.Analyzers
 {
@@ -20,6 +19,8 @@ namespace Terrajobst.PlatformCompat.Analyzers
         public bool TargetFrameworkIsNetCore() => TargetFramework.StartsWith("netcoreapp", StringComparison.OrdinalIgnoreCase);
 
         public bool TargetFrameworkIsNetStandard() => TargetFramework.StartsWith("netstandard", StringComparison.OrdinalIgnoreCase);
+
+        public bool TargetFrameworkIsUwp() => TargetFramework.StartsWith("uap", StringComparison.OrdinalIgnoreCase);
 
         public static Platform ParseIgnoredPlatforms(ImmutableDictionary<string, string> options)
         {
