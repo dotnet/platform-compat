@@ -20,7 +20,7 @@ namespace Terrajobst.PlatformCompat.Analyzers {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,14 +63,13 @@ namespace Terrajobst.PlatformCompat.Analyzers {
         
         /// <summary>
         ///   Looks up a localized string similar to DocId,Namespace,Type,Member,DiagnosticIds
-        ///T:System.Security.SecureString,System.Security,SecureString,,DE0001
-        ///N:System.Security.Permissions,System.Security.Permissions,,,DE0002
-        ///T:System.Net.WebRequest,System.Net,WebRequest,,DE0003
-        ///T:System.Net.FtpWebRequest,System.Net,FtpWebRequest,,DE0003
-        ///T:System.Net.FileWebRequest,System.Net,FileWebRequest,,DE0003
-        ///T:System.Net.HttpWebRequest,System.Net,HttpWebRequest,,DE0003
-        ///T:System.Net.WebClient,System.Net,WebClient,,DE0004
-        ///T:System.Net.Mail.SmtpClient,System.N [rest of string was truncated]&quot;;.
+        ///F:System.PlatformID.MacOSX,System,PlatformID,MacOSX,DE0007
+        ///F:System.PlatformID.Win32S,System,PlatformID,Win32S,DE0007
+        ///F:System.PlatformID.Win32Windows,System,PlatformID,Win32Windows,DE0007
+        ///F:System.PlatformID.WinCE,System,PlatformID,WinCE,DE0007
+        ///F:System.PlatformID.Xbox,System,PlatformID,Xbox,DE0007
+        ///T:System.Collections.ArrayList,System.Collections,ArrayList,,DE0006
+        ///T:System.Collections.CaseInsensitiveComparer,System.Collections,CaseInsensitiveComparer,,DE000 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Deprecated {
             get {
@@ -116,12 +115,53 @@ namespace Terrajobst.PlatformCompat.Analyzers {
         
         /// <summary>
         ///   Looks up a localized string similar to DocId,Namespace,Type,Member,linux,osx,win
-        ///&quot;M:System.Security.AccessControl.RegistryAccessRule.#ctor(System.Security.Principal.IdentityReference,System.Security.AccessControl.RegistryRights,System.Security.AccessControl.AccessControlType)&quot;,System.Security.AccessControl,RegistryAccessRule,&quot;.ctor(IdentityReference, RegistryRights, AccessControlType)&quot;,X,X,
-        ///&quot;M:System.Security.AccessControl.RegistryAccessRule.#ctor(System.String,System.Security.AccessControl.RegistryRights,System.Security.AccessControl.AccessCo [rest of string was truncated]&quot;;.
+        ///&quot;M:Microsoft.Win32.Registry.GetValue(System.String,System.String,System.Object)&quot;,Microsoft.Win32,Registry,&quot;GetValue(String, String, Object)&quot;,X,X,
+        ///&quot;M:Microsoft.Win32.Registry.SetValue(System.String,System.String,System.Object)&quot;,Microsoft.Win32,Registry,&quot;SetValue(String, String, Object)&quot;,X,X,
+        ///&quot;M:Microsoft.Win32.Registry.SetValue(System.String,System.String,System.Object,Microsoft.Win32.RegistryValueKind)&quot;,Microsoft.Win32,Registry,&quot;SetValue(String, String, Object, R [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Exceptions {
             get {
                 return ResourceManager.GetString("Exceptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name,ModuleName
+        ///abort,api-ms-win-crt-runtime-l1-1-0.dll
+        ///abs,api-ms-win-crt-utility-l1-1-0.dll
+        ///accept,ws2_32.dll
+        ///AcceptEx,mswsock.dll
+        ///acos,api-ms-win-crt-math-l1-1-0.dll
+        ///acosf,api-ms-win-crt-math-l1-1-0.dll
+        ///acosh,api-ms-win-crt-math-l1-1-0.dll
+        ///acoshf,api-ms-win-crt-math-l1-1-0.dll
+        ///acoshl,api-ms-win-crt-math-l1-1-0.dll
+        ///AcquireSRWLockExclusive,api-ms-win-core-synch-l1-1-0.dll
+        ///AcquireSRWLockExclusive,api-ms-win-core-synch-l1-2-0.dll
+        ///AcquireSRWLockExclusive,api-ms-win-core-synch-l1-2-1.dll
+        ///AcquireSR [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ModernSdk {
+            get {
+                return ResourceManager.GetString("ModernSdk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}!{1} isn&apos;t available in UWP.
+        /// </summary>
+        internal static string ModernSdkAnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("ModernSdkAnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Native API not available in UWP.
+        /// </summary>
+        internal static string ModernSdkAnalyzerTitle {
+            get {
+                return ResourceManager.GetString("ModernSdkAnalyzerTitle", resourceCulture);
             }
         }
         
