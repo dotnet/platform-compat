@@ -10,7 +10,7 @@ namespace ex_gen
         private readonly SortedSet<string> _platforms = new SortedSet<string>();
         private readonly Dictionary<string, DatabaseEntry> _entries = new Dictionary<string, DatabaseEntry>();
 
-        public void Add(ITypeDefinitionMember member, string platform)
+        public void Add(ITypeDefinitionMember member, string platform, string site)
         {
             _platforms.Add(platform);
             
@@ -22,7 +22,7 @@ namespace ex_gen
                 var typeName = member.GetTypeName();
                 var memberName = member.GetMemberSignature();
 
-                entry = new DatabaseEntry(docId, namespaceName, typeName, memberName);
+                entry = new DatabaseEntry(docId, namespaceName, typeName, memberName, site);
                 _entries.Add(docId, entry);
             }
 

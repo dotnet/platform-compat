@@ -87,14 +87,14 @@ namespace Terrajobst.PlatformCompat.Scanner
                     op.Value is IMethodReference m &&
                     IsPlatformNotSupported(m))
                 {
-                    return ExceptionInfo.ThrowsAt(nestingLevel);
+                    return ExceptionInfo.ThrowsAt(nestingLevel, method.ToString());
                 }
 
                 // throw SomeFactoryForPlatformNotSupportedExeption(...);
                 if (op.Value is IMethodReference r &&
                     IsFactoryForPlatformNotSupported(r))
                 {
-                    return ExceptionInfo.ThrowsAt(nestingLevel);
+                    return ExceptionInfo.ThrowsAt(nestingLevel, method.ToString());
                 }
             }
 
