@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Terrajobst.PlatformCompat.Analyzers\Terrajobst.PlatformCompat.Analyzers.csproj" />
+    <ProjectReference Include="..\ApiCompat.Analyzers\Terrajobst.PlatformCompat.Analyzers.csproj" />
   </ItemGroup>
 
   <ItemGroup>

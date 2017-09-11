@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Terrajobst.Cci\Terrajobst.Cci.csproj" />
-    <ProjectReference Include="..\Terrajobst.PlatformCompat.Scanner\Terrajobst.PlatformCompat.Scanner.csproj" />
+    <ProjectReference Include="..\ApiCompat.Cci\Terrajobst.Cci.csproj" />
+    <ProjectReference Include="..\ApiCompat.Scanner\Terrajobst.PlatformCompat.Scanner.csproj" />
   </ItemGroup>
 
   <ItemGroup>

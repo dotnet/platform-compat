@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Terrajobst.Cci\Terrajobst.Cci.csproj" />
-    <ProjectReference Include="..\Terrajobst.Csv\Terrajobst.Csv.csproj" />
+    <ProjectReference Include="..\ApiCompat.Cci\Terrajobst.Cci.csproj" />
+    <ProjectReference Include="..\ApiCompat.Csv\Terrajobst.Csv.csproj" />
   </ItemGroup>
 
 </Project>

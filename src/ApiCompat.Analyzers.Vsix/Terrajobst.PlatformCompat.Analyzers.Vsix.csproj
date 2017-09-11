@@ -76,13 +76,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Terrajobst.Csv\Terrajobst.Csv.csproj">
+    <ProjectReference Include="..\ApiCompat.Csv\Terrajobst.Csv.csproj">
       <Project>{1F38367F-A9B2-46A1-B1FF-1D04C4FDBBB9}</Project>
       <Name>Terrajobst.Csv</Name>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
       <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
-    <ProjectReference Include="..\Terrajobst.PlatformCompat.Analyzers\Terrajobst.PlatformCompat.Analyzers.csproj">
+    <ProjectReference Include="..\ApiCompat.Analyzers\Terrajobst.PlatformCompat.Analyzers.csproj">
       <Project>{4DAA1CC6-B7DF-4F97-9DD0-3EC500A9F986}</Project>
       <Name>Terrajobst.PlatformCompat.Analyzers</Name>
     </ProjectReference>
