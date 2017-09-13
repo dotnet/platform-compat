@@ -1,7 +1,7 @@
 ﻿using System;
-using Terrajobst.PlatformCompat.Analyzers.Exceptions;
+using ApiCompat.Analyzers.Exceptions;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Net461
+namespace ApiCompat.Analyzers.Net461
 {
     internal static partial class Net461Document
     {

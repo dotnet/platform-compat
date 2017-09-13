@@ -1,9 +1,9 @@
 ﻿using Microsoft.CodeAnalysis.Diagnostics;
-using Terrajobst.PlatformCompat.Analyzers.ModernSdk;
-using Terrajobst.PlatformCompat.Analyzers.Tests.Helpers;
+using ApiCompat.Analyzers.ModernSdk;
+using ApiCompat.Analyzers.Tests.Helpers;
 using Xunit;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Tests
+namespace ApiCompat.Analyzers.Tests
 {
     public class ModernSdkAnalyzerTests : CSharpDiagnosticTest
     {

@@ -14,7 +14,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 //
 #pragma warning disable RS1012
 
-namespace Terrajobst.PlatformCompat.Analyzers
+namespace ApiCompat.Analyzers
 {
     public static class SymbolUsageAnalysisExtensions
     {

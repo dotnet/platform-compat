@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Immutable;
-using Terrajobst.PlatformCompat.Analyzers.Exceptions;
+using ApiCompat.Analyzers.Exceptions;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Deprecated
+namespace ApiCompat.Analyzers.Deprecated
 {
     internal static partial class DeprecatedDocument
     {

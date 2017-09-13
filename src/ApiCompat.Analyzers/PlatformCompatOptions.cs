@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Immutable;
 
-namespace Terrajobst.PlatformCompat.Analyzers
+namespace ApiCompat.Analyzers
 {
     public sealed class PlatformCompatOptions
     {
-        public const string SettingsName = "Terrajobst.PlatformCompat.Analyzers.settings";
+        public const string SettingsName = "ApiCompat.Analyzers.settings";
 
         public PlatformCompatOptions(ImmutableDictionary<string, string> options)
         {

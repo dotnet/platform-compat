@@ -11,4 +11,4 @@ setlocal
 set OutDir="%~dp0bin"
 
 if not exist %OutDir% mkdir %OutDir%
-%MSBuild% /nologo /m /v:m /nr:false /flp:logfile=bin\msbuild.log;verbosity=normal /t:Restore /t:Build /p:OutDir=%OutDir% %*
+%MSBuild% /nologo /m /v:m /nr:false /flp:logfile=bin\msbuild.log;verbosity=normal /t:Restore /t:Rebuild /p:OutDir=%OutDir% %*

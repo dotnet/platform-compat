@@ -1,6 +1,6 @@
 ﻿using Microsoft.Cci;
 
-namespace Terrajobst.PlatformCompat.Scanner.Tests.Helpers
+namespace ApiCompat.Scanner.Tests.Helpers
 {
     partial class PlatformCompatTests
     {

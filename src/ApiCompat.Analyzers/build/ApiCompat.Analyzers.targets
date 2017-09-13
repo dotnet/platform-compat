@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <AdditionalFileContent Include="PlatformCompatIgnore=$(PlatformCompatIgnore);TargetFramework=$(TargetFramework)">
-      <AdditionalFileName>Terrajobst.PlatformCompat.Analyzers.settings</AdditionalFileName>
+      <AdditionalFileName>ApiCompat.Analyzers.settings</AdditionalFileName>
     </AdditionalFileContent>
   </ItemGroup>
 

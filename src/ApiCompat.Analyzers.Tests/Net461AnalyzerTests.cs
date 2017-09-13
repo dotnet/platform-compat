@@ -1,9 +1,9 @@
 ﻿using Microsoft.CodeAnalysis.Diagnostics;
-using Terrajobst.PlatformCompat.Analyzers.Net461;
-using Terrajobst.PlatformCompat.Analyzers.Tests.Helpers;
+using ApiCompat.Analyzers.Net461;
+using ApiCompat.Analyzers.Tests.Helpers;
 using Xunit;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Tests
+namespace ApiCompat.Analyzers.Tests
 {
     public class Net461AnalyzerTests : CSharpDiagnosticTest
     {

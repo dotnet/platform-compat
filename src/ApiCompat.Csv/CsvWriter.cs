@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Terrajobst.Csv
+namespace ApiCompat.Csv
 {
     public class CsvWriter
     {

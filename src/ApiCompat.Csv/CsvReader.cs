@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace Terrajobst.Csv
+namespace ApiCompat.Csv
 {
     public class CsvReader
     {

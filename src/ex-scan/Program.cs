@@ -4,8 +4,8 @@ using System.IO;
 using System.Linq;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
-using Terrajobst.Csv;
-using Terrajobst.PlatformCompat.Scanner;
+using ApiCompat.Csv;
+using ApiCompat.Scanner;
 
 namespace ex_scan
 {

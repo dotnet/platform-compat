@@ -1,6 +1,6 @@
-﻿using Terrajobst.PlatformCompat.Analyzers.Store;
+﻿using ApiCompat.Analyzers.Store;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Net461
+namespace ApiCompat.Analyzers.Net461
 {
     internal static partial class Net461Document
     {

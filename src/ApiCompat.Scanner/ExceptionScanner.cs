@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
 
-namespace Terrajobst.PlatformCompat.Scanner
+namespace ApiCompat.Scanner
 {
     public sealed class ExceptionScanner
     {

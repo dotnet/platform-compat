@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Tests.Helpers
+namespace ApiCompat.Analyzers.Tests.Helpers
 {
     public sealed partial class AnnotatedText
     {

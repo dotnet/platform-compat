@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Tests.Helpers
+namespace ApiCompat.Analyzers.Tests.Helpers
 {
     public sealed class AnalyzedProject
     {

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="build\Terrajobst.PlatformCompat.Analyzers.targets">
+    <Content Include="build\ApiCompat.Analyzers.targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApiCompat.Csv\Terrajobst.Csv.csproj" />
+    <ProjectReference Include="..\ApiCompat.Csv\ApiCompat.Csv.csproj" />
   </ItemGroup>
 
   <ItemGroup>

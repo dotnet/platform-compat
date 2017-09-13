@@ -1,7 +1,7 @@
 ﻿using System;
-using Terrajobst.PlatformCompat.Analyzers.Exceptions;
+using ApiCompat.Analyzers.Exceptions;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Store
+namespace ApiCompat.Analyzers.Store
 {
     internal static partial class ExceptionDocument
     {

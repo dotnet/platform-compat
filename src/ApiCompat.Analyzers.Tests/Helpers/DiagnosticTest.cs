@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Xunit;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Tests.Helpers
+namespace ApiCompat.Analyzers.Tests.Helpers
 {
     public abstract partial class DiagnosticTest
     {

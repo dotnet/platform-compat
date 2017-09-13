@@ -5,16 +5,16 @@ using System.IO;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Terrajobst.Csv;
-using Terrajobst.PlatformCompat.Analyzers.Store;
+using ApiCompat.Csv;
+using ApiCompat.Analyzers.Store;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Deprecated
+namespace ApiCompat.Analyzers.Deprecated
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class DeprecatedAnalyzer : DiagnosticAnalyzer
     {
         private const string Category = "Usage";
-        private const string HelpLinkFormat = "https://github.com/terrajobst/platform-compat/blob/master/docs/{0}.md";
+        private const string HelpLinkFormat = "https://github.com/ApiCompat/platform-compat/blob/master/docs/{0}.md";
 
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.DeprecatedAnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.DeprecatedAnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));

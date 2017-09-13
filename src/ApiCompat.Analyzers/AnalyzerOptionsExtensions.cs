@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace Terrajobst.PlatformCompat.Analyzers
+namespace ApiCompat.Analyzers
 {
     public static class AnalyzerOptionsExtensions
     {

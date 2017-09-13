@@ -1,7 +1,7 @@
-﻿using Terrajobst.PlatformCompat.Scanner.Tests.Helpers;
+﻿using ApiCompat.Scanner.Tests.Helpers;
 using Xunit;
 
-namespace Terrajobst.PlatformCompat.Scanner.Tests
+namespace ApiCompat.Scanner.Tests
 {
     public partial class ExceptionScannerTests : PlatformCompatTests
     {

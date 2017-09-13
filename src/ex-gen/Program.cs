@@ -11,8 +11,8 @@ using SharpCompress.Archives.Zip;
 using SharpCompress.Compressors;
 using SharpCompress.Compressors.Deflate;
 using SharpCompress.Readers;
-using Terrajobst.Csv;
-using Terrajobst.PlatformCompat.Scanner;
+using ApiCompat.Csv;
+using ApiCompat.Scanner;
 
 namespace ex_gen
 {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Terrajobst.Csv;
+using ApiCompat.Csv;
 
-namespace Terrajobst.PlatformCompat.Analyzers.ModernSdk
+namespace ApiCompat.Analyzers.ModernSdk
 {
     internal sealed class ModernSdkDocument
     {

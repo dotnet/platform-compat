@@ -8,7 +8,7 @@ platforms or are deprecated.
 
 ## Usage
 
-In order to use it, install the NuGet package [Terrajobst.PlatformCompat.Analyzers](https://www.nuget.org/packages/terrajobst.platformcompat.analyzers).
+In order to use it, install the NuGet package [ApiCompat.Analyzers](https://www.nuget.org/packages/ApiCompat.analyzers).
 
 ## Experience
 

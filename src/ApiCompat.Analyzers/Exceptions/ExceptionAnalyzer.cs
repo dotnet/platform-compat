@@ -2,16 +2,16 @@ using System;
 using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Terrajobst.PlatformCompat.Analyzers.Store;
+using ApiCompat.Analyzers.Store;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
+namespace ApiCompat.Analyzers.Exceptions
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class ExceptionAnalyzer : DiagnosticAnalyzer
     {
         public const string DiagnosticId = "PC001";
         private const string Category = "Usage";
-        private const string HelpLink = "https://github.com/terrajobst/platform-compat/blob/master/docs/" + DiagnosticId + ".md";
+        private const string HelpLink = "https://github.com/ApiCompat/platform-compat/blob/master/docs/" + DiagnosticId + ".md";
 
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.ExceptionAnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.ExceptionAnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));

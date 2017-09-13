@@ -1,4 +1,4 @@
-﻿namespace Terrajobst.PlatformCompat.Analyzers.Store
+﻿namespace ApiCompat.Analyzers.Store
 {
     internal static partial class ExceptionDocument
     {

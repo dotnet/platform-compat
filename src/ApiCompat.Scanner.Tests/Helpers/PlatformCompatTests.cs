@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Xunit;
 
-namespace Terrajobst.PlatformCompat.Scanner.Tests.Helpers
+namespace ApiCompat.Scanner.Tests.Helpers
 {
     public abstract partial class PlatformCompatTests
     {

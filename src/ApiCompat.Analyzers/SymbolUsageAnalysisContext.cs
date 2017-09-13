@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace Terrajobst.PlatformCompat.Analyzers
+namespace ApiCompat.Analyzers
 {
     public struct SymbolUsageAnalysisContext
     {

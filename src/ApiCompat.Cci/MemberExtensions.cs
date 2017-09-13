@@ -1,7 +1,7 @@
 ﻿using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
 
-namespace Terrajobst.Cci
+namespace ApiCompat.Cci
 {
     public static class MemberExtensions
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Terrajobst.PlatformCompat.Analyzers.Exceptions;
-using Terrajobst.PlatformCompat.Analyzers.Tests.Helpers;
+using ApiCompat.Analyzers.Exceptions;
+using ApiCompat.Analyzers.Tests.Helpers;
 using Xunit;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Tests
+namespace ApiCompat.Analyzers.Tests
 {
     public class ExceptionAnalyzerTests : CSharpDiagnosticTest
     {

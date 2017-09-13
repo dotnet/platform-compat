@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Terrajobst.Csv;
-using Terrajobst.PlatformCompat.Analyzers.Store;
+using ApiCompat.Csv;
+using ApiCompat.Analyzers.Store;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Exceptions
+namespace ApiCompat.Analyzers.Exceptions
 {
     internal abstract class ApiStoreParser<T>
     {

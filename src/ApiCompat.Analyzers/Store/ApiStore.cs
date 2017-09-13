@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Store
+namespace ApiCompat.Analyzers.Store
 {
     internal sealed class ApiStore<T>
     {

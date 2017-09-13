@@ -5,8 +5,8 @@ using System.IO;
 using System.Linq;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
-using Terrajobst.Cci;
-using Terrajobst.Csv;
+using ApiCompat.Cci;
+using ApiCompat.Csv;
 
 namespace dep_index
 {

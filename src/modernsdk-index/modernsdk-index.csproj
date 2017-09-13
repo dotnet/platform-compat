@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApiCompat.Csv\Terrajobst.Csv.csproj" />
+    <ProjectReference Include="..\ApiCompat.Csv\ApiCompat.Csv.csproj" />
   </ItemGroup>
 
 </Project>

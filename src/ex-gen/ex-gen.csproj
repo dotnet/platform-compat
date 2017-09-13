@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApiCompat.Cci\Terrajobst.Cci.csproj" />
-    <ProjectReference Include="..\ApiCompat.Csv\Terrajobst.Csv.csproj" />
-    <ProjectReference Include="..\ApiCompat.Scanner\Terrajobst.PlatformCompat.Scanner.csproj" />
+    <ProjectReference Include="..\ApiCompat.Cci\ApiCompat.Cci.csproj" />
+    <ProjectReference Include="..\ApiCompat.Csv\ApiCompat.Csv.csproj" />
+    <ProjectReference Include="..\ApiCompat.Scanner\ApiCompat.Scanner.csproj" />
   </ItemGroup>
 
   <ItemGroup>

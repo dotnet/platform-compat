@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Tests.Helpers
+namespace ApiCompat.Analyzers.Tests.Helpers
 {
     public sealed class AnalyzedDocument
     {

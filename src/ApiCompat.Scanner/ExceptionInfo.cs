@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Terrajobst.PlatformCompat.Scanner
+namespace ApiCompat.Scanner
 {
     public struct ExceptionInfo
     {

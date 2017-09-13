@@ -35,8 +35,8 @@
     <ProjectGuid>{95368DD4-2B76-4304-B7EC-6E27C72F641B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Terrajobst.PlatformCompat.Analyzers.Vsix</RootNamespace>
-    <AssemblyName>Terrajobst.PlatformCompat.Analyzers.Vsix</AssemblyName>
+    <RootNamespace>ApiCompat.Analyzers.Vsix</RootNamespace>
+    <AssemblyName>ApiCompat.Analyzers.Vsix</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
@@ -76,15 +76,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ApiCompat.Csv\Terrajobst.Csv.csproj">
+    <ProjectReference Include="..\ApiCompat.Csv\ApiCompat.Csv.csproj">
       <Project>{1F38367F-A9B2-46A1-B1FF-1D04C4FDBBB9}</Project>
-      <Name>Terrajobst.Csv</Name>
+      <Name>ApiCompat.Csv</Name>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
       <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
-    <ProjectReference Include="..\ApiCompat.Analyzers\Terrajobst.PlatformCompat.Analyzers.csproj">
+    <ProjectReference Include="..\ApiCompat.Analyzers\ApiCompat.Analyzers.csproj">
       <Project>{4DAA1CC6-B7DF-4F97-9DD0-3EC500A9F986}</Project>
-      <Name>Terrajobst.PlatformCompat.Analyzers</Name>
+      <Name>ApiCompat.Analyzers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

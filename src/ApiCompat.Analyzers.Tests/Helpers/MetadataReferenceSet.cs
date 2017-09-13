@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 
-namespace Terrajobst.PlatformCompat.Analyzers.Tests.Helpers
+namespace ApiCompat.Analyzers.Tests.Helpers
 {
     internal static class MetadataReferenceSet
     {

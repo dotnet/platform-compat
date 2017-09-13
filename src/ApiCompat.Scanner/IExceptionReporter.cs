@@ -1,6 +1,6 @@
 ﻿using Microsoft.Cci;
 
-namespace Terrajobst.PlatformCompat.Scanner
+namespace ApiCompat.Scanner
 {
     public interface IExceptionReporter
     {
