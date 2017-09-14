@@ -4,8 +4,8 @@ using System.IO;
 using System.Linq;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
-using ApiCompat.Csv;
-using ApiCompat.Scanner;
+using PlatformCompat.Csv;
+using PlatformCompat.Scanner;
 
 namespace ex_scan
 {

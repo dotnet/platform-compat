@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApiCompat.Cci\ApiCompat.Cci.csproj" />
-    <ProjectReference Include="..\ApiCompat.Csv\ApiCompat.Csv.csproj" />
-    <ProjectReference Include="..\ApiCompat.Scanner\ApiCompat.Scanner.csproj" />
+    <ProjectReference Include="..\PlatformCompat.Cci\PlatformCompat.Cci.csproj" />
+    <ProjectReference Include="..\PlatformCompat.Csv\PlatformCompat.Csv.csproj" />
+    <ProjectReference Include="..\PlatformCompat.Scanner\PlatformCompat.Scanner.csproj" />
   </ItemGroup>
 
   <ItemGroup>

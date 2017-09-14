@@ -1,0 +1,31 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <AdditionalFileContent Include="PlatformCompatIgnore=$(PlatformCompatIgnore);TargetFramework=$(TargetFramework)">
+      <AdditionalFileName>PlatformCompat.Analyzers.settings</AdditionalFileName>
+    </AdditionalFileContent>
+  </ItemGroup>
+
+  <!-- This target ensures our additional file is generated and passed to the compiler. -->
+
+  <Target Name="GenerateAdditionalFiles"
+          Inputs="@(AdditionalFileContent)"
+          Outputs="%(AdditionalFileName)"
+          BeforeTargets="CoreCompile">
+    <PropertyGroup>
+      <_AdditionalFilePath>$(IntermediateOutputPath)%(AdditionalFileContent.AdditionalFileName)</_AdditionalFilePath>
+    </PropertyGroup>
+    <ReadLinesFromFile File="$(_AdditionalFilePath)" >
+      <Output TaskParameter="Lines" ItemName="_ExistingLines"/>
+    </ReadLinesFromFile>
+    <WriteLinesToFile Condition="'@(_ExistingLines)' != '@(AdditionalFileContent)'"
+                      Overwrite="True"
+                      File="$(_AdditionalFilePath)"
+                      Lines="@(AdditionalFileContent)" />
+    <ItemGroup>
+      <FileWrites Include="$(_AdditionalFilePath)" />
+      <AdditionalFiles Include="$(_AdditionalFilePath)" />
+    </ItemGroup>
+  </Target>
+
+</Project>

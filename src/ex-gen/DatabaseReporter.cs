@@ -1,5 +1,5 @@
 ﻿using Microsoft.Cci;
-using ApiCompat.Scanner;
+using PlatformCompat.Scanner;
 
 namespace ex_gen
 {
