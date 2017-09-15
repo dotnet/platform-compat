@@ -1,5 +1,5 @@
 ﻿using Microsoft.Cci;
-using Terrajobst.PlatformCompat.Scanner;
+using PlatformCompat.Scanner;
 
 namespace ex_gen
 {

@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26516.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terrajobst.PlatformCompat.Analyzers.Vsix", "src\Terrajobst.PlatformCompat.Analyzers.Vsix\Terrajobst.PlatformCompat.Analyzers.Vsix.csproj", "{95368DD4-2B76-4304-B7EC-6E27C72F641B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformCompat.Analyzers.Vsix", "src\PlatformCompat.Analyzers.Vsix\PlatformCompat.Analyzers.Vsix.csproj", "{95368DD4-2B76-4304-B7EC-6E27C72F641B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex-scan", "src\ex-scan\ex-scan.csproj", "{CFCE7A41-E545-419D-B408-EF1B6FA3CDB4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terrajobst.PlatformCompat.Scanner", "src\Terrajobst.PlatformCompat.Scanner\Terrajobst.PlatformCompat.Scanner.csproj", "{1A3F19F6-8492-4E47-B290-8222613202F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformCompat.Scanner", "src\PlatformCompat.Scanner\PlatformCompat.Scanner.csproj", "{1A3F19F6-8492-4E47-B290-8222613202F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terrajobst.Csv", "src\Terrajobst.Csv\Terrajobst.Csv.csproj", "{1F38367F-A9B2-46A1-B1FF-1D04C4FDBBB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformCompat.Csv", "src\PlatformCompat.Csv\PlatformCompat.Csv.csproj", "{1F38367F-A9B2-46A1-B1FF-1D04C4FDBBB9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terrajobst.Cci", "src\Terrajobst.Cci\Terrajobst.Cci.csproj", "{E005D6FA-BE4F-4814-839E-43768DAA5E97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformCompat.Cci", "src\PlatformCompat.Cci\PlatformCompat.Cci.csproj", "{E005D6FA-BE4F-4814-839E-43768DAA5E97}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ex-gen", "src\ex-gen\ex-gen.csproj", "{8D0CEDDE-E2D2-4FF6-A5B4-A2696B31C4E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terrajobst.PlatformCompat.Analyzers", "src\Terrajobst.PlatformCompat.Analyzers\Terrajobst.PlatformCompat.Analyzers.csproj", "{4DAA1CC6-B7DF-4F97-9DD0-3EC500A9F986}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformCompat.Analyzers", "src\PlatformCompat.Analyzers\PlatformCompat.Analyzers.csproj", "{4DAA1CC6-B7DF-4F97-9DD0-3EC500A9F986}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terrajobst.PlatformCompat.Analyzers.Tests", "src\Terrajobst.PlatformCompat.Analyzers.Tests\Terrajobst.PlatformCompat.Analyzers.Tests.csproj", "{513A0D76-352B-4DF6-945A-358B0CB2EABA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformCompat.Analyzers.Tests", "src\PlatformCompat.Analyzers.Tests\PlatformCompat.Analyzers.Tests.csproj", "{513A0D76-352B-4DF6-945A-358B0CB2EABA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terrajobst.PlatformCompat.Scanner.Tests", "src\Terrajobst.PlatformCompat.Scanner.Tests\Terrajobst.PlatformCompat.Scanner.Tests.csproj", "{F77DF5B7-FC77-4DA7-BE7B-DC402DEDD064}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformCompat.Scanner.Tests", "src\PlatformCompat.Scanner.Tests\PlatformCompat.Scanner.Tests.csproj", "{F77DF5B7-FC77-4DA7-BE7B-DC402DEDD064}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dep-index", "src\dep-index\dep-index.csproj", "{6973B489-E5ED-4F82-BE2A-A4A54868F45D}"
 EndProject

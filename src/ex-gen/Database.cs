@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
-using Terrajobst.Cci;
+using PlatformCompat.Cci;
 
 namespace ex_gen
 {

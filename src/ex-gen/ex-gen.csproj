@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Terrajobst.Cci\Terrajobst.Cci.csproj" />
-    <ProjectReference Include="..\Terrajobst.Csv\Terrajobst.Csv.csproj" />
-    <ProjectReference Include="..\Terrajobst.PlatformCompat.Scanner\Terrajobst.PlatformCompat.Scanner.csproj" />
+    <ProjectReference Include="..\PlatformCompat.Cci\PlatformCompat.Cci.csproj" />
+    <ProjectReference Include="..\PlatformCompat.Csv\PlatformCompat.Csv.csproj" />
+    <ProjectReference Include="..\PlatformCompat.Scanner\PlatformCompat.Scanner.csproj" />
   </ItemGroup>
 
   <ItemGroup>

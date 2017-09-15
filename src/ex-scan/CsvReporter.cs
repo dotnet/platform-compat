@@ -1,8 +1,8 @@
 ﻿using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
-using Terrajobst.Cci;
-using Terrajobst.Csv;
-using Terrajobst.PlatformCompat.Scanner;
+using PlatformCompat.Cci;
+using PlatformCompat.Csv;
+using PlatformCompat.Scanner;
 
 namespace ex_scan
 {
