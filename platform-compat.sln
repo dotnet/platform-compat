@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26516.2
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformCompat.Analyzers.Vsix", "src\PlatformCompat.Analyzers.Vsix\PlatformCompat.Analyzers.Vsix.csproj", "{95368DD4-2B76-4304-B7EC-6E27C72F641B}"
 EndProject
@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformCompat.Analyzers.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformCompat.Scanner.Tests", "src\PlatformCompat.Scanner.Tests\PlatformCompat.Scanner.Tests.csproj", "{F77DF5B7-FC77-4DA7-BE7B-DC402DEDD064}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dep-index", "src\dep-index\dep-index.csproj", "{6973B489-E5ED-4F82-BE2A-A4A54868F45D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dep-index", "src\dep-index\dep-index.csproj", "{6973B489-E5ED-4F82-BE2A-A4A54868F45D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3353F11E-B74D-44BD-9CF4-FD0A63A0C07B}"
 	ProjectSection(SolutionItems) = preProject
@@ -32,6 +32,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3353F1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "modernsdk-index", "src\modernsdk-index\modernsdk-index.csproj", "{63D0E604-F739-41D7-B6E6-B46ECA9051DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "etc", "etc", "{088D41D6-243E-4494-8C7A-C1FEA8437CD6}"
+	ProjectSection(SolutionItems) = preProject
+		etc\deprecated.csv = etc\deprecated.csv
+		etc\exceptions-exclusions.csv = etc\exceptions-exclusions.csv
+		etc\exceptions-inclusions.csv = etc\exceptions-inclusions.csv
+		etc\exceptions.csv = etc\exceptions.csv
+		etc\modernsdk.csv = etc\modernsdk.csv
+		etc\net461.csv = etc\net461.csv
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6F07EE72-A705-4279-BD05-4BF5B8BB1AC5}"
+	ProjectSection(SolutionItems) = preProject
+		docs\DE0001.md = docs\DE0001.md
+		docs\DE0002.md = docs\DE0002.md
+		docs\DE0003.md = docs\DE0003.md
+		docs\DE0004.md = docs\DE0004.md
+		docs\DE0005.md = docs\DE0005.md
+		docs\DE0006.md = docs\DE0006.md
+		docs\DE0007.md = docs\DE0007.md
+		docs\DE0008.md = docs\DE0008.md
+		docs\PC001.md = docs\PC001.md
+		docs\PC002.md = docs\PC002.md
+		docs\PC003.md = docs\PC003.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,5 +111,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CA3420F-FD38-44A8-8520-B7B3D0EDF7D3}
 	EndGlobalSection
 EndGlobal

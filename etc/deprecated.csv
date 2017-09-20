@@ -1,4 +1,6 @@
 DocId,Namespace,Type,Member,DiagnosticIds
+"M:System.Activator.CreateInstance(System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo,System.Object[])",System,Activator,"CreateInstance(Type, BindingFlags, Binder, Object[], CultureInfo, Object[])",DE0008
+"M:System.Activator.CreateInstance(System.Type,System.Object[],System.Object[])",System,Activator,"CreateInstance(Type, Object[], Object[])",DE0008
 F:System.PlatformID.MacOSX,System,PlatformID,MacOSX,DE0007
 F:System.PlatformID.Win32S,System,PlatformID,Win32S,DE0007
 F:System.PlatformID.Win32Windows,System,PlatformID,Win32Windows,DE0007

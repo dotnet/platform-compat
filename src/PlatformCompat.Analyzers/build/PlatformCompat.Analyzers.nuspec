@@ -6,8 +6,8 @@
     <title>PlatformCompat.Analyzers</title>
     <authors>Immo Landwerth</authors>
     <owners>Immo Landwerth</owners>
-    <licenseUrl>https://github.com/PlatformCompat/platform-compat/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/PlatformCompat/platform-compat</projectUrl>
+    <licenseUrl>https://github.com/dotnet/platform-compat/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/dotnet/platform-compat</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Shows diagnostics for .NET Core APIs that throw PlatformNotSupportedException on specific operating systems.</description>
     <copyright>Copyright (c) Immo Landwerth</copyright>

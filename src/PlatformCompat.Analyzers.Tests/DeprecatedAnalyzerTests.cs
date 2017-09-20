@@ -216,5 +216,27 @@ namespace PlatformCompat.Analyzers.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Fact]
+        public void DeprecatedAnalyzer_Triggers_DE0008()
+        {
+            var source = @"
+                using System;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        var obj = Activator.{{CreateInstance}}(typeof(object), null, new object[] {1,2});
+                    }
+                }
+            ";
+
+            var expected = $@"
+                DE0008: Activator.CreateInstance(Type, object[], object[]) is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }

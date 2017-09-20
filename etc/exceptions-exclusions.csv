@@ -1,0 +1,14 @@
+DocId,Namespace,Type,Member,Reason,linux,osx,win
+"M:System.Activator.CreateInstance(System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo)",System,Activator,"CreateInstance(Type, BindingFlags, Binder, Object[], CultureInfo)",PNSE Unreachable,X,X,X
+"M:System.Activator.CreateInstance(System.Type,System.Object[])",System,Activator,"CreateInstance(Type, Object[])",PNSE Unreachable,X,X,X
+"M:System.Activator.CreateInstance(System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo,System.Object[])",System,Activator,"CreateInstance(Type, BindingFlags, Binder, Object[], CultureInfo, Object[])",DE0008.md,X,X,X
+"M:System.Activator.CreateInstance(System.Type,System.Object[],System.Object[])",System,Activator,"CreateInstance(Type, Object[], Object[])",DE0008.md,X,X,X
+"M:System.ComponentModel.LicenseManager.CreateWithContext(System.Type,System.ComponentModel.LicenseContext,System.Object[])",System.ComponentModel,LicenseManager,"CreateWithContext(Type, LicenseContext, Object[])",PNSE Unreachable,X,X,X
+M:System.ComponentModel.MaskedTextProvider.Clone,System.ComponentModel,MaskedTextProvider,Clone(),PNSE Unreachable,X,X,X
+"M:System.ComponentModel.TypeDescriptionProvider.CreateInstance(System.IServiceProvider,System.Type,System.Type[],System.Object[])",System.ComponentModel,TypeDescriptionProvider,"CreateInstance(IServiceProvider, Type, Type[], Object[])",PNSE Unreachable,X,X,X
+"M:System.ComponentModel.TypeDescriptor.CreateInstance(System.IServiceProvider,System.Type,System.Type[],System.Object[])",System.ComponentModel,TypeDescriptor,"CreateInstance(IServiceProvider, Type, Type[], Object[])",PNSE Unreachable,X,X,X
+M:System.Data.Common.DataAdapter.CloneInternals,System.Data.Common,DataAdapter,CloneInternals(),PNSE Unreachable,X,X,X
+M:System.Data.Common.DbDataAdapter.System#ICloneable#Clone,System.Data.Common,DbDataAdapter,System.ICloneable.Clone(),PNSE Unreachable,X,X,X
+M:System.Diagnostics.Process.Start,System.Diagnostics,Process,Start(),Only if UseShellExecute true and Windows version does not support it,,,X
+M:System.Diagnostics.Process.Start(System.Diagnostics.ProcessStartInfo),System.Diagnostics,Process,Start(ProcessStartInfo),Only if UseShellExecute true and Windows version does not support it,,,X
+P:System.Console.CapsLock,System,Console,CapsLock,Bogus on curated list,X,X,X
