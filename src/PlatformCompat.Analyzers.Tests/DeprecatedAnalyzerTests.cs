@@ -238,5 +238,28 @@ namespace PlatformCompat.Analyzers.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Fact]
+        public void DeprecatedAnalyzer_Triggers_DE0009()
+        {
+            var source = @"
+                using System;
+                using System.Threading;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        var obj = {{new Semaphore(10, 10, ""Some name"")}};
+                    }
+                }
+            ";
+
+            var expected = $@"
+                DE0009: Semaphore.Semaphore(int, int, string) is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }

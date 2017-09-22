@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26919.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformCompat.Analyzers.Vsix", "src\PlatformCompat.Analyzers.Vsix\PlatformCompat.Analyzers.Vsix.csproj", "{95368DD4-2B76-4304-B7EC-6E27C72F641B}"
 EndProject
@@ -53,6 +53,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6F07EE72-A
 		docs\DE0006.md = docs\DE0006.md
 		docs\DE0007.md = docs\DE0007.md
 		docs\DE0008.md = docs\DE0008.md
+		docs\DE0009.md = docs\DE0009.md
 		docs\PC001.md = docs\PC001.md
 		docs\PC002.md = docs\PC002.md
 		docs\PC003.md = docs\PC003.md

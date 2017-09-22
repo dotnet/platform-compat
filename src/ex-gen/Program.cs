@@ -185,7 +185,7 @@ namespace ex_gen
                         e.Key.StartsWith(@"shared/Microsoft.NETCore.App/") ||
                         e.Key.StartsWith(@"shared\Microsoft.NETCore.App\"));
                     if (!selectedEntries.Any())
-                        throw new ArgumentException($"No archive selected to be extracted from {fileName} at {tempFolder}");
+                        throw new InvalidDataException($"No archive selected to be extracted from {fileName} at {tempFolder}");
 
                     foreach (var entry in selectedEntries)
                         entry.WriteToDirectory(exractedFolderPath, options);
@@ -251,7 +251,7 @@ namespace ex_gen
 
             foreach (var root in roots)
             {
-                var match = Regex.Match(root, @"dotnet-sdk-2.0.0-([^-]+)-x64" /* @"dotnet-dev-([^-]+)-[^-]+.latest" */);
+                var match = Regex.Match(root, @"dotnet-sdk-2.0.0-([^-]+)-x64");
                 var platform = match.Success ? match.Groups[1].Value : root;
 
                 var sharedFrameworkFolder = Path.Combine(root, "shared", "Microsoft.NETCore.App");
@@ -310,10 +310,10 @@ namespace ex_gen
                     .idx;
 
                 if (expectedPlatforms.Count != (headerFields.Length - indexOfFirstPlatformField))
-                    throw new ArgumentException($"Number of platforms in {path} did not match the expected value of {expectedPlatforms.Count}");
+                    throw new InvalidDataException($"Number of platforms in {path} did not match the expected value of {expectedPlatforms.Count}");
 
                 if (!headerFields.Skip(indexOfFirstPlatformField).All(p => expectedPlatforms.Contains(p)))
-                    throw new ArgumentException($"Some platforms in {path} are not in the expected platforms: {string.Join(", ", expectedPlatforms)}");
+                    throw new InvalidDataException($"Some platforms in {path} are not in the expected platforms: {string.Join(", ", expectedPlatforms)}");
 
                 while (!streamReader.EndOfStream)
                 {
