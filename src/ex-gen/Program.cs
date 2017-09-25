@@ -317,10 +317,9 @@ namespace ex_gen
 
                 while (!streamReader.EndOfStream)
                 {
-                    
                     var row = csvReader.ReadLine();
                     // Add the entry for each platform
-                    for (var i = indexOfFirstPlatformField; i < headerFields.Length; ++i)
+                    for (var i = indexOfFirstPlatformField; i < row.Length; ++i)
                     {
                         if (!string.IsNullOrWhiteSpace(row[i]))
                             database.Add(row[0], row[1], row[2], row[3], headerFields[i]);

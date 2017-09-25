@@ -162,7 +162,7 @@ namespace PlatformCompat.Analyzers.Tests
         public void ExceptionAnalyzer_Triggers_ForConstructors()
         {
             var source = @"
-                using System.Threading;
+                using System.IO.Pipes;
 
                 namespace ConsoleApp1
                 {
@@ -170,14 +170,14 @@ namespace PlatformCompat.Analyzers.Tests
                     {
                         static void Main(string[] args)
                         {
-                            var e = {{new AutoResetEvent(false)}};
+                            var e = {{new NamedPipeClientStream(""SomeName"")}};
                         }
                     }
                 }
             ";
 
             var expected = @"
-                PC001: AutoResetEvent.AutoResetEvent(bool) isn't supported on Linux, MacOSX
+                PC001: NamedPipeClientStream.NamedPipeClientStream(string) isn't supported on Linux, MacOSX
             ";
 
             AssertMatch(source, expected);

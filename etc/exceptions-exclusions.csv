@@ -12,6 +12,25 @@ M:System.Data.Common.DataAdapter.CloneInternals,System.Data.Common,DataAdapter,C
 M:System.Data.Common.DbDataAdapter.System#ICloneable#Clone,System.Data.Common,DbDataAdapter,System.ICloneable.Clone(),PNSE Unreachable,X,X,X
 M:System.Diagnostics.Process.Start,System.Diagnostics,Process,Start(),Only if UseShellExecute true and Windows version does not support it,,,X
 M:System.Diagnostics.Process.Start(System.Diagnostics.ProcessStartInfo),System.Diagnostics,Process,Start(ProcessStartInfo),Only if UseShellExecute true and Windows version does not support it,,,X
+P:System.Diagnostics.Process.Id,System.Diagnostics,Process,Id,PNSE Unreachable,X,X,
+M:System.Security.Cryptography.HMACMD5.#ctor,System.Security.Cryptography,HMACMD5,.ctor(),PNSE Unreachable,X,X,X
+M:System.Security.Cryptography.HMACMD5.#ctor(System.Byte[]),System.Security.Cryptography,HMACMD5,.ctor(Byte[]),PNSE Unreachable,X,X,X
+P:System.Security.Cryptography.HMACMD5.Key,System.Security.Cryptography,HMACMD5,Key,PNSE Unreachable,,X,
+M:System.Security.Cryptography.HMACSHA1.#ctor,System.Security.Cryptography,HMACSHA1,.ctor(),PNSE Unreachable,X,X,X
+M:System.Security.Cryptography.HMACSHA1.#ctor(System.Byte[]),System.Security.Cryptography,HMACSHA1,.ctor(Byte[]),PNSE Unreachable,X,X,X
+"M:System.Security.Cryptography.HMACSHA1.#ctor(System.Byte[],System.Boolean)",System.Security.Cryptography,HMACSHA1,".ctor(Byte[], Boolean)",PNSE Unreachable,X,X,X
+P:System.Security.Cryptography.HMACSHA1.Key,System.Security.Cryptography,HMACSHA1,Key,PNSE Unreachable,,X,
+M:System.Security.Cryptography.HMACSHA256.#ctor,System.Security.Cryptography,HMACSHA256,.ctor(),PNSE Unreachable,X,X,X
+M:System.Security.Cryptography.HMACSHA256.#ctor(System.Byte[]),System.Security.Cryptography,HMACSHA256,.ctor(Byte[]),PNSE Unreachable,X,X,X
+P:System.Security.Cryptography.HMACSHA256.Key,System.Security.Cryptography,HMACSHA256,Key,PNSE Unreachable,,X,
+M:System.Security.Cryptography.HMACSHA384.#ctor,System.Security.Cryptography,HMACSHA384,.ctor(),PNSE Unreachable,X,X,X
+M:System.Security.Cryptography.HMACSHA384.#ctor(System.Byte[]),System.Security.Cryptography,HMACSHA384,.ctor(Byte[]),PNSE Unreachable,X,X,X
+P:System.Security.Cryptography.HMACSHA384.Key,System.Security.Cryptography,HMACSHA384,Key,PNSE Unreachable,,X,
+M:System.Security.Cryptography.HMACSHA512.#ctor,System.Security.Cryptography,HMACSHA512,.ctor(),PNSE Unreachable,X,X,X
+M:System.Security.Cryptography.HMACSHA512.#ctor(System.Byte[]),System.Security.Cryptography,HMACSHA512,.ctor(Byte[]),PNSE Unreachable,X,X,X
+P:System.Security.Cryptography.HMACSHA512.Key,System.Security.Cryptography,HMACSHA512,Key,PNSE Unreachable,,X,
+M:System.Security.Cryptography.MD5CryptoServiceProvider.#ctor,System.Security.Cryptography,MD5CryptoServiceProvider,.ctor(),PNSE Unreachable,,X,
+M:System.Security.Cryptography.SHA1CryptoServiceProvider.#ctor,System.Security.Cryptography,SHA1CryptoServiceProvider,.ctor(),PNSE Unreachable,,X,
 M:System.Threading.AutoResetEvent.#ctor(System.Boolean),System.Threading,AutoResetEvent,.ctor(Boolean),PNSE Unreachable,X,X,
 "M:System.Threading.EventWaitHandle.#ctor(System.Boolean,System.Threading.EventResetMode)",System.Threading,EventWaitHandle,".ctor(Boolean, EventResetMode)",PNSE Unreachable,X,X,
 "M:System.Threading.EventWaitHandle.#ctor(System.Boolean,System.Threading.EventResetMode,System.String)",System.Threading,EventWaitHandle,".ctor(Boolean, EventResetMode, String)",DE0009.md,X,X,
