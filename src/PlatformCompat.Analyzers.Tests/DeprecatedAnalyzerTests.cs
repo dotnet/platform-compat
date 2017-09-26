@@ -216,50 +216,5 @@ namespace PlatformCompat.Analyzers.Tests
 
             AssertMatch(source, expected);
         }
-
-        [Fact]
-        public void DeprecatedAnalyzer_Triggers_DE0008()
-        {
-            var source = @"
-                using System;
-
-                class Program
-                {
-                    static void Main()
-                    {
-                        var obj = Activator.{{CreateInstance}}(typeof(object), null, new object[] {1,2});
-                    }
-                }
-            ";
-
-            var expected = $@"
-                DE0008: Activator.CreateInstance(Type, object[], object[]) is deprecated
-            ";
-
-            AssertMatch(source, expected);
-        }
-
-        [Fact]
-        public void DeprecatedAnalyzer_Triggers_DE0009()
-        {
-            var source = @"
-                using System;
-                using System.Threading;
-
-                class Program
-                {
-                    static void Main()
-                    {
-                        var obj = {{new Semaphore(10, 10, ""Some name"")}};
-                    }
-                }
-            ";
-
-            var expected = $@"
-                DE0009: Semaphore.Semaphore(int, int, string) is deprecated
-            ";
-
-            AssertMatch(source, expected);
-        }
     }
 }

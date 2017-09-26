@@ -54,6 +54,8 @@ M:Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle.#ctor,Microsoft.Win32.SafeHand
 M:Microsoft.Win32.SafeHandles.SafeNCryptProviderHandle.#ctor,Microsoft.Win32.SafeHandles,SafeNCryptProviderHandle,.ctor(),X,X,
 M:Microsoft.Win32.SafeHandles.SafeNCryptSecretHandle.#ctor,Microsoft.Win32.SafeHandles,SafeNCryptSecretHandle,.ctor(),X,X,
 "M:System.AccessViolationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,AccessViolationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
+"M:System.Activator.CreateInstance(System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo,System.Object[])",System,Activator,"CreateInstance(Type, BindingFlags, Binder, Object[], CultureInfo, Object[])",X,X,X
+"M:System.Activator.CreateInstance(System.Type,System.Object[],System.Object[])",System,Activator,"CreateInstance(Type, Object[], Object[])",X,X,X
 M:System.AppDomain.CreateDomain(System.String),System,AppDomain,CreateDomain(String),X,X,X
 "M:System.AppDomain.ExecuteAssembly(System.String,System.String[],System.Byte[],System.Configuration.Assemblies.AssemblyHashAlgorithm)",System,AppDomain,"ExecuteAssembly(String, String[], Byte[], AssemblyHashAlgorithm)",X,X,X
 P:System.AppDomain.MonitoringIsEnabled,System,AppDomain,MonitoringIsEnabled,X,X,X
@@ -1290,10 +1292,14 @@ M:System.Security.Principal.WindowsPrincipal.IsInRole(System.Security.Principal.
 "M:System.Threading.AbandonedMutexException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,AbandonedMutexException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Threading.BarrierPostPhaseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,BarrierPostPhaseException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Threading.CompressedStack.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,CompressedStack,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
+"M:System.Threading.EventWaitHandle.#ctor(System.Boolean,System.Threading.EventResetMode,System.String)",System.Threading,EventWaitHandle,".ctor(Boolean, EventResetMode, String)",X,X,
+"M:System.Threading.EventWaitHandle.#ctor(System.Boolean,System.Threading.EventResetMode,System.String,System.Boolean@)",System.Threading,EventWaitHandle,".ctor(Boolean, EventResetMode, String, Boolean)",X,X,
 M:System.Threading.EventWaitHandle.OpenExisting(System.String),System.Threading,EventWaitHandle,OpenExisting(String),X,X,
 "M:System.Threading.EventWaitHandle.TryOpenExisting(System.String,System.Threading.EventWaitHandle@)",System.Threading,EventWaitHandle,"TryOpenExisting(String, EventWaitHandle)",X,X,
 "M:System.Threading.ExecutionContext.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,ExecutionContext,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Threading.LockRecursionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,LockRecursionException,".ctor(SerializationInfo, StreamingContext)",X,X,X
+"M:System.Threading.Semaphore.#ctor(System.Int32,System.Int32,System.String)",System.Threading,Semaphore,".ctor(Int32, Int32, String)",X,X,
+"M:System.Threading.Semaphore.#ctor(System.Int32,System.Int32,System.String,System.Boolean@)",System.Threading,Semaphore,".ctor(Int32, Int32, String, Boolean)",X,X,
 M:System.Threading.Semaphore.OpenExisting(System.String),System.Threading,Semaphore,OpenExisting(String),X,X,
 "M:System.Threading.Semaphore.TryOpenExisting(System.String,System.Threading.Semaphore@)",System.Threading,Semaphore,"TryOpenExisting(String, Semaphore)",X,X,
 "M:System.Threading.SemaphoreFullException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,SemaphoreFullException,".ctor(SerializationInfo, StreamingContext)",X,X,X

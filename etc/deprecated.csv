@@ -1,6 +1,4 @@
 DocId,Namespace,Type,Member,DiagnosticIds
-"M:System.Activator.CreateInstance(System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo,System.Object[])",System,Activator,"CreateInstance(Type, BindingFlags, Binder, Object[], CultureInfo, Object[])",DE0008
-"M:System.Activator.CreateInstance(System.Type,System.Object[],System.Object[])",System,Activator,"CreateInstance(Type, Object[], Object[])",DE0008
 F:System.PlatformID.MacOSX,System,PlatformID,MacOSX,DE0007
 F:System.PlatformID.Win32S,System,PlatformID,Win32S,DE0007
 F:System.PlatformID.Win32Windows,System,PlatformID,Win32Windows,DE0007
@@ -26,7 +24,3 @@ T:System.Net.WebRequest,System.Net,WebRequest,,DE0003
 T:System.Net.Mail.SmtpClient,System.Net.Mail,SmtpClient,,DE0005
 T:System.Security.SecureString,System.Security,SecureString,,DE0001
 N:System.Security.Permissions,System.Security.Permissions,,,DE0002
-"M:System.Threading.EventWaitHandle.#ctor(System.Boolean,System.Threading.EventResetMode,System.String)",System.Threading,EventWaitHandle,".ctor(Boolean, EventResetMode, String)",DE0009
-"M:System.Threading.EventWaitHandle.#ctor(System.Boolean,System.Threading.EventResetMode,System.String,System.Boolean@)",System.Threading,EventWaitHandle,".ctor(Boolean, EventResetMode, String, Boolean)",DE0009
-"M:System.Threading.Semaphore.#ctor(System.Int32,System.Int32,System.String)",System.Threading,Semaphore,".ctor(Int32, Int32, String)",DE0009
-"M:System.Threading.Semaphore.#ctor(System.Int32,System.Int32,System.String,System.Boolean@)",System.Threading,Semaphore,".ctor(Int32, Int32, String, Boolean)",DE0009
