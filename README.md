@@ -1,6 +1,6 @@
 # Platform Compatibility Analyzer
 
-[![Build status](https://ci.appveyor.com/api/projects/status/evecxgd6lnsg20lb/branch/master?svg=true)](https://ci.appveyor.com/project/terrajobst/platform-compat/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/llhi1p4filksoibf/branch/master?svg=true)](https://ci.appveyor.com/project/terrajobst/platform-compat/branch/master)
 
 This tool provides [Roslyn](https://github.com/dotnet/roslyn) analyzers that
 find usages of .NET Core & .NET Standard APIs that are problematic on specific
