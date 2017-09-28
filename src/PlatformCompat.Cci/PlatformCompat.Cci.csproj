@@ -6,6 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.DotNet.BuildTools.Cci" Version="1.0.0-prerelease-01423-01" />
+
+    <!-- Suppress warning for upgrade from 1.0.30 to 1.0.31 -->
+    <PackageReference Include="System.Composition.AttributedModel" Version="1.0.31" />
+    <PackageReference Include="System.Composition.Hosting" Version="1.0.31" />
+    <PackageReference Include="System.Composition.Runtime" Version="1.0.31" />
+    <PackageReference Include="System.Composition.TypedParts" Version="1.0.31" />
   </ItemGroup>
 
 </Project>
