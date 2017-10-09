@@ -87,14 +87,14 @@ namespace PlatformCompat.Scanner
                     op.Value is IMethodReference m &&
                     IsPlatformNotSupported(m))
                 {
-                    return ExceptionInfo.ThrowsAt(nestingLevel);
+                    return ExceptionInfo.ThrowsAt(nestingLevel, method.DocId());
                 }
 
                 // throw SomeFactoryForPlatformNotSupportedExeption(...);
                 if (op.Value is IMethodReference r &&
                     IsFactoryForPlatformNotSupported(r))
                 {
-                    return ExceptionInfo.ThrowsAt(nestingLevel);
+                    return ExceptionInfo.ThrowsAt(nestingLevel, method.DocId());
                 }
             }
 

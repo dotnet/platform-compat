@@ -112,8 +112,14 @@ namespace ex_gen
                     sourcePath = tempFolder;
                 }
 
-                var database = Scan(sourcePath, inclusionFile, exclusionFile);
-                ExportCsv(database, outputPath);
+                var databases = Scan(sourcePath, inclusionFile, exclusionFile);
+                ExportCsv(databases.filtered, outputPath, writeSite:false);
+
+                var filteredWithSiteOutputPath = Path.ChangeExtension(outputPath, ".filtered.site.csv");
+                ExportCsv(databases.filtered, filteredWithSiteOutputPath, writeSite: true);
+
+                var unfilteredWithSiteOutputPath = Path.ChangeExtension(outputPath, ".unfiltered.site.csv");
+                ExportCsv(databases.raw, unfilteredWithSiteOutputPath, writeSite: true);
             }
             finally
             {
@@ -209,7 +215,7 @@ namespace ex_gen
             }
         }
 
-        private static Database Scan(string sourcePath, string inclusionFile, string exclusionFile)
+        private static (Database raw, Database filtered) Scan(string sourcePath, string inclusionFile, string exclusionFile)
         {
             Console.WriteLine("Analyzing...");
 
@@ -223,9 +229,11 @@ namespace ex_gen
                 ImportCsv(exclusionFile, platformNames, exclusionDatabase);
             }
 
-            var result = new Database(exclusionDatabase);
+            var filtered = new Database(exclusionDatabase);
             if (inclusionFile != null)
-                ImportCsv(inclusionFile, platformNames, result);
+                ImportCsv(inclusionFile, platformNames, filtered);
+
+            var raw = new Database();
 
             foreach (var entry in platforms)
             {
@@ -233,7 +241,7 @@ namespace ex_gen
 
                 var platform = entry.platform;
                 var directory = entry.directory;
-                var reporter = new DatabaseReporter(result, platform);
+                var reporter = new DatabaseReporter(new[] { raw, filtered }, platform);
 
                 var analyzer = new ExceptionScanner(reporter);
                 var assemblies = HostEnvironment.LoadAssemblySet(directory);
@@ -242,7 +250,7 @@ namespace ex_gen
                     analyzer.ScanAssembly(assembly);
             }
 
-            return result;
+            return (raw, filtered);
         }
 
         private static IEnumerable<(string platform, string directory)> EnumeratePlatformDirectories(string tempFolder)
@@ -261,7 +269,7 @@ namespace ex_gen
             }
         }
 
-        private static void ExportCsv(Database database, string path)
+        private static void ExportCsv(Database database, string path, bool writeSite)
         {
             using (var streamWriter = new StreamWriter(path))
             {
@@ -271,6 +279,9 @@ namespace ex_gen
                 writer.Write("Namespace");
                 writer.Write("Type");
                 writer.Write("Member");
+
+                if (writeSite)
+                    writer.Write("Site");
 
                 foreach (var platform in database.Platforms)
                     writer.Write(platform);
@@ -286,6 +297,9 @@ namespace ex_gen
                     writer.Write(entry.NamespaceName);
                     writer.Write(entry.TypeName);
                     writer.Write(entry.MemberName);
+
+                    if (writeSite)
+                        writer.Write(entry.Site);
 
                     foreach (var platform in database.Platforms)
                     {
@@ -322,7 +336,7 @@ namespace ex_gen
                     for (var i = indexOfFirstPlatformField; i < row.Length; ++i)
                     {
                         if (!string.IsNullOrWhiteSpace(row[i]))
-                            database.Add(row[0], row[1], row[2], row[3], headerFields[i]);
+                            database.Add(row[0], row[1], row[2], row[3], string.Empty, headerFields[i]);
                     }
                 }
             }
