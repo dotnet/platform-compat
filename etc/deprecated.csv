@@ -22,5 +22,9 @@ T:System.Net.HttpWebRequest,System.Net,HttpWebRequest,,DE0003
 T:System.Net.WebClient,System.Net,WebClient,,DE0004
 T:System.Net.WebRequest,System.Net,WebRequest,,DE0003
 T:System.Net.Mail.SmtpClient,System.Net.Mail,SmtpClient,,DE0005
+M:System.Reflection.IntrospectionExtensions.GetTypeInfo(System.Type),System.Reflection,IntrospectionExtensions,GetTypeInfo(Type),DE0008
+T:System.Reflection.IReflectableType,System.Reflection,IReflectableType,,DE0008
+M:System.Reflection.IReflectableType.GetTypeInfo,System.Reflection,IReflectableType,GetTypeInfo(),DE0008
+T:System.Reflection.TypeInfo,System.Reflection,TypeInfo,,DE0008
 T:System.Security.SecureString,System.Security,SecureString,,DE0001
 N:System.Security.Permissions,System.Security.Permissions,,,DE0002

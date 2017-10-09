@@ -216,5 +216,56 @@ namespace PlatformCompat.Analyzers.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Fact]
+        public void DeprecatedAnalyzer_Triggers_DE0008_GetTypeInfo()
+        {
+            var source = @"
+                using System;
+                using System.Reflection;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        {{var}} typeinfo = typeof(Main).{{GetTypeInfo}}();
+                    }
+                }
+            ";
+
+            var expected = $@"
+                DE0008: TypeInfo is deprecated
+                DE0008: IntrospectionExtensions.GetTypeInfo(Type) is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
+
+        [Fact]
+        public void DeprecatedAnalyzer_Triggers_DE0008_IReflectableType()
+        {
+            var source = @"
+                using System;
+                using System.Reflection;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        {{var}} reflectableType = typeof(Main) as {{IReflectableType}};
+                        {{var}} typeInfo = reflectableType.{{GetTypeInfo}}();
+                    }
+                }
+            ";
+
+            var expected = $@"
+                DE0008: IReflectableType is deprecated
+                DE0008: IReflectableType is deprecated
+                DE0008: TypeInfo is deprecated
+                DE0008: IReflectableType.GetTypeInfo() is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }
