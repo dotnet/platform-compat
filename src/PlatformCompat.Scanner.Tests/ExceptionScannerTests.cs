@@ -99,7 +99,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                M:C.#ctor
+                M:C.#ctor @ 0 @ M:C.#ctor
             ";
 
             AssertMatch(source, docIds);
@@ -121,7 +121,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                M:C.M
+                M:C.M @ 0 @ M:C.M
             ";
 
             AssertMatch(source, docIds);
@@ -144,7 +144,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                P:C.P
+                P:C.P @ 0 @ M:C.set_P(System.Int32)
             ";
 
             AssertMatch(source, docIds);
@@ -167,7 +167,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                P:C.P
+                P:C.P @ 0 @ M:C.get_P
             ";
 
             AssertMatch(source, docIds);
@@ -190,7 +190,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                P:C.P
+                P:C.P @ 0 @ M:C.set_P(System.Int32)
             ";
 
             AssertMatch(source, docIds);
@@ -213,7 +213,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                E:C.E
+                E:C.E @ 0 @ M:C.remove_E(System.EventHandler)
             ";
 
             AssertMatch(source, docIds);
@@ -236,7 +236,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                E:C.E
+                E:C.E @ 0 @ M:C.add_E(System.EventHandler)
             ";
 
             AssertMatch(source, docIds);
@@ -259,7 +259,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                E:C.E
+                E:C.E @ 0 @ M:C.remove_E(System.EventHandler)
             ";
 
             AssertMatch(source, docIds);
@@ -286,7 +286,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                M:C.M
+                M:C.M @ 0 @ M:C.M 
             ";
 
             AssertMatch(source, docIds);
@@ -313,7 +313,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                M:C.M1
+                M:C.M1 @ 1 @ M:C.M2
             ";
 
             AssertMatch(source, docIds);
@@ -345,7 +345,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                M:C.M1
+                M:C.M1 @ 2 @ M:C.M3
             ";
 
             AssertMatch(source, docIds);
@@ -382,7 +382,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                M:C.M1
+                M:C.M1 @ 3 @ M:C.M4
             ";
 
             AssertMatch(source, docIds);
@@ -452,7 +452,7 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                M:C.M1
+                M:C.M1 @ 1 @ M:C.M2
             ";
 
             AssertMatch(source, docIds);
@@ -492,8 +492,8 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                M:C.M1 @ 1
-                M:C.M2 @ 0
+                M:C.M1 @ 1 @ M:C.O2
+                M:C.M2 @ 0 @ M:C.M2
             ";
 
             AssertMatch(source, docIds);
@@ -532,8 +532,8 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                P:C.P1 @ 0
-                P:C.P2 @ 1
+                P:C.P1 @ 0 @ M:C.get_P1
+                P:C.P2 @ 1 @ M:C.M2
             ";
 
             AssertMatch(source, docIds);
@@ -572,8 +572,8 @@ namespace PlatformCompat.Scanner.Tests
             ";
 
             var docIds = @"
-                E:C.E1 @ 0
-                E:C.E2 @ 1
+                E:C.E1 @ 0 @ M:C.add_E1(System.EventHandler)
+                E:C.E2 @ 1 @ M:C.M2
             ";
 
             AssertMatch(source, docIds);
