@@ -868,10 +868,6 @@ M:System.Security.AccessControl.RegistrySecurity.SetAuditRule(System.Security.Ac
 "M:System.Security.Claims.ClaimsIdentity.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security.Claims,ClaimsIdentity,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Security.Claims.ClaimsPrincipal.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security.Claims,ClaimsPrincipal,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Security.Claims.ClaimsPrincipal.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security.Claims,ClaimsPrincipal,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-M:System.Security.Cryptography.AesCng.#ctor,System.Security.Cryptography,AesCng,.ctor(),X,X,
-M:System.Security.Cryptography.AesCng.#ctor(System.String),System.Security.Cryptography,AesCng,.ctor(String),X,X,
-"M:System.Security.Cryptography.AesCng.#ctor(System.String,System.Security.Cryptography.CngProvider)",System.Security.Cryptography,AesCng,".ctor(String, CngProvider)",X,X,
-"M:System.Security.Cryptography.AesCng.#ctor(System.String,System.Security.Cryptography.CngProvider,System.Security.Cryptography.CngKeyOpenOptions)",System.Security.Cryptography,AesCng,".ctor(String, CngProvider, CngKeyOpenOptions)",X,X,
 M:System.Security.Cryptography.AesCng.CreateDecryptor,System.Security.Cryptography,AesCng,CreateDecryptor(),X,X,
 "M:System.Security.Cryptography.AesCng.CreateDecryptor(System.Byte[],System.Byte[])",System.Security.Cryptography,AesCng,"CreateDecryptor(Byte[], Byte[])",X,X,
 M:System.Security.Cryptography.AesCng.CreateEncryptor,System.Security.Cryptography,AesCng,CreateEncryptor(),X,X,
@@ -882,7 +878,6 @@ P:System.Security.Cryptography.AesCng.Key,System.Security.Cryptography,AesCng,Ke
 P:System.Security.Cryptography.AesCng.KeySize,System.Security.Cryptography,AesCng,KeySize,X,X,
 M:System.Security.Cryptography.AsymmetricAlgorithm.Create,System.Security.Cryptography,AsymmetricAlgorithm,Create(),X,X,X
 M:System.Security.Cryptography.AsymmetricAlgorithm.Create(System.String),System.Security.Cryptography,AsymmetricAlgorithm,Create(String),X,X,X
-M:System.Security.Cryptography.CngAlgorithm.#ctor(System.String),System.Security.Cryptography,CngAlgorithm,.ctor(String),X,X,
 P:System.Security.Cryptography.CngAlgorithm.Algorithm,System.Security.Cryptography,CngAlgorithm,Algorithm,X,X,
 P:System.Security.Cryptography.CngAlgorithm.ECDiffieHellman,System.Security.Cryptography,CngAlgorithm,ECDiffieHellman,X,X,
 P:System.Security.Cryptography.CngAlgorithm.ECDiffieHellmanP256,System.Security.Cryptography,CngAlgorithm,ECDiffieHellmanP256,X,X,
@@ -904,7 +899,6 @@ P:System.Security.Cryptography.CngAlgorithm.Sha256,System.Security.Cryptography,
 P:System.Security.Cryptography.CngAlgorithm.Sha384,System.Security.Cryptography,CngAlgorithm,Sha384,X,X,
 P:System.Security.Cryptography.CngAlgorithm.Sha512,System.Security.Cryptography,CngAlgorithm,Sha512,X,X,
 M:System.Security.Cryptography.CngAlgorithm.ToString,System.Security.Cryptography,CngAlgorithm,ToString(),X,X,
-M:System.Security.Cryptography.CngAlgorithmGroup.#ctor(System.String),System.Security.Cryptography,CngAlgorithmGroup,.ctor(String),X,X,
 P:System.Security.Cryptography.CngAlgorithmGroup.AlgorithmGroup,System.Security.Cryptography,CngAlgorithmGroup,AlgorithmGroup,X,X,
 P:System.Security.Cryptography.CngAlgorithmGroup.DiffieHellman,System.Security.Cryptography,CngAlgorithmGroup,DiffieHellman,X,X,
 P:System.Security.Cryptography.CngAlgorithmGroup.Dsa,System.Security.Cryptography,CngAlgorithmGroup,Dsa,X,X,
@@ -949,7 +943,6 @@ P:System.Security.Cryptography.CngKey.ProviderHandle,System.Security.Cryptograph
 M:System.Security.Cryptography.CngKey.SetProperty(System.Security.Cryptography.CngProperty),System.Security.Cryptography,CngKey,SetProperty(CngProperty),X,X,
 P:System.Security.Cryptography.CngKey.UIPolicy,System.Security.Cryptography,CngKey,UIPolicy,X,X,
 P:System.Security.Cryptography.CngKey.UniqueName,System.Security.Cryptography,CngKey,UniqueName,X,X,
-M:System.Security.Cryptography.CngKeyBlobFormat.#ctor(System.String),System.Security.Cryptography,CngKeyBlobFormat,.ctor(String),X,X,
 P:System.Security.Cryptography.CngKeyBlobFormat.EccFullPrivateBlob,System.Security.Cryptography,CngKeyBlobFormat,EccFullPrivateBlob,X,X,
 P:System.Security.Cryptography.CngKeyBlobFormat.EccFullPublicBlob,System.Security.Cryptography,CngKeyBlobFormat,EccFullPublicBlob,X,X,
 P:System.Security.Cryptography.CngKeyBlobFormat.EccPrivateBlob,System.Security.Cryptography,CngKeyBlobFormat,EccPrivateBlob,X,X,
@@ -965,7 +958,6 @@ M:System.Security.Cryptography.CngKeyBlobFormat.GetHashCode,System.Security.Cryp
 P:System.Security.Cryptography.CngKeyBlobFormat.OpaqueTransportBlob,System.Security.Cryptography,CngKeyBlobFormat,OpaqueTransportBlob,X,X,
 P:System.Security.Cryptography.CngKeyBlobFormat.Pkcs8PrivateBlob,System.Security.Cryptography,CngKeyBlobFormat,Pkcs8PrivateBlob,X,X,
 M:System.Security.Cryptography.CngKeyBlobFormat.ToString,System.Security.Cryptography,CngKeyBlobFormat,ToString(),X,X,
-M:System.Security.Cryptography.CngKeyCreationParameters.#ctor,System.Security.Cryptography,CngKeyCreationParameters,.ctor(),X,X,
 P:System.Security.Cryptography.CngKeyCreationParameters.ExportPolicy,System.Security.Cryptography,CngKeyCreationParameters,ExportPolicy,X,X,
 P:System.Security.Cryptography.CngKeyCreationParameters.KeyCreationOptions,System.Security.Cryptography,CngKeyCreationParameters,KeyCreationOptions,X,X,
 P:System.Security.Cryptography.CngKeyCreationParameters.KeyUsage,System.Security.Cryptography,CngKeyCreationParameters,KeyUsage,X,X,
@@ -973,7 +965,6 @@ P:System.Security.Cryptography.CngKeyCreationParameters.Parameters,System.Securi
 P:System.Security.Cryptography.CngKeyCreationParameters.ParentWindowHandle,System.Security.Cryptography,CngKeyCreationParameters,ParentWindowHandle,X,X,
 P:System.Security.Cryptography.CngKeyCreationParameters.Provider,System.Security.Cryptography,CngKeyCreationParameters,Provider,X,X,
 P:System.Security.Cryptography.CngKeyCreationParameters.UIPolicy,System.Security.Cryptography,CngKeyCreationParameters,UIPolicy,X,X,
-"M:System.Security.Cryptography.CngProperty.#ctor(System.String,System.Byte[],System.Security.Cryptography.CngPropertyOptions)",System.Security.Cryptography,CngProperty,".ctor(String, Byte[], CngPropertyOptions)",X,X,
 M:System.Security.Cryptography.CngProperty.Equals(System.Security.Cryptography.CngProperty),System.Security.Cryptography,CngProperty,Equals(CngProperty),X,X,
 M:System.Security.Cryptography.CngProperty.Equals(System.Object),System.Security.Cryptography,CngProperty,Equals(Object),X,X,
 M:System.Security.Cryptography.CngProperty.GetHashCode,System.Security.Cryptography,CngProperty,GetHashCode(),X,X,
@@ -982,8 +973,6 @@ P:System.Security.Cryptography.CngProperty.Name,System.Security.Cryptography,Cng
 "M:System.Security.Cryptography.CngProperty.op_Equality(System.Security.Cryptography.CngProperty,System.Security.Cryptography.CngProperty)",System.Security.Cryptography,CngProperty,"op_Equality(CngProperty, CngProperty)",X,X,
 "M:System.Security.Cryptography.CngProperty.op_Inequality(System.Security.Cryptography.CngProperty,System.Security.Cryptography.CngProperty)",System.Security.Cryptography,CngProperty,"op_Inequality(CngProperty, CngProperty)",X,X,
 P:System.Security.Cryptography.CngProperty.Options,System.Security.Cryptography,CngProperty,Options,X,X,
-M:System.Security.Cryptography.CngPropertyCollection.#ctor,System.Security.Cryptography,CngPropertyCollection,.ctor(),X,X,
-M:System.Security.Cryptography.CngProvider.#ctor(System.String),System.Security.Cryptography,CngProvider,.ctor(String),X,X,
 M:System.Security.Cryptography.CngProvider.Equals(System.Security.Cryptography.CngProvider),System.Security.Cryptography,CngProvider,Equals(CngProvider),X,X,
 M:System.Security.Cryptography.CngProvider.Equals(System.Object),System.Security.Cryptography,CngProvider,Equals(Object),X,X,
 M:System.Security.Cryptography.CngProvider.GetHashCode,System.Security.Cryptography,CngProvider,GetHashCode(),X,X,
@@ -993,19 +982,11 @@ P:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider,S
 "M:System.Security.Cryptography.CngProvider.op_Inequality(System.Security.Cryptography.CngProvider,System.Security.Cryptography.CngProvider)",System.Security.Cryptography,CngProvider,"op_Inequality(CngProvider, CngProvider)",X,X,
 P:System.Security.Cryptography.CngProvider.Provider,System.Security.Cryptography,CngProvider,Provider,X,X,
 M:System.Security.Cryptography.CngProvider.ToString,System.Security.Cryptography,CngProvider,ToString(),X,X,
-M:System.Security.Cryptography.CngUIPolicy.#ctor(System.Security.Cryptography.CngUIProtectionLevels),System.Security.Cryptography,CngUIPolicy,.ctor(CngUIProtectionLevels),X,X,
-"M:System.Security.Cryptography.CngUIPolicy.#ctor(System.Security.Cryptography.CngUIProtectionLevels,System.String)",System.Security.Cryptography,CngUIPolicy,".ctor(CngUIProtectionLevels, String)",X,X,
-"M:System.Security.Cryptography.CngUIPolicy.#ctor(System.Security.Cryptography.CngUIProtectionLevels,System.String,System.String)",System.Security.Cryptography,CngUIPolicy,".ctor(CngUIProtectionLevels, String, String)",X,X,
-"M:System.Security.Cryptography.CngUIPolicy.#ctor(System.Security.Cryptography.CngUIProtectionLevels,System.String,System.String,System.String)",System.Security.Cryptography,CngUIPolicy,".ctor(CngUIProtectionLevels, String, String, String)",X,X,
-"M:System.Security.Cryptography.CngUIPolicy.#ctor(System.Security.Cryptography.CngUIProtectionLevels,System.String,System.String,System.String,System.String)",System.Security.Cryptography,CngUIPolicy,".ctor(CngUIProtectionLevels, String, String, String, String)",X,X,
 P:System.Security.Cryptography.CngUIPolicy.CreationTitle,System.Security.Cryptography,CngUIPolicy,CreationTitle,X,X,
 P:System.Security.Cryptography.CngUIPolicy.Description,System.Security.Cryptography,CngUIPolicy,Description,X,X,
 P:System.Security.Cryptography.CngUIPolicy.FriendlyName,System.Security.Cryptography,CngUIPolicy,FriendlyName,X,X,
 P:System.Security.Cryptography.CngUIPolicy.ProtectionLevel,System.Security.Cryptography,CngUIPolicy,ProtectionLevel,X,X,
 P:System.Security.Cryptography.CngUIPolicy.UseContext,System.Security.Cryptography,CngUIPolicy,UseContext,X,X,
-"M:System.Security.Cryptography.CryptographicException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security.Cryptography,CryptographicException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Security.Cryptography.CryptographicUnexpectedOperationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security.Cryptography,CryptographicUnexpectedOperationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-M:System.Security.Cryptography.CspKeyContainerInfo.#ctor(System.Security.Cryptography.CspParameters),System.Security.Cryptography,CspKeyContainerInfo,.ctor(CspParameters),X,X,
 P:System.Security.Cryptography.CspKeyContainerInfo.Accessible,System.Security.Cryptography,CspKeyContainerInfo,Accessible,X,X,
 P:System.Security.Cryptography.CspKeyContainerInfo.Exportable,System.Security.Cryptography,CspKeyContainerInfo,Exportable,X,X,
 P:System.Security.Cryptography.CspKeyContainerInfo.HardwareDevice,System.Security.Cryptography,CspKeyContainerInfo,HardwareDevice,X,X,
@@ -1020,9 +1001,6 @@ P:System.Security.Cryptography.CspKeyContainerInfo.Removable,System.Security.Cry
 P:System.Security.Cryptography.CspKeyContainerInfo.UniqueKeyContainerName,System.Security.Cryptography,CspKeyContainerInfo,UniqueKeyContainerName,X,X,
 M:System.Security.Cryptography.DSA.FromXmlString(System.String),System.Security.Cryptography,DSA,FromXmlString(String),X,X,X
 M:System.Security.Cryptography.DSA.ToXmlString(System.Boolean),System.Security.Cryptography,DSA,ToXmlString(Boolean),X,X,X
-M:System.Security.Cryptography.DSACng.#ctor,System.Security.Cryptography,DSACng,.ctor(),X,X,
-M:System.Security.Cryptography.DSACng.#ctor(System.Security.Cryptography.CngKey),System.Security.Cryptography,DSACng,.ctor(CngKey),X,X,
-M:System.Security.Cryptography.DSACng.#ctor(System.Int32),System.Security.Cryptography,DSACng,.ctor(Int32),X,X,
 M:System.Security.Cryptography.DSACng.CreateSignature(System.Byte[]),System.Security.Cryptography,DSACng,CreateSignature(Byte[]),X,X,
 M:System.Security.Cryptography.DSACng.ExportParameters(System.Boolean),System.Security.Cryptography,DSACng,ExportParameters(Boolean),X,X,
 M:System.Security.Cryptography.DSACng.ImportParameters(System.Security.Cryptography.DSAParameters),System.Security.Cryptography,DSACng,ImportParameters(DSAParameters),X,X,X
@@ -1031,8 +1009,6 @@ P:System.Security.Cryptography.DSACng.KeyExchangeAlgorithm,System.Security.Crypt
 P:System.Security.Cryptography.DSACng.LegalKeySizes,System.Security.Cryptography,DSACng,LegalKeySizes,X,X,
 P:System.Security.Cryptography.DSACng.SignatureAlgorithm,System.Security.Cryptography,DSACng,SignatureAlgorithm,X,X,
 "M:System.Security.Cryptography.DSACng.VerifySignature(System.Byte[],System.Byte[])",System.Security.Cryptography,DSACng,"VerifySignature(Byte[], Byte[])",X,X,
-M:System.Security.Cryptography.DSACryptoServiceProvider.#ctor(System.Security.Cryptography.CspParameters),System.Security.Cryptography,DSACryptoServiceProvider,.ctor(CspParameters),X,X,
-"M:System.Security.Cryptography.DSACryptoServiceProvider.#ctor(System.Int32,System.Security.Cryptography.CspParameters)",System.Security.Cryptography,DSACryptoServiceProvider,".ctor(Int32, CspParameters)",X,X,
 P:System.Security.Cryptography.DSACryptoServiceProvider.CspKeyContainerInfo,System.Security.Cryptography,DSACryptoServiceProvider,CspKeyContainerInfo,X,X,
 M:System.Security.Cryptography.DSACryptoServiceProvider.ExportParameters(System.Boolean),System.Security.Cryptography,DSACryptoServiceProvider,ExportParameters(Boolean),,,X
 M:System.Security.Cryptography.DSACryptoServiceProvider.ImportCspBlob(System.Byte[]),System.Security.Cryptography,DSACryptoServiceProvider,ImportCspBlob(Byte[]),X,X,
@@ -1048,10 +1024,6 @@ M:System.Security.Cryptography.DSAOpenSsl.ImportParameters(System.Security.Crypt
 P:System.Security.Cryptography.DSAOpenSsl.KeySize,System.Security.Cryptography,DSAOpenSsl,KeySize,,,X
 P:System.Security.Cryptography.DSAOpenSsl.LegalKeySizes,System.Security.Cryptography,DSAOpenSsl,LegalKeySizes,,,X
 "M:System.Security.Cryptography.DSAOpenSsl.VerifySignature(System.Byte[],System.Byte[])",System.Security.Cryptography,DSAOpenSsl,"VerifySignature(Byte[], Byte[])",,,X
-M:System.Security.Cryptography.ECDsaCng.#ctor,System.Security.Cryptography,ECDsaCng,.ctor(),X,X,
-M:System.Security.Cryptography.ECDsaCng.#ctor(System.Security.Cryptography.CngKey),System.Security.Cryptography,ECDsaCng,.ctor(CngKey),X,X,
-M:System.Security.Cryptography.ECDsaCng.#ctor(System.Security.Cryptography.ECCurve),System.Security.Cryptography,ECDsaCng,.ctor(ECCurve),X,X,
-M:System.Security.Cryptography.ECDsaCng.#ctor(System.Int32),System.Security.Cryptography,ECDsaCng,.ctor(Int32),X,X,
 M:System.Security.Cryptography.ECDsaCng.ExportExplicitParameters(System.Boolean),System.Security.Cryptography,ECDsaCng,ExportExplicitParameters(Boolean),X,X,
 M:System.Security.Cryptography.ECDsaCng.ExportParameters(System.Boolean),System.Security.Cryptography,ECDsaCng,ExportParameters(Boolean),X,X,X
 "M:System.Security.Cryptography.ECDsaCng.FromXmlString(System.String,System.Security.Cryptography.ECKeyXmlFormat)",System.Security.Cryptography,ECDsaCng,"FromXmlString(String, ECKeyXmlFormat)",X,X,X
@@ -1094,22 +1066,14 @@ P:System.Security.Cryptography.HMAC.HashName,System.Security.Cryptography,HMAC,H
 M:System.Security.Cryptography.HMAC.Initialize,System.Security.Cryptography,HMAC,Initialize(),X,X,X
 P:System.Security.Cryptography.HMACSHA384.ProduceLegacyHmacValues,System.Security.Cryptography,HMACSHA384,ProduceLegacyHmacValues,X,X,X
 P:System.Security.Cryptography.HMACSHA512.ProduceLegacyHmacValues,System.Security.Cryptography,HMACSHA512,ProduceLegacyHmacValues,X,X,X
-M:System.Security.Cryptography.IncrementalHash.CreateHash(System.Security.Cryptography.HashAlgorithmName),System.Security.Cryptography,IncrementalHash,CreateHash(HashAlgorithmName),,X,
 M:System.Security.Cryptography.KeyedHashAlgorithm.Create,System.Security.Cryptography,KeyedHashAlgorithm,Create(),X,X,X
 M:System.Security.Cryptography.KeyedHashAlgorithm.Create(System.String),System.Security.Cryptography,KeyedHashAlgorithm,Create(String),X,X,X
 "M:System.Security.Cryptography.PasswordDeriveBytes.CryptDeriveKey(System.String,System.String,System.Int32,System.Byte[])",System.Security.Cryptography,PasswordDeriveBytes,"CryptDeriveKey(String, String, Int32, Byte[])",X,X,
 P:System.Security.Cryptography.RC2CryptoServiceProvider.UseSalt,System.Security.Cryptography,RC2CryptoServiceProvider,UseSalt,X,X,
 "M:System.Security.Cryptography.Rfc2898DeriveBytes.CryptDeriveKey(System.String,System.String,System.Int32,System.Byte[])",System.Security.Cryptography,Rfc2898DeriveBytes,"CryptDeriveKey(String, String, Int32, Byte[])",X,X,X
 P:System.Security.Cryptography.RijndaelManaged.BlockSize,System.Security.Cryptography,RijndaelManaged,BlockSize,X,X,X
-M:System.Security.Cryptography.RNGCryptoServiceProvider.#ctor,System.Security.Cryptography,RNGCryptoServiceProvider,.ctor(),X,X,X
-M:System.Security.Cryptography.RNGCryptoServiceProvider.#ctor(System.Byte[]),System.Security.Cryptography,RNGCryptoServiceProvider,.ctor(Byte[]),X,X,X
-M:System.Security.Cryptography.RNGCryptoServiceProvider.#ctor(System.Security.Cryptography.CspParameters),System.Security.Cryptography,RNGCryptoServiceProvider,.ctor(CspParameters),X,X,X
-M:System.Security.Cryptography.RNGCryptoServiceProvider.#ctor(System.String),System.Security.Cryptography,RNGCryptoServiceProvider,.ctor(String),X,X,X
 M:System.Security.Cryptography.RSA.FromXmlString(System.String),System.Security.Cryptography,RSA,FromXmlString(String),X,X,X
 M:System.Security.Cryptography.RSA.ToXmlString(System.Boolean),System.Security.Cryptography,RSA,ToXmlString(Boolean),X,X,X
-M:System.Security.Cryptography.RSACng.#ctor,System.Security.Cryptography,RSACng,.ctor(),X,X,
-M:System.Security.Cryptography.RSACng.#ctor(System.Security.Cryptography.CngKey),System.Security.Cryptography,RSACng,.ctor(CngKey),X,X,
-M:System.Security.Cryptography.RSACng.#ctor(System.Int32),System.Security.Cryptography,RSACng,.ctor(Int32),X,X,
 "M:System.Security.Cryptography.RSACng.Decrypt(System.Byte[],System.Security.Cryptography.RSAEncryptionPadding)",System.Security.Cryptography,RSACng,"Decrypt(Byte[], RSAEncryptionPadding)",X,X,
 "M:System.Security.Cryptography.RSACng.Encrypt(System.Byte[],System.Security.Cryptography.RSAEncryptionPadding)",System.Security.Cryptography,RSACng,"Encrypt(Byte[], RSAEncryptionPadding)",X,X,
 M:System.Security.Cryptography.RSACng.ExportParameters(System.Boolean),System.Security.Cryptography,RSACng,ExportParameters(Boolean),X,X,
@@ -1140,19 +1104,8 @@ P:System.Security.Cryptography.RSAOpenSsl.LegalKeySizes,System.Security.Cryptogr
 "M:System.Security.Cryptography.SafeEvpPKeyHandle.#ctor(System.IntPtr,System.Boolean)",System.Security.Cryptography,SafeEvpPKeyHandle,".ctor(IntPtr, Boolean)",,,X
 M:System.Security.Cryptography.SafeEvpPKeyHandle.DuplicateHandle,System.Security.Cryptography,SafeEvpPKeyHandle,DuplicateHandle(),,,X
 P:System.Security.Cryptography.SafeEvpPKeyHandle.IsInvalid,System.Security.Cryptography,SafeEvpPKeyHandle,IsInvalid,,,X
-M:System.Security.Cryptography.SHA1Managed.#ctor,System.Security.Cryptography,SHA1Managed,.ctor(),,X,
-M:System.Security.Cryptography.SHA256CryptoServiceProvider.#ctor,System.Security.Cryptography,SHA256CryptoServiceProvider,.ctor(),,X,
-M:System.Security.Cryptography.SHA256Managed.#ctor,System.Security.Cryptography,SHA256Managed,.ctor(),,X,
-M:System.Security.Cryptography.SHA384CryptoServiceProvider.#ctor,System.Security.Cryptography,SHA384CryptoServiceProvider,.ctor(),,X,
-M:System.Security.Cryptography.SHA384Managed.#ctor,System.Security.Cryptography,SHA384Managed,.ctor(),,X,
-M:System.Security.Cryptography.SHA512CryptoServiceProvider.#ctor,System.Security.Cryptography,SHA512CryptoServiceProvider,.ctor(),,X,
-M:System.Security.Cryptography.SHA512Managed.#ctor,System.Security.Cryptography,SHA512Managed,.ctor(),,X,
 M:System.Security.Cryptography.SymmetricAlgorithm.Create,System.Security.Cryptography,SymmetricAlgorithm,Create(),X,X,X
 M:System.Security.Cryptography.SymmetricAlgorithm.Create(System.String),System.Security.Cryptography,SymmetricAlgorithm,Create(String),X,X,X
-M:System.Security.Cryptography.TripleDESCng.#ctor,System.Security.Cryptography,TripleDESCng,.ctor(),X,X,
-M:System.Security.Cryptography.TripleDESCng.#ctor(System.String),System.Security.Cryptography,TripleDESCng,.ctor(String),X,X,
-"M:System.Security.Cryptography.TripleDESCng.#ctor(System.String,System.Security.Cryptography.CngProvider)",System.Security.Cryptography,TripleDESCng,".ctor(String, CngProvider)",X,X,
-"M:System.Security.Cryptography.TripleDESCng.#ctor(System.String,System.Security.Cryptography.CngProvider,System.Security.Cryptography.CngKeyOpenOptions)",System.Security.Cryptography,TripleDESCng,".ctor(String, CngProvider, CngKeyOpenOptions)",X,X,
 M:System.Security.Cryptography.TripleDESCng.CreateDecryptor,System.Security.Cryptography,TripleDESCng,CreateDecryptor(),X,X,
 "M:System.Security.Cryptography.TripleDESCng.CreateDecryptor(System.Byte[],System.Byte[])",System.Security.Cryptography,TripleDESCng,"CreateDecryptor(Byte[], Byte[])",X,X,
 M:System.Security.Cryptography.TripleDESCng.CreateEncryptor,System.Security.Cryptography,TripleDESCng,CreateEncryptor(),X,X,
