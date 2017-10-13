@@ -11,7 +11,7 @@ namespace PlatformCompat.Analyzers.Exceptions
     {
         public const string DiagnosticId = "PC001";
         private const string Category = "Usage";
-        private const string HelpLink = "https://github.com/PlatformCompat/platform-compat/blob/master/docs/" + DiagnosticId + ".md";
+        private const string HelpLink = "https://github.com/dotnet/platform-compat/blob/master/docs/" + DiagnosticId + ".md";
 
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.ExceptionAnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.ExceptionAnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));

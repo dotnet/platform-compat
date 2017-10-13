@@ -14,7 +14,7 @@ namespace PlatformCompat.Analyzers.Deprecated
     public class DeprecatedAnalyzer : DiagnosticAnalyzer
     {
         private const string Category = "Usage";
-        private const string HelpLinkFormat = "https://github.com/PlatformCompat/platform-compat/blob/master/docs/{0}.md";
+        private const string HelpLinkFormat = "https://github.com/dotnet/platform-compat/blob/master/docs/{0}.md";
 
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.DeprecatedAnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.DeprecatedAnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
