@@ -11,7 +11,7 @@ namespace PlatformCompat.Analyzers.Net461
     {
         public const string DiagnosticId = "PC002";
         private const string Category = "Usage";
-        private const string HelpLink = "https://github.com/PlatformCompat/platform-compat/blob/master/docs/" + DiagnosticId + ".md";
+        private const string HelpLink = "https://github.com/dotnet/platform-compat/blob/master/docs/" + DiagnosticId + ".md";
 
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.Net461AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.Net461AnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
