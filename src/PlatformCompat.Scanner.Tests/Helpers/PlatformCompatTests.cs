@@ -100,18 +100,30 @@ namespace PlatformCompat.Scanner.Tests.Helpers
 
         private static (string docId, int? level, string siteId) ParseDocIdLevelAndSite(string text)
         {
-            // Expected text format, with possible whitespace padding: <docId>@<level>@<siteId>
-            const int docIdPartIndex = 0;
-            const int levelPartIndex = 1;
-            const int siteIdPartIndex = 2;
+            var tokenInfo = NextTokenRange(text, 0);
+            var docId = text.Substring(tokenInfo.start, tokenInfo.len);
 
-            var textParts = text.Split('@');
+            tokenInfo = NextTokenRange(text, tokenInfo.start + tokenInfo.len);
+            var level = int.Parse(text.Substring(tokenInfo.start, tokenInfo.len));
 
-            var docId = textParts[docIdPartIndex].Trim();
-            var level = int.Parse(textParts[levelPartIndex]);
-            var sideId = textParts[siteIdPartIndex].Trim();
+            tokenInfo = NextTokenRange(text, tokenInfo.start + tokenInfo.len);
+            var siteId = text.Substring(tokenInfo.start, tokenInfo.len);
 
-            return (docId, level, string.Empty);
+            return (docId, level, siteId);
+
+            (int start, int len) NextTokenRange(string s, int scanStart)
+            {
+                var i = scanStart;
+                while (i < s.Length && s[i] == ' ')
+                    ++i;
+
+                var start = i;
+                while (i < s.Length && s[i] != ' ')
+                    ++i;
+
+                var len = i - start;
+                return (start, len);
+            }
         }
     }
 }
