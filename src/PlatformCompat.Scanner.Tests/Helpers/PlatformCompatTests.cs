@@ -38,6 +38,9 @@ namespace PlatformCompat.Scanner.Tests.Helpers
 
                     if (expectedResult.level != null)
                         Assert.Equal(expectedResult.level.Value, actualResult.result.Level);
+
+                    if (!string.IsNullOrWhiteSpace(expectedResult.siteId))
+                        Assert.Equal(expectedResult.siteId, actualResult.result.Site);
                 }
             }
         }
@@ -76,9 +79,9 @@ namespace PlatformCompat.Scanner.Tests.Helpers
             return results;
         }
 
-        private static IEnumerable<(string docId, int? level)> ParseDocAndLevelLines(string text)
+        private static IEnumerable<(string docId, int? level, string siteId)> ParseDocAndLevelLines(string text)
         {
-            return ParseLines(text).Select(ParseDocIdAndLevel);
+            return ParseLines(text).Select(ParseDocIdLevelAndSite);
         }
 
         private static IEnumerable<string> ParseLines(string text)
@@ -90,21 +93,37 @@ namespace PlatformCompat.Scanner.Tests.Helpers
                 {
                     line = line.Trim();
                     if (line.Length > 0)
-                        yield return line.Trim();
+                        yield return line;
                 }
             }
         }
 
-        private static (string docId, int? level) ParseDocIdAndLevel(string text)
+        private static (string docId, int? level, string siteId) ParseDocIdLevelAndSite(string text)
         {
-            var indexOfAt = text.IndexOf('@');
-            if (indexOfAt < 0)
-                return (text, null);
+            var tokenInfo = NextTokenRange(text, 0);
+            var docId = text.Substring(tokenInfo.start, tokenInfo.len);
 
-            var docId = text.Substring(0, indexOfAt - 1).Trim();
-            var levelText = text.Substring(indexOfAt + 1).Trim();
-            var level = int.Parse(levelText);
-            return (docId, level);
+            tokenInfo = NextTokenRange(text, tokenInfo.start + tokenInfo.len);
+            var level = int.Parse(text.Substring(tokenInfo.start, tokenInfo.len));
+
+            tokenInfo = NextTokenRange(text, tokenInfo.start + tokenInfo.len);
+            var siteId = text.Substring(tokenInfo.start, tokenInfo.len);
+
+            return (docId, level, siteId);
+
+            (int start, int len) NextTokenRange(string s, int scanStart)
+            {
+                var i = scanStart;
+                while (i < s.Length && s[i] == ' ')
+                    ++i;
+
+                var start = i;
+                while (i < s.Length && s[i] != ' ')
+                    ++i;
+
+                var len = i - start;
+                return (start, len);
+            }
         }
     }
 }

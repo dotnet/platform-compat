@@ -16,7 +16,7 @@ namespace ex_gen
             _exclusionDatabase = exclusionDatabase;
         }
 
-        public void Add(ITypeDefinitionMember member, string platform)
+        public void Add(ITypeDefinitionMember member, string site, string platform)
         {
             var docId = member.DocId();
 
@@ -30,16 +30,16 @@ namespace ex_gen
             var namespaceName = member.GetNamespaceName();
             var typeName = member.GetTypeName();
             var memberName = member.GetMemberSignature();
-            Add(docId, namespaceName, typeName, memberName, platform);
+            Add(docId, namespaceName, typeName, memberName, site, platform);
         }
 
-        public void Add(string docId, string namespaceName, string typeName, string memberName, string platform)
+        public void Add(string docId, string namespaceName, string typeName, string memberName, string site, string platform)
         {
             _platforms.Add(platform);
 
             if (!_entries.TryGetValue(docId, out var entry))
             {
-                entry = new DatabaseEntry(docId, namespaceName, typeName, memberName);
+                entry = new DatabaseEntry(docId, namespaceName, typeName, memberName, site);
                 _entries.Add(docId, entry);
             }
 

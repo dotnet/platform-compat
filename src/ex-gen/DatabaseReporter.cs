@@ -5,19 +5,22 @@ namespace ex_gen
 {
     internal sealed class DatabaseReporter : IExceptionReporter
     {
-        private readonly Database _database;
+        private readonly Database[] _databases;
         private readonly string _platform;
 
-        public DatabaseReporter(Database database, string platform)
+        public DatabaseReporter(Database[] databases, string platform)
         {
-            _database = database;
+            _databases = databases;
             _platform = platform;
         }
 
         public void Report(ExceptionInfo result, ITypeDefinitionMember member)
         {
             if (result.Throws)
-                _database.Add(member, _platform);
+            {
+                foreach(var database in _databases)
+                    database.Add(member, result.Site, _platform);
+            }
         }
     }
 }

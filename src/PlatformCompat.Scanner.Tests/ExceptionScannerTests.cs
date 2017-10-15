@@ -98,11 +98,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                M:C.#ctor
+            var expectedResults = @"
+                M:C.#ctor 0 M:C.#ctor
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -120,11 +120,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                M:C.M
+            var expectedResults = @"
+                M:C.M 0 M:C.M
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -143,11 +143,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                P:C.P
+            var expectedResults = @"
+                P:C.P 0 M:C.set_P(System.Int32)
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -166,11 +166,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                P:C.P
+            var expectedResults = @"
+                P:C.P 0 M:C.get_P
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -189,11 +189,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                P:C.P
+            var expectedResults = @"
+                P:C.P 0 M:C.set_P(System.Int32)
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -212,11 +212,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                E:C.E
+            var expectedResults = @"
+                E:C.E 0 M:C.remove_E(System.EventHandler)
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -235,11 +235,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                E:C.E
+            var expectedResults = @"
+                E:C.E 0 M:C.add_E(System.EventHandler)
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -258,11 +258,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                E:C.E
+            var expectedResults = @"
+                E:C.E 0 M:C.remove_E(System.EventHandler)
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -285,11 +285,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                M:C.M
+            var expectedResults = @"
+                M:C.M 0 M:C.M 
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -312,11 +312,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                M:C.M1
+            var expectedResults = @"
+                M:C.M1 1 M:C.M2
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -344,11 +344,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                M:C.M1
+            var expectedResults = @"
+                M:C.M1 2 M:C.M3
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -381,11 +381,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                M:C.M1
+            var expectedResults = @"
+                M:C.M1 3 M:C.M4
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -451,11 +451,11 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                M:C.M1
+            var expectedResults = @"
+                M:C.M1 1 M:C.M2
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -491,12 +491,12 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                M:C.M1 @ 1
-                M:C.M2 @ 0
+            var expectedResults = @"
+                M:C.M1 1 M:C.O2
+                M:C.M2 0 M:C.M2
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -531,12 +531,12 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                P:C.P1 @ 0
-                P:C.P2 @ 1
+            var expectedResults = @"
+                P:C.P1 0 M:C.get_P1
+                P:C.P2 1 M:C.M2
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
 
         [Fact]
@@ -571,12 +571,12 @@ namespace PlatformCompat.Scanner.Tests
                 }
             ";
 
-            var docIds = @"
-                E:C.E1 @ 0
-                E:C.E2 @ 1
+            var expectedResults = @"
+                E:C.E1 0 M:C.add_E1(System.EventHandler)
+                E:C.E2 1 M:C.M2
             ";
 
-            AssertMatch(source, docIds);
+            AssertMatch(source, expectedResults);
         }
     }
 }
