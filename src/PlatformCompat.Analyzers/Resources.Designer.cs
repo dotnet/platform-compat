@@ -198,5 +198,14 @@ namespace PlatformCompat.Analyzers {
                 return ResourceManager.GetString("Net461AnalyzerTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report an issue.
+        /// </summary>
+        internal static string ReportAnIssueTitle {
+            get {
+                return ResourceManager.GetString("ReportAnIssueTitle", resourceCulture);
+            }
+        }
     }
 }
