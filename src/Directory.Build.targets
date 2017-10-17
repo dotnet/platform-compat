@@ -6,4 +6,8 @@
 
   <Import Project="Testing.targets" Condition="$(AssemblyName.EndsWith('Tests'))" />
 
+  <ItemGroup Condition="'$(GeneratePackageOnBuild)' == 'True'">
+    <PackageReference Update="*" PrivateAssets="All" />
+  </ItemGroup>
+
 </Project>

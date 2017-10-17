@@ -6,20 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="build\PlatformCompat.Analyzers.targets">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="2.0.0" />
-    <PackageReference Include="NuGet.CommandLine" Version="2.8.5" />
     <PackageReference Include="System.Collections" Version="4.3.0" />
     <PackageReference Include="System.ValueTuple" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PlatformCompat.Csv\PlatformCompat.Csv.csproj" />
+    <ProjectReference Include="..\PlatformCompat.Csv\PlatformCompat.Csv.csproj" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,7 +27,30 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <!-- NuGet package definition -->
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageOutputPath>$(OutDir)</PackageOutputPath>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DevelopmentDependency>True</DevelopmentDependency>
+    <Title>$(AssemblyName)</Title>
+    <Authors>Microsoft</Authors>
+    <Company>Microsoft</Company>
+    <PackageLicenseUrl>https://github.com/dotnet/platform-compat/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/dotnet/platform-compat</PackageProjectUrl>
+    <Copyright>Copyright (c) Microsoft</Copyright>
+    <Description>Shows diagnostics for .NET Core APIs that throw PlatformNotSupportedException on specific operating systems.</Description>
+    <RepositoryUrl>https://github.com/dotnet/platform-compat</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="build\PlatformCompat.Analyzers.targets" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+    <None Include="$(OutDir)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="$(OutDir)\PlatformCompat.Csv.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+  </ItemGroup>
+
   <Import Project="build\GenerateDeprecated.targets" />
-  <Import Project="build\GenerateNuGetPackage.targets" />
 
 </Project>
