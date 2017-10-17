@@ -21,7 +21,7 @@ namespace PlatformCompat.Analyzers.Deprecated
 
         private readonly ApiStore<ImmutableArray<string>> _store = DeprecatedDocument.Parse(Resources.Deprecated);
 
-        private static ImmutableArray<DiagnosticDescriptor> CreateDescriptors()
+        public static ImmutableArray<DiagnosticDescriptor> GetDescriptors()
         {
             var diagnosticIds = new SortedSet<string>();
 
@@ -45,7 +45,7 @@ namespace PlatformCompat.Analyzers.Deprecated
 
         public DeprecatedAnalyzer()
         {
-            SupportedDiagnostics = CreateDescriptors();
+            SupportedDiagnostics = GetDescriptors();
             DescriptorById = SupportedDiagnostics.ToImmutableDictionary(d => d.Id);
         }
     

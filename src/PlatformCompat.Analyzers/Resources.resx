@@ -162,4 +162,7 @@
     <value>API not available in .NET Framework 4.6.1</value>
     <comment>The title of the diagnostic.</comment>
   </data>
+  <data name="ReportAnIssueTitle" xml:space="preserve">
+    <value>Report an issue</value>
+  </data>
 </root>
