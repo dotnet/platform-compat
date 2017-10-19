@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
-using PlatformCompat.Cci;
+using Microsoft.DotNet.Cci;
 
 namespace ex_gen
 {

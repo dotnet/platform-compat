@@ -5,8 +5,8 @@ using System.IO;
 using System.Linq;
 using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
-using PlatformCompat.Cci;
-using PlatformCompat.Csv;
+using Microsoft.DotNet.Cci;
+using Microsoft.DotNet.Csv;
 
 namespace dep_index
 {

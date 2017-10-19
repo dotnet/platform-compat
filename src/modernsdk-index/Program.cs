@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using PlatformCompat.Csv;
+using Microsoft.DotNet.Csv;
 
 namespace modernsdk_index
 {

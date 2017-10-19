@@ -11,8 +11,8 @@ using SharpCompress.Archives.Zip;
 using SharpCompress.Compressors;
 using SharpCompress.Compressors.Deflate;
 using SharpCompress.Readers;
-using PlatformCompat.Csv;
-using PlatformCompat.Scanner;
+using Microsoft.DotNet.Csv;
+using Microsoft.DotNet.Scanner;
 
 namespace ex_gen
 {

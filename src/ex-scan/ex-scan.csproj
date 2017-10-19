@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PlatformCompat.Cci\PlatformCompat.Cci.csproj" />
-    <ProjectReference Include="..\PlatformCompat.Csv\PlatformCompat.Csv.csproj" />
-    <ProjectReference Include="..\PlatformCompat.Scanner\PlatformCompat.Scanner.csproj" />
+    <ProjectReference Include="..\Microsoft.DotNet.Cci\Microsoft.DotNet.Cci.csproj" />
+    <ProjectReference Include="..\Microsoft.DotNet.Csv\Microsoft.DotNet.Csv.csproj" />
+    <ProjectReference Include="..\Microsoft.DotNet.ExceptionScanning\Microsoft.DotNet.ExceptionScanning.csproj" />
   </ItemGroup>
 
 </Project>

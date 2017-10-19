@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PlatformCompat.Csv\PlatformCompat.Csv.csproj" />
+    <ProjectReference Include="..\Microsoft.DotNet.Csv\Microsoft.DotNet.Csv.csproj" />
   </ItemGroup>
 
 </Project>
