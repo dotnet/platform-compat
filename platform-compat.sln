@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.DotNet.ExceptionS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dep-index", "src\dep-index\dep-index.csproj", "{6973B489-E5ED-4F82-BE2A-A4A54868F45D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "comment", "comment", "{3353F11E-B74D-44BD-9CF4-FD0A63A0C07B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{3353F11E-B74D-44BD-9CF4-FD0A63A0C07B}"
 	ProjectSection(SolutionItems) = preProject
 		src\Directory.Build.props = src\Directory.Build.props
 		src\Directory.Build.targets = src\Directory.Build.targets
