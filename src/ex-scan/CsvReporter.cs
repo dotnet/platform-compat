@@ -1,8 +1,8 @@
 ﻿using Microsoft.Cci;
 using Microsoft.Cci.Extensions;
-using PlatformCompat.Cci;
-using PlatformCompat.Csv;
-using PlatformCompat.Scanner;
+using Microsoft.DotNet.Cci;
+using Microsoft.DotNet.Csv;
+using Microsoft.DotNet.Scanner;
 
 namespace ex_scan
 {
