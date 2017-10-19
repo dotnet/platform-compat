@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Microsoft.DotNet.Csv\Microsoft.DotNet.Csv.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -42,13 +46,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="build\PlatformCompat.Analyzers.targets" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+    <None Update="build\Microsoft.DotNet.Analyzers.Compatibility.targets" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
     <None Include="$(OutDir)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="$(OutDir)\Microsoft.DotNet.Csv.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Microsoft.DotNet.Csv\Microsoft.DotNet.Csv.csproj" />
   </ItemGroup>
 
   <Import Project="build\GenerateDeprecated.targets" />
