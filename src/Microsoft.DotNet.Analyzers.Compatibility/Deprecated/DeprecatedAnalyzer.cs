@@ -24,6 +24,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Deprecated
         public static ImmutableArray<DiagnosticDescriptor> GetDescriptors()
         {
             var diagnosticIds = new SortedSet<string>();
+            var isHeaderRow = true;
 
             using (var stringReader = new StringReader(Resources.Deprecated))
             {
@@ -31,10 +32,18 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Deprecated
                 string[] line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (line.Length == 5)
+                    if (isHeaderRow)
                     {
-                        var ids = line[4].Split(';');
-                        diagnosticIds.UnionWith(ids);
+                        // We don't want to include the header row in the list of diagnostic IDs 
+                        isHeaderRow = false;
+                    }
+                    else
+                    {
+                        if (line.Length == 5)
+                        {
+                            var ids = line[4].Split(';');
+                            diagnosticIds.UnionWith(ids);
+                        }
                     }
                 }
             }
