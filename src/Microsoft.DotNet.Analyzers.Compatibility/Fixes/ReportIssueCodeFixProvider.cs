@@ -19,7 +19,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
 {
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(ReportIssueCodeFixProvider))]
     [Shared]
-    public class ReportIssueCodeFixProvider : CodeFixProvider
+    public sealed class ReportIssueCodeFixProvider : CodeFixProvider
     {
         public sealed override ImmutableArray<string> FixableDiagnosticIds
         {
