@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Microsoft.DotNet.Scanner
+﻿namespace Microsoft.DotNet.Scanner
 {
     public struct ExceptionInfo
     {
@@ -33,6 +31,7 @@ namespace Microsoft.DotNet.Scanner
         public int Level { get; }
 
         public string Site { get; }
+
         public override string ToString()
         {
             return Level.ToString();

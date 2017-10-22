@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.CodeAnalysis.Diagnostics;
+﻿using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.DotNet.Analyzers.Compatibility.Exceptions;
 using Microsoft.DotNet.Analyzers.Compatibility.Tests.Helpers;
 using Xunit;
