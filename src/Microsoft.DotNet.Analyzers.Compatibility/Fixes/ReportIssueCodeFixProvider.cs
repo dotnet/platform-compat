@@ -37,7 +37,6 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
         public sealed override Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             var diagnostic = context.Diagnostics.First();
-            var diagnosticSpan = diagnostic.Location.SourceSpan;
 
             RegisterReportIssue(context, diagnostic);
             RegisterAbout(context, diagnostic);
