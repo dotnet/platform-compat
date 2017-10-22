@@ -217,11 +217,11 @@ namespace Microsoft.DotNet.Analyzers.Compatibility {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Report an issue.
+        ///   Looks up a localized string similar to Report an issue with {0}.
         /// </summary>
-        internal static string ReportAnIssueTitle {
+        internal static string ReportAnIssueFormatString {
             get {
-                return ResourceManager.GetString("ReportAnIssueTitle", resourceCulture);
+                return ResourceManager.GetString("ReportAnIssueFormatString", resourceCulture);
             }
         }
     }

@@ -50,7 +50,8 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
             var issueTitleEncoded = WebUtility.UrlEncode(issueTitle);
             var url = $"https://github.com/dotnet/platform-compat/issues/new?title={issueTitleEncoded}";
 
-            var action = new OpenInBrowserAction(Resources.ReportAnIssueTitle, url);
+            var title = string.Format(Resources.ReportAnIssueFormatString, diagnostic.Id);
+            var action = new OpenInBrowserAction(title, url);
             context.RegisterCodeFix(action, diagnostic);
         }
 
