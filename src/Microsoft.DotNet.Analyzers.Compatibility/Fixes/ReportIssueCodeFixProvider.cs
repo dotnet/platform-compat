@@ -40,6 +40,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
             var diagnosticSpan = diagnostic.Location.SourceSpan;
 
             RegisterReportIssue(context, diagnostic);
+            RegisterAbout(context, diagnostic);
 
             return Task.CompletedTask;
         }
@@ -51,6 +52,17 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
             var url = $"https://github.com/dotnet/platform-compat/issues/new?title={issueTitleEncoded}";
 
             var action = new OpenInBrowserAction(Resources.ReportAnIssueTitle, url);
+            context.RegisterCodeFix(action, diagnostic);
+        }
+
+        private static void RegisterAbout(CodeFixContext context, Diagnostic diagnostic)
+        {
+            var url = diagnostic.Descriptor.HelpLinkUri;
+            if (string.IsNullOrEmpty(url))
+                return;
+
+            var title = string.Format(Resources.AboutDiagnosticFormatString, diagnostic.Id);
+            var action = new OpenInBrowserAction(title, url);
             context.RegisterCodeFix(action, diagnostic);
         }
 

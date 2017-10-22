@@ -62,6 +62,15 @@ namespace Microsoft.DotNet.Analyzers.Compatibility {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About {0}.
+        /// </summary>
+        internal static string AboutDiagnosticFormatString {
+            get {
+                return ResourceManager.GetString("AboutDiagnosticFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Browse to {0}.
         /// </summary>
         internal static string BrowseToUrl {
