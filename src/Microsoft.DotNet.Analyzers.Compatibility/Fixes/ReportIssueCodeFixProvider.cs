@@ -39,43 +39,45 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
             var diagnostic = context.Diagnostics.First();
             var diagnosticSpan = diagnostic.Location.SourceSpan;
 
-            var title = $"{diagnostic.Id}: {diagnostic.GetMessage()}";
-            var action = new ReportIssueCodeAction(title);
+            var issueTitle = $"{diagnostic.Id}: {diagnostic.GetMessage()}";
+            var issueTitleEncoded = WebUtility.UrlEncode(issueTitle);
+            var url = $"https://github.com/dotnet/platform-compat/issues/new?title={issueTitleEncoded}";
+
+            var action = new OpenInBrowserAction(Resources.ReportAnIssueTitle, url);
             context.RegisterCodeFix(action, diagnostic);
 
             return Task.CompletedTask;
         }
         
-        private sealed class ReportIssueCodeAction : CodeAction
+        private sealed class OpenInBrowserAction : CodeAction
         {
-            private readonly string _issueTitle;
-
-            public ReportIssueCodeAction(string issueTitle)
+            public OpenInBrowserAction(string title, string url)
             {
-                _issueTitle = issueTitle;
+                Title = title;
+                Url = url;
             }
 
-            public override string Title => Resources.ReportAnIssueTitle;
+            public override string Title { get; }
 
             public override string EquivalenceKey => Title;
 
+            public string Url { get; }
+
             protected override Task<IEnumerable<CodeActionOperation>> ComputeOperationsAsync(CancellationToken cancellationToken)
             {
-                var issueTitleEncoded = WebUtility.UrlEncode(_issueTitle);
-                var url = $"https://github.com/dotnet/platform-compat/issues/new?title={issueTitleEncoded}";
-                var result = new[] { new StartProcessCodeOperation(url) };
+                var result = new[] { new OpenInBrowserOperation(Url) };
                 return Task.FromResult<IEnumerable<CodeActionOperation>>(result);
             }
         }
 
-        private sealed class StartProcessCodeOperation : CodeActionOperation
+        private sealed class OpenInBrowserOperation : CodeActionOperation
         {
-            public StartProcessCodeOperation(string fileName)
+            public OpenInBrowserOperation(string url)
             {
-                FileName = fileName;
+                Url = url;
             }
 
-            public string FileName { get; }
+            public string Url { get; }
 
             public override void Apply(Workspace workspace, CancellationToken cancellationToken)
             {
@@ -91,7 +93,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
                                                 m.GetParameters().Length == 1 &&
                                                 m.GetParameters()[0].ParameterType == typeof(string));
 
-                startMethod.Invoke(null, new[] { FileName });
+                startMethod.Invoke(null, new[] { Url });
             }
         }
     }
