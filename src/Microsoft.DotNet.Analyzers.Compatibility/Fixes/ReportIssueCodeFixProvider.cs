@@ -36,10 +36,11 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
 
         public sealed override Task RegisterCodeFixesAsync(CodeFixContext context)
         {
-            var diagnostic = context.Diagnostics.First();
-
-            RegisterReportIssue(context, diagnostic);
-            RegisterAbout(context, diagnostic);
+            foreach (var diagnostic in context.Diagnostics)
+            {
+                RegisterReportIssue(context, diagnostic);
+                RegisterAbout(context, diagnostic);
+            }
 
             return Task.CompletedTask;
         }
