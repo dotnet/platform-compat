@@ -39,16 +39,21 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
             var diagnostic = context.Diagnostics.First();
             var diagnosticSpan = diagnostic.Location.SourceSpan;
 
+            RegisterReportIssue(context, diagnostic);
+
+            return Task.CompletedTask;
+        }
+
+        private static void RegisterReportIssue(CodeFixContext context, Diagnostic diagnostic)
+        {
             var issueTitle = $"{diagnostic.Id}: {diagnostic.GetMessage()}";
             var issueTitleEncoded = WebUtility.UrlEncode(issueTitle);
             var url = $"https://github.com/dotnet/platform-compat/issues/new?title={issueTitleEncoded}";
 
             var action = new OpenInBrowserAction(Resources.ReportAnIssueTitle, url);
             context.RegisterCodeFix(action, diagnostic);
-
-            return Task.CompletedTask;
         }
-        
+
         private sealed class OpenInBrowserAction : CodeAction
         {
             public OpenInBrowserAction(string title, string url)
