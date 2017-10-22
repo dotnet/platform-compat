@@ -68,6 +68,12 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
                 var result = new[] { new OpenInBrowserOperation(Url) };
                 return Task.FromResult<IEnumerable<CodeActionOperation>>(result);
             }
+
+            protected override Task<IEnumerable<CodeActionOperation>> ComputePreviewOperationsAsync(CancellationToken cancellationToken)
+            {
+                var result = new[] { new OpenInBrowserPreviewOperation(Url) };
+                return Task.FromResult<IEnumerable<CodeActionOperation>>(result);
+            }
         }
 
         private sealed class OpenInBrowserOperation : CodeActionOperation
@@ -94,6 +100,21 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
                                                 m.GetParameters()[0].ParameterType == typeof(string));
 
                 startMethod.Invoke(null, new[] { Url });
+            }
+        }
+
+        private sealed class OpenInBrowserPreviewOperation : PreviewOperation
+        {
+            public OpenInBrowserPreviewOperation(string url)
+            {
+                Url = url;
+            }
+
+            public string Url { get; }
+
+            public override Task<object> GetPreviewAsync(CancellationToken cancellationToken)
+            {
+                return Task.FromResult<object>(string.Format(Resources.BrowseToUrl, Url));
             }
         }
     }

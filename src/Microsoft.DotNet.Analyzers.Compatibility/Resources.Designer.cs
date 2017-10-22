@@ -62,6 +62,15 @@ namespace Microsoft.DotNet.Analyzers.Compatibility {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Browse to {0}.
+        /// </summary>
+        internal static string BrowseToUrl {
+            get {
+                return ResourceManager.GetString("BrowseToUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DocId,Namespace,Type,Member,DiagnosticIds
         ///F:System.PlatformID.MacOSX,System,PlatformID,MacOSX,DE0007
         ///F:System.PlatformID.Win32S,System,PlatformID,Win32S,DE0007
