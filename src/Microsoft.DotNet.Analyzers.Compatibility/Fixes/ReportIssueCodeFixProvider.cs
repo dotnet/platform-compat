@@ -38,22 +38,11 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
         {
             foreach (var diagnostic in context.Diagnostics)
             {
-                RegisterReportIssue(context, diagnostic);
                 RegisterAbout(context, diagnostic);
+                RegisterReportIssue(context, diagnostic);
             }
 
             return Task.CompletedTask;
-        }
-
-        private static void RegisterReportIssue(CodeFixContext context, Diagnostic diagnostic)
-        {
-            var issueTitle = $"{diagnostic.Id}: {diagnostic.GetMessage()}";
-            var issueTitleEncoded = WebUtility.UrlEncode(issueTitle);
-            var url = $"https://github.com/dotnet/platform-compat/issues/new?title={issueTitleEncoded}";
-
-            var title = string.Format(Resources.ReportAnIssueFormatString, diagnostic.Id);
-            var action = new OpenInBrowserAction(title, url);
-            context.RegisterCodeFix(action, diagnostic);
         }
 
         private static void RegisterAbout(CodeFixContext context, Diagnostic diagnostic)
@@ -63,6 +52,17 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
                 return;
 
             var title = string.Format(Resources.AboutDiagnosticFormatString, diagnostic.Id);
+            var action = new OpenInBrowserAction(title, url);
+            context.RegisterCodeFix(action, diagnostic);
+        }
+
+        private static void RegisterReportIssue(CodeFixContext context, Diagnostic diagnostic)
+        {
+            var issueTitle = $"{diagnostic.Id}: {diagnostic.GetMessage()}";
+            var issueTitleEncoded = WebUtility.UrlEncode(issueTitle);
+            var url = $"https://github.com/dotnet/platform-compat/issues/new?title={issueTitleEncoded}";
+
+            var title = string.Format(Resources.ReportAnIssueFormatString, diagnostic.Id);
             var action = new OpenInBrowserAction(title, url);
             context.RegisterCodeFix(action, diagnostic);
         }
