@@ -17,9 +17,9 @@ using Microsoft.DotNet.Analyzers.Compatibility.Net461;
 
 namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
 {
-    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(ReportIssueCodeFixProvider))]
+    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(MetaCodeFixProvider))]
     [Shared]
-    public sealed class ReportIssueCodeFixProvider : CodeFixProvider
+    public sealed class MetaCodeFixProvider : CodeFixProvider
     {
         public sealed override ImmutableArray<string> FixableDiagnosticIds
         {
