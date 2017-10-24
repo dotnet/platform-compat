@@ -62,6 +62,24 @@ namespace Microsoft.DotNet.Analyzers.Compatibility {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About {0}.
+        /// </summary>
+        internal static string AboutDiagnosticFormatString {
+            get {
+                return ResourceManager.GetString("AboutDiagnosticFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Browse to {0}.
+        /// </summary>
+        internal static string BrowseToUrlFormat {
+            get {
+                return ResourceManager.GetString("BrowseToUrlFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DocId,Namespace,Type,Member,DiagnosticIds
         ///F:System.PlatformID.MacOSX,System,PlatformID,MacOSX,DE0007
         ///F:System.PlatformID.Win32S,System,PlatformID,Win32S,DE0007
@@ -199,11 +217,11 @@ namespace Microsoft.DotNet.Analyzers.Compatibility {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Report an issue.
+        ///   Looks up a localized string similar to Report an issue with {0}.
         /// </summary>
-        internal static string ReportAnIssueTitle {
+        internal static string ReportAnIssueFormatString {
             get {
-                return ResourceManager.GetString("ReportAnIssueTitle", resourceCulture);
+                return ResourceManager.GetString("ReportAnIssueFormatString", resourceCulture);
             }
         }
     }
