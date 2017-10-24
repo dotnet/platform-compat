@@ -120,7 +120,7 @@
   <data name="AboutDiagnosticFormatString" xml:space="preserve">
     <value>About {0}</value>
   </data>
-  <data name="BrowseToUrl" xml:space="preserve">
+  <data name="BrowseToUrlFormat" xml:space="preserve">
     <value>Browse to {0}</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />

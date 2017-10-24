@@ -132,7 +132,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
 
             public override Task<object> GetPreviewAsync(CancellationToken cancellationToken)
             {
-                return Task.FromResult<object>(string.Format(Resources.BrowseToUrl, Url));
+                return Task.FromResult<object>(string.Format(Resources.BrowseToUrlFormat, Url));
             }
         }
     }

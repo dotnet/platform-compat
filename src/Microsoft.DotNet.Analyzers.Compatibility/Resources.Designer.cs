@@ -73,9 +73,9 @@ namespace Microsoft.DotNet.Analyzers.Compatibility {
         /// <summary>
         ///   Looks up a localized string similar to Browse to {0}.
         /// </summary>
-        internal static string BrowseToUrl {
+        internal static string BrowseToUrlFormat {
             get {
-                return ResourceManager.GetString("BrowseToUrl", resourceCulture);
+                return ResourceManager.GetString("BrowseToUrlFormat", resourceCulture);
             }
         }
         
