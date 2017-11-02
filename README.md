@@ -8,7 +8,7 @@ platforms or are deprecated.
 
 ## Usage
 
-In order to use it, install the NuGet package [PlatformCompat.Analyzers](https://www.nuget.org/packages/PlatformCompat.analyzers).
+In order to use it, install the NuGet package [Microsoft.DotNet.Analyzers.Compatibility](https://www.nuget.org/packages/Microsoft.DotNet.Analyzers.Compatibility).
 
 ## Experience
 
