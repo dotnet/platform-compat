@@ -6,6 +6,8 @@ This tool provides [Roslyn](https://github.com/dotnet/roslyn) analyzers that
 find usages of .NET Core & .NET Standard APIs that are problematic on specific
 platforms or are deprecated.
 
+You can find out more in our [blog post](https://blogs.msdn.microsoft.com/dotnet/2017/10/31/introducing-api-analyzer/)!
+
 ## Usage
 
 In order to use it, install the NuGet package [Microsoft.DotNet.Analyzers.Compatibility](https://www.nuget.org/packages/Microsoft.DotNet.Analyzers.Compatibility).
