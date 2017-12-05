@@ -32,7 +32,9 @@ namespace Microsoft.DotNet.Scanner
 
         private void ScanMember(ITypeDefinitionMember item)
         {
-            if (!item.IsVisibleOutsideAssembly())
+            if (!item.IsVisibleOutsideAssembly() ||
+                item is IPropertyDefinition ||
+                item is IEventDefinition)
                 return;
 
             var info = ScanPlatformNotSupported(item);
@@ -43,18 +45,7 @@ namespace Microsoft.DotNet.Scanner
         {
             if (item is IMethodDefinition m)
             {
-                if (m.IsPropertyOrEventAccessor())
-                    return ExceptionInfo.DoesNotThrow;
-
                 return ScanPlatformNotSupported(m);
-            }
-            else if (item is IPropertyDefinition p)
-            {
-                return ScanPlatformNotSupported(p.Accessors);
-            }
-            else if (item is IEventDefinition e)
-            {
-                return ScanPlatformNotSupported(e.Accessors);
             }
             else if (item is IFieldDefinition || item is ITypeDefinition)
             {
@@ -65,12 +56,6 @@ namespace Microsoft.DotNet.Scanner
             {
                 throw new NotImplementedException($"Unexpected type member: {item.FullName()} ({item.GetApiKind()})");
             }
-        }
-
-        private static ExceptionInfo ScanPlatformNotSupported(IEnumerable<IMethodReference> accessors)
-        {
-            return accessors.Select(a => ScanPlatformNotSupported(a.ResolvedMethod))
-                            .Aggregate(ExceptionInfo.DoesNotThrow, (c, o) => c.Combine(o));
         }
 
         private static ExceptionInfo ScanPlatformNotSupported(IMethodDefinition method, int nestingLevel = 0)

@@ -144,7 +144,8 @@ namespace Microsoft.DotNet.Scanner.Tests
             ";
 
             var expectedResults = @"
-                P:C.P 0 M:C.set_P(System.Int32)
+                M:C.set_P(System.Int32) 0 M:C.set_P(System.Int32)
+                M:C.get_P 0 M:C.get_P
             ";
 
             AssertMatch(source, expectedResults);
@@ -167,7 +168,7 @@ namespace Microsoft.DotNet.Scanner.Tests
             ";
 
             var expectedResults = @"
-                P:C.P 0 M:C.get_P
+                M:C.get_P 0 M:C.get_P
             ";
 
             AssertMatch(source, expectedResults);
@@ -190,7 +191,7 @@ namespace Microsoft.DotNet.Scanner.Tests
             ";
 
             var expectedResults = @"
-                P:C.P 0 M:C.set_P(System.Int32)
+                M:C.set_P(System.Int32) 0 M:C.set_P(System.Int32)
             ";
 
             AssertMatch(source, expectedResults);
@@ -213,7 +214,8 @@ namespace Microsoft.DotNet.Scanner.Tests
             ";
 
             var expectedResults = @"
-                E:C.E 0 M:C.remove_E(System.EventHandler)
+                M:C.add_E(System.EventHandler) 0 M:C.add_E(System.EventHandler)
+                M:C.remove_E(System.EventHandler) 0 M:C.remove_E(System.EventHandler)
             ";
 
             AssertMatch(source, expectedResults);
@@ -236,7 +238,7 @@ namespace Microsoft.DotNet.Scanner.Tests
             ";
 
             var expectedResults = @"
-                E:C.E 0 M:C.add_E(System.EventHandler)
+                M:C.add_E(System.EventHandler) 0 M:C.add_E(System.EventHandler)
             ";
 
             AssertMatch(source, expectedResults);
@@ -259,7 +261,7 @@ namespace Microsoft.DotNet.Scanner.Tests
             ";
 
             var expectedResults = @"
-                E:C.E 0 M:C.remove_E(System.EventHandler)
+                M:C.remove_E(System.EventHandler) 0 M:C.remove_E(System.EventHandler)
             ";
 
             AssertMatch(source, expectedResults);
@@ -532,8 +534,10 @@ namespace Microsoft.DotNet.Scanner.Tests
             ";
 
             var expectedResults = @"
-                P:C.P1 0 M:C.get_P1
-                P:C.P2 1 M:C.M2
+                M:C.get_P1 0 M:C.get_P1
+                M:C.get_P2 2 M:C.M2
+                M:C.set_P1(System.Int32) 2 M:C.M2
+                M:C.set_P2(System.Int32) 1 M:C.M2
             ";
 
             AssertMatch(source, expectedResults);
@@ -572,8 +576,10 @@ namespace Microsoft.DotNet.Scanner.Tests
             ";
 
             var expectedResults = @"
-                E:C.E1 0 M:C.add_E1(System.EventHandler)
-                E:C.E2 1 M:C.M2
+                M:C.add_E1(System.EventHandler) 0 M:C.add_E1(System.EventHandler)
+                M:C.add_E2(System.EventHandler) 2 M:C.M2
+                M:C.remove_E1(System.EventHandler) 2 M:C.M2
+                M:C.remove_E2(System.EventHandler) 1 M:C.M2
             ";
 
             AssertMatch(source, expectedResults);
