@@ -1,7 +1,7 @@
 DocId,Namespace,Type,Member,Reason,linux,osx,win
 "M:System.Activator.CreateInstance(System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo)",System,Activator,"CreateInstance(Type, BindingFlags, Binder, Object[], CultureInfo)",PNSE Unreachable,X,X,X
 "M:System.Activator.CreateInstance(System.Type,System.Object[])",System,Activator,"CreateInstance(Type, Object[])",PNSE Unreachable,X,X,X
-P:System.Console.CapsLock,System,Console,CapsLock,Bogus on curated list,X,X,X
+M:System.Console.get_CapsLock,System,Console,get_CapsLock(),Bogus on curated list,X,X,X
 "M:System.ComponentModel.LicenseManager.CreateWithContext(System.Type,System.ComponentModel.LicenseContext,System.Object[])",System.ComponentModel,LicenseManager,"CreateWithContext(Type, LicenseContext, Object[])",PNSE Unreachable,X,X,X
 M:System.ComponentModel.MaskedTextProvider.Clone,System.ComponentModel,MaskedTextProvider,Clone(),PNSE Unreachable,X,X,X
 "M:System.ComponentModel.TypeDescriptionProvider.CreateInstance(System.IServiceProvider,System.Type,System.Type[],System.Object[])",System.ComponentModel,TypeDescriptionProvider,"CreateInstance(IServiceProvider, Type, Type[], Object[])",PNSE Unreachable,X,X,X
@@ -10,23 +10,23 @@ M:System.Data.Common.DataAdapter.CloneInternals,System.Data.Common,DataAdapter,C
 M:System.Data.Common.DbDataAdapter.System#ICloneable#Clone,System.Data.Common,DbDataAdapter,System.ICloneable.Clone(),PNSE Unreachable,X,X,X
 M:System.Diagnostics.Process.Start,System.Diagnostics,Process,Start(),Only if UseShellExecute true and Windows version does not support it,,,X
 M:System.Diagnostics.Process.Start(System.Diagnostics.ProcessStartInfo),System.Diagnostics,Process,Start(ProcessStartInfo),Only if UseShellExecute true and Windows version does not support it,,,X
-P:System.Diagnostics.Process.Id,System.Diagnostics,Process,Id,PNSE Unreachable,X,X,
+M:System.Diagnostics.Process.get_Id,System.Diagnostics,Process,get_Id(),PNSE Unreachable,X,X,
 M:System.Security.Cryptography.HMACMD5.#ctor,System.Security.Cryptography,HMACMD5,.ctor(),PNSE Unreachable,X,X,X
 M:System.Security.Cryptography.HMACMD5.#ctor(System.Byte[]),System.Security.Cryptography,HMACMD5,.ctor(Byte[]),PNSE Unreachable,X,X,X
-P:System.Security.Cryptography.HMACMD5.Key,System.Security.Cryptography,HMACMD5,Key,PNSE Unreachable,,X,
+M:System.Security.Cryptography.HMACMD5.set_Key(System.Byte[]),System.Security.Cryptography,HMACMD5,set_Key(Byte[]),PNSE Unreachable,,X,
 M:System.Security.Cryptography.HMACSHA1.#ctor,System.Security.Cryptography,HMACSHA1,.ctor(),PNSE Unreachable,X,X,X
 M:System.Security.Cryptography.HMACSHA1.#ctor(System.Byte[]),System.Security.Cryptography,HMACSHA1,.ctor(Byte[]),PNSE Unreachable,X,X,X
 "M:System.Security.Cryptography.HMACSHA1.#ctor(System.Byte[],System.Boolean)",System.Security.Cryptography,HMACSHA1,".ctor(Byte[], Boolean)",PNSE Unreachable,X,X,X
-P:System.Security.Cryptography.HMACSHA1.Key,System.Security.Cryptography,HMACSHA1,Key,PNSE Unreachable,,X,
+M:System.Security.Cryptography.HMACSHA1.set_Key(System.Byte[]),System.Security.Cryptography,HMACSHA1,set_Key(Byte[]),PNSE Unreachable,,X,
 M:System.Security.Cryptography.HMACSHA256.#ctor,System.Security.Cryptography,HMACSHA256,.ctor(),PNSE Unreachable,X,X,X
 M:System.Security.Cryptography.HMACSHA256.#ctor(System.Byte[]),System.Security.Cryptography,HMACSHA256,.ctor(Byte[]),PNSE Unreachable,X,X,X
-P:System.Security.Cryptography.HMACSHA256.Key,System.Security.Cryptography,HMACSHA256,Key,PNSE Unreachable,,X,
+M:System.Security.Cryptography.HMACSHA256.set_Key(System.Byte[]),System.Security.Cryptography,HMACSHA256,set_Key(Byte[]),PNSE Unreachable,,X,
 M:System.Security.Cryptography.HMACSHA384.#ctor,System.Security.Cryptography,HMACSHA384,.ctor(),PNSE Unreachable,X,X,X
 M:System.Security.Cryptography.HMACSHA384.#ctor(System.Byte[]),System.Security.Cryptography,HMACSHA384,.ctor(Byte[]),PNSE Unreachable,X,X,X
-P:System.Security.Cryptography.HMACSHA384.Key,System.Security.Cryptography,HMACSHA384,Key,PNSE Unreachable,,X,
+M:System.Security.Cryptography.HMACSHA384.set_Key(System.Byte[]),System.Security.Cryptography,HMACSHA384,set_Key(Byte[]),PNSE Unreachable,,X,
 M:System.Security.Cryptography.HMACSHA512.#ctor,System.Security.Cryptography,HMACSHA512,.ctor(),PNSE Unreachable,X,X,X
 M:System.Security.Cryptography.HMACSHA512.#ctor(System.Byte[]),System.Security.Cryptography,HMACSHA512,.ctor(Byte[]),PNSE Unreachable,X,X,X
-P:System.Security.Cryptography.HMACSHA512.Key,System.Security.Cryptography,HMACSHA512,Key,PNSE Unreachable,,X,
+M:System.Security.Cryptography.HMACSHA512.set_Key(System.Byte[]),System.Security.Cryptography,HMACSHA512,set_Key(Byte[]),PNSE Unreachable,,X,
 M:System.Security.Cryptography.IncrementalHash.CreateHash(System.Security.Cryptography.HashAlgorithmName),System.Security.Cryptography,IncrementalHash,CreateHash(HashAlgorithmName),dotnet/corefx/#24462,,X,
 M:System.Security.Cryptography.MD5CryptoServiceProvider.#ctor,System.Security.Cryptography,MD5CryptoServiceProvider,.ctor(),dotnet/corefx/#24462,,X,
 M:System.Security.Cryptography.SHA1CryptoServiceProvider.#ctor,System.Security.Cryptography,SHA1CryptoServiceProvider,.ctor(),dotnet/corefx/#24462,,X,

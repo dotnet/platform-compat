@@ -84,7 +84,8 @@ namespace Microsoft.DotNet.Analyzers.Compatibility
 
         private static void Handle(SyntaxNodeAnalysisContext context, Action<SymbolUsageAnalysisContext> action)
         {
-            switch (context.Node.Kind())
+            SyntaxKind syntaxKind = context.Node.Kind();
+            switch (syntaxKind)
             {
                 case SyntaxKind.IdentifierName:
                 case SyntaxKind.ObjectCreationExpression:
@@ -151,7 +152,26 @@ namespace Microsoft.DotNet.Analyzers.Compatibility
             // We don't want handle synthetic extensions, we only care
             // about the original static declaration.
             if (symbol.Kind == SymbolKind.Method && symbol is IMethodSymbol methodSymbol && methodSymbol.ReducedFrom != null)
+            {
                 symbol = methodSymbol.ReducedFrom;
+            }
+            else if (symbol.Kind == SymbolKind.Property && symbol is IPropertySymbol propertySymbol)
+            {
+                // For properties figure out if it is the getter or setter and then use the corresponding method
+                // Many different expressions can have the property as a getter, so the code below attempts to identify all setters.
+                var isSetter = false;
+                SyntaxNode parent = node.Parent;
+                if (parent is MemberAccessExpressionSyntax)
+                {
+                    isSetter = parent.Parent is AssignmentExpressionSyntax assignmentExpression && assignmentExpression.Left == parent;
+                }
+                else if ((parent is AssignmentExpressionSyntax assigmentExpression && assigmentExpression.Left == node) || parent is NameEqualsSyntax)
+                {
+                    isSetter = true;
+                }
+
+                symbol = isSetter ? propertySymbol.SetMethod : propertySymbol.GetMethod;
+            }
 
             // We don't want to check symbols defined in source.
             if (symbol.DeclaringSyntaxReferences.Any())

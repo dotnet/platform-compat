@@ -168,7 +168,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
             ";
 
             var expected = @"
-                PC002: AppContext.TargetFrameworkName isn't available in .NET Framework 4.6.1
+                PC002: AppContext.TargetFrameworkName.get isn't available in .NET Framework 4.6.1
             ";
 
             AssertMatch(source, expected);

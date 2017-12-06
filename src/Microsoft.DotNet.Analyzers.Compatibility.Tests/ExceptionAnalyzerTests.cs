@@ -183,7 +183,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
         }
 
         [Fact]
-        public void ExceptionAnalyzer_Triggers_ForProperties()
+        public void ExceptionAnalyzer_Triggers_ForPropertySetter()
         {
             var source = @"
                 using System;
@@ -194,15 +194,38 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
                     {
                         static void Main(string[] args)
                         {
-                            var width = Console.{{WindowWidth}};
+                            Console.{{WindowWidth}} = 30;
                         }
                     }
                 }
             ";
 
             var expected = @"
-                PC001: Console.WindowWidth isn't supported on Linux, MacOSX
+                PC001: Console.WindowWidth.set isn't supported on Linux, MacOSX
             ";
+
+            AssertMatch(source, expected);
+        }
+
+        [Fact]
+        public void ExceptionAnalyzer_DoesNotTrigger_ForPropertyGetter()
+        {
+            var source = @"
+                using System;
+
+                namespace ConsoleApp1
+                {
+                    class Program
+                    {
+                        static void Main(string[] args)
+                        {
+                            var width = Console.WindowWidth;
+                        }
+                    }
+                }
+            ";
+
+            var expected = string.Empty;
 
             AssertMatch(source, expected);
         }
@@ -220,7 +243,12 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
                     {
                         public MyException()
                         {
-                            {{SerializeObjectState}} += MyException_SerializeObjectState;
+                            {{SerializeObjectState += MyException_SerializeObjectState}};
+                        }
+
+                        ~MyException()
+                        {
+                            {{SerializeObjectState -= MyException_SerializeObjectState}};
                         }
 
                         private void MyException_SerializeObjectState(object sender, SafeSerializationEventArgs e)
@@ -231,7 +259,8 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
             ";
 
             var expected = @"
-                PC001: Exception.SerializeObjectState isn't supported on Linux, MacOSX, Windows
+                PC001: Exception.SerializeObjectState.add isn't supported on Linux, MacOSX, Windows
+                PC001: Exception.SerializeObjectState.remove isn't supported on Linux, MacOSX, Windows
             ";
 
             AssertMatch(source, expected);
