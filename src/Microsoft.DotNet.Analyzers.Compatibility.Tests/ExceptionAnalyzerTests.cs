@@ -201,7 +201,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
             ";
 
             var expected = @"
-                PC001: Console.WindowWidth.set isn't supported on Linux and MacOSX
+                PC001: Console.WindowWidth.set isn't supported on Linux and macOS
             ";
 
             AssertMatch(source, expected);

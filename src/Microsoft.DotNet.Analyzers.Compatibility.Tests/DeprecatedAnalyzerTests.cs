@@ -236,7 +236,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
             ".Replace("MEMBER_NAME", memberName);
 
             var expected = $@"
-                DE0008: Thread.{memberName} is deprecated
+                DE0008: Thread.{memberName}.get is deprecated
             ";
 
             AssertMatch(source, expected);
