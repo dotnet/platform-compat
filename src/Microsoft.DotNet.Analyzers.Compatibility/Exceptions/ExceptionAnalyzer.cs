@@ -66,7 +66,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Exceptions
 
             var api = symbol.ToDisplayString(SymbolDisplayFormat.CSharpShortErrorMessageFormat);
             var location = context.GetLocation();
-            var list = maskedPlatforms.ToString();
+            var list = maskedPlatforms.ToFriendlyString();
             var diagnostic = Diagnostic.Create(Rule, location, api, list);
             context.ReportDiagnostic(diagnostic);
         }
