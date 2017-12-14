@@ -151,7 +151,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
             ";
 
             var expected = @"
-                PC001: RegistryKey.OpenSubKey(string) isn't supported on Linux, macOS
+                PC001: RegistryKey.OpenSubKey(string) isn't supported on Linux and macOS
             ";
 
             AssertMatch(source, expected);
@@ -176,7 +176,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
             ";
 
             var expected = @"
-                PC001: NamedPipeClientStream.NamedPipeClientStream(string) isn't supported on Linux, macOS
+                PC001: NamedPipeClientStream.NamedPipeClientStream(string) isn't supported on Linux and macOS
             ";
 
             AssertMatch(source, expected);
@@ -201,7 +201,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
             ";
 
             var expected = @"
-                PC001: Console.WindowWidth isn't supported on Linux, macOS
+                PC001: Console.WindowWidth isn't supported on Linux and macOS
             ";
 
             AssertMatch(source, expected);
@@ -231,7 +231,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
             ";
 
             var expected = @"
-                PC001: Exception.SerializeObjectState isn't supported on Linux, macOS, Windows
+                PC001: Exception.SerializeObjectState isn't supported on Linux, macOS, and Windows
             ";
 
             AssertMatch(source, expected);
@@ -258,7 +258,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
             ";
 
             var expected = @"
-                PC001: CngAlgorithm.operator ==(CngAlgorithm, CngAlgorithm) isn't supported on Linux, macOS
+                PC001: CngAlgorithm.operator ==(CngAlgorithm, CngAlgorithm) isn't supported on Linux and macOS
             ";
 
             AssertMatch(source, expected);

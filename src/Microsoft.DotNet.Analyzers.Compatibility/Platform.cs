@@ -22,11 +22,11 @@ namespace Microsoft.DotNet.Analyzers.Compatibility
                 String.Empty,
                 Linux,
                 MacOS,
-                $"{Linux}, {MacOS}",
+                $"{Linux} and {MacOS}",
                 $"{Windows}",
-                $"{Linux}, {Windows}",
-                $"{MacOS}, {Windows}",
-                $"{Linux}, {MacOS}, {Windows}"
+                $"{Linux} and {Windows}",
+                $"{MacOS} and {Windows}",
+                $"{Linux}, {MacOS}, and {Windows}"
             };
 
         public static string ToFriendlyString(this Platform platform)
