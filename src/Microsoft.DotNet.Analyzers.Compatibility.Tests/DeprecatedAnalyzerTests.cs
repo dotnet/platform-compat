@@ -216,5 +216,30 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Theory]
+        [InlineData("CurrentCulture")]
+        [InlineData("CurrentUICulture")]
+        public void DeprecatedAnalyzer_Triggers_DE0008(string memberName)
+        {
+            var source = @"
+                using System.Threading;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        var t = new Thread();
+                        var x = t.{{MEMBER_NAME}};
+                    }
+                }
+            ".Replace("MEMBER_NAME", memberName);
+
+            var expected = $@"
+                DE0008: Thread.{memberName} is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }
