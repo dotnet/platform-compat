@@ -51,7 +51,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Store
                         platform = Platform.Linux;
                         return true;
                     case "osx":
-                        platform = Platform.MacOSX;
+                        platform = Platform.MacOS;
                         return true;
                     case "win":
                         platform = Platform.Windows;

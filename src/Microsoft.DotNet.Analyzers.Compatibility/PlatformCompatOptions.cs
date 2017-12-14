@@ -32,7 +32,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility
                 foreach (var name in names)
                 {
                     var trimmedNamed = name.Trim();
-                    if (Enum.TryParse<Platform>(trimmedNamed, out var platform))
+                    if (PlatformEnumHelpers.TryParse(trimmedNamed, out var platform))
                         result |= platform;
                 }
             }
