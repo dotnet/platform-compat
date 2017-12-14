@@ -52,6 +52,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6F07EE72-A
 		docs\DE0005.md = docs\DE0005.md
 		docs\DE0006.md = docs\DE0006.md
 		docs\DE0007.md = docs\DE0007.md
+		docs\DE0008.md = docs\DE0008.md
 		docs\PC001.md = docs\PC001.md
 		docs\PC002.md = docs\PC002.md
 		docs\PC003.md = docs\PC003.md

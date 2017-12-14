@@ -24,3 +24,5 @@ T:System.Net.WebRequest,System.Net,WebRequest,,DE0003
 T:System.Net.Mail.SmtpClient,System.Net.Mail,SmtpClient,,DE0005
 T:System.Security.SecureString,System.Security,SecureString,,DE0001
 N:System.Security.Permissions,System.Security.Permissions,,,DE0002
+P:System.Threading.Thread.CurrentCulture,System.Threading,Thread,CurrentCulture,DE0008
+P:System.Threading.Thread.CurrentUICulture,System.Threading,Thread,CurrentUICulture,DE0008
