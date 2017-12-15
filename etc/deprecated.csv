@@ -1,4 +1,8 @@
 DocId,Namespace,Type,Member,DiagnosticIds
+M:System.Threading.Thread.get_CurrentCulture,System.Threading,Thread,get_CurrentCulture,DE0008
+M:System.Threading.Thread.get_CurrentUICulture,System.Threading,Thread,get_CurrentUICulture,DE0008
+M:System.Threading.Thread.set_CurrentCulture(System.Globalization.CultureInfo),System.Threading,Thread,set_CurrentCulture(CultureInfo),DE0008
+M:System.Threading.Thread.set_CurrentUICulture(System.Globalization.CultureInfo),System.Threading,Thread,set_CurrentUICulture(CultureInfo),DE0008
 F:System.PlatformID.MacOSX,System,PlatformID,MacOSX,DE0007
 F:System.PlatformID.Win32S,System,PlatformID,Win32S,DE0007
 F:System.PlatformID.Win32Windows,System,PlatformID,Win32Windows,DE0007
@@ -24,5 +28,3 @@ T:System.Net.WebRequest,System.Net,WebRequest,,DE0003
 T:System.Net.Mail.SmtpClient,System.Net.Mail,SmtpClient,,DE0005
 T:System.Security.SecureString,System.Security,SecureString,,DE0001
 N:System.Security.Permissions,System.Security.Permissions,,,DE0002
-P:System.Threading.Thread.CurrentCulture,System.Threading,Thread,CurrentCulture,DE0008
-P:System.Threading.Thread.CurrentUICulture,System.Threading,Thread,CurrentUICulture,DE0008
