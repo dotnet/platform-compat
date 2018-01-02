@@ -78,8 +78,9 @@ M:System.ArgIterator.GetRemainingCount,System,ArgIterator,GetRemainingCount(),X,
 "M:System.BadImageFormatException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,BadImageFormatException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.CannotUnloadAppDomainException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,CannotUnloadAppDomainException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Console.Beep(System.Int32,System.Int32)",System,Console,"Beep(Int32, Int32)",X,X,
+M:System.Console.get_CapsLock,System,Console,get_CapsLock(),X,X,
 M:System.Console.get_CursorVisible,System,Console,get_CursorVisible(),X,X,
-M:System.Console.get_NumberLock,System,Console,get_NumberLock(),X,X,X
+M:System.Console.get_NumberLock,System,Console,get_NumberLock(),X,X,
 M:System.Console.get_Title,System,Console,get_Title(),X,X,
 "M:System.Console.MoveBufferArea(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)",System,Console,"MoveBufferArea(Int32, Int32, Int32, Int32, Int32, Int32)",X,X,
 "M:System.Console.MoveBufferArea(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Char,System.ConsoleColor,System.ConsoleColor)",System,Console,"MoveBufferArea(Int32, Int32, Int32, Int32, Int32, Int32, Char, ConsoleColor, ConsoleColor)",X,X,
@@ -198,49 +199,13 @@ M:System.Collections.Specialized.NameObjectCollectionBase.OnDeserialization(Syst
 "M:System.Data.SqlTypes.SqlBytes.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data.SqlTypes,SqlBytes,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Data.SqlTypes.SqlChars.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data.SqlTypes,SqlChars,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Data.SqlTypes.SqlTypeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data.SqlTypes,SqlTypeException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-M:System.Diagnostics.Process.get_BasePriority,System.Diagnostics,Process,get_BasePriority(),X,X,
-M:System.Diagnostics.Process.get_ExitCode,System.Diagnostics,Process,get_ExitCode(),X,X,
-M:System.Diagnostics.Process.get_ExitTime,System.Diagnostics,Process,get_ExitTime(),X,X,
-M:System.Diagnostics.Process.get_HandleCount,System.Diagnostics,Process,get_HandleCount(),X,X,
-M:System.Diagnostics.Process.get_HasExited,System.Diagnostics,Process,get_HasExited(),X,X,
-M:System.Diagnostics.Process.get_MachineName,System.Diagnostics,Process,get_MachineName(),X,X,
 M:System.Diagnostics.Process.get_MainWindowHandle,System.Diagnostics,Process,get_MainWindowHandle(),X,X,
 M:System.Diagnostics.Process.get_MaxWorkingSet,System.Diagnostics,Process,get_MaxWorkingSet(),,X,
 M:System.Diagnostics.Process.get_MinWorkingSet,System.Diagnostics,Process,get_MinWorkingSet(),,X,
-M:System.Diagnostics.Process.get_Modules,System.Diagnostics,Process,get_Modules(),X,X,
-M:System.Diagnostics.Process.get_NonpagedSystemMemorySize,System.Diagnostics,Process,get_NonpagedSystemMemorySize(),X,X,
-M:System.Diagnostics.Process.get_NonpagedSystemMemorySize64,System.Diagnostics,Process,get_NonpagedSystemMemorySize64(),X,X,
-M:System.Diagnostics.Process.get_PagedMemorySize,System.Diagnostics,Process,get_PagedMemorySize(),X,X,
-M:System.Diagnostics.Process.get_PagedMemorySize64,System.Diagnostics,Process,get_PagedMemorySize64(),X,X,
-M:System.Diagnostics.Process.get_PagedSystemMemorySize,System.Diagnostics,Process,get_PagedSystemMemorySize(),X,X,
-M:System.Diagnostics.Process.get_PagedSystemMemorySize64,System.Diagnostics,Process,get_PagedSystemMemorySize64(),X,X,
-M:System.Diagnostics.Process.get_PeakPagedMemorySize,System.Diagnostics,Process,get_PeakPagedMemorySize(),X,X,
-M:System.Diagnostics.Process.get_PeakPagedMemorySize64,System.Diagnostics,Process,get_PeakPagedMemorySize64(),X,X,
-M:System.Diagnostics.Process.get_PeakVirtualMemorySize,System.Diagnostics,Process,get_PeakVirtualMemorySize(),X,X,
-M:System.Diagnostics.Process.get_PeakVirtualMemorySize64,System.Diagnostics,Process,get_PeakVirtualMemorySize64(),X,X,
-M:System.Diagnostics.Process.get_PeakWorkingSet,System.Diagnostics,Process,get_PeakWorkingSet(),X,X,
-M:System.Diagnostics.Process.get_PeakWorkingSet64,System.Diagnostics,Process,get_PeakWorkingSet64(),X,X,
-M:System.Diagnostics.Process.get_PrivateMemorySize,System.Diagnostics,Process,get_PrivateMemorySize(),X,X,
-M:System.Diagnostics.Process.get_PrivateMemorySize64,System.Diagnostics,Process,get_PrivateMemorySize64(),X,X,
-M:System.Diagnostics.Process.get_PrivilegedProcessorTime,System.Diagnostics,Process,get_PrivilegedProcessorTime(),,X,
-M:System.Diagnostics.Process.get_ProcessName,System.Diagnostics,Process,get_ProcessName(),X,X,
 M:System.Diagnostics.Process.get_ProcessorAffinity,System.Diagnostics,Process,get_ProcessorAffinity(),,X,
-M:System.Diagnostics.Process.get_SafeHandle,System.Diagnostics,Process,get_SafeHandle(),X,X,
-M:System.Diagnostics.Process.get_SessionId,System.Diagnostics,Process,get_SessionId(),X,X,
-M:System.Diagnostics.Process.get_Threads,System.Diagnostics,Process,get_Threads(),X,X,
-M:System.Diagnostics.Process.get_TotalProcessorTime,System.Diagnostics,Process,get_TotalProcessorTime(),,X,
-M:System.Diagnostics.Process.get_UserProcessorTime,System.Diagnostics,Process,get_UserProcessorTime(),,X,
-M:System.Diagnostics.Process.get_VirtualMemorySize,System.Diagnostics,Process,get_VirtualMemorySize(),X,X,
-M:System.Diagnostics.Process.get_VirtualMemorySize64,System.Diagnostics,Process,get_VirtualMemorySize64(),X,X,
-M:System.Diagnostics.Process.get_WorkingSet,System.Diagnostics,Process,get_WorkingSet(),X,X,
-M:System.Diagnostics.Process.get_WorkingSet64,System.Diagnostics,Process,get_WorkingSet64(),X,X,
-M:System.Diagnostics.Process.GetProcessById(System.Int32),System.Diagnostics,Process,GetProcessById(Int32),X,X,
 "M:System.Diagnostics.Process.GetProcessById(System.Int32,System.String)",System.Diagnostics,Process,"GetProcessById(Int32, String)",X,X,
-M:System.Diagnostics.Process.GetProcesses,System.Diagnostics,Process,GetProcesses(),X,X,
 M:System.Diagnostics.Process.GetProcesses(System.String),System.Diagnostics,Process,GetProcesses(String),X,X,
-M:System.Diagnostics.Process.GetProcessesByName(System.String),System.Diagnostics,Process,GetProcessesByName(String),X,,
 "M:System.Diagnostics.Process.GetProcessesByName(System.String,System.String)",System.Diagnostics,Process,"GetProcessesByName(String, String)",X,X,
-M:System.Diagnostics.Process.Kill,System.Diagnostics,Process,Kill(),X,X,
 M:System.Diagnostics.Process.set_MaxWorkingSet(System.IntPtr),System.Diagnostics,Process,set_MaxWorkingSet(IntPtr),X,X,
 M:System.Diagnostics.Process.set_MinWorkingSet(System.IntPtr),System.Diagnostics,Process,set_MinWorkingSet(IntPtr),X,X,
 M:System.Diagnostics.Process.set_ProcessorAffinity(System.IntPtr),System.Diagnostics,Process,set_ProcessorAffinity(IntPtr),,X,
@@ -1331,11 +1296,7 @@ M:System.Transactions.TransactionInterop.GetTransactionFromExportCookie(System.B
 M:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken(System.Byte[]),System.Transactions,TransactionInterop,GetTransactionFromTransmitterPropagationToken(Byte[]),X,X,X
 M:System.Transactions.TransactionInterop.GetTransmitterPropagationToken(System.Transactions.Transaction),System.Transactions,TransactionInterop,GetTransmitterPropagationToken(Transaction),X,X,X
 M:System.Transactions.TransactionInterop.GetWhereabouts,System.Transactions,TransactionInterop,GetWhereabouts(),X,X,X
-M:System.Transactions.TransactionManager.RecoveryComplete(System.Guid),System.Transactions,TransactionManager,RecoveryComplete(Guid),X,X,X
-"M:System.Transactions.TransactionManager.Reenlist(System.Guid,System.Byte[],System.Transactions.IEnlistmentNotification)",System.Transactions,TransactionManager,"Reenlist(Guid, Byte[], IEnlistmentNotification)",X,X,X
-"M:System.Transactions.TransactionManagerCommunicationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Transactions,TransactionManagerCommunicationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Transactions.TransactionPromotionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Transactions,TransactionPromotionException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-M:System.Transactions.TransactionScope.Dispose,System.Transactions,TransactionScope,Dispose(),X,X,X
 "M:System.Xml.XmlDictionaryReader.CreateMtomReader(System.Byte[],System.Int32,System.Int32,System.Text.Encoding,System.Xml.XmlDictionaryReaderQuotas)",System.Xml,XmlDictionaryReader,"CreateMtomReader(Byte[], Int32, Int32, Encoding, XmlDictionaryReaderQuotas)",X,X,X
 "M:System.Xml.XmlDictionaryReader.CreateMtomReader(System.Byte[],System.Int32,System.Int32,System.Text.Encoding[],System.String,System.Xml.XmlDictionaryReaderQuotas)",System.Xml,XmlDictionaryReader,"CreateMtomReader(Byte[], Int32, Int32, Encoding[], String, XmlDictionaryReaderQuotas)",X,X,X
 "M:System.Xml.XmlDictionaryReader.CreateMtomReader(System.Byte[],System.Int32,System.Int32,System.Text.Encoding[],System.String,System.Xml.XmlDictionaryReaderQuotas,System.Int32,System.Xml.OnXmlDictionaryReaderClose)",System.Xml,XmlDictionaryReader,"CreateMtomReader(Byte[], Int32, Int32, Encoding[], String, XmlDictionaryReaderQuotas, Int32, OnXmlDictionaryReaderClose)",X,X,X
