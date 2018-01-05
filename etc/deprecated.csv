@@ -1,4 +1,5 @@
 DocId,Namespace,Type,Member,DiagnosticIds
+M:System.Environment.get_OSVersion,System,Environment,get_OSVersion,DE0009
 M:System.Threading.Thread.get_CurrentCulture,System.Threading,Thread,get_CurrentCulture,DE0008
 M:System.Threading.Thread.get_CurrentUICulture,System.Threading,Thread,get_CurrentUICulture,DE0008
 M:System.Threading.Thread.set_CurrentCulture(System.Globalization.CultureInfo),System.Threading,Thread,set_CurrentCulture(CultureInfo),DE0008

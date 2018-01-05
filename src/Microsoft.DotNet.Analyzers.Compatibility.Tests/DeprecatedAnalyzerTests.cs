@@ -241,5 +241,29 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(".Platform")]
+        public void DeprecatedAnalyzer_Triggers_DE0009(string osVersionProperty)
+        {
+            var source = @"
+                using System;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        var v = Environment.{{OSVersion}}OS_VERSION_PROPERTY;
+                    }
+                }
+            ".Replace("OS_VERSION_PROPERTY", osVersionProperty);
+
+            var expected = $@"
+                DE0009: Environment.OSVersion.get is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
     }
 }
