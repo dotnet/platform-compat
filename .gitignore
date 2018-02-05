@@ -4,6 +4,9 @@
 # Files built during generation of analyzers
 etc/deprecated.csv
 
+# dotnet SDK files that can be download manually to speed up debugging
+[Dd]otnet-[Ss]dks/
+
 # User-specific files
 *.suo
 *.user
@@ -262,3 +265,4 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+etc/deprecated.csv
