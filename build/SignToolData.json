@@ -4,14 +4,16 @@
         "certificate": "MicrosoftSHA2",
         "strongName": "MsSharedLib72",
         "values": [
-          "bin/TODO"
+          "bin/Microsoft.DotNet.Analyzers.Compatibility/netstandard1.3/Microsoft.DotNet.Analyzers.Compatibility.dll",
+          "bin/Microsoft.DotNet.Analyzers.Compatibility/netstandard1.3/*/Microsoft.DotNet.Analyzers.Compatibility.resources",
+          "bin/Microsoft.DotNet.Csv/netstandard1.0/Microsoft.DotNet.Csv.dll"
         ]
       },
       {
         "certificate": null,
         "strongName": null,
         "values": [
-          "packages/*.nupkg"
+          "bin/Microsoft.DotNet.Analyzers.Compatibility/*.nupkg"
         ]
       }
     ]

@@ -7,18 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Composition" Version="1.0.27" ExcludeAssets="All" />
-    <PackageReference Include="System.Composition" Version="1.0.31" />
-    <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="$(MicrosoftCodeAnalysisCSharpWorkspaceskVersion)" />
+    <PackageReference Include="Microsoft.Composition" Version="$(MicrosoftCompositionVersion)" ExcludeAssets="All" />
+    <PackageReference Include="System.Composition" Version="$(SystemCompositionVersion)" />
+    <PackageReference Include="System.Threading.Thread" Version="$(SystemThreadingThreadVersion)" />
   </ItemGroup>
 
   <!-- This are fake references. They are only listed to ensure the machine has these packages
        in the NuGet cache so we can pass references to our test compilation. -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.Win32.Registry" Version="4.4.0-preview1-25205-01" ExcludeAssets="All" />
-    <PackageReference Include="NETStandard.Library" Version="2.0.0-preview1-25207-01" ExcludeAssets="All" />
-    <PackageReference Include="System.Security.Cryptography.Cng" Version="4.4.0-beta-24913-02" ExcludeAssets="All" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="$(MicrosoftWin32RegistryVersion)" ExcludeAssets="All" />
+    <PackageReference Include="NETStandard.Library" Version="$(NETStandardLibraryVersion)" ExcludeAssets="All" />
+    <PackageReference Include="System.Security.Cryptography.Cng" Version="$(SystemSecurityCryptographyCngVersion)" ExcludeAssets="All" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.DotNet.Analyzers.Compatibility\Microsoft.DotNet.Analyzers.Compatibility.csproj" />

@@ -1,8 +1,8 @@
 <Project>
-
+  <Import Project="..\Directory.Build.props"/>
+  <Import Project="$(RepoToolsetDir)Settings.props" />
   <PropertyGroup>
-	<PublicRelease Condition="'$(PublicRelease)' == '' AND '$(APPVEYOR)' != 'True'">True</PublicRelease>
-	<DebugType Condition="'$(Configuration)' == 'Debug'">Full</DebugType>
+    <PublicRelease Condition="'$(PublicRelease)' == '' AND '$(APPVEYOR)' != 'True'">True</PublicRelease>
+    <DebugType Condition="'$(Configuration)' == 'Debug'">Full</DebugType>
   </PropertyGroup>
-
 </Project>
