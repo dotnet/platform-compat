@@ -1,0 +1,19 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VersionBase>2.5.0</VersionBase>
+    <PreReleaseVersionLabel>beta1</PreReleaseVersionLabel>
+
+    <!-- Opt-in repo features -->
+    <UsingToolVSSDK>true</UsingToolVSSDK>
+    
+    <!-- Toolset -->
+    <RoslynToolsRepoToolsetVersion>1.0.0-beta-62512-01</RoslynToolsRepoToolsetVersion>
+    <VSWhereVersion>2.3.2</VSWhereVersion>
+
+    <!-- MSBuild -->
+    <MicrosoftBuildVersion>15.3.409</MicrosoftBuildVersion>
+    <MicrosoftBuildEngineVersion>15.3.409</MicrosoftBuildEngineVersion>
+    <MicrosoftBuildFrameworkVersion>15.3.409</MicrosoftBuildFrameworkVersion>
+    
+  </PropertyGroup>
+</Project>

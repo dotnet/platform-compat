@@ -1,0 +1,19 @@
+{
+    "sign": [
+      {
+        "certificate": "MicrosoftSHA2",
+        "strongName": "MsSharedLib72",
+        "values": [
+          "bin/TODO"
+        ]
+      },
+      {
+        "certificate": null,
+        "strongName": null,
+        "values": [
+          "packages/*.nupkg"
+        ]
+      }
+    ]
+  }
+  
