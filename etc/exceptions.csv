@@ -1,6 +1,4 @@
 DocId,Namespace,Type,Member,linux,osx,win
-"M:Microsoft.CSharp.RuntimeBinder.RuntimeBinderException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",Microsoft.CSharp.RuntimeBinder,RuntimeBinderException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:Microsoft.CSharp.RuntimeBinder.RuntimeBinderInternalCompilerException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",Microsoft.CSharp.RuntimeBinder,RuntimeBinderInternalCompilerException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:Microsoft.Win32.Registry.GetValue(System.String,System.String,System.Object)",Microsoft.Win32,Registry,"GetValue(String, String, Object)",X,X,
 "M:Microsoft.Win32.Registry.SetValue(System.String,System.String,System.Object)",Microsoft.Win32,Registry,"SetValue(String, String, Object)",X,X,
 "M:Microsoft.Win32.Registry.SetValue(System.String,System.String,System.Object,Microsoft.Win32.RegistryValueKind)",Microsoft.Win32,Registry,"SetValue(String, String, Object, RegistryValueKind)",X,X,
@@ -53,14 +51,11 @@ M:Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle.#ctor,Microsoft.Win32.SafeHand
 "M:Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle.#ctor(System.IntPtr,System.Runtime.InteropServices.SafeHandle)",Microsoft.Win32.SafeHandles,SafeNCryptKeyHandle,".ctor(IntPtr, SafeHandle)",X,X,
 M:Microsoft.Win32.SafeHandles.SafeNCryptProviderHandle.#ctor,Microsoft.Win32.SafeHandles,SafeNCryptProviderHandle,.ctor(),X,X,
 M:Microsoft.Win32.SafeHandles.SafeNCryptSecretHandle.#ctor,Microsoft.Win32.SafeHandles,SafeNCryptSecretHandle,.ctor(),X,X,
-"M:System.AccessViolationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,AccessViolationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Activator.CreateInstance(System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo,System.Object[])",System,Activator,"CreateInstance(Type, BindingFlags, Binder, Object[], CultureInfo, Object[])",X,X,X
 "M:System.Activator.CreateInstance(System.Type,System.Object[],System.Object[])",System,Activator,"CreateInstance(Type, Object[], Object[])",X,X,X
 M:System.AppDomain.CreateDomain(System.String),System,AppDomain,CreateDomain(String),X,X,X
 "M:System.AppDomain.ExecuteAssembly(System.String,System.String[],System.Byte[],System.Configuration.Assemblies.AssemblyHashAlgorithm)",System,AppDomain,"ExecuteAssembly(String, String[], Byte[], AssemblyHashAlgorithm)",X,X,X
 M:System.AppDomain.set_MonitoringIsEnabled(System.Boolean),System,AppDomain,set_MonitoringIsEnabled(Boolean),X,X,X
-"M:System.AppDomainUnloadedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,AppDomainUnloadedException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ApplicationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,ApplicationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.ArgIterator.#ctor(System.RuntimeArgumentHandle),System,ArgIterator,.ctor(RuntimeArgumentHandle),X,X,X
 "M:System.ArgIterator.#ctor(System.RuntimeArgumentHandle,System.Void*)",System,ArgIterator,".ctor(RuntimeArgumentHandle, Void*)",X,X,X
 M:System.ArgIterator.End,System,ArgIterator,End(),X,X,X
@@ -70,13 +65,6 @@ M:System.ArgIterator.GetNextArg,System,ArgIterator,GetNextArg(),X,X,X
 M:System.ArgIterator.GetNextArg(System.RuntimeTypeHandle),System,ArgIterator,GetNextArg(RuntimeTypeHandle),X,X,X
 M:System.ArgIterator.GetNextArgType,System,ArgIterator,GetNextArgType(),X,X,X
 M:System.ArgIterator.GetRemainingCount,System,ArgIterator,GetRemainingCount(),X,X,X
-"M:System.ArgumentException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,ArgumentException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ArgumentNullException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,ArgumentNullException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ArgumentOutOfRangeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,ArgumentOutOfRangeException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ArithmeticException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,ArithmeticException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ArrayTypeMismatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,ArrayTypeMismatchException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.BadImageFormatException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,BadImageFormatException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.CannotUnloadAppDomainException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,CannotUnloadAppDomainException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Console.Beep(System.Int32,System.Int32)",System,Console,"Beep(Int32, Int32)",X,X,
 M:System.Console.get_CapsLock,System,Console,get_CapsLock(),X,X,
 M:System.Console.get_CursorVisible,System,Console,get_CursorVisible(),X,X,
@@ -94,38 +82,12 @@ M:System.Console.set_WindowWidth(System.Int32),System,Console,set_WindowWidth(In
 "M:System.Console.SetBufferSize(System.Int32,System.Int32)",System,Console,"SetBufferSize(Int32, Int32)",X,X,
 "M:System.Console.SetWindowPosition(System.Int32,System.Int32)",System,Console,"SetWindowPosition(Int32, Int32)",X,X,
 "M:System.Console.SetWindowSize(System.Int32,System.Int32)",System,Console,"SetWindowSize(Int32, Int32)",X,X,
-"M:System.ContextMarshalException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,ContextMarshalException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.DBNull.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,DBNull,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Delegate.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,Delegate,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.DivideByZeroException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,DivideByZeroException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.DllNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,DllNotFoundException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.DuplicateWaitObjectException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,DuplicateWaitObjectException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.EntryPointNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,EntryPointNotFoundException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Exception.add_SerializeObjectState(System.EventHandler{System.Runtime.Serialization.SafeSerializationEventArgs}),System,Exception,add_SerializeObjectState(EventHandler<SafeSerializationEventArgs>),X,X,X
 M:System.Exception.remove_SerializeObjectState(System.EventHandler{System.Runtime.Serialization.SafeSerializationEventArgs}),System,Exception,remove_SerializeObjectState(EventHandler<SafeSerializationEventArgs>),X,X,X
-"M:System.FieldAccessException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,FieldAccessException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.FormatException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,FormatException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.InvalidCastException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,InvalidCastException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.InvalidOperationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,InvalidOperationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.InvalidTimeZoneException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,InvalidTimeZoneException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.MarshalByRefObject.GetLifetimeService,System,MarshalByRefObject,GetLifetimeService(),X,X,X
 M:System.MarshalByRefObject.InitializeLifetimeService,System,MarshalByRefObject,InitializeLifetimeService(),X,X,X
-"M:System.MemberAccessException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,MemberAccessException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.MethodAccessException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,MethodAccessException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.MissingFieldException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,MissingFieldException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.MissingMemberException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,MissingMemberException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.MissingMethodException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,MissingMethodException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.NotFiniteNumberException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,NotFiniteNumberException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.NotImplementedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,NotImplementedException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.NotSupportedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,NotSupportedException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.NullReferenceException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,NullReferenceException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ObjectDisposedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,ObjectDisposedException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.OperatingSystem.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,OperatingSystem,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.OperationCanceledException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,OperationCanceledException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.OutOfMemoryException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,OutOfMemoryException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.OverflowException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,OverflowException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.PlatformNotSupportedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,PlatformNotSupportedException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.RankException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,RankException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.ReadOnlySpan`1.CopyTo(System.Span{`0}),System,ReadOnlySpan,CopyTo(Span<T>),X,X,X
 M:System.ReadOnlySpan`1.DangerousGetPinnableReference,System,ReadOnlySpan,DangerousGetPinnableReference(),X,X,X
 M:System.ReadOnlySpan`1.get_Item(System.Int32),System,ReadOnlySpan,get_Item(Int32),X,X,X
@@ -155,16 +117,7 @@ M:System.Span`1.Slice(System.Int32),System,Span,Slice(Int32),X,X,X
 M:System.Span`1.ToArray,System,Span,ToArray(),X,X,X
 M:System.Span`1.TryCopyTo(System.Span{`0}),System,Span,TryCopyTo(Span<T>),X,X,X
 "M:System.String.Concat(System.Object,System.Object,System.Object,System.Object,__arglist)",System,String,"Concat(Object, Object, Object, Object, __arglist)",X,X,X
-"M:System.SystemException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,SystemException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.TimeoutException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,TimeoutException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.TimeZoneNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,TimeZoneNotFoundException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Type.ReflectionOnlyGetType(System.String,System.Boolean,System.Boolean)",System,Type,"ReflectionOnlyGetType(String, Boolean, Boolean)",X,X,X
-"M:System.TypeAccessException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,TypeAccessException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.TypeLoadException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,TypeLoadException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.TypeUnloadedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,TypeUnloadedException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.UnauthorizedAccessException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,UnauthorizedAccessException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.UriFormatException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System,UriFormatException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Collections.Generic.KeyNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Collections.Generic,KeyNotFoundException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Collections.Generic.LinkedList`1.Enumerator.System#Runtime#Serialization#IDeserializationCallback#OnDeserialization(System.Object),System.Collections.Generic,LinkedList+Enumerator,System.Runtime.Serialization.IDeserializationCallback.OnDeserialization(Object),X,X,X
 "M:System.Collections.Generic.LinkedList`1.Enumerator.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Collections.Generic,LinkedList+Enumerator,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 M:System.Collections.Generic.SortedSet`1.Enumerator.System#Runtime#Serialization#IDeserializationCallback#OnDeserialization(System.Object),System.Collections.Generic,SortedSet+Enumerator,System.Runtime.Serialization.IDeserializationCallback.OnDeserialization(Object),X,X,X
@@ -173,32 +126,8 @@ M:System.Collections.Generic.SortedSet`1.Enumerator.System#Runtime#Serialization
 "M:System.Collections.Specialized.NameObjectCollectionBase.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Collections.Specialized,NameObjectCollectionBase,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 M:System.Collections.Specialized.NameObjectCollectionBase.OnDeserialization(System.Object),System.Collections.Specialized,NameObjectCollectionBase,OnDeserialization(Object),X,X,X
 "M:System.Collections.Specialized.NameValueCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Collections.Specialized,NameValueCollection,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ComponentModel.InvalidAsynchronousStateException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.ComponentModel,InvalidAsynchronousStateException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ComponentModel.InvalidEnumArgumentException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.ComponentModel,InvalidEnumArgumentException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ComponentModel.LicenseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.ComponentModel,LicenseException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ComponentModel.WarningException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.ComponentModel,WarningException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ComponentModel.Win32Exception.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.ComponentModel,Win32Exception,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ComponentModel.DataAnnotations.ValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.ComponentModel.DataAnnotations,ValidationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.ComponentModel.Design.CheckoutException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.ComponentModel.Design,CheckoutException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.ConstraintException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,ConstraintException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.DataException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,DataException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.DeletedRowInaccessibleException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,DeletedRowInaccessibleException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.DuplicateNameException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,DuplicateNameException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.EvaluateException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,EvaluateException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.InRowChangingEventException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,InRowChangingEventException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.InvalidConstraintException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,InvalidConstraintException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.InvalidExpressionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,InvalidExpressionException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.MissingPrimaryKeyException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,MissingPrimaryKeyException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.NoNullAllowedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,NoNullAllowedException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.ReadOnlyException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,ReadOnlyException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.RowNotInTableException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,RowNotInTableException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.StrongTypingException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,StrongTypingException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.SyntaxErrorException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,SyntaxErrorException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.VersionNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data,VersionNotFoundException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.Common.DbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data.Common,DbException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Data.SqlTypes.SqlBytes.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data.SqlTypes,SqlBytes,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Data.SqlTypes.SqlChars.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data.SqlTypes,SqlChars,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Data.SqlTypes.SqlTypeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Data.SqlTypes,SqlTypeException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Diagnostics.Process.get_MainWindowHandle,System.Diagnostics,Process,get_MainWindowHandle(),X,X,
 M:System.Diagnostics.Process.get_MaxWorkingSet,System.Diagnostics,Process,get_MaxWorkingSet(),,X,
 M:System.Diagnostics.Process.get_MinWorkingSet,System.Diagnostics,Process,get_MinWorkingSet(),,X,
@@ -226,19 +155,13 @@ M:System.Diagnostics.ProcessThread.get_StartTime,System.Diagnostics,ProcessThrea
 M:System.Diagnostics.ProcessThread.set_PriorityLevel(System.Diagnostics.ThreadPriorityLevel),System.Diagnostics,ProcessThread,set_PriorityLevel(ThreadPriorityLevel),X,X,
 M:System.Diagnostics.ProcessThread.set_ProcessorAffinity(System.IntPtr),System.Diagnostics,ProcessThread,set_ProcessorAffinity(IntPtr),X,X,
 M:System.Diagnostics.Tracing.EventSource.GetGuid(System.Type),System.Diagnostics.Tracing,EventSource,GetGuid(Type),X,X,X
-"M:System.Globalization.CultureNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Globalization,CultureNotFoundException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Globalization.TextInfo.System#Runtime#Serialization#IDeserializationCallback#OnDeserialization(System.Object),System.Globalization,TextInfo,System.Runtime.Serialization.IDeserializationCallback.OnDeserialization(Object),X,X,X
-"M:System.IO.DirectoryNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,DirectoryNotFoundException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.IO.DriveInfo.set_VolumeLabel(System.String),System.IO,DriveInfo,set_VolumeLabel(String),X,X,
 "M:System.IO.DriveInfo.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,DriveInfo,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.IO.DriveNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,DriveNotFoundException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.IO.EndOfStreamException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,EndOfStreamException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.IO.File.Decrypt(System.String),System.IO,File,Decrypt(String),X,X,X
 M:System.IO.File.Encrypt(System.String),System.IO,File,Encrypt(String),X,X,X
 M:System.IO.FileInfo.Decrypt,System.IO,FileInfo,Decrypt(),X,X,X
 M:System.IO.FileInfo.Encrypt,System.IO,FileInfo,Encrypt(),X,X,X
-"M:System.IO.FileLoadException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,FileLoadException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.IO.FileNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,FileNotFoundException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.IO.FileStream.Lock(System.Int64,System.Int64)",System.IO,FileStream,"Lock(Int64, Int64)",,X,
 "M:System.IO.FileStream.Unlock(System.Int64,System.Int64)",System.IO,FileStream,"Unlock(Int64, Int64)",,X,
 M:System.IO.FileSystemAclExtensions.GetAccessControl(System.IO.DirectoryInfo),System.IO,FileSystemAclExtensions,GetAccessControl(DirectoryInfo),X,X,
@@ -251,10 +174,6 @@ M:System.IO.FileSystemAclExtensions.GetAccessControl(System.IO.FileStream),Syste
 "M:System.IO.FileSystemAclExtensions.SetAccessControl(System.IO.FileStream,System.Security.AccessControl.FileSecurity)",System.IO,FileSystemAclExtensions,"SetAccessControl(FileStream, FileSecurity)",X,X,
 "M:System.IO.FileSystemInfo.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,FileSystemInfo,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.IO.FileSystemInfo.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,FileSystemInfo,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.IO.InternalBufferOverflowException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,InternalBufferOverflowException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.IO.IOException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,IOException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.IO.PathTooLongException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,PathTooLongException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.IO.IsolatedStorage.IsolatedStorageException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO.IsolatedStorage,IsolatedStorageException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.IO.IsolatedStorage.IsolatedStorageFile.GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Object)",System.IO.IsolatedStorage,IsolatedStorageFile,"GetStore(IsolatedStorageScope, Object)",X,X,X
 "M:System.IO.IsolatedStorage.IsolatedStorageFile.GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Object,System.Object)",System.IO.IsolatedStorage,IsolatedStorageFile,"GetStore(IsolatedStorageScope, Object, Object)",X,X,X
 "M:System.IO.IsolatedStorage.IsolatedStorageFile.GetStore(System.IO.IsolatedStorage.IsolatedStorageScope,System.Type)",System.IO.IsolatedStorage,IsolatedStorageFile,"GetStore(IsolatedStorageScope, Type)",X,X,X
@@ -300,14 +219,12 @@ M:System.Linq.EnumerableQuery`1.System#Linq#IQueryProvider#Execute(System.Linq.E
 M:System.Linq.Queryable.AsQueryable(System.Collections.IEnumerable),System.Linq,Queryable,AsQueryable(IEnumerable),X,X,X
 "M:System.Net.AuthenticationManager.Authenticate(System.String,System.Net.WebRequest,System.Net.ICredentials)",System.Net,AuthenticationManager,"Authenticate(String, WebRequest, ICredentials)",X,X,X
 "M:System.Net.AuthenticationManager.PreAuthenticate(System.Net.WebRequest,System.Net.ICredentials)",System.Net,AuthenticationManager,"PreAuthenticate(WebRequest, ICredentials)",X,X,X
-"M:System.Net.CookieException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,CookieException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.FileWebRequest.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,FileWebRequest,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.FileWebRequest.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,FileWebRequest,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.FileWebRequest.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,FileWebRequest,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.FileWebResponse.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,FileWebResponse,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.FileWebResponse.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,FileWebResponse,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.FileWebResponse.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,FileWebResponse,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Net.HttpListenerException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,HttpListenerException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Net.HttpListenerTimeoutManager.set_EntityBody(System.TimeSpan),System.Net,HttpListenerTimeoutManager,set_EntityBody(TimeSpan),X,X,
 M:System.Net.HttpListenerTimeoutManager.set_HeaderWait(System.TimeSpan),System.Net,HttpListenerTimeoutManager,set_HeaderWait(TimeSpan),X,X,
 M:System.Net.HttpListenerTimeoutManager.set_MinSendBytesPerSecond(System.Int64),System.Net,HttpListenerTimeoutManager,set_MinSendBytesPerSecond(Int64),X,X,
@@ -319,12 +236,10 @@ M:System.Net.HttpListenerTimeoutManager.set_RequestQueue(System.TimeSpan),System
 "M:System.Net.HttpWebResponse.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,HttpWebResponse,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.HttpWebResponse.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,HttpWebResponse,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 M:System.Net.IPEndPoint.Create(System.Net.SocketAddress),System.Net,IPEndPoint,Create(SocketAddress),X,X,
-"M:System.Net.ProtocolViolationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,ProtocolViolationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Net.SocketAddress.#ctor(System.Net.Sockets.AddressFamily),System.Net,SocketAddress,.ctor(AddressFamily),X,X,
 "M:System.Net.SocketAddress.#ctor(System.Net.Sockets.AddressFamily,System.Int32)",System.Net,SocketAddress,".ctor(AddressFamily, Int32)",X,X,
 M:System.Net.SocketAddress.get_Family,System.Net,SocketAddress,get_Family(),X,X,
 M:System.Net.SocketAddress.ToString,System.Net,SocketAddress,ToString(),X,X,
-"M:System.Net.WebException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,WebException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.WebHeaderCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,WebHeaderCollection,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.WebHeaderCollection.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,WebHeaderCollection,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.WebHeaderCollection.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,WebHeaderCollection,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
@@ -339,11 +254,6 @@ M:System.Net.WebProxy.GetDefaultProxy,System.Net,WebProxy,GetDefaultProxy(),X,X,
 "M:System.Net.WebResponse.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,WebResponse,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Net.WebResponse.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net,WebResponse,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 M:System.Net.Http.HttpClientHandler.set_MaxRequestContentBufferSize(System.Int64),System.Net.Http,HttpClientHandler,set_MaxRequestContentBufferSize(Int64),X,X,X
-"M:System.Net.Mail.SmtpException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net.Mail,SmtpException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Net.Mail.SmtpFailedRecipientException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net.Mail,SmtpFailedRecipientException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Net.Mail.SmtpFailedRecipientsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net.Mail,SmtpFailedRecipientsException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Net.NetworkInformation.NetworkInformationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net.NetworkInformation,NetworkInformationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Net.NetworkInformation.PingException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net.NetworkInformation,PingException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Net.Sockets.Socket.#ctor(System.Net.Sockets.SocketInformation),System.Net.Sockets,Socket,.ctor(SocketInformation),X,X,X
 M:System.Net.Sockets.Socket.AcceptAsync(System.Net.Sockets.SocketAsyncEventArgs),System.Net.Sockets,Socket,AcceptAsync(SocketAsyncEventArgs),X,X,
 "M:System.Net.Sockets.Socket.BeginAccept(System.Int32,System.AsyncCallback,System.Object)",System.Net.Sockets,Socket,"BeginAccept(Int32, AsyncCallback, Object)",X,X,
@@ -375,7 +285,6 @@ M:System.Net.Sockets.Socket.ReceiveMessageFromAsync(System.Net.Sockets.SocketAsy
 M:System.Net.Sockets.Socket.SendFile(System.String),System.Net.Sockets,Socket,SendFile(String),X,X,
 "M:System.Net.Sockets.Socket.SendFile(System.String,System.Byte[],System.Byte[],System.Net.Sockets.TransmitFileOptions)",System.Net.Sockets,Socket,"SendFile(String, Byte[], Byte[], TransmitFileOptions)",X,X,
 M:System.Net.Sockets.Socket.SetIPProtectionLevel(System.Net.Sockets.IPProtectionLevel),System.Net.Sockets,Socket,SetIPProtectionLevel(IPProtectionLevel),X,X,
-"M:System.Net.Sockets.SocketException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Net.Sockets,SocketException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Net.Sockets.SocketTaskExtensions.AcceptAsync(System.Net.Sockets.Socket),System.Net.Sockets,SocketTaskExtensions,AcceptAsync(Socket),X,X,
 "M:System.Net.Sockets.SocketTaskExtensions.AcceptAsync(System.Net.Sockets.Socket,System.Net.Sockets.Socket)",System.Net.Sockets,SocketTaskExtensions,"AcceptAsync(Socket, Socket)",X,X,
 "M:System.Net.Sockets.SocketTaskExtensions.ReceiveFromAsync(System.Net.Sockets.Socket,System.ArraySegment{System.Byte},System.Net.Sockets.SocketFlags,System.Net.EndPoint)",System.Net.Sockets,SocketTaskExtensions,"ReceiveFromAsync(Socket, ArraySegment<Byte>, SocketFlags, EndPoint)",X,X,
@@ -403,9 +312,7 @@ M:System.Reflection.Assembly.ReflectionOnlyLoad(System.String),System.Reflection
 M:System.Reflection.Assembly.ReflectionOnlyLoadFrom(System.String),System.Reflection,Assembly,ReflectionOnlyLoadFrom(String),X,X,X
 "M:System.Reflection.AssemblyName.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Reflection,AssemblyName,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 M:System.Reflection.AssemblyName.OnDeserialization(System.Object),System.Reflection,AssemblyName,OnDeserialization(Object),X,X,X
-"M:System.Reflection.CustomAttributeFormatException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Reflection,CustomAttributeFormatException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Reflection.DispatchProxy.Create``2,System.Reflection,DispatchProxy,"Create<T, TProxy>()",X,X,X
-"M:System.Reflection.InvalidFilterCriteriaException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Reflection,InvalidFilterCriteriaException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Reflection.Missing.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Reflection,Missing,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Reflection.Pointer.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Reflection,Pointer,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Reflection.StrongNameKeyPair.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Reflection,StrongNameKeyPair,".ctor(SerializationInfo, StreamingContext)",X,X,X
@@ -413,9 +320,6 @@ M:System.Reflection.StrongNameKeyPair.#ctor(System.String),System.Reflection,Str
 M:System.Reflection.StrongNameKeyPair.get_PublicKey,System.Reflection,StrongNameKeyPair,get_PublicKey(),X,X,X
 M:System.Reflection.StrongNameKeyPair.System#Runtime#Serialization#IDeserializationCallback#OnDeserialization(System.Object),System.Reflection,StrongNameKeyPair,System.Runtime.Serialization.IDeserializationCallback.OnDeserialization(Object),X,X,X
 "M:System.Reflection.StrongNameKeyPair.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Reflection,StrongNameKeyPair,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Reflection.TargetException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Reflection,TargetException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Resources.MissingManifestResourceException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Resources,MissingManifestResourceException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Resources.MissingSatelliteAssemblyException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Resources,MissingSatelliteAssemblyException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Resources.ResourceManager.GetResourceSet(System.Globalization.CultureInfo,System.Boolean,System.Boolean)",System.Resources,ResourceManager,"GetResourceSet(CultureInfo, Boolean, Boolean)",X,X,X
 M:System.Resources.ResourceWriter.Close,System.Resources,ResourceWriter,Close(),X,X,X
 M:System.Resources.ResourceWriter.Dispose,System.Resources,ResourceWriter,Dispose(),X,X,X
@@ -425,12 +329,8 @@ M:System.Runtime.CompilerServices.DebugInfoGenerator.CreatePdbGenerator,System.R
 "M:System.Runtime.InteropServices.ComAwareEventInfo.RemoveEventHandler(System.Object,System.Delegate)",System.Runtime.InteropServices,ComAwareEventInfo,"RemoveEventHandler(Object, Delegate)",X,X,X
 "M:System.Runtime.InteropServices.ComEventsHelper.Combine(System.Object,System.Guid,System.Int32,System.Delegate)",System.Runtime.InteropServices,ComEventsHelper,"Combine(Object, Guid, Int32, Delegate)",X,X,X
 "M:System.Runtime.InteropServices.ComEventsHelper.Remove(System.Object,System.Guid,System.Int32,System.Delegate)",System.Runtime.InteropServices,ComEventsHelper,"Remove(Object, Guid, Int32, Delegate)",X,X,X
-"M:System.Runtime.InteropServices.COMException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Runtime.InteropServices,COMException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Runtime.InteropServices.DispatchWrapper.#ctor(System.Object),System.Runtime.InteropServices,DispatchWrapper,.ctor(Object),X,X,X
 M:System.Runtime.InteropServices.DispatchWrapper.get_WrappedObject,System.Runtime.InteropServices,DispatchWrapper,get_WrappedObject(),X,X,
-"M:System.Runtime.InteropServices.ExternalException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Runtime.InteropServices,ExternalException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Runtime.InteropServices.InvalidComObjectException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Runtime.InteropServices,InvalidComObjectException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Runtime.InteropServices.InvalidOleVariantTypeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Runtime.InteropServices,InvalidOleVariantTypeException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Runtime.InteropServices.Marshal.AddRef(System.IntPtr),System.Runtime.InteropServices,Marshal,AddRef(IntPtr),X,X,
 M:System.Runtime.InteropServices.Marshal.BindToMoniker(System.String),System.Runtime.InteropServices,Marshal,BindToMoniker(String),X,X,
 "M:System.Runtime.InteropServices.Marshal.ChangeWrapperHandleStrength(System.Object,System.Boolean)",System.Runtime.InteropServices,Marshal,"ChangeWrapperHandleStrength(Object, Boolean)",X,X,
@@ -461,13 +361,9 @@ M:System.Runtime.InteropServices.Marshal.GetUniqueObjectForIUnknown(System.IntPt
 M:System.Runtime.InteropServices.Marshal.Release(System.IntPtr),System.Runtime.InteropServices,Marshal,Release(IntPtr),X,X,
 M:System.Runtime.InteropServices.Marshal.ReleaseComObject(System.Object),System.Runtime.InteropServices,Marshal,ReleaseComObject(Object),X,X,
 "M:System.Runtime.InteropServices.Marshal.SetComObjectData(System.Object,System.Object,System.Object)",System.Runtime.InteropServices,Marshal,"SetComObjectData(Object, Object, Object)",X,X,X
-"M:System.Runtime.InteropServices.MarshalDirectiveException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Runtime.InteropServices,MarshalDirectiveException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Runtime.InteropServices.RuntimeEnvironment.get_SystemConfigurationFile,System.Runtime.InteropServices,RuntimeEnvironment,get_SystemConfigurationFile(),X,X,X
 "M:System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeInterfaceAsIntPtr(System.Guid,System.Guid)",System.Runtime.InteropServices,RuntimeEnvironment,"GetRuntimeInterfaceAsIntPtr(Guid, Guid)",X,X,X
 "M:System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeInterfaceAsObject(System.Guid,System.Guid)",System.Runtime.InteropServices,RuntimeEnvironment,"GetRuntimeInterfaceAsObject(Guid, Guid)",X,X,X
-"M:System.Runtime.InteropServices.SafeArrayRankMismatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Runtime.InteropServices,SafeArrayRankMismatchException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Runtime.InteropServices.SafeArrayTypeMismatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Runtime.InteropServices,SafeArrayTypeMismatchException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Runtime.InteropServices.SEHException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Runtime.InteropServices,SEHException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Runtime.InteropServices.WindowsRuntime.DefaultInterfaceAttribute.#ctor(System.Type),System.Runtime.InteropServices.WindowsRuntime,DefaultInterfaceAttribute,.ctor(Type),X,X,
 M:System.Runtime.InteropServices.WindowsRuntime.DefaultInterfaceAttribute.get_DefaultInterface,System.Runtime.InteropServices.WindowsRuntime,DefaultInterfaceAttribute,get_DefaultInterface(),X,X,
 M:System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken.Equals(System.Object),System.Runtime.InteropServices.WindowsRuntime,EventRegistrationToken,Equals(Object),X,X,
@@ -498,8 +394,6 @@ M:System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal.RemoveAllE
 "M:System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal.RemoveEventHandler``1(System.Action{System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken},``0)",System.Runtime.InteropServices.WindowsRuntime,WindowsRuntimeMarshal,"RemoveEventHandler<T>(Action<EventRegistrationToken>, T)",X,X,
 M:System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal.StringToHString(System.String),System.Runtime.InteropServices.WindowsRuntime,WindowsRuntimeMarshal,StringToHString(String),X,X,X
 M:System.Runtime.InteropServices.WindowsRuntime.WriteOnlyArrayAttribute.#ctor,System.Runtime.InteropServices.WindowsRuntime,WriteOnlyArrayAttribute,.ctor(),X,X,
-"M:System.Runtime.Serialization.InvalidDataContractException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Runtime.Serialization,InvalidDataContractException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Runtime.Serialization.SerializationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Runtime.Serialization,SerializationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Runtime.Serialization.XsdDataContractExporter.CanExport(System.Collections.Generic.ICollection{System.Reflection.Assembly}),System.Runtime.Serialization,XsdDataContractExporter,CanExport(ICollection<Assembly>),X,X,X
 M:System.Runtime.Serialization.XsdDataContractExporter.CanExport(System.Collections.Generic.ICollection{System.Type}),System.Runtime.Serialization,XsdDataContractExporter,CanExport(ICollection<Type>),X,X,X
 M:System.Runtime.Serialization.XsdDataContractExporter.CanExport(System.Type),System.Runtime.Serialization,XsdDataContractExporter,CanExport(Type),X,X,X
@@ -507,8 +401,6 @@ M:System.Runtime.Serialization.XsdDataContractExporter.Export(System.Collections
 M:System.Runtime.Serialization.XsdDataContractExporter.Export(System.Collections.Generic.ICollection{System.Type}),System.Runtime.Serialization,XsdDataContractExporter,Export(ICollection<Type>),X,X,X
 M:System.Runtime.Serialization.XsdDataContractExporter.Export(System.Type),System.Runtime.Serialization,XsdDataContractExporter,Export(Type),X,X,X
 M:System.Runtime.Serialization.XsdDataContractExporter.get_Schemas,System.Runtime.Serialization,XsdDataContractExporter,get_Schemas(),X,X,X
-"M:System.Security.SecurityException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security,SecurityException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Security.VerificationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security,VerificationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Security.AccessControl.AccessRule.#ctor(System.Security.Principal.IdentityReference,System.Int32,System.Boolean,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)",System.Security.AccessControl,AccessRule,".ctor(IdentityReference, Int32, Boolean, InheritanceFlags, PropagationFlags, AccessControlType)",X,X,
 "M:System.Security.AccessControl.AccessRule`1.#ctor(System.Security.Principal.IdentityReference,`0,System.Security.AccessControl.AccessControlType)",System.Security.AccessControl,AccessRule,".ctor(IdentityReference, T, AccessControlType)",X,X,
 "M:System.Security.AccessControl.AccessRule`1.#ctor(System.Security.Principal.IdentityReference,`0,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)",System.Security.AccessControl,AccessRule,".ctor(IdentityReference, T, InheritanceFlags, PropagationFlags, AccessControlType)",X,X,
@@ -858,8 +750,6 @@ M:System.Security.AccessControl.RegistrySecurity.SetAuditRule(System.Security.Ac
 "M:System.Security.AccessControl.SystemAcl.SetAudit(System.Security.AccessControl.AuditFlags,System.Security.Principal.SecurityIdentifier,System.Int32,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags)",System.Security.AccessControl,SystemAcl,"SetAudit(AuditFlags, SecurityIdentifier, Int32, InheritanceFlags, PropagationFlags)",X,X,
 "M:System.Security.AccessControl.SystemAcl.SetAudit(System.Security.AccessControl.AuditFlags,System.Security.Principal.SecurityIdentifier,System.Int32,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.ObjectAceFlags,System.Guid,System.Guid)",System.Security.AccessControl,SystemAcl,"SetAudit(AuditFlags, SecurityIdentifier, Int32, InheritanceFlags, PropagationFlags, ObjectAceFlags, Guid, Guid)",X,X,
 "M:System.Security.AccessControl.SystemAcl.SetAudit(System.Security.Principal.SecurityIdentifier,System.Security.AccessControl.ObjectAuditRule)",System.Security.AccessControl,SystemAcl,"SetAudit(SecurityIdentifier, ObjectAuditRule)",X,X,
-"M:System.Security.Authentication.AuthenticationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security.Authentication,AuthenticationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Security.Authentication.InvalidCredentialException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security.Authentication,InvalidCredentialException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security.Authentication.ExtendedProtection,ExtendedProtectionPolicy,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security.Authentication.ExtendedProtection,ExtendedProtectionPolicy,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Security.Claims.ClaimsIdentity.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Security.Claims,ClaimsIdentity,".ctor(SerializationInfo, StreamingContext)",X,X,X
@@ -1254,41 +1144,27 @@ M:System.Security.Principal.WindowsPrincipal.IsInRole(System.String),System.Secu
 M:System.Security.Principal.WindowsPrincipal.IsInRole(System.Security.Principal.WindowsBuiltInRole),System.Security.Principal,WindowsPrincipal,IsInRole(WindowsBuiltInRole),X,X,
 "M:System.Text.RegularExpressions.Regex.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Text.RegularExpressions,Regex,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Text.RegularExpressions.Regex.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Text.RegularExpressions,Regex,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Text.RegularExpressions.RegexMatchTimeoutException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Text.RegularExpressions,RegexMatchTimeoutException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Threading.AbandonedMutexException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,AbandonedMutexException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Threading.BarrierPostPhaseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,BarrierPostPhaseException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Threading.CompressedStack.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,CompressedStack,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Threading.EventWaitHandle.#ctor(System.Boolean,System.Threading.EventResetMode,System.String)",System.Threading,EventWaitHandle,".ctor(Boolean, EventResetMode, String)",X,X,
 "M:System.Threading.EventWaitHandle.#ctor(System.Boolean,System.Threading.EventResetMode,System.String,System.Boolean@)",System.Threading,EventWaitHandle,".ctor(Boolean, EventResetMode, String, Boolean)",X,X,
 M:System.Threading.EventWaitHandle.OpenExisting(System.String),System.Threading,EventWaitHandle,OpenExisting(String),X,X,
 "M:System.Threading.EventWaitHandle.TryOpenExisting(System.String,System.Threading.EventWaitHandle@)",System.Threading,EventWaitHandle,"TryOpenExisting(String, EventWaitHandle)",X,X,
 "M:System.Threading.ExecutionContext.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,ExecutionContext,"GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Threading.LockRecursionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,LockRecursionException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Threading.Semaphore.#ctor(System.Int32,System.Int32,System.String)",System.Threading,Semaphore,".ctor(Int32, Int32, String)",X,X,
 "M:System.Threading.Semaphore.#ctor(System.Int32,System.Int32,System.String,System.Boolean@)",System.Threading,Semaphore,".ctor(Int32, Int32, String, Boolean)",X,X,
 M:System.Threading.Semaphore.OpenExisting(System.String),System.Threading,Semaphore,OpenExisting(String),X,X,
 "M:System.Threading.Semaphore.TryOpenExisting(System.String,System.Threading.Semaphore@)",System.Threading,Semaphore,"TryOpenExisting(String, Semaphore)",X,X,
-"M:System.Threading.SemaphoreFullException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,SemaphoreFullException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Threading.SynchronizationLockException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,SynchronizationLockException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Threading.Thread.Abort,System.Threading,Thread,Abort(),X,X,X
 M:System.Threading.Thread.Abort(System.Object),System.Threading,Thread,Abort(Object),X,X,X
 M:System.Threading.Thread.ResetAbort,System.Threading,Thread,ResetAbort(),X,X,X
 M:System.Threading.Thread.Resume,System.Threading,Thread,Resume(),X,X,X
 M:System.Threading.Thread.SetApartmentState(System.Threading.ApartmentState),System.Threading,Thread,SetApartmentState(ApartmentState),X,X,
 M:System.Threading.Thread.Suspend,System.Threading,Thread,Suspend(),X,X,X
-"M:System.Threading.ThreadInterruptedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,ThreadInterruptedException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Threading.ThreadPoolBoundHandle.BindHandle(System.Runtime.InteropServices.SafeHandle),System.Threading,ThreadPoolBoundHandle,BindHandle(SafeHandle),X,X,
-"M:System.Threading.ThreadStateException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,ThreadStateException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Threading.WaitHandle.SignalAndWait(System.Threading.WaitHandle,System.Threading.WaitHandle)",System.Threading,WaitHandle,"SignalAndWait(WaitHandle, WaitHandle)",X,X,
 "M:System.Threading.WaitHandle.SignalAndWait(System.Threading.WaitHandle,System.Threading.WaitHandle,System.Int32,System.Boolean)",System.Threading,WaitHandle,"SignalAndWait(WaitHandle, WaitHandle, Int32, Boolean)",X,X,
 "M:System.Threading.WaitHandle.SignalAndWait(System.Threading.WaitHandle,System.Threading.WaitHandle,System.TimeSpan,System.Boolean)",System.Threading,WaitHandle,"SignalAndWait(WaitHandle, WaitHandle, TimeSpan, Boolean)",X,X,
-"M:System.Threading.WaitHandleCannotBeOpenedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading,WaitHandleCannotBeOpenedException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Threading.Tasks.TaskCanceledException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading.Tasks,TaskCanceledException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Threading.Tasks.TaskSchedulerException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Threading.Tasks,TaskSchedulerException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Transactions.Transaction.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Transactions,Transaction,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Transactions.TransactionAbortedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Transactions,TransactionAbortedException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Transactions.TransactionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Transactions,TransactionException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Transactions.TransactionInDoubtException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Transactions,TransactionInDoubtException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 M:System.Transactions.TransactionInterop.GetDtcTransaction(System.Transactions.Transaction),System.Transactions,TransactionInterop,GetDtcTransaction(Transaction),X,X,X
 "M:System.Transactions.TransactionInterop.GetExportCookie(System.Transactions.Transaction,System.Byte[])",System.Transactions,TransactionInterop,"GetExportCookie(Transaction, Byte[])",X,X,X
 M:System.Transactions.TransactionInterop.GetTransactionFromDtcTransaction(System.Transactions.IDtcTransaction),System.Transactions,TransactionInterop,GetTransactionFromDtcTransaction(IDtcTransaction),X,X,X
@@ -1296,7 +1172,6 @@ M:System.Transactions.TransactionInterop.GetTransactionFromExportCookie(System.B
 M:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken(System.Byte[]),System.Transactions,TransactionInterop,GetTransactionFromTransmitterPropagationToken(Byte[]),X,X,X
 M:System.Transactions.TransactionInterop.GetTransmitterPropagationToken(System.Transactions.Transaction),System.Transactions,TransactionInterop,GetTransmitterPropagationToken(Transaction),X,X,X
 M:System.Transactions.TransactionInterop.GetWhereabouts,System.Transactions,TransactionInterop,GetWhereabouts(),X,X,X
-"M:System.Transactions.TransactionPromotionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Transactions,TransactionPromotionException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Xml.XmlDictionaryReader.CreateMtomReader(System.Byte[],System.Int32,System.Int32,System.Text.Encoding,System.Xml.XmlDictionaryReaderQuotas)",System.Xml,XmlDictionaryReader,"CreateMtomReader(Byte[], Int32, Int32, Encoding, XmlDictionaryReaderQuotas)",X,X,X
 "M:System.Xml.XmlDictionaryReader.CreateMtomReader(System.Byte[],System.Int32,System.Int32,System.Text.Encoding[],System.String,System.Xml.XmlDictionaryReaderQuotas)",System.Xml,XmlDictionaryReader,"CreateMtomReader(Byte[], Int32, Int32, Encoding[], String, XmlDictionaryReaderQuotas)",X,X,X
 "M:System.Xml.XmlDictionaryReader.CreateMtomReader(System.Byte[],System.Int32,System.Int32,System.Text.Encoding[],System.String,System.Xml.XmlDictionaryReaderQuotas,System.Int32,System.Xml.OnXmlDictionaryReaderClose)",System.Xml,XmlDictionaryReader,"CreateMtomReader(Byte[], Int32, Int32, Encoding[], String, XmlDictionaryReaderQuotas, Int32, OnXmlDictionaryReaderClose)",X,X,X
@@ -1307,12 +1182,5 @@ M:System.Transactions.TransactionInterop.GetWhereabouts,System.Transactions,Tran
 "M:System.Xml.XmlDictionaryReader.CreateMtomReader(System.IO.Stream,System.Text.Encoding[],System.Xml.XmlDictionaryReaderQuotas)",System.Xml,XmlDictionaryReader,"CreateMtomReader(Stream, Encoding[], XmlDictionaryReaderQuotas)",X,X,X
 "M:System.Xml.XmlDictionaryWriter.CreateMtomWriter(System.IO.Stream,System.Text.Encoding,System.Int32,System.String)",System.Xml,XmlDictionaryWriter,"CreateMtomWriter(Stream, Encoding, Int32, String)",X,X,X
 "M:System.Xml.XmlDictionaryWriter.CreateMtomWriter(System.IO.Stream,System.Text.Encoding,System.Int32,System.String,System.String,System.String,System.Boolean,System.Boolean)",System.Xml,XmlDictionaryWriter,"CreateMtomWriter(Stream, Encoding, Int32, String, String, String, Boolean, Boolean)",X,X,X
-"M:System.Xml.XmlException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Xml,XmlException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Xml.Linq.XName.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Xml.Linq,XName,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Xml.Schema.XmlSchemaException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Xml.Schema,XmlSchemaException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Xml.Schema.XmlSchemaInferenceException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Xml.Schema,XmlSchemaInferenceException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Xml.Schema.XmlSchemaValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Xml.Schema,XmlSchemaValidationException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Xml.XPath.XPathException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Xml.XPath,XPathException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Xml.Xsl.XsltCompileException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Xml.Xsl,XsltCompileException,".ctor(SerializationInfo, StreamingContext)",X,X,X
-"M:System.Xml.Xsl.XsltException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.Xml.Xsl,XsltException,".ctor(SerializationInfo, StreamingContext)",X,X,X
 "M:System.Xml.Xsl.Runtime.XmlSortKeyAccumulator.AddStringSortKey(System.Xml.Xsl.Runtime.XmlCollation,System.String)",System.Xml.Xsl.Runtime,XmlSortKeyAccumulator,"AddStringSortKey(XmlCollation, String)",X,X,

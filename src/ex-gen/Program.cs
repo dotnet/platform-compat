@@ -89,7 +89,7 @@ namespace ex_gen
             return !string.IsNullOrWhiteSpace(outputPath);
         }
 
-        private static void Run(string sourcePath, string inclusionFile, string exclusionFile, string outputPath)
+        private static void Run(string sourcePath, string inclusionFile, string exclusionFile, string outputPath, string sdkVersion = "2.1.4")
         {
             string tempFolder = null;
             try
@@ -99,12 +99,12 @@ namespace ex_gen
                     tempFolder = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
                     Directory.CreateDirectory(tempFolder);
 
-                    var rootUrl = "https://dotnetcli.azureedge.net/dotnet/Sdk/2.0.0/";
+                    var rootUrl = "https://dotnetcli.azureedge.net/dotnet/Sdk/" + sdkVersion + "/";
                     var files = new[]
                     {
-                        "dotnet-sdk-2.0.0-win-x64.zip",
-                        "dotnet-sdk-2.0.0-osx-x64.tar.gz",
-                        "dotnet-sdk-2.0.0-linux-x64.tar.gz"
+                        $"dotnet-sdk-{sdkVersion}-win-x64.zip",
+                        $"dotnet-sdk-{sdkVersion}-osx-x64.tar.gz",
+                        $"dotnet-sdk-{sdkVersion}-linux-x64.tar.gz"
                     };
 
                     DownloadFiles(rootUrl, files, tempFolder);
@@ -259,11 +259,16 @@ namespace ex_gen
 
             foreach (var root in roots)
             {
-                var match = Regex.Match(root, @"dotnet-sdk-2.0.0-([^-]+)-x64");
-                var platform = match.Success ? match.Groups[1].Value : root;
+                var match = Regex.Match(root, @"dotnet-sdk-2\.[0-9]+\.[0-9]+-([^-]+)-x64");
+                if (!match.Success)
+                {
+                    throw new InvalidDataException($"Downloaded SDK {root} name is not in the expected format.");
+                }
+
+                var platform = match.Groups[1].Value;
 
                 var sharedFrameworkFolder = Path.Combine(root, "shared", "Microsoft.NETCore.App");
-                var version200Folder = Directory.EnumerateDirectories(sharedFrameworkFolder, "2.0.0*", SearchOption.TopDirectoryOnly).Single();
+                var version200Folder = Directory.EnumerateDirectories(sharedFrameworkFolder, "2.*", SearchOption.TopDirectoryOnly).Single();
 
                 yield return (platform, version200Folder);
             }
