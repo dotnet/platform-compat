@@ -265,5 +265,33 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Fact]
+        public void DeprecatedAnalyzer_OkWithAutomaticProperties()
+        {
+            var source = @"
+                namespace platform_compatAD0001
+                {
+                    public class Test
+                    {
+                        public sealed class InnerTest
+                        {
+                            public bool Valid { get; set; } = false;
+                        }
+
+                        public bool Valid { get; }
+
+                        public Test(InnerTest innertest)
+                        {
+                            Valid = innertest.Valid;
+                        }
+                    }
+                }
+            ";
+
+            var expected = @"";
+
+            AssertMatch(source, expected);
+        }
     }
 }
