@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.CodeAnalysis;
@@ -78,6 +79,14 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests.Helpers
             var compilation = project.GetCompilationAsync().Result;
             var compilationWithAnalyzers = compilation.WithAnalyzers(analyzers, project.AnalyzerOptions);
             var diagnostics = compilationWithAnalyzers.GetAnalyzerDiagnosticsAsync().Result;
+
+            var nonSourceDiagnostics = diagnostics.Where(d => !d.Location.IsInSource);
+            if (nonSourceDiagnostics.Any())
+            {
+                // This is typically a error in the analyzer itself
+                var failures = string.Join("; ", nonSourceDiagnostics);
+                throw new Exception("Non-source issues detected: " + failures);
+            }
 
             var documentDiagnostics = diagnostics.Where(d => d.Location.IsInSource)
                                                  .ToLookup(d => project.GetDocument(d.Location.SourceTree));

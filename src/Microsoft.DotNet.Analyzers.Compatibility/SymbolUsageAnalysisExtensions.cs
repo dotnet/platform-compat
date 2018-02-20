@@ -170,7 +170,11 @@ namespace Microsoft.DotNet.Analyzers.Compatibility
                     isSetter = true;
                 }
 
+                // It is possible that neither the setter nor the getter actually exists but the null check after this block takes care of that.
+                // For the cases that we are interested the method must exist, direct operations on backing fields are not interesting to our analysis.
                 symbol = isSetter ? propertySymbol.SetMethod : propertySymbol.GetMethod;
+                if (symbol == null)
+                    return;
             }
 
             // We don't want to check symbols defined in source.
