@@ -67,7 +67,8 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Store
                 case SymbolKind.Method:
                 case SymbolKind.Property:
                     var memberName = IsConstructor(symbol) ? ".ctor" : symbol.Name;
-                    return (symbol.ContainingNamespace.Name, symbol.ContainingType.Name, memberName);
+                    // Certain symbols, e.g.: pointer op_Increment, do not have containing type or namespace, send those as null. 
+                    return (symbol.ContainingNamespace?.Name, symbol.ContainingType?.Name, memberName);
 
                 default:
                     return (null, null, null);
