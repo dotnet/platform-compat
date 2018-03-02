@@ -293,5 +293,30 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
 
             AssertMatch(source, expected);
         }
+
+        [Fact]
+        public void DeprecatedAnalyzer_Ok_With_Pointers()
+        {
+            var source = @"
+                namespace platform_compatAD0001
+                {
+                    public unafe class Test
+                    {
+                        int CountUntilNull(IntPtr pStart) 
+                        {
+                            var cnt = 0;
+                            var p = (byte*)pStart;
+                            while (*p++ != 0)
+                                ++cnt;
+                            return cnt;
+                        }
+                    }
+                }
+            ";
+
+            var expected = @"";
+
+            AssertMatch(source, expected);
+        }
     }
 }
