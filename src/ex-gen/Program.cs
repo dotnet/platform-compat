@@ -98,7 +98,12 @@ namespace ex_gen
                 if (sourcePath == null)
                 {
                     tempFolder = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
-                    Directory.CreateDirectory(tempFolder);
+                    sourcePath = tempFolder;
+                }
+
+                if (!Directory.Exists(sourcePath))
+                {
+                    Directory.CreateDirectory(sourcePath);
 
                     var rootUrl = "https://dotnetcli.azureedge.net/dotnet/Sdk/" + sdkVersion + "/";
                     var files = new[]
@@ -108,9 +113,8 @@ namespace ex_gen
                         $"dotnet-sdk-{sdkVersion}-linux-x64.tar.gz"
                     };
 
-                    DownloadFiles(rootUrl, files, tempFolder);
-                    ExtractFiles(tempFolder);
-                    sourcePath = tempFolder;
+                    DownloadFiles(rootUrl, files, sourcePath);
+                    ExtractFiles(sourcePath);
                 }
 
                 var databases = Scan(sourcePath, inclusionFile, exclusionFile);
