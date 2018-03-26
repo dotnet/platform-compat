@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text.RegularExpressions;
+
 using Microsoft.Cci.Extensions;
-using SharpCompress.Archives;
-using SharpCompress.Archives.Tar;
-using SharpCompress.Archives.Zip;
-using SharpCompress.Compressors;
-using SharpCompress.Compressors.Deflate;
-using SharpCompress.Readers;
 using Microsoft.DotNet.Csv;
 using Microsoft.DotNet.Scanner;
-using System.Diagnostics;
 
 namespace ex_gen
 {
@@ -103,18 +97,43 @@ namespace ex_gen
 
                 if (!Directory.Exists(sourcePath))
                 {
-                    Directory.CreateDirectory(sourcePath);
+                    var tfm = @"netcoreapp2.1";
 
-                    var rootUrl = "https://dotnetcli.azureedge.net/dotnet/Sdk/" + sdkVersion + "/";
-                    var files = new[]
+                    var packages = new[]
                     {
-                        $"dotnet-sdk-{sdkVersion}-win-x64.zip",
-                        $"dotnet-sdk-{sdkVersion}-osx-x64.tar.gz",
-                        $"dotnet-sdk-{sdkVersion}-linux-x64.tar.gz"
+                        ("Microsoft.Windows.Compatibility", "2.0.0-preview1-26216-02"),
+
+                        // Shouldn't be required but works around a package downgrade issue with the current
+                        // preview of .NET Core 2.1
+                        ("System.Security.Cryptography.Cng", "4.5.0-preview1-26216-02")
                     };
 
-                    DownloadFiles(rootUrl, files, sourcePath);
-                    ExtractFiles(sourcePath);
+                    var rids = new[]
+                    {
+                        "win-x64",
+                        "osx-x64",
+                        "linux-x64",
+                    };
+
+                    var projectDirectoryPath = Path.Combine(sourcePath, "project");
+                    var projectFilePath = Path.Combine(projectDirectoryPath, "project.csproj");
+
+                    GenerateProject(projectFilePath, tfm, packages);
+
+                    var allSucceeded = true;
+                    
+                    foreach (var rid in rids)
+                    {
+                        var ridOutputFolder = Path.Combine(sourcePath, rid);
+                        if (!PublishProject(projectFilePath, ridOutputFolder, rid))
+                            allSucceeded = false;
+                    }
+
+                    if (!allSucceeded)
+                    {
+                        Console.Error.WriteLine("FATAL: Errors occurred during restore.");
+                        return;
+                    }
                 }
 
                 var databases = Scan(sourcePath, inclusionFile, exclusionFile);
@@ -133,91 +152,59 @@ namespace ex_gen
             }
         }
 
-        private static void DownloadFiles(string rootUrl, string[] files, string tempFolder)
+        private static void GenerateProject(string projectFilePath, string tfm, IEnumerable<(string id, string version)> packageReferences)
         {
-            Console.WriteLine("Downloading files...");
+            string contents = $@"<Project Sdk=""Microsoft.NET.Sdk"">
 
-            foreach (var file in files)
-            {
-                Console.WriteLine("\t" + file);
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>{tfm}</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    {
+    string.Join(Environment.NewLine, packageReferences.Select(pr => $@"<PackageReference Include=""{pr.id}"" Version=""{pr.version}"" />"))
+    }
+  </ItemGroup>
 
-                var downloadUrl = rootUrl + file;
-                var localPath = Path.Combine(tempFolder, file);
+</Project>";
 
-                WebClient client = new WebClient();
-                client.DownloadFile(downloadUrl, localPath);
-            }
+            var emptyMain = @"internal static class Program
+{
+    public static void Main()
+    {
+    }
+}";
+
+            var directoryPath = Path.GetDirectoryName(projectFilePath);
+            Directory.CreateDirectory(directoryPath);
+
+            File.WriteAllText(projectFilePath, contents);
+
+            var programCs = Path.Combine(directoryPath, "Program.cs");
+            File.WriteAllText(programCs, emptyMain);
         }
 
-        private static void ExtractFiles(string tempFolder)
+        private static bool PublishProject(string projectFilePath, string outputPath, string rid)
         {
-            Console.WriteLine("Extracting files...");
+            var command = "dotnet";
+            var args = $@"publish --output ""{outputPath}"" --runtime ""{rid}""";
+            var workingDirectoryPath = Path.GetDirectoryName(projectFilePath);
 
-            ExpandGzipStreams(tempFolder);
-            ExtractArchives(tempFolder);
-        }
-
-        private static void ExpandGzipStreams(string directory)
-        {
-            var gzFiles = Directory.EnumerateFiles(directory, "*.gz");
-
-            foreach (var gzFile in gzFiles)
-            {
-                Console.WriteLine("\t" + Path.GetFileName(gzFile));
-
-                var source = gzFile;
-                var target = Path.Combine(directory, Path.GetFileNameWithoutExtension(source));
-
-                using (var sourceStream = File.OpenRead(source))
-                using (var gzStream = new GZipStream(sourceStream, CompressionMode.Decompress))
-                using (var targetSteam = File.Create(target))
-                    gzStream.CopyTo(targetSteam);
-
-                File.Delete(source);
-            }
-        }
-
-        private static void ExtractArchives(string tempFolder)
-        {
-            var options = new ExtractionOptions { ExtractFullPath = true, Overwrite = true };
-
-            foreach (var fileName in Directory.GetFiles(tempFolder))
-            {
-                Console.WriteLine("\t" + Path.GetFileName(fileName));
-
-                var extractedFolderName = Path.GetFileNameWithoutExtension(fileName).Replace(".tar", "");
-                var exractedFolderPath = Path.Combine(tempFolder, extractedFolderName);
-
-                using (var fileStream = File.OpenRead(fileName))
-                using (var archive = OpenArchive(fileStream))
-                {
-                    var selectedEntries = archive.Entries.Where(
-                        e => e.Key.StartsWith(@"./shared/Microsoft.NETCore.App/") ||
-                        e.Key.StartsWith(@"shared/Microsoft.NETCore.App/") ||
-                        e.Key.StartsWith(@"shared\Microsoft.NETCore.App\"));
-                    if (!selectedEntries.Any())
-                        throw new InvalidDataException($"No archive selected to be extracted from {fileName} at {tempFolder}");
-
-                    foreach (var entry in selectedEntries)
-                        entry.WriteToDirectory(exractedFolderPath, options);
-                }
-
-                File.Delete(fileName);
-            }
-        }
-
-        private static IArchive OpenArchive(FileStream fileStream)
-        {
-            var extension = Path.GetExtension(fileStream.Name);
-            switch (extension)
-            {
-                case ".tar":
-                    return TarArchive.Open(fileStream);
-                case ".zip":
-                    return ZipArchive.Open(fileStream);
-                default:
-                    throw new NotImplementedException($"Unknown file {extension}");
-            }
+            var process = new Process();
+            process.StartInfo.FileName = command;
+            process.StartInfo.Arguments = args;
+            process.StartInfo.WorkingDirectory = workingDirectoryPath;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.UseShellExecute = false;
+            process.OutputDataReceived += (s, d) => Console.Out.WriteLine(d.Data);
+            process.ErrorDataReceived += (s, d) => Console.Error.WriteLine(d.Data);
+            process.Start();
+            process.BeginOutputReadLine();
+            process.BeginErrorReadLine();
+            process.WaitForExit();
+            return process.ExitCode == 0;
         }
 
         private static (Database raw, Database filtered) Scan(string sourcePath, string inclusionFile, string exclusionFile)
@@ -264,18 +251,18 @@ namespace ex_gen
 
             foreach (var root in roots)
             {
-                var match = Regex.Match(root, @"dotnet-sdk-2\.[0-9]+\.[0-9]+-([^-]+)-x64");
+                // Skip the directory that contains the project
+                if (Path.GetFileName(root) == "project")
+                    continue;
+
+                var match = Regex.Match(root, @"\\([^-]+)-x64");
                 if (!match.Success)
                 {
-                    throw new InvalidDataException($"Downloaded SDK {root} name is not in the expected format.");
+                    throw new InvalidDataException($"Published directory {root} name is not in the expected format.");
                 }
 
                 var platform = match.Groups[1].Value;
-
-                var sharedFrameworkFolder = Path.Combine(root, "shared", "Microsoft.NETCore.App");
-                var version200Folder = Directory.EnumerateDirectories(sharedFrameworkFolder, "2.*", SearchOption.TopDirectoryOnly).Single();
-
-                yield return (platform, version200Folder);
+                yield return (platform, root);
             }
         }
 
