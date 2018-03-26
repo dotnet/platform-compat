@@ -13,6 +13,7 @@ using SharpCompress.Compressors.Deflate;
 using SharpCompress.Readers;
 using Microsoft.DotNet.Csv;
 using Microsoft.DotNet.Scanner;
+using System.Diagnostics;
 
 namespace ex_gen
 {
@@ -44,7 +45,7 @@ namespace ex_gen
                 Run(sourcePath, inclusionFile, exclusionFile, outputPath);
                 return 0;
             }
-            catch (Exception ex)
+            catch (Exception ex) when (!Debugger.IsAttached)
             {
                 Console.Error.WriteLine($"ERROR: {ex.Message}");
                 return 1;
@@ -97,7 +98,12 @@ namespace ex_gen
                 if (sourcePath == null)
                 {
                     tempFolder = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
-                    Directory.CreateDirectory(tempFolder);
+                    sourcePath = tempFolder;
+                }
+
+                if (!Directory.Exists(sourcePath))
+                {
+                    Directory.CreateDirectory(sourcePath);
 
                     var rootUrl = "https://dotnetcli.azureedge.net/dotnet/Sdk/" + sdkVersion + "/";
                     var files = new[]
@@ -107,9 +113,8 @@ namespace ex_gen
                         $"dotnet-sdk-{sdkVersion}-linux-x64.tar.gz"
                     };
 
-                    DownloadFiles(rootUrl, files, tempFolder);
-                    ExtractFiles(tempFolder);
-                    sourcePath = tempFolder;
+                    DownloadFiles(rootUrl, files, sourcePath);
+                    ExtractFiles(sourcePath);
                 }
 
                 var databases = Scan(sourcePath, inclusionFile, exclusionFile);
