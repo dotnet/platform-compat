@@ -13,6 +13,7 @@ using SharpCompress.Compressors.Deflate;
 using SharpCompress.Readers;
 using Microsoft.DotNet.Csv;
 using Microsoft.DotNet.Scanner;
+using System.Diagnostics;
 
 namespace ex_gen
 {
@@ -44,7 +45,7 @@ namespace ex_gen
                 Run(sourcePath, inclusionFile, exclusionFile, outputPath);
                 return 0;
             }
-            catch (Exception ex)
+            catch (Exception ex) when (!Debugger.IsAttached)
             {
                 Console.Error.WriteLine($"ERROR: {ex.Message}");
                 return 1;
