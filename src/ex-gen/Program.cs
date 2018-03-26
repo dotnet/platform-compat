@@ -120,10 +120,19 @@ namespace ex_gen
 
                     GenerateProject(projectFilePath, tfm, packages);
 
+                    var allSucceeded = true;
+                    
                     foreach (var rid in rids)
                     {
                         var ridOutputFolder = Path.Combine(sourcePath, rid);
-                        PublishProject(projectFilePath, ridOutputFolder, rid);
+                        if (!PublishProject(projectFilePath, ridOutputFolder, rid))
+                            allSucceeded = false;
+                    }
+
+                    if (!allSucceeded)
+                    {
+                        Console.Error.WriteLine("FATAL: Errors occurred during restore.");
+                        return;
                     }
                 }
 
@@ -176,7 +185,7 @@ namespace ex_gen
             File.WriteAllText(programCs, emptyMain);
         }
 
-        private static void PublishProject(string projectFilePath, string outputPath, string rid)
+        private static bool PublishProject(string projectFilePath, string outputPath, string rid)
         {
             var command = "dotnet";
             var args = $@"publish --output ""{outputPath}"" --runtime ""{rid}""";
@@ -195,6 +204,7 @@ namespace ex_gen
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
             process.WaitForExit();
+            return process.ExitCode == 0;
         }
 
         private static (Database raw, Database filtered) Scan(string sourcePath, string inclusionFile, string exclusionFile)
