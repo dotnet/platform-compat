@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="tr" original="../Resources.resx">
+    <body>
+      <trans-unit id="AboutDiagnosticFormatString">
+        <source>About {0}</source>
+        <target state="new">About {0}</target>
+        <note />
+      </trans-unit>
+      <trans-unit id="BrowseToUrlFormat">
+        <source>Browse to {0}</source>
+        <target state="new">Browse to {0}</target>
+        <note />
+      </trans-unit>
+      <trans-unit id="DeprecatedAnalyzerMessageFormat">
+        <source>{0} is deprecated</source>
+        <target state="new">{0} is deprecated</target>
+        <note>The format-able message the diagnostic displays.</note>
+      </trans-unit>
+      <trans-unit id="DeprecatedAnalyzerTitle">
+        <source>API is deprecated</source>
+        <target state="new">API is deprecated</target>
+        <note>The title of the diagnostic.</note>
+      </trans-unit>
+      <trans-unit id="ExceptionAnalyzerMessageFormat">
+        <source>{0} isn't supported on {1}</source>
+        <target state="new">{0} isn't supported on {1}</target>
+        <note>The format-able message the diagnostic displays.</note>
+      </trans-unit>
+      <trans-unit id="ExceptionAnalyzerTitle">
+        <source>API not supported on all platforms</source>
+        <target state="new">API not supported on all platforms</target>
+        <note>The title of the diagnostic.</note>
+      </trans-unit>
+      <trans-unit id="ModernSdkAnalyzerMessageFormat">
+        <source>{0}!{1} isn't available in UWP</source>
+        <target state="new">{0}!{1} isn't available in UWP</target>
+        <note>The format-able message the diagnostic displays.</note>
+      </trans-unit>
+      <trans-unit id="ModernSdkAnalyzerTitle">
+        <source>Native API not available in UWP</source>
+        <target state="new">Native API not available in UWP</target>
+        <note>The title of the diagnostic.</note>
+      </trans-unit>
+      <trans-unit id="Net461AnalyzerMessageFormat">
+        <source>{0} isn't available in .NET Framework 4.6.1</source>
+        <target state="new">{0} isn't available in .NET Framework 4.6.1</target>
+        <note>The format-able message the diagnostic displays.</note>
+      </trans-unit>
+      <trans-unit id="Net461AnalyzerTitle">
+        <source>API not available in .NET Framework 4.6.1</source>
+        <target state="new">API not available in .NET Framework 4.6.1</target>
+        <note>The title of the diagnostic.</note>
+      </trans-unit>
+      <trans-unit id="ReportAnIssueFormatString">
+        <source>Report an issue with {0}</source>
+        <target state="new">Report an issue with {0}</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

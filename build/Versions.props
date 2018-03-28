@@ -1,0 +1,50 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VersionBase>0.2.13</VersionBase>
+    <PreReleaseVersionLabel>alpha</PreReleaseVersionLabel>
+
+    <!-- Opt-in repo features -->
+    <UsingToolVSSDK>true</UsingToolVSSDK>
+
+    <!-- Toolset -->
+    <RoslynToolsRepoToolsetVersion>1.0.0-beta-62705-01</RoslynToolsRepoToolsetVersion>
+    <VSWhereVersion>2.3.7</VSWhereVersion>
+
+    <!-- MSBuild -->
+    <MicrosoftBuildVersion>15.3.409</MicrosoftBuildVersion>
+    <MicrosoftBuildEngineVersion>15.3.409</MicrosoftBuildEngineVersion>
+    <MicrosoftBuildFrameworkVersion>15.3.409</MicrosoftBuildFrameworkVersion>
+
+    <!-- Roslyn API Versions -->
+    <MicrosoftCodeAnalysisCSharpWorkspaceskVersion>2.0.0</MicrosoftCodeAnalysisCSharpWorkspaceskVersion>
+    <MicrosoftCompositionVersion>1.0.27</MicrosoftCompositionVersion>
+
+    <!-- CCI Versions -->
+    <MicrosoftDotNetBuildToolsCciVersion>1.0.0-prerelease-01423-01</MicrosoftDotNetBuildToolsCciVersion>
+
+    <!-- .NET API Versions -->
+    <SystemCollectionsVersion>4.3.0</SystemCollectionsVersion>
+    <SystemValueTupleVersion>4.3.0</SystemValueTupleVersion>
+    <SystemThreadingThreadVersion>4.3.0</SystemThreadingThreadVersion>
+    <SystemCompositionVersion>1.0.31</SystemCompositionVersion>
+    <SystemCompositionAttributedModelVersion>1.0.31</SystemCompositionAttributedModelVersion>
+    <SystemCompositionHostingVersion>1.0.31</SystemCompositionHostingVersion>
+    <SystemCompositionRuntimeVersion>1.0.31</SystemCompositionRuntimeVersion>
+    <SystemCompositionTypedPartsVersion>1.0.31</SystemCompositionTypedPartsVersion>
+
+    <!-- Test Reference Versions -->
+    <MicrosoftWin32RegistryVersion>4.4.0-preview1-25205-01</MicrosoftWin32RegistryVersion>
+    <NETStandardLibraryVersion>2.0.0-preview1-25207-01</NETStandardLibraryVersion>
+    <SystemSecurityCryptographyCngVersion>4.4.0-beta-24913-02</SystemSecurityCryptographyCngVersion>
+
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Feeds to use to restore dependent packages from. -->
+    <RestoreSources>
+      $(RestoreSources);
+      https://dotnet.myget.org/F/dotnet-buildtools/api/v3/index.json;
+      https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
+    </RestoreSources>
+  </PropertyGroup>
+</Project>

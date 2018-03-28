@@ -2,13 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
+    <IsPackable>true</IsPackable>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81</PackageTargetFallback>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="2.0.0" />
-    <PackageReference Include="System.Collections" Version="4.3.0" />
-    <PackageReference Include="System.ValueTuple" Version="4.3.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="$(MicrosoftCodeAnalysisCSharpWorkspaceskVersion)" PrivateAssets="all" />
+    <PackageReference Include="System.Collections" Version="$(SystemCollectionsVersion)" PrivateAssets="all" />
+    <PackageReference Include="System.ValueTuple" Version="$(SystemValueTupleVersion)" PrivateAssets="all" />
+    <PackageReference Update="NETStandard.Library" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +45,7 @@
     <Description>Shows diagnostics for .NET Core APIs that throw PlatformNotSupportedException on specific operating systems.</Description>
     <RepositoryUrl>https://github.com/dotnet/platform-compat</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
@@ -52,5 +55,16 @@
   </ItemGroup>
 
   <Import Project="build\GenerateDeprecated.targets" />
+
+  <ItemGroup>
+    <FilesToMove Include="..\..\etc\deprecated.csv" />
+    <FilesToMove Include="..\..\etc\exceptions.csv" />
+    <FilesToMove Include="..\..\etc\modernsdk.csv" />
+    <FilesToMove Include="..\..\etc\net461.csv" />
+  </ItemGroup>
+
+  <Target Name="Move_Assets" BeforeTargets="BeforeBuild">
+    <Copy SourceFiles="@(FilesToMove)" DestinationFolder="$(ArtifactsObjDir)Microsoft.DotNet.Analyzers.Compatibility\etc" />
+  </Target>
 
 </Project>
