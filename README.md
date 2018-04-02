@@ -1,6 +1,8 @@
 # Platform Compatibility Analyzer
 
-[![Build status](https://ci.appveyor.com/api/projects/status/llhi1p4filksoibf/branch/master?svg=true)](https://ci.appveyor.com/project/terrajobst/platform-compat/branch/master)
+|Branch|Debug|Release|
+|:--:|:--:|:--:|
+|**master**|[![Build Status](https://ci2.dot.net/job/dotnet_platform-compat/job/master/job/windows_debug/badge/icon)](https://ci2.dot.net/job/dotnet_platform-compat/job/master/job/windows_debug/)|[![Build Status](https://ci2.dot.net/job/dotnet_platform-compat/job/master/job/windows_release/badge/icon)](https://ci2.dot.net/job/dotnet_platform-compat/job/master/job/windows_release/)
 
 This tool provides [Roslyn](https://github.com/dotnet/roslyn) analyzers that
 find usages of .NET Core & .NET Standard APIs that are problematic on specific
@@ -31,11 +33,3 @@ See [PC002](docs/PC002.md) for more details.
 ![](docs/screenshot3.png)
 
 See [DEXXX files in the docs folder](docs) for more details.
-
-## Nightlies
-
-The feed with nightly builds can be found here:
-
-```
-https://ci.appveyor.com/nuget/platform-compat
-```
