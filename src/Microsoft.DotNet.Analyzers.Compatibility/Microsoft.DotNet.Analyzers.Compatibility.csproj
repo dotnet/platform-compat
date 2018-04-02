@@ -52,6 +52,19 @@
     <None Update="build\Microsoft.DotNet.Analyzers.Compatibility.targets" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
     <None Include="$(OutDir)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="$(OutDir)\Microsoft.DotNet.Csv.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="$(OutDir)\cs\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/cs" Visible="false" />
+    <None Include="$(OutDir)\de\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/de" Visible="false" />
+    <None Include="$(OutDir)\es\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/es" Visible="false" />
+    <None Include="$(OutDir)\fr\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/fr" Visible="false" />
+    <None Include="$(OutDir)\it\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/it" Visible="false" />
+    <None Include="$(OutDir)\ja\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/ja" Visible="false" />
+    <None Include="$(OutDir)\ko\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/ko" Visible="false" />
+    <None Include="$(OutDir)\pl\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/pl" Visible="false" />
+    <None Include="$(OutDir)\pt-BR\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/pt-BR" Visible="false" />
+    <None Include="$(OutDir)\ru\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/ru" Visible="false" />
+    <None Include="$(OutDir)\tr\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/tr" Visible="false" />
+    <None Include="$(OutDir)\zh-Hans\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/zh-Hans" Visible="false" />
+    <None Include="$(OutDir)\zh-Hant\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/zh-Hant" Visible="false" />
   </ItemGroup>
 
   <Import Project="build\GenerateDeprecated.targets" />
