@@ -47,7 +47,7 @@ def createJob(def platform, def configName, def isPR) {
     ['debug', 'release'].each { configName ->
       def newJob = createJob(platform, configName, isPR)
 
-      Utilities.setMachineAffinity(newJob, 'Windows.10.Amd64.ClientRS3.DevEx.Open')
+      Utilities.setMachineAffinity(newJob, 'Windows_NT', 'latest-or-auto')
       Utilities.addXUnitDotNETResults(newJob, '**/TestResults/*.xml')
 
       newJob.with {
