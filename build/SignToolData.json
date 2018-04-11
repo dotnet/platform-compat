@@ -10,7 +10,7 @@
         ]
       },
       {
-        "certificate": null,
+        "certificate": "NuGet",
         "strongName": null,
         "values": [
           "bin/Microsoft.DotNet.Analyzers.Compatibility/*.nupkg"
