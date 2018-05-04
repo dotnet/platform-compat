@@ -42,7 +42,7 @@
     <PackageLicenseUrl>https://github.com/dotnet/platform-compat/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/dotnet/platform-compat</PackageProjectUrl>
     <Copyright>Copyright (c) Microsoft</Copyright>
-    <Description>Shows diagnostics for .NET Core APIs that throw PlatformNotSupportedException on specific operating systems.</Description>
+    <Description>Shows diagnostics related to deprecation and portability of .NET Core APIs.</Description>
     <RepositoryUrl>https://github.com/dotnet/platform-compat</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -51,6 +51,8 @@
 
   <ItemGroup>
     <None Update="build\Microsoft.DotNet.Analyzers.Compatibility.targets" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+    <None Include="NuGetScripts\install.ps1" Pack="true" PackagePath="tools" Visible="false" />
+    <None Include="NuGetScripts\uninstall.ps1" Pack="true" PackagePath="tools" Visible="false" />
     <None Include="$(OutDir)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="$(OutDir)\Microsoft.DotNet.Csv.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="$(OutDir)\cs\Microsoft.DotNet.Analyzers.Compatibility.resources.dll" Pack="true" PackagePath="analyzers/dotnet/cs/cs" Visible="false" />
