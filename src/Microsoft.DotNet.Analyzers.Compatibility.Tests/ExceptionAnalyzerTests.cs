@@ -133,6 +133,37 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
         }
 
         [Fact]
+        public void ExceptionAnalyzer_Trigger_WhenExplicitlyEnabled_IndependentOfTargetFramework()
+        {
+            var source = @"
+                using Microsoft.Win32;
+
+                namespace ConsoleApp1
+                {
+                    class Program
+                    {
+                        static void Main(string[] args)
+                        {
+                            Registry.LocalMachine.{{OpenSubKey}}(string.Empty);
+                        }
+                    }
+                }
+            ";
+
+            var expected = @"
+                PC001: RegistryKey.OpenSubKey(string) isn't supported on Linux and macOS
+            ";
+
+            var settings = @"
+                TargetFramework=net45
+                EnablePlatformCompatExceptionsAnalyzer=True
+            ";
+
+            AssertMatch(source, expected, settings);
+        }
+
+
+        [Fact]
         public void ExceptionAnalyzer_Triggers_ForMethods()
         {
             var source = @"

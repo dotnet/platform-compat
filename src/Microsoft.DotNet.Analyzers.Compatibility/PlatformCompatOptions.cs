@@ -11,10 +11,12 @@ namespace Microsoft.DotNet.Analyzers.Compatibility
         {
             IgnoredPlatforms = ParseIgnoredPlatforms(options);
             TargetFramework = ParseTargetFramework(options);
+            EnableExceptionsAnalyzer = ParseEnableExceptionsAnalyzer(options);
         }
 
         public Platform IgnoredPlatforms { get; }
         public string TargetFramework { get; }
+        public bool EnableExceptionsAnalyzer { get; }
 
         public bool TargetFrameworkIsNetCore() => TargetFramework.StartsWith("netcoreapp", StringComparison.OrdinalIgnoreCase);
 
@@ -44,6 +46,13 @@ namespace Microsoft.DotNet.Analyzers.Compatibility
         {
             options.TryGetValue("TargetFramework", out var value);
             return value ?? string.Empty;
+        }
+
+        private bool ParseEnableExceptionsAnalyzer(ImmutableDictionary<string, string> options)
+        {
+            options.TryGetValue("EnablePlatformCompatExceptionsAnalyzer", out string optionText);
+            bool.TryParse(optionText, out bool result);
+            return result;
         }
     }
 }
