@@ -83,6 +83,9 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Deprecated
             if (!_store.TryLookup(symbol, out var entry))
                 return;
 
+            if (symbol.Locations.Any(l => l.IsInSource))
+                return;
+
             var api = symbol.ToDisplayString(SymbolDisplayFormat.CSharpShortErrorMessageFormat);
             var location = context.GetLocation();
 

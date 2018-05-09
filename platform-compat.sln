@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.DotNet.Analyzers.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.DotNet.ExceptionScanning.Tests", "src\Microsoft.DotNet.ExceptionScanning.Tests\Microsoft.DotNet.ExceptionScanning.Tests.csproj", "{F77DF5B7-FC77-4DA7-BE7B-DC402DEDD064}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dep-helper", "src\dep-helper\dep-helper.csproj", "{4FA57C50-1D6E-467E-9186-F96B9218310C}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dep-index", "src\dep-index\dep-index.csproj", "{6973B489-E5ED-4F82-BE2A-A4A54868F45D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{3353F11E-B74D-44BD-9CF4-FD0A63A0C07B}"
@@ -111,6 +113,10 @@ Global
 		{63D0E604-F739-41D7-B6E6-B46ECA9051DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63D0E604-F739-41D7-B6E6-B46ECA9051DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63D0E604-F739-41D7-B6E6-B46ECA9051DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FA57C50-1D6E-467E-9186-F96B9218310C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FA57C50-1D6E-467E-9186-F96B9218310C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FA57C50-1D6E-467E-9186-F96B9218310C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FA57C50-1D6E-467E-9186-F96B9218310C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +126,7 @@ Global
 		{8D0CEDDE-E2D2-4FF6-A5B4-A2696B31C4E6} = {09FF4C67-A805-490B-9323-4F60882875B6}
 		{6973B489-E5ED-4F82-BE2A-A4A54868F45D} = {09FF4C67-A805-490B-9323-4F60882875B6}
 		{63D0E604-F739-41D7-B6E6-B46ECA9051DA} = {09FF4C67-A805-490B-9323-4F60882875B6}
+		{4FA57C50-1D6E-467E-9186-F96B9218310C} = {09FF4C67-A805-490B-9323-4F60882875B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CA3420F-FD38-44A8-8520-B7B3D0EDF7D3}
