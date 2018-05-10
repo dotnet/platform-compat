@@ -62,8 +62,19 @@ namespace Microsoft.DotNet.Scanner
         {
             const int maxNestingLevel = 3;
 
-            if (method is Dummy || method.IsAbstract)
+            if (method is Dummy
+                || method.IsAbstract 
+                || method.Attributes.Any(attrb => attrb.FullName().Equals("System.Runtime.CompilerServices.IntrinsicAttribute")))
+            {
                 return ExceptionInfo.DoesNotThrow;
+            }
+
+            // Not all intrisincs are marked with attributes
+            var docId = method.DocId();
+            if (docId.StartsWith("M:System.Runtime.Intrinsics") || docId.StartsWith("M:System.ByReference"))
+            {
+                return ExceptionInfo.DoesNotThrow;
+            }
 
             foreach (var op in GetOperationsPreceedingThrow(method))
             {

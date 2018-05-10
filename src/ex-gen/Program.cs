@@ -101,11 +101,7 @@ namespace ex_gen
 
                     var packages = new[]
                     {
-                        ("Microsoft.Windows.Compatibility", "2.0.0-preview1-26216-02"),
-
-                        // Shouldn't be required but works around a package downgrade issue with the current
-                        // preview of .NET Core 2.1
-                        ("System.Security.Cryptography.Cng", "4.5.0-preview1-26216-02")
+                        ("Microsoft.Windows.Compatibility", "2.0.0-rc1"),
                     };
 
                     var rids = new[]
