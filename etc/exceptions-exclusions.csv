@@ -48,6 +48,10 @@ M:System.Diagnostics.Process.GetProcessesByName(System.String),System.Diagnostic
 M:System.Diagnostics.Process.Kill,System.Diagnostics,Process,Kill(),Throws if remote but can't create remote instance,X,X,
 M:System.Diagnostics.Process.Start,System.Diagnostics,Process,Start(),Only if UseShellExecute true and Windows version does not support it,,,X
 M:System.Diagnostics.Process.Start(System.Diagnostics.ProcessStartInfo),System.Diagnostics,Process,Start(ProcessStartInfo),Only if UseShellExecute true and Windows version does not support it,,,X
+"M:System.Net.Sockets.UdpClient.BeginReceive(System.AsyncCallback,System.Object)",System.Net.Sockets,UdpClient,"BeginReceive(AsyncCallback, Object)",Conditional on platform and settings,X,X,
+M:System.Net.Sockets.UdpClient.Connect(System.Net.IPEndPoint),System.Net.Sockets,UdpClient,Connect(IPEndPoint),Conditional on platform and settings,X,X,
+"M:System.Net.Sockets.UdpClient.Connect(System.String,System.Int32)",System.Net.Sockets,UdpClient,"Connect(String, Int32)",Conditional on platform and settings,X,X,
+M:System.Net.Sockets.UdpClient.Receive(System.Net.IPEndPoint@),System.Net.Sockets,UdpClient,Receive(IPEndPoint),Conditional on platform and settings,X,X,
 M:System.Security.Cryptography.HMACMD5.#ctor,System.Security.Cryptography,HMACMD5,.ctor(),PNSE Unreachable,X,X,X
 M:System.Security.Cryptography.HMACMD5.#ctor(System.Byte[]),System.Security.Cryptography,HMACMD5,.ctor(Byte[]),PNSE Unreachable,X,X,X
 M:System.Security.Cryptography.HMACMD5.set_Key(System.Byte[]),System.Security.Cryptography,HMACMD5,set_Key(Byte[]),PNSE Unreachable,,X,

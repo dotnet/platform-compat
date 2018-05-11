@@ -2873,10 +2873,6 @@ M:System.Net.Sockets.TcpClient.Connect(System.Net.IPEndPoint),System.Net.Sockets
 "M:System.Net.Sockets.TcpClient.Connect(System.String,System.Int32)",System.Net.Sockets,TcpClient,"Connect(String, Int32)",X,X,
 M:System.Net.Sockets.TcpListener.AllowNatTraversal(System.Boolean),System.Net.Sockets,TcpListener,AllowNatTraversal(Boolean),X,X,
 M:System.Net.Sockets.UdpClient.AllowNatTraversal(System.Boolean),System.Net.Sockets,UdpClient,AllowNatTraversal(Boolean),X,X,
-"M:System.Net.Sockets.UdpClient.BeginReceive(System.AsyncCallback,System.Object)",System.Net.Sockets,UdpClient,"BeginReceive(AsyncCallback, Object)",X,X,
-M:System.Net.Sockets.UdpClient.Connect(System.Net.IPEndPoint),System.Net.Sockets,UdpClient,Connect(IPEndPoint),X,X,
-"M:System.Net.Sockets.UdpClient.Connect(System.String,System.Int32)",System.Net.Sockets,UdpClient,"Connect(String, Int32)",X,X,
-M:System.Net.Sockets.UdpClient.Receive(System.Net.IPEndPoint@),System.Net.Sockets,UdpClient,Receive(IPEndPoint),X,X,
 M:System.Net.Sockets.UnixDomainSocketEndPoint.#ctor(System.String),System.Net.Sockets,UnixDomainSocketEndPoint,.ctor(String),,,X
 M:System.Net.WebSockets.WebSocket.RegisterPrefixes,System.Net.WebSockets,WebSocket,RegisterPrefixes(),X,X,X
 M:System.Reflection.Assembly.CreateInstance(System.String),System.Reflection,Assembly,CreateInstance(String),X,X,X
