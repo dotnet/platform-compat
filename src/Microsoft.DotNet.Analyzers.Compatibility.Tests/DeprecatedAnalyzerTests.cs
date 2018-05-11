@@ -162,14 +162,64 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
         [InlineData("Queue")]
         [InlineData("Stack")]
         [InlineData("SortedList")]
+        [InlineData("CaseInsensitiveComparer")]
+        [InlineData("CaseInsensitiveHashCodeProvider")]
+        public void DeprecatedAnalyzer_Triggers_DE0006_ForConcreteTypesWithDefaultConstructor(string typeName)
+        {
+            var source = @"
+                using System.Collections;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        var x = {{new $TYPE_NAME$()}};
+                    }
+                }
+            ".Replace("$TYPE_NAME$", typeName);
+
+            var expected = $@"
+                DE0006: {typeName}.{typeName}() is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
+
+        [Theory]
+        [InlineData("ArrayList")]
+        [InlineData("Hashtable")]
+        [InlineData("Queue")]
+        [InlineData("Stack")]
+        [InlineData("SortedList")]
         [InlineData("DictionaryEntry")]
-        [InlineData("DictionaryBase")]
-        [InlineData("CollectionBase")]
-        [InlineData("ReadOnlyCollectionBase")]
         [InlineData("Comparer")]
         [InlineData("CaseInsensitiveComparer")]
         [InlineData("CaseInsensitiveHashCodeProvider")]
-        public void DeprecatedAnalyzer_Triggers_DE0006(string typeName)
+        public void DeprecatedAnalyzer_DoesNotTrigger_DE0006_OnDeclarationOfConcreteTypes(string typeName)
+        {
+            var source = @"
+                using System.Collections;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        $TYPE_NAME$ x = null;
+                    }
+                }
+            ".Replace("$TYPE_NAME$", typeName);
+
+            // No match is expected since declaration can indicate returned from some API not
+            // controlled by the project being analyzed.
+
+            AssertNoMatch(source);
+        }
+
+        [Theory]
+        [InlineData("DictionaryBase")]
+        [InlineData("CollectionBase")]
+        [InlineData("ReadOnlyCollectionBase")]
+        public void DeprecatedAnalyzer_Triggers_DE0006_OnDeclarationsUsingAbstractTypes(string typeName)
         {
             var source = @"
                 using System.Collections;
@@ -180,6 +230,27 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
                     {
                         {{$TYPE_NAME$}} x = null;
                     }
+                }
+            ".Replace("$TYPE_NAME$", typeName);
+
+            var expected = $@"
+                DE0006: {typeName} is deprecated
+            ";
+
+            AssertMatch(source, expected);
+        }
+
+        [Theory]
+        [InlineData("DictionaryBase")]
+        [InlineData("CollectionBase")]
+        [InlineData("ReadOnlyCollectionBase")]
+        public void DeprecatedAnalyzer_Triggers_DE0006_WhenDerivingFromAbstractDeprecated(string typeName)
+        {
+            var source = @"
+                using System.Collections;
+
+                class Test : {{$TYPE_NAME$}}
+                {
                 }
             ".Replace("$TYPE_NAME$", typeName);
 
