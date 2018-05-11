@@ -125,6 +125,7 @@ M:System.Security.Cryptography.RNGCryptoServiceProvider.#ctor(System.String),Sys
 M:System.Security.Cryptography.RSACng.#ctor,System.Security.Cryptography,RSACng,.ctor(),PNSE Unreacheable,X,X,
 M:System.Security.Cryptography.RSACng.#ctor(System.Security.Cryptography.CngKey),System.Security.Cryptography,RSACng,.ctor(CngKey),PNSE Unreacheable,X,X,
 M:System.Security.Cryptography.RSACng.#ctor(System.Int32),System.Security.Cryptography,RSACng,.ctor(Int32),PNSE Unreacheable,X,X,
+M:System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters(System.Boolean),System.Security.Cryptography,RSACryptoServiceProvider,ExportParameters(Boolean),Internal code does not trigger the PNSE,,,X
 M:System.Security.Cryptography.MD5CryptoServiceProvider.#ctor,System.Security.Cryptography,MD5CryptoServiceProvider,.ctor(),PNSE Unreachable,,X,
 M:System.Security.Cryptography.SHA1CryptoServiceProvider.#ctor,System.Security.Cryptography,SHA1CryptoServiceProvider,.ctor(),PNSE Unreachable,,X,
 M:System.Security.Cryptography.SHA1CryptoServiceProvider.#ctor,System.Security.Cryptography,SHA1CryptoServiceProvider,.ctor(),dotnet/corefx/#24462,,X,
