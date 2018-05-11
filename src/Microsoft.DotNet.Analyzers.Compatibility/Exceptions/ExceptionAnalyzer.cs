@@ -34,8 +34,8 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Exceptions
                 var settings = startContext.Options.GetFileSettings(PlatformCompatOptions.SettingsName);
                 var options = new PlatformCompatOptions(settings);
 
-                // We only want to run if the project is targeting .NET Core or .NET Standard.
-                var shouldRun = options.TargetFrameworkIsNetCore() || options.TargetFrameworkIsNetStandard();
+                // We only want to run if the project is targeting .NET Core, .NET Standard, or if explicitly enabled.
+                var shouldRun = options.TargetFrameworkIsNetCore() || options.TargetFrameworkIsNetStandard() || options.EnableExceptionsAnalyzer;
                 if (!shouldRun)
                     return;
 
