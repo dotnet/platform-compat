@@ -264,7 +264,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
         [Fact]
         public void ExceptionAnalyzer_Triggers_ForEvents()
         {
-             var source = @"
+            var source = @"
                 using System;
                 using System.Runtime.Serialization;
 
@@ -319,6 +319,38 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
 
             var expected = @"
                 PC001: CngAlgorithm.operator ==(CngAlgorithm, CngAlgorithm) isn't supported on Linux and macOS
+            ";
+
+            AssertMatch(source, expected);
+        }
+
+        [Theory]
+        [InlineData("Disconnect", true)]
+        [InlineData("ReuseSocket", true)]
+        [InlineData("UseDefaultWorkerThread", false)]
+        public void ExceptionAnalyzer_Triggers_ForSelectedEnumValues(string enumValue, bool expectedWarning)
+        {
+            var source = @"
+                using System.Net.Sockets;
+
+                class Program
+                {
+                    static void Main()
+                    {
+                        var s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                        s.BeginSendFile(""myFile"", null, null, TransmitFileOptions.{{$ENUM_VALUE$}}, null, null);
+                    }
+                }
+            ".Replace(expectedWarning ? "$ENUM_VALUE$" : @"{{$ENUM_VALUE$}}", enumValue);
+
+            if (!expectedWarning)
+            {
+                AssertNoMatch(source);
+                return;
+            }
+
+            var expected = $@"
+                PC001: TransmitFileOptions.{enumValue} isn't supported on Linux and macOS
             ";
 
             AssertMatch(source, expected);
