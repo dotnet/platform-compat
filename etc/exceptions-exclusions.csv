@@ -48,6 +48,30 @@ M:System.Diagnostics.Process.GetProcessesByName(System.String),System.Diagnostic
 M:System.Diagnostics.Process.Kill,System.Diagnostics,Process,Kill(),Throws if remote but can't create remote instance,X,X,
 M:System.Diagnostics.Process.Start,System.Diagnostics,Process,Start(),Only if UseShellExecute true and Windows version does not support it,,,X
 M:System.Diagnostics.Process.Start(System.Diagnostics.ProcessStartInfo),System.Diagnostics,Process,Start(ProcessStartInfo),Only if UseShellExecute true and Windows version does not support it,,,X
+"M:System.Net.Sockets.Socket.BeginConnect(System.Net.EndPoint,System.AsyncCallback,System.Object)",System.Net.Sockets,Socket,"BeginConnect(EndPoint, AsyncCallback, Object)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.Socket.BeginConnect(System.Net.IPAddress,System.Int32,System.AsyncCallback,System.Object)",System.Net.Sockets,Socket,"BeginConnect(IPAddress, Int32, AsyncCallback, Object)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.Socket.BeginConnect(System.Net.IPAddress[],System.Int32,System.AsyncCallback,System.Object)",System.Net.Sockets,Socket,"BeginConnect(IPAddress[], Int32, AsyncCallback, Object)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.Socket.BeginConnect(System.String,System.Int32,System.AsyncCallback,System.Object)",System.Net.Sockets,Socket,"BeginConnect(String, Int32, AsyncCallback, Object)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.Socket.BeginSendFile(System.String,System.AsyncCallback,System.Object)",System.Net.Sockets,Socket,"BeginSendFile(String, AsyncCallback, Object)",PNSE unreachable,X,X,
+"M:System.Net.Sockets.Socket.BeginSendFile(System.String,System.Byte[],System.Byte[],System.Net.Sockets.TransmitFileOptions,System.AsyncCallback,System.Object)",System.Net.Sockets,Socket,"BeginSendFile(String, Byte[], Byte[], TransmitFileOptions, AsyncCallback, Object)",PNSE only if TransmitFileOptions not UseDefaultWorkerThread,X,X,
+M:System.Net.Sockets.Socket.Connect(System.Net.EndPoint),System.Net.Sockets,Socket,Connect(EndPoint),see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.Socket.Connect(System.Net.IPAddress,System.Int32)",System.Net.Sockets,Socket,"Connect(IPAddress, Int32)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.Socket.Connect(System.Net.IPAddress[],System.Int32)",System.Net.Sockets,Socket,"Connect(IPAddress[], Int32)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.Socket.Connect(System.String,System.Int32)",System.Net.Sockets,Socket,"Connect(String, Int32)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+M:System.Net.Sockets.Socket.ConnectAsync(System.Net.Sockets.SocketAsyncEventArgs),System.Net.Sockets,Socket,ConnectAsync(SocketAsyncEventArgs),see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.Socket.ConnectAsync(System.Net.Sockets.SocketType,System.Net.Sockets.ProtocolType,System.Net.Sockets.SocketAsyncEventArgs)",System.Net.Sockets,Socket,"ConnectAsync(SocketType, ProtocolType, SocketAsyncEventArgs)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+M:System.Net.Sockets.Socket.SendFile(System.String),System.Net.Sockets,Socket,SendFile(String),M:System.Net.Sockets.Socket.CheckTransmitFileOptions(System.Net.Sockets.TransmitFileOptions),PNSE unreachable,X,X,
+"M:System.Net.Sockets.Socket.SendFile(System.String,System.Byte[],System.Byte[],System.Net.Sockets.TransmitFileOptions)",System.Net.Sockets,Socket,"SendFile(String, Byte[], Byte[], TransmitFileOptions)",M:System.Net.Sockets.Socket.CheckTransmitFileOptions(System.Net.Sockets.TransmitFileOptions),PNSE only if TransmitFileOptions not UseDefaultWorkerThread,X,X,
+"M:System.Net.Sockets.TcpClient.BeginConnect(System.Net.IPAddress,System.Int32,System.AsyncCallback,System.Object)",System.Net.Sockets,TcpClient,"BeginConnect(IPAddress, Int32, AsyncCallback, Object)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.TcpClient.BeginConnect(System.Net.IPAddress[],System.Int32,System.AsyncCallback,System.Object)",System.Net.Sockets,TcpClient,"BeginConnect(IPAddress[], Int32, AsyncCallback, Object)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.TcpClient.BeginConnect(System.String,System.Int32,System.AsyncCallback,System.Object)",System.Net.Sockets,TcpClient,"BeginConnect(String, Int32, AsyncCallback, Object)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.TcpClient.Connect(System.Net.IPAddress[],System.Int32)",System.Net.Sockets,TcpClient,"Connect(IPAddress[], Int32)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+M:System.Net.Sockets.TcpClient.Connect(System.Net.IPEndPoint),System.Net.Sockets,TcpClient,Connect(IPEndPoint),see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.TcpClient.Connect(System.String,System.Int32)",System.Net.Sockets,TcpClient,"Connect(String, Int32)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.UdpClient.BeginReceive(System.AsyncCallback,System.Object)",System.Net.Sockets,UdpClient,"BeginReceive(AsyncCallback, Object)",Conditional on platform and settings,X,X,
+M:System.Net.Sockets.UdpClient.Connect(System.Net.IPEndPoint),System.Net.Sockets,UdpClient,Connect(IPEndPoint),see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+"M:System.Net.Sockets.UdpClient.Connect(System.String,System.Int32)",System.Net.Sockets,UdpClient,"Connect(String, Int32)",see ValidateForMultiConnect to understand when PNSE can happen,X,X,
+M:System.Net.Sockets.UdpClient.Receive(System.Net.IPEndPoint@),System.Net.Sockets,UdpClient,Receive(IPEndPoint),Conditional on platform and settings,X,X,
 M:System.Security.Cryptography.HMACMD5.#ctor,System.Security.Cryptography,HMACMD5,.ctor(),PNSE Unreachable,X,X,X
 M:System.Security.Cryptography.HMACMD5.#ctor(System.Byte[]),System.Security.Cryptography,HMACMD5,.ctor(Byte[]),PNSE Unreachable,X,X,X
 M:System.Security.Cryptography.HMACMD5.set_Key(System.Byte[]),System.Security.Cryptography,HMACMD5,set_Key(Byte[]),PNSE Unreachable,,X,
@@ -121,6 +145,7 @@ M:System.Security.Cryptography.RNGCryptoServiceProvider.#ctor(System.String),Sys
 M:System.Security.Cryptography.RSACng.#ctor,System.Security.Cryptography,RSACng,.ctor(),PNSE Unreacheable,X,X,
 M:System.Security.Cryptography.RSACng.#ctor(System.Security.Cryptography.CngKey),System.Security.Cryptography,RSACng,.ctor(CngKey),PNSE Unreacheable,X,X,
 M:System.Security.Cryptography.RSACng.#ctor(System.Int32),System.Security.Cryptography,RSACng,.ctor(Int32),PNSE Unreacheable,X,X,
+M:System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters(System.Boolean),System.Security.Cryptography,RSACryptoServiceProvider,ExportParameters(Boolean),Internal code does not trigger the PNSE,,,X
 M:System.Security.Cryptography.MD5CryptoServiceProvider.#ctor,System.Security.Cryptography,MD5CryptoServiceProvider,.ctor(),PNSE Unreachable,,X,
 M:System.Security.Cryptography.SHA1CryptoServiceProvider.#ctor,System.Security.Cryptography,SHA1CryptoServiceProvider,.ctor(),PNSE Unreachable,,X,
 M:System.Security.Cryptography.SHA1CryptoServiceProvider.#ctor,System.Security.Cryptography,SHA1CryptoServiceProvider,.ctor(),dotnet/corefx/#24462,,X,

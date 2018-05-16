@@ -1,1 +1,6 @@
 DocId,Namespace,Type,Member,linux,osx,win
+F:System.Net.Sockets.TransmitFileOptions.Disconnect,System.Net.Sockets,TransmitFileOptions,Disconnect,X,X,
+F:System.Net.Sockets.TransmitFileOptions.ReuseSocket,System.Net.Sockets,TransmitFileOptions,ReuseSocket,X,X,
+F:System.Net.Sockets.TransmitFileOptions.UseKernelApc,System.Net.Sockets,TransmitFileOptions,UseKernelApc,X,X,
+F:System.Net.Sockets.TransmitFileOptions.UseSystemThread,System.Net.Sockets,TransmitFileOptions,UseSystemThread,X,X,
+F:System.Net.Sockets.TransmitFileOptions.WriteBehind,System.Net.Sockets,TransmitFileOptions,WriteBehind,X,X,

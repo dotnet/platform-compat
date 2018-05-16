@@ -52,7 +52,8 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Exceptions
             // We only want to handle a specific set of symbols
             var isApplicable = symbol.Kind == SymbolKind.Method ||
                                symbol.Kind == SymbolKind.Property ||
-                               symbol.Kind == SymbolKind.Event;
+                               symbol.Kind == SymbolKind.Event ||
+                               symbol.Kind == SymbolKind.Field;
             if (!isApplicable)
                 return;
 
