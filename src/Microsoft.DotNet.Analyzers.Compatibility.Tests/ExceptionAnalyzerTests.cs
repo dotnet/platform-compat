@@ -192,7 +192,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
         public void ExceptionAnalyzer_Triggers_ForConstructors()
         {
             var source = @"
-                using System.IO.Pipes;
+                using System.Reflection;
 
                 namespace ConsoleApp1
                 {
@@ -200,14 +200,14 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests
                     {
                         static void Main(string[] args)
                         {
-                            var e = {{new NamedPipeClientStream(""SomeName"")}};
+                            var e = {{new StrongNameKeyPair(""SomeName"")}};
                         }
                     }
                 }
             ";
 
             var expected = @"
-                PC001: NamedPipeClientStream.NamedPipeClientStream(string) isn't supported on Linux and macOS
+                PC001: StrongNameKeyPair.StrongNameKeyPair(string) isn't supported on Linux, macOS, and Windows
             ";
 
             AssertMatch(source, expected);
