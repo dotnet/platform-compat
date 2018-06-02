@@ -1,4 +1,5 @@
 DocId,Namespace,Type,Member,linux,osx,win
+F:System.IO.Pipes.PipeTransmissionMode.Message,System.IO.Pipes,PipeTransmissionMode,Message,X,X,
 F:System.Net.Sockets.TransmitFileOptions.Disconnect,System.Net.Sockets,TransmitFileOptions,Disconnect,X,X,
 F:System.Net.Sockets.TransmitFileOptions.ReuseSocket,System.Net.Sockets,TransmitFileOptions,ReuseSocket,X,X,
 F:System.Net.Sockets.TransmitFileOptions.UseKernelApc,System.Net.Sockets,TransmitFileOptions,UseKernelApc,X,X,
