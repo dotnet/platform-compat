@@ -59,6 +59,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6F07EE72-A
 		docs\PC001.md = docs\PC001.md
 		docs\PC002.md = docs\PC002.md
 		docs\PC003.md = docs\PC003.md
+		docs\PC004.md = docs\PC004.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{09FF4C67-A805-490B-9323-4F60882875B6}"
