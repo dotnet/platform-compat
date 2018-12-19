@@ -57,6 +57,16 @@
         <target state="new">Report an issue with {0}</target>
         <note />
       </trans-unit>
+      <trans-unit id="BeginInvokeEndInvokeAnalyzerMessageFormat">
+        <source>{0} is unsupported on .NET Core. Use Tasks instead.</source>
+        <target state="new">{0} is unsupported on .NET Core. Use Tasks instead.</target>
+        <note>The format-able message the diagnostic displays.</note>
+      </trans-unit>
+      <trans-unit id="BeginInvokeEndInvokeAnalyzerTitle">
+        <source>Delegate.BeginInvoke and EndInvoke are unsuported on .NET Core</source>
+        <target state="new">Delegate.BeginInvoke and EndInvoke are unsuported on .NET Core</target>
+        <note>The title of the diagnostic.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

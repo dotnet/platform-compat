@@ -120,6 +120,14 @@
   <data name="AboutDiagnosticFormatString" xml:space="preserve">
     <value>About {0}</value>
   </data>
+  <data name="BeginInvokeEndInvokeAnalyzerMessageFormat" xml:space="preserve">
+    <value>{0} is unsupported on .NET Core. Use Tasks instead.</value>
+    <comment>The format-able message the diagnostic displays.</comment>
+  </data>
+  <data name="BeginInvokeEndInvokeAnalyzerTitle" xml:space="preserve">
+    <value>Delegate.BeginInvoke and EndInvoke are unsuported on .NET Core</value>
+    <comment>The title of the diagnostic.</comment>
+  </data>
   <data name="BrowseToUrlFormat" xml:space="preserve">
     <value>Browse to {0}</value>
   </data>

@@ -71,6 +71,24 @@ namespace Microsoft.DotNet.Analyzers.Compatibility {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} is unsupported on .NET Core. Use Tasks instead..
+        /// </summary>
+        internal static string BeginInvokeEndInvokeAnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("BeginInvokeEndInvokeAnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delegate.BeginInvoke and EndInvoke are unsuported on .NET Core.
+        /// </summary>
+        internal static string BeginInvokeEndInvokeAnalyzerTitle {
+            get {
+                return ResourceManager.GetString("BeginInvokeEndInvokeAnalyzerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Browse to {0}.
         /// </summary>
         internal static string BrowseToUrlFormat {
@@ -81,13 +99,14 @@ namespace Microsoft.DotNet.Analyzers.Compatibility {
         
         /// <summary>
         ///   Looks up a localized string similar to DocId,Namespace,Type,Member,DiagnosticIds
+        ///M:System.Environment.get_OSVersion,System,Environment,get_OSVersion(),DE0009
         ///F:System.PlatformID.MacOSX,System,PlatformID,MacOSX,DE0007
         ///F:System.PlatformID.Win32S,System,PlatformID,Win32S,DE0007
         ///F:System.PlatformID.Win32Windows,System,PlatformID,Win32Windows,DE0007
         ///F:System.PlatformID.WinCE,System,PlatformID,WinCE,DE0007
         ///F:System.PlatformID.Xbox,System,PlatformID,Xbox,DE0007
-        ///T:System.Collections.ArrayList,System.Collections,ArrayList,,DE0006
-        ///T:System.Collections.CaseInsensitiveComparer,System.Collections,CaseInsensitiveComparer,,DE000 [rest of string was truncated]&quot;;.
+        ///M:System.Collections.ArrayList.#ctor,System.Collections,ArrayList,.ctor(),DE0006
+        ///M:S [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Deprecated {
             get {
@@ -133,8 +152,10 @@ namespace Microsoft.DotNet.Analyzers.Compatibility {
         
         /// <summary>
         ///   Looks up a localized string similar to DocId,Namespace,Type,Member,linux,osx,win
-        ///&quot;M:Microsoft.CSharp.RuntimeBinder.RuntimeBinderException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)&quot;,Microsoft.CSharp.RuntimeBinder,RuntimeBinderException,&quot;.ctor(SerializationInfo, StreamingContext)&quot;,X,X,X
-        ///&quot;M:Microsoft.CSharp.RuntimeBinder.RuntimeBinderInternalCompilerException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)&quot;,Microsoft.CSharp.RuntimeBinder, [rest of string was truncated]&quot;;.
+        ///M:Microsoft.Win32.PowerModeChangedEventArgs.#ctor(Microsoft.Win32.PowerModes),Microsoft.Win32,PowerModeChangedEventArgs,.ctor(PowerModes),X,X,
+        ///M:Microsoft.Win32.PowerModeChangedEventArgs.get_Mode,Microsoft.Win32,PowerModeChangedEventArgs,get_Mode(),X,X,
+        ///&quot;M:Microsoft.Win32.Registry.GetValue(System.String,System.String,System.Object)&quot;,Microsoft.Win32,Registry,&quot;GetValue(String, String, Object)&quot;,X,X,
+        ///&quot;M:Microsoft.Win32.Registry.SetValue(System.String,System.String,S [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Exceptions {
             get {
@@ -185,12 +206,11 @@ namespace Microsoft.DotNet.Analyzers.Compatibility {
         /// <summary>
         ///   Looks up a localized string similar to DocId,Namespace,Type,Member
         ///M:System.AppContext.GetData(System.String),System,AppContext,GetData(String)
-        ///P:System.AppContext.TargetFrameworkName,System,AppContext,TargetFrameworkName
+        ///M:System.AppContext.get_TargetFrameworkName,System,AppContext,get_TargetFrameworkName()
         ///T:System.StringNormalizationExtensions,System,StringNormalizationExtensions,
         ///T:System.Data.Common.DbColumn,System.Data.Common,DbColumn,
         ///T:System.Data.Common.DbDataReaderExtensions,System.Data.Common,DbDataReaderExtensions,
-        ///T:System.Data.Common.IDbColumnSchemaGenerator,System.Data.Common,IDbColumnSchemaGenerator,
-        ///T:System [rest of string was truncated]&quot;;.
+        ///T:System.Data.Common.IDbColumnSchemaGenerator,System.Data.Common,IDbColumnSchemaGenerator, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Net461 {
             get {
