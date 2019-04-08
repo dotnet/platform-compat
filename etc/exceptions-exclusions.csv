@@ -1,4 +1,6 @@
 DocId,Namespace,Type,Member,Reason,linux,osx,win
+"M:Internal.Runtime.CompilerServices.Unsafe.AddByteOffset<T>(T, IntPtr)",Internal.Runtime.CompilerServices,Unsafe,"AddByteOffset<T>(T, IntPtr)", PNSE Unreachable,X,X,X
+"M:Internal.Runtime.CompilerServices.Unsafe.Add<T>(T, Int32)",Internal.Runtime.CompilerServices,Unsafe,"Add<T>(T, Int32)", PNSE Unreachable,X,X,X
 "M:System.Activator.CreateInstance(System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo)",System,Activator,"CreateInstance(Type, BindingFlags, Binder, Object[], CultureInfo)",PNSE Unreachable,X,X,X
 "M:System.Activator.CreateInstance(System.Type,System.Object[])",System,Activator,"CreateInstance(Type, Object[])",PNSE Unreachable,X,X,X
 M:System.Console.get_CapsLock,System,Console,get_CapsLock(),Windows ok - PNSE on UWP,,,X
