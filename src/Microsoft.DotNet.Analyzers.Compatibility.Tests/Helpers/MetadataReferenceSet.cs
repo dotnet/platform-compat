@@ -79,6 +79,21 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Tests.Helpers
         {
             var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             var netStandard = Path.Combine(userProfile, ".nuget", "packages", packageName);
+            var userPath = Directory.EnumerateDirectories(netStandard, version + "*").OrderByDescending(p => p).First();
+            if (File.Exists(userPath))
+            {
+                return userPath;
+            }
+            
+            var sources = Environment.GetEnvironmentVariable("BUILD_SOURCESDIRECTORY");
+            if (sources is object)
+            {
+                netStandard = Path.Combine(sources, ".packages", packageName);
+                return Directory.EnumerateDirectories(netStandard, version + "*").OrderByDescending(p => p).First();
+            }
+
+            sources = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, "..", "..", "..", "..", ".."));
+            netStandard = Path.Combine(sources, ".packages", packageName);
             return Directory.EnumerateDirectories(netStandard, version + "*").OrderByDescending(p => p).First();
         }
     }
