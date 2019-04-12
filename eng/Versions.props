@@ -1,14 +1,13 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <VersionBase>0.2.13</VersionBase>
+    <VersionPrefix>0.2.13</VersionPrefix>
     <PreReleaseVersionLabel>alpha</PreReleaseVersionLabel>
-
+    
     <!-- Opt-in repo features -->
     <UsingToolVSSDK>true</UsingToolVSSDK>
-
-    <!-- Toolset -->
-    <RoslynToolsRepoToolsetVersion>1.0.0-beta-62705-01</RoslynToolsRepoToolsetVersion>
-    <VSWhereVersion>2.3.7</VSWhereVersion>
+    <UsingToolNuGetRepack>true</UsingToolNuGetRepack>
+    <UsingToolSymbolUploader>true</UsingToolSymbolUploader>
 
     <!-- MSBuild -->
     <MicrosoftBuildVersion>15.3.409</MicrosoftBuildVersion>
@@ -36,9 +35,8 @@
     <MicrosoftWin32RegistryVersion>4.4.0-preview1-25205-01</MicrosoftWin32RegistryVersion>
     <NETStandardLibraryVersion>2.0.0-preview1-25207-01</NETStandardLibraryVersion>
     <SystemSecurityCryptographyCngVersion>4.4.0-beta-24913-02</SystemSecurityCryptographyCngVersion>
-
   </PropertyGroup>
-
+  
   <PropertyGroup>
     <!-- Feeds to use to restore dependent packages from. -->
     <RestoreSources>
