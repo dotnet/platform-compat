@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
+using Microsoft.DotNet.Analyzers.Compatibility.BeginInvokeEndInvoke;
 using Microsoft.DotNet.Analyzers.Compatibility.Deprecated;
 using Microsoft.DotNet.Analyzers.Compatibility.Exceptions;
 using Microsoft.DotNet.Analyzers.Compatibility.ModernSdk;
@@ -30,6 +31,7 @@ namespace Microsoft.DotNet.Analyzers.Compatibility.Fixes
                 result.Add(ModernSdkAnalyzer.DiagnosticId);
                 result.Add(Net461Analyzer.DiagnosticId);
                 result.AddRange(DeprecatedAnalyzer.GetDescriptors().Select(d => d.Id));
+                result.Add(BeginInvokeEndInvokeAnalyzer.DiagnosticId);
                 return result.ToImmutableArray();
             }
         }
