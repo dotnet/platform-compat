@@ -1,8 +1,6 @@
 # Platform Compatibility Analyzer
 
-|Branch|Debug|Release|
-|:--:|:--:|:--:|
-|**master**|[![Build Status](https://ci2.dot.net/job/dotnet_platform-compat/job/master/job/windows_debug/badge/icon)](https://ci2.dot.net/job/dotnet_platform-compat/job/master/job/windows_debug/)|[![Build Status](https://ci2.dot.net/job/dotnet_platform-compat/job/master/job/windows_release/badge/icon)](https://ci2.dot.net/job/dotnet_platform-compat/job/master/job/windows_release/)
+[![Build Status](https://img.shields.io/azure-devops/build/dnceng/public/449/master.svg)](https://dev.azure.com/dnceng/public/_build/latest?definitionId=449&branchName=master&view=logs) [![Build Status](https://img.shields.io/azure-devops/tests/dnceng/public/449/master.svg)](https://dev.azure.com/dnceng/public/_build/latest?definitionId=449&branchName=master&view=logs)
 
 This tool provides [Roslyn](https://github.com/dotnet/roslyn) analyzers that
 find usages of .NET Core & .NET Standard APIs that are problematic on specific
