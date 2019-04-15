@@ -4,5 +4,7 @@
     <VSSDKTargetPlatformRegRootSuffix>Exp</VSSDKTargetPlatformRegRootSuffix>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <DebugType Condition="'$(Configuration)' == 'Debug'">Full</DebugType>
+    <Copyright>$(CopyrightMicrosoft)</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 </Project>
