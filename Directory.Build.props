@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
-  <PropertyGroup>
-    <NoWarn>$(NoWarn);NU5125</NoWarn>
-  </PropertyGroup>
-
   <Import Project="Sdk.props" Sdk="Microsoft.DotNet.Arcade.Sdk" />
 
-  <PropertyGroup Condition="'$(CopyrightMicrosoft)' != ''">
-    <Copyright>$(CopyrightMicrosoft)</Copyright>
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);NU5125</NoWarn>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 </Project>
