@@ -43,6 +43,7 @@
     <Description>Shows diagnostics related to deprecation and portability of .NET Core APIs.</Description>
     <RepositoryUrl>https://github.com/dotnet/platform-compat</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <Copyright>$(CopyrightMicrosoft)</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <NoPackageAnalysis>true</NoPackageAnalysis>

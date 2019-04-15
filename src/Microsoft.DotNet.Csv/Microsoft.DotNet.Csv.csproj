@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
+    <Copyright>$(CopyrightMicrosoft)</Copyright>
   </PropertyGroup>
 
 </Project>
