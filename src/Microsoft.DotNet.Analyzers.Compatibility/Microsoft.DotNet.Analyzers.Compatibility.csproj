@@ -40,7 +40,6 @@
     <Authors>Microsoft</Authors>
     <Company>Microsoft</Company>
     <PackageProjectUrl>https://github.com/dotnet/platform-compat</PackageProjectUrl>
-    <Copyright>Copyright (c) Microsoft</Copyright>
     <Description>Shows diagnostics related to deprecation and portability of .NET Core APIs.</Description>
     <RepositoryUrl>https://github.com/dotnet/platform-compat</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>

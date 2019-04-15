@@ -4,5 +4,7 @@
 
   <PropertyGroup>
     <NoWarn>$(NoWarn);NU5125</NoWarn>
+    <Copyright>$(CopyrightMicrosoft)</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 </Project>
