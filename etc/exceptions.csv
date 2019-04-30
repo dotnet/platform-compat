@@ -2130,6 +2130,7 @@ M:System.IdentityModel.Selectors.X509SecurityTokenAuthenticator.ValidateTokenCor
 "M:System.IdentityModel.Tokens.SecurityTokenException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IdentityModel.Tokens,SecurityTokenException,".ctor(SerializationInfo, StreamingContext)",X,X,
 "M:System.IdentityModel.Tokens.SecurityTokenValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IdentityModel.Tokens,SecurityTokenValidationException,".ctor(SerializationInfo, StreamingContext)",X,X,
 M:System.IdentityModel.Tokens.X509SecurityToken.get_SecurityKeys,System.IdentityModel.Tokens,X509SecurityToken,get_SecurityKeys(),X,X,
+M:System.IO.Directory.Move(System.String,System.String),System.IO,Directory,Move(System.String,System.String),X,X,X
 M:System.IO.DriveInfo.set_VolumeLabel(System.String),System.IO,DriveInfo,set_VolumeLabel(String),X,X,
 "M:System.IO.DriveInfo.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",System.IO,DriveInfo,"System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo, StreamingContext)",X,X,X
 M:System.IO.File.Decrypt(System.String),System.IO,File,Decrypt(String),X,X,X
