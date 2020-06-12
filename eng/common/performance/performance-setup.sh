@@ -2,20 +2,28 @@
 
 source_directory=$BUILD_SOURCESDIRECTORY
 core_root_directory=
+baseline_core_root_directory=
 architecture=x64
-framework=netcoreapp3.0
+framework=net5.0
 compilation_mode=tiered
 repository=$BUILD_REPOSITORY_NAME
 branch=$BUILD_SOURCEBRANCH
 commit_sha=$BUILD_SOURCEVERSION
 build_number=$BUILD_BUILDNUMBER
 internal=false
+compare=false
+mono_dotnet=
 kind="micro"
-run_categories="coreclr corefx"
+llvm=false
+monointerpreter=false
+monoaot=false
+run_categories="Libraries Runtime"
 csproj="src\benchmarks\micro\MicroBenchmarks.csproj"
-configurations=
+configurations="CompliationMode=$compilation_mode RunKind=$kind"
 run_from_perf_repo=false
 use_core_run=true
+use_baseline_core_run=true
+using_mono=false
 
 while (($# > 0)); do
   lowerI="$(echo $1 | awk '{print tolower($0)}')"
@@ -26,6 +34,10 @@ while (($# > 0)); do
       ;;
     --corerootdirectory)
       core_root_directory=$2
+      shift 2
+      ;;
+    --baselinecorerootdirectory)
+      baseline_core_root_directory=$2
       shift 2
       ;;
     --architecture)
@@ -58,6 +70,7 @@ while (($# > 0)); do
       ;;
     --kind)
       kind=$2
+      configurations="CompliationMode=$compilation_mode RunKind=$kind"
       shift 2
       ;;
     --runcategories)
@@ -70,6 +83,26 @@ while (($# > 0)); do
       ;;
     --internal)
       internal=true
+      shift 1
+      ;;
+    --llvm)
+      llvm=true
+      shift 1
+      ;;
+    --monointerpreter)
+      monointerpreter=true
+      shift 1
+      ;;
+    --monoaot)
+      monoaot=true
+      shift 1
+      ;;
+    --monodotnet)
+      mono_dotnet=$2
+      shift 2
+      ;;
+    --compare)
+      compare=true
       shift 1
       ;;
     --configurations)
@@ -96,13 +129,14 @@ while (($# > 0)); do
       echo "  --kind <value>                 Related to csproj. The kind of benchmarks that should be run. Defaults to micro"
       echo "  --runcategories <value>        Related to csproj. Categories of benchmarks to run. Defaults to \"coreclr corefx\""
       echo "  --internal                     If the benchmarks are running as an official job."
+      echo "  --monodotnet                   Pass the path to the mono dotnet for mono performance testing."
       echo ""
       exit 0
       ;;
   esac
 done
 
-if [[ "$repository" == "dotnet/performance" ]]; then
+if [ "$repository" == "dotnet/performance" ] || [ "$repository" == "dotnet-performance" ]; then
     run_from_perf_repo=true
 fi
 
@@ -114,6 +148,10 @@ if [ -z "$core_root_directory" ]; then
     use_core_run=false
 fi
 
+if [ -z "$baseline_core_root_directory" ]; then
+    use_baseline_core_run=false
+fi
+
 payload_directory=$source_directory/Payload
 performance_directory=$payload_directory/performance
 workitem_directory=$source_directory/workitem
@@ -122,6 +160,19 @@ perflab_arguments=
 queue=Ubuntu.1804.Amd64.Open
 creator=$BUILD_DEFINITIONNAME
 helix_source_prefix="pr"
+
+if [[ "$compare" == true ]]; then
+  extra_benchmark_dotnet_arguments=
+  perflab_arguments=
+
+  # No open queues for arm64
+  if [[ "$architecture" = "arm64" ]]; then
+    echo "Compare not available for arm64"
+    exit 1
+  fi
+
+  queue=Ubuntu.1804.Amd64.Tiger.Perf.Open
+fi
 
 if [[ "$internal" == true ]]; then
     perflab_arguments="--upload-to-perflab-container"
@@ -132,12 +183,23 @@ if [[ "$internal" == true ]]; then
     if [[ "$architecture" = "arm64" ]]; then
         queue=Ubuntu.1804.Arm64.Perf
     else
-        queue=Ubuntu.1804.Amd64.Perf
+        queue=Ubuntu.1804.Amd64.Tiger.Perf
     fi
 fi
 
-common_setup_arguments="--frameworks $framework --queue $queue --build-number $build_number --build-configs $configurations"
+if [[ "$mono_dotnet" != "" ]]; then
+    configurations="$configurations LLVM=$llvm MonoInterpreter=$monointerpreter MonoAOT=$monoaot"
+fi
+
+common_setup_arguments="--channel master --queue $queue --build-number $build_number --build-configs $configurations --architecture $architecture"
 setup_arguments="--repository https://github.com/$repository --branch $branch --get-perf-hash --commit-sha $commit_sha $common_setup_arguments"
+
+
+# Get the tools section from the global.json.
+# This grabs the LKG version number of dotnet and passes it to our scripts
+dotnet_version=`cat global.json | python3 -c 'import json,sys;obj=json.load(sys.stdin);print(obj["tools"]["dotnet"])'`
+setup_arguments="--dotnet-versions $dotnet_version $setup_arguments"
+
 
 if [[ "$run_from_perf_repo" = true ]]; then
     payload_directory=
@@ -151,26 +213,45 @@ else
     mv $docs_directory $workitem_directory
 fi
 
+if [[ "$mono_dotnet" != "" ]]; then
+    using_mono=true
+    mono_dotnet_path=$payload_directory/dotnet-mono
+    mv $mono_dotnet $mono_dotnet_path
+fi
+
 if [[ "$use_core_run" = true ]]; then
     new_core_root=$payload_directory/Core_Root
     mv $core_root_directory $new_core_root
 fi
 
+if [[ "$use_baseline_core_run" = true ]]; then
+  new_baseline_core_root=$payload_directory/Baseline_Core_Root
+  mv $baseline_core_root_directory $new_baseline_core_root
+fi
+
+ci=true
+
+_script_dir=$(pwd)/eng/common
+. "$_script_dir/pipeline-logging-functions.sh"
+
 # Make sure all of our variables are available for future steps
-echo "##vso[task.setvariable variable=UseCoreRun]$use_core_run"
-echo "##vso[task.setvariable variable=Architecture]$architecture"
-echo "##vso[task.setvariable variable=PayloadDirectory]$payload_directory"
-echo "##vso[task.setvariable variable=PerformanceDirectory]$performance_directory"
-echo "##vso[task.setvariable variable=WorkItemDirectory]$workitem_directory"
-echo "##vso[task.setvariable variable=Queue]$queue"
-echo "##vso[task.setvariable variable=SetupArguments]$setup_arguments"
-echo "##vso[task.setvariable variable=Python]python3"
-echo "##vso[task.setvariable variable=PerfLabArguments]$perflab_arguments"
-echo "##vso[task.setvariable variable=ExtraBenchmarkDotNetArguments]$extra_benchmark_dotnet_arguments"
-echo "##vso[task.setvariable variable=BDNCategories]$run_categories"
-echo "##vso[task.setvariable variable=TargetCsproj]$csproj"
-echo "##vso[task.setvariable variable=RunFromPerfRepo]$run_from_perf_repo"
-echo "##vso[task.setvariable variable=Creator]$creator"
-echo "##vso[task.setvariable variable=HelixSourcePrefix]$helix_source_prefix"
-echo "##vso[task.setvariable variable=Kind]$kind"
-echo "##vso[task.setvariable variable=_BuildConfig]$architecture.$kind.$framework"
+Write-PipelineSetVariable -name "UseCoreRun" -value "$use_core_run" -is_multi_job_variable false
+Write-PipelineSetVariable -name "UseBaselineCoreRun" -value "$use_baseline_core_run" -is_multi_job_variable false
+Write-PipelineSetVariable -name "Architecture" -value "$architecture" -is_multi_job_variable false
+Write-PipelineSetVariable -name "PayloadDirectory" -value "$payload_directory" -is_multi_job_variable false
+Write-PipelineSetVariable -name "PerformanceDirectory" -value "$performance_directory" -is_multi_job_variable false
+Write-PipelineSetVariable -name "WorkItemDirectory" -value "$workitem_directory" -is_multi_job_variable false
+Write-PipelineSetVariable -name "Queue" -value "$queue" -is_multi_job_variable false
+Write-PipelineSetVariable -name "SetupArguments" -value "$setup_arguments" -is_multi_job_variable false
+Write-PipelineSetVariable -name "Python" -value "$python3" -is_multi_job_variable false
+Write-PipelineSetVariable -name "PerfLabArguments" -value "$perflab_arguments" -is_multi_job_variable false
+Write-PipelineSetVariable -name "ExtraBenchmarkDotNetArguments" -value "$extra_benchmark_dotnet_arguments" -is_multi_job_variable false
+Write-PipelineSetVariable -name "BDNCategories" -value "$run_categories" -is_multi_job_variable false
+Write-PipelineSetVariable -name "TargetCsproj" -value "$csproj" -is_multi_job_variable false
+Write-PipelineSetVariable -name "RunFromPerfRepo" -value "$run_from_perf_repo" -is_multi_job_variable false
+Write-PipelineSetVariable -name "Creator" -value "$creator" -is_multi_job_variable false
+Write-PipelineSetVariable -name "HelixSourcePrefix" -value "$helix_source_prefix" -is_multi_job_variable false
+Write-PipelineSetVariable -name "Kind" -value "$kind" -is_multi_job_variable false
+Write-PipelineSetVariable -name "_BuildConfig" -value "$architecture.$kind.$framework" -is_multi_job_variable false
+Write-PipelineSetVariable -name "Compare" -value "$compare" -is_multi_job_variable false
+Write-PipelineSetVariable -name "MonoDotnet" -value "$using_mono" -is_multi_job_variable false
