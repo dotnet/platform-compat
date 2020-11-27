@@ -1,5 +1,15 @@
 # Platform Compatibility Analyzer
 
+This project has been replaced by analzyers that are built into the .NET SDK:
+
+* [Spec: Platform compatibility analzyer](https://github.com/dotnet/designs/blob/main/accepted/2020/platform-checks/platform-checks.md)
+* [Spec: Better obsoletion](https://github.com/dotnet/designs/blob/main/accepted/2020/better-obsoletion/better-obsoletion.md)
+* [Announcement: Platform compatibility analzyer](https://devblogs.microsoft.com/dotnet/the-future-of-net-standard/#dealing-with-windows-specific-apis)
+
+As such, it's archived.
+
+----
+
 [![Build Status](https://img.shields.io/azure-devops/build/dnceng/public/449/master.svg)](https://dev.azure.com/dnceng/public/_build/latest?definitionId=449&branchName=master&view=logs) [![Build Status](https://img.shields.io/azure-devops/tests/dnceng/public/449/master.svg)](https://dev.azure.com/dnceng/public/_build/latest?definitionId=449&branchName=master&view=logs)
 
 This tool provides [Roslyn](https://github.com/dotnet/roslyn) analyzers that
